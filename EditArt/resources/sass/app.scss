@@ -1,8 +1,10 @@
 // Fonts
 @import url('https://fonts.bunny.net/css?family=Nunito');
 
-// Variables
-@import 'variables';
+//Bibliotecas
+@import "@tabler/core/dist/css/tabler.css";
+@import '@fortawesome/fontawesome-free/css/all.min.css';
+@import '@tabler/icons-webfont/dist/tabler-icons.min.css';
 
-// Bootstrap
-@import 'bootstrap/scss/bootstrap';
+//CSS próprio
+@import "/resources/css/app.css";
