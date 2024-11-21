@@ -22,7 +22,6 @@ return new class extends Migration
             $table->date('birthdate');
             $table->string('password');
             $table->integer('role');
-            $table->timestamp('created_at');
             $table->rememberToken();
             $table->timestamps();
         });

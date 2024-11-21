@@ -21,7 +21,7 @@ return new class extends Migration
             $table->integer('numberOfPages');
             $table->integer('stock');
             $table->string('language');
-            $table->string('CoverPicture');
+            $table->string('CoverPicture')->nullable();
             $table->double('price');
             $table->softDeletes();
             $table->timestamps();
