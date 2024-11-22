@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    protected $rules = [
+    protected array $rules = [
         'name' => 'required|min:3|max:50',
         'email' => 'required|email|max:100|unique:users,email',
         'address' => 'required|max:255',
@@ -15,11 +15,11 @@ class UserController extends Controller
         'phone_number' => 'required|regex:/^\d{9,15}$/',
         'birthdate' => 'required|date|before:today',
         'password' => 'required|min:8|max:50',
-        'role' => 'required|digits_between:1,5',
+        'role' => 'required|integer|between:1,5',
     ];
 
 
-    protected $messages = [
+    protected array $messages = [
         'name.required' => 'O nome é obrigatório.',
         'name.min' => 'O nome deve ter pelo menos 3 caracteres.',
         'name.max' => 'O nome não pode ter mais de 50 caracteres.',
@@ -77,8 +77,7 @@ class UserController extends Controller
         try{
             $user = new User($validated);
             $user->save();
-            return redirect(route('user.create'))->with('success',"Tipo de Obra registada com sucesso! [#{$user->id}]");
-
+            return redirect(route('users.create'))->with('success',"Tipo de Obra registada com sucesso! [#{$user->id}]");
         }catch (\Exception $e){
             return redirect()->back()->withErrors(['error' => "Erro ao criar um User!"])->withInput();
         }
