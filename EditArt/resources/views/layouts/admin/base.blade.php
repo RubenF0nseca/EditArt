@@ -70,8 +70,8 @@
                             </span>
                         </a>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item active" href="{{route('tipos.index')}}">Tipos de Obras</a>
-                            <a class="dropdown-item active" href="{{route('autores.index')}}">Autores</a>
+                            <a class="dropdown-item active" href="#">Tipos de Obras</a>
+                            <a class="dropdown-item active" href="#">Autores</a>
 
                             <!-- Outros links para Obras podem ser adicionados aqui -->
                         </div>
