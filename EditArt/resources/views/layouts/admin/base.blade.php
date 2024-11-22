@@ -29,7 +29,7 @@
             </button>
             <h1 class="navbar-brand navbar-brand-autodark">
                 <a href=".">
-                    <img src="{{asset('imgs/logo-mediateca.png')}}" width="110" height="110" alt="Mediateca">
+                    <img src="{{asset('imgs/logo-editart.png')}}" width="110" height="110" alt="Mediateca">
                 </a>
             </h1>
 
@@ -145,7 +145,7 @@
             <div class="container-xl"></div>
             <div class="row text-center align-items-center flex-row-reverse">
                 <div class="col">
-                    <p>ATEC - TPSI1223 - Todos os direitos reservados</p>
+                    <p>2024 © EditArt</p>
                 </div>
             </div>
         </footer>

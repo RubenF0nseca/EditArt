@@ -25,7 +25,7 @@
                     </div>
                 </div>
                 <a href="#" class="btn btn-secondary mt-3">Listar todos os Tipos de Obras</a>
-                <a href="#" class="btn btn-warning mt-3"><i class="fa fa-pencil" aria-hidden="true"></i>Editar</a>
+                <a href="#" class="btn btn-warning mt-3"><i class="fa fa-pencil" aria-hidden="true"></i>&nbsp Editar</a>
             </div>
         </div>
     </div>

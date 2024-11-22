@@ -1,0 +1,37 @@
+body{
+    background-color: #F3F2EC;
+}
+
+.navbar {
+    --tblr-navbar-bg: #292929;
+    --tblr-navbar-active-border-color: #74642F;
+}
+
+.nav-link-icon{
+    color: #74642F;
+}
+
+/* Botões */
+.btn-primary, .btn-info, .btn-warning {
+    --tblr-btn-color: #fff;
+    --tblr-btn-bg: #C5A992;
+    --tblr-btn-border-color: #C5A992;
+    --tblr-btn-hover-color: #fff;
+    --tblr-btn-hover-bg: #C5A992;
+    --tblr-btn-hover-border-color: none;
+    --tblr-btn-focus-shadow-rgb: 49, 132, 253;
+    --tblr-btn-active-color: #fff;
+    --tblr-btn-active-bg: #f1caaa;
+    --tblr-btn-active-border-color: none;
+    --tblr-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --tblr-btn-disabled-color: #fff;
+    --tblr-btn-disabled-bg: #f1caaa;
+    --tblr-btn-disabled-border-color: none;
+}
+
+.btn-info{
+    --tblr-btn-bg: #f1caaa;
+    --tblr-btn-border-color: #f1caaa;
+    --tblr-btn-hover-bg: #f1caaa;
+}
+

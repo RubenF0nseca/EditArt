@@ -6,10 +6,11 @@
     <div class="container">
         <div class="row">
             <div class="col">
-                <a href="#" class="btn btn-primary">Criar Novo User</a>
+                <a href="#" class="btn btn-primary">
+                    <i class="fa-solid fa-user-plus"></i>&nbsp Novo User</a>
                 <div class="card mt-4">
                     <div class="table-responsive">
-                        <table class="table">
+                        <table class="table table-striped table-hover">
                             <thead>
                             <tr>
                                 <th class="">ID</th>
