@@ -16,7 +16,7 @@
 
     <title>EditArt-Admin</title>
     <!-- CSS files -->
-    @vite(['resources/sass/app.scss']);
+    @vite(['resources/sass/app.scss'])
 </head>
 <body class="layout-fluid">
 <div class="page">
@@ -120,16 +120,16 @@
         <div class="page-header d-print-none">
             <div class="container-xl">
                 <div class="row g-2 align-items-center">
-                    <div class="col">
+                    <div class="col-md-6">
                         <!-- Page pre-title -->
-                        <div class="page-pretitle">Admin - Nome ....</div>
+                        <div class="page-pretitle">Admin</div>
                         <h2 class="page-title">@yield('title')</h2>
                     </div>
                     <!-- Page title actions -->
-                    <div class="col-auto ms-auto d-print-none">
-                        <div class="btn-list">
+                    <div class="col-md-6 ms-auto text-end">
+                            <a href="#" class="btn btn-primary rounded-pill">
+                                <i class="fa-solid fa-user-plus"></i>&nbsp Novo User</a>
                             {{--Botões de açao da página--}}
-                        </div>
                     </div>
                 </div>
             </div>
@@ -146,6 +146,10 @@
             <div class="row text-center align-items-center flex-row-reverse">
                 <div class="col">
                     <p>2024 © EditArt</p>
+                    <p class="text-center">
+                        <a href="https://github.com/RubenF0nseca/EditArt" class="git link-body-emphasis text-decoration-none">
+                            <i class="fa-brands fa-github"></i>
+                        </a>
                 </div>
             </div>
         </footer>
