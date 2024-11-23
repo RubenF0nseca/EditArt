@@ -1,3 +1,3 @@
 import './bootstrap';
 import './theme.js';
-import './bootstrap-navbar.js'
+/*import './bootstrap-navbar.js'*/
