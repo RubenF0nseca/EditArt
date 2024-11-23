@@ -1,7 +1,20 @@
+/*
+=====================================================================
+*   Trabalho de Grupo: Projeto em Laravel - EditArt
+*   UFCD: 5411 - Bases de dados - Sistemas de gestão
+*   Turma: TPSI PL 1223
+*   Formador: Vitor Custodio
+*   Formandos: Leila Arruda, Lucas Patrício, Olesea Vulpe, Rúben Fonseca
+=====================================================================*/
+/*-------------- Geral ----------------- */
+
 body{
     background-color: #F3F2EC;
+    overflow-x: hidden;
 }
-
+.page-body{
+    background-color: #F3F2EC;
+}
 .navbar {
     --tblr-navbar-bg: #292929;
     --tblr-navbar-active-border-color: #74642F;
@@ -33,5 +46,13 @@ body{
     --tblr-btn-bg: #f1caaa;
     --tblr-btn-border-color: #f1caaa;
     --tblr-btn-hover-bg: #f1caaa;
+}
+
+.git{
+    font-size: 1.5rem;
+}
+
+.footer{
+    padding: 0.5rem 0;
 }
 
