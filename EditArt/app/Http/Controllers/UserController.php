@@ -7,16 +7,21 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    protected array $rules = [
-        'name' => 'required|min:3|max:50',
-        'email' => 'required|email|max:100|unique:users,email',
-        'address' => 'required|max:255',
-        'nif' => 'required|digits:9|unique:users,nif',
-        'phone_number' => 'required|regex:/^\d{9,15}$/',
-        'birthdate' => 'required|date|before:today',
-        'password' => 'required|min:8|max:50',
-        'role' => 'required|integer|between:1,5',
-    ];
+    protected function getValidationRules(?User $user = null): array
+    {
+        $id = $user ? $user->id : 'NULL';
+
+        return [
+            'name' => 'required|min:3|max:50',
+            'email' => 'required|email|max:100|unique:users,email,' . $id,
+            'address' => 'required|max:255',
+            'nif' => 'required|digits:9|unique:users,nif,' . $id,
+            'phone_number' => 'required|regex:/^\d{9,15}$/|unique:users,phone_number,' . $id,
+            'birthdate' => 'required|date|before:today',
+            'password' => $user ? 'nullable|min:8|max:50' : 'required|min:8|max:50',
+            'role' => 'required|integer|between:1,5',
+        ];
+    }
 
 
     protected array $messages = [
@@ -73,7 +78,7 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $validated = $request->validate($this->rules, $this->messages);
+        $validated = $request->validate($this->getValidationRules(), $this->messages);
         try{
             $user = new User($validated);
             $user->save();
@@ -94,24 +99,37 @@ class UserController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(User $user)
     {
-        //
+        return view('client.update', compact('user'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, User $user)
     {
-        //
+        $validated = $request->validate($this->getValidationRules($user),$this->messages);
+        try{
+            if ($request->filled('password')) {
+                $validated['password'] = bcrypt($validated['password']);
+            } else {
+                unset($validated['password']);
+            }
+            $user->update($validated);
+            return redirect(route('users.show',$user))->with(['success','Utilizador atualizado com sucesso!']);
+        }catch (\Exception $e){
+            return redirect()->back()->withErrors(['error'=>"Erro ao editar utilizador! MSG:{$e->getMessage()}"])->withInput();
+        }
+
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(user $user)
     {
-        //
+        $user->delete();
+        return redirect(route('users.index'));
     }
 }

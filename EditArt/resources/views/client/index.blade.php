@@ -6,7 +6,7 @@
     <div class="container">
         <div class="row">
             <div class="col">
-                <a href="#" class="btn btn-primary">
+                <a href="{{ route('users.create') }}" class="btn btn-primary">
                     <i class="fa-solid fa-user-plus"></i>&nbsp Novo User</a>
                 <div class="card mt-4">
                     <div class="table-responsive">
@@ -31,8 +31,8 @@
                                     <td class="text-end">
 
                                         <a href="{{ route('users.show', $user->id) }}" class="btn btn-info "><i class="ti ti-eye"></i></a>
-                                        <a href="#" class="btn btn-warning"><i class="fa fa-pencil" aria-hidden="true"></i></a>
-                                        <form action="#" method="POST" style="display: inline" >
+                                        <a href="{{ route('users.edit', $user->id) }}" class="btn btn-warning"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                                        <form action="{{ route('users.destroy', $user->id) }}" method="POST" style="display: inline" >
                                             @method('DELETE')
                                             @csrf
                                             <button type="submit" class="btn btn-danger"><i class="ti ti-trash"></i></button>
