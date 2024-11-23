@@ -127,9 +127,8 @@
                     </div>
                     <!-- Page title actions -->
                     <div class="col-md-6 ms-auto text-end">
-                            <a href="#" class="btn btn-primary rounded-pill">
-                                <i class="fa-solid fa-user-plus"></i>&nbsp Novo User</a>
-                            {{--Botões de açao da página--}}
+                            @yield('button')
+                        {{--Botões de açao da página--}}
                     </div>
                 </div>
             </div>
