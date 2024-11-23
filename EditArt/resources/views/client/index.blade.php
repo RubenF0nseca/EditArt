@@ -2,12 +2,15 @@
 
 @section('title','Lista de users')
 
+@section('button')
+    <a href="{{ route('users.create') }}" class="btn btn-primary rounded-pill">
+        <i class="fa-solid fa-user-plus"></i>&nbsp Novo User</a>
+@endsection
+
 @section('content')
     <div class="container">
         <div class="row">
             <div class="col">
-                <a href="{{ route('users.create') }}" class="btn btn-primary">
-                    <i class="fa-solid fa-user-plus"></i>&nbsp Novo User</a>
                 <div class="card mt-4">
                     <div class="table-responsive">
                         <table class="table table-striped table-hover">
