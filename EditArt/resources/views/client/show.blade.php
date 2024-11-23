@@ -1,6 +1,6 @@
 @extends('layouts.admin.base')
 
-@section('title','Detalhes do user')
+@section('title','Detalhes do utilizador')
 
 @section('content')
     <div class="container">
@@ -15,13 +15,44 @@
                                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                             </div>
                         @endif
-                        <h3>[#{{ $user->id }}] {{ $user->name }}</h3>
-                        <p>{{ $user->email }}</p>
-                        <p>{{ $user->phone_number }}</p>
-                        <p>{{ $user->nif }}</p>
-                        <p>{{ $user->address }}</p>
-                        <p>{{ $user->created_at }}</p>
-                        <p>{{ $user->updated_at }}</p>
+                        <h3>[#{{ $user->id }}] </h3>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <table class="table">
+                                    <tbody>
+                                    <tr>
+                                        <th scope="row">Nome</th>
+                                        <td>{{ $user->name }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Email</th>
+                                        <td>{{ $user->email }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">NIF</th>
+                                        <td>{{ $user->nif }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Telefone</th>
+                                        <td>{{ $user->phone_number }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Morada</th>
+                                        <td>{{ $user->address }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Сonta criada</th>
+                                        <td>{{ $user->created_at }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Сonta atualizada</th>
+                                        <td>{{ $user->updated_at }}</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="col-md-6">?????????foto???</div>
+                        </div>
                     </div>
                 </div>
                 <a href="{{ route('users.index') }}" class="btn btn-secondary mt-3">Listar todos os Tipos de Obras</a>
