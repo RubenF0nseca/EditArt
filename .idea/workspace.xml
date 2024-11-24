@@ -5,10 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="808b59e8-7b01-4f5a-a399-937fc0d04587" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/EditArt/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/EditArt/app/Http/Controllers/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EditArt/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/EditArt/app/Models/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EditArt/database/migrations/0001_01_01_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/EditArt/database/migrations/0001_01_01_000000_create_users_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EditArt/resources/views/client/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/EditArt/resources/views/client/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EditArt/app/Http/Controllers/BookController.php" beforeDir="false" afterPath="$PROJECT_DIR$/EditArt/app/Http/Controllers/BookController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
