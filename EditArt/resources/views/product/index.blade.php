@@ -17,6 +17,7 @@
                             <thead>
                             <tr>
                                 <th class="">ID</th>
+                                <th class="d-none d-md-table-cell">Capa</th>
                                 <th class="d-none d-md-table-cell">Titulo</th>
                                 <th class="d-none d-md-table-cell">Tipo</th>
                                 <th class="d-none d-md-table-cell">Stock</th>
@@ -29,6 +30,7 @@
                             @foreach($books as $book)
                                 <tr>
                                     <td>{{ $book->id }}</td>
+                                    <td><img src="{{asset('storage/'.$book->CoverPicture)}}" width="30" alt="Cover"></td>
                                     <td>{{ $book->title }}</td>
                                     <td class="d-none d-md-table-cell">{{ $book->type }}</td>
                                     <td class="d-none d-md-table-cell">{{ $book->stock }}</td>
