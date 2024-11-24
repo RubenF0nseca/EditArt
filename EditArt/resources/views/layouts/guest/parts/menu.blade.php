@@ -1,6 +1,6 @@
 {{--Navegação--}}
-<nav class="navbar navbar-expand-lg navbar-dark fixed-top py-3" >
-    <div class="container"><a class="navbar-brand" href="#"><img src={{asset('imgs/logo-editart.png')}} alt="EditArt" width="60" /><span class="text-1000 fs-1 ms-2 fw-medium">Edit<span class="fw-bold">Art</span></span></a>
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top" >
+    <div class="container"><a class="navbar-brand" href="#"><img src={{asset('imgs/logo-editart.png')}} alt="EditArt" width="50" /></a>
         <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mx-auto border-bottom border-lg-bottom-0 pt-2 pt-lg-0">
