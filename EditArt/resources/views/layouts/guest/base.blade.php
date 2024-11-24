@@ -15,7 +15,6 @@
 
     <title>EditArt</title>
     <!-- CSS files -->
-    @vite(['resources/sass/app.scss'])
     @vite(['resources/sass/guest.scss'])
 </head>
 
