@@ -89,6 +89,12 @@ class BookController extends Controller
         try{
             $book = new Book($validated);
             $book->save();
+            if ($request->hasFile('CoverPicture')) {
+                $photo = $request->file('CoverPicture');
+                $filename = $book->id . '' . preg_replace('/\s+/', '', strtolower($book->nome)) . '.' . $photo->getClientOriginalExtension();
+                $url = $photo->storeAs('books', $filename, 'public');
+                $book->update(['$photo' => $url]);
+            }
             return redirect(route('books.create'))->with('success',"Livro registado com sucesso! [#{$book->id}]");
         }catch (\Exception $e){
             return redirect()->back()->withErrors(['error' => "Erro ao criar um Livro!"])->withInput();
