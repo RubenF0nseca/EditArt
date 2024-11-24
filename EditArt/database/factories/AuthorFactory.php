@@ -18,7 +18,7 @@ class AuthorFactory extends Factory
     {
         return [
             'name' => fake()->name,
-            'biography' => fake()->paragraph,
+            'biography' => fake()->paragraphs(2, true),
             'dateOfBirth' => fake()->dateTimeBetween('-30 year', '-10 year'),
         ];
     }
