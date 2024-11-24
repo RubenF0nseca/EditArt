@@ -1,5 +1,5 @@
 
-@section('title','Lista de users')
+@section('title','Lista de autores')
 
 @section('button')
     <a href="{{ route('users.create') }}" class="btn btn-primary rounded-pill">
