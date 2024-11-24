@@ -9,4 +9,17 @@ class Book extends Model
 {
     /** @use HasFactory<\Database\Factories\BookFactory> */
     use HasFactory;
+
+    protected $fillable = [
+        'title',
+        'type',
+        'publicationDate',
+        'editionNumber',
+        'isbn',
+        'numberOfPages',
+        'stock',
+        'language',
+        'price',
+        'CoverPicture',
+    ];
 }

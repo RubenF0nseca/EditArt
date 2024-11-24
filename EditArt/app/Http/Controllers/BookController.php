@@ -20,8 +20,8 @@ class BookController extends Controller
             'numberOfPages' => 'required|integer|min:1',
             'stock' => 'required|integer|min:0',
             'language' => 'required|string|max:255',
-            'CoverPicture' => 'nullable|image|max:2048', // Optional, must be an image, max size 2MB
             'price' => 'required|numeric|min:0',
+            'CoverPicture' => 'nullable|image|max:2048'
         ];
     }
 
@@ -58,9 +58,6 @@ class BookController extends Controller
         'language.string' => 'The language must be a valid string.',
         'language.max' => 'The language may not exceed 255 characters.',
 
-        'CoverPicture.image' => 'The cover picture must be an image.',
-        'CoverPicture.max' => 'The cover picture may not exceed 2MB.',
-
         'price.required' => 'The price is required.',
         'price.numeric' => 'The price must be a number.',
         'price.min' => 'The price must be at least 0.',
@@ -86,17 +83,30 @@ class BookController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate($this->getValidationRules(), $this->messages);
-        try{
-            $book = new Book($validated);
-            $book->save();
+
+        try {
+            // Verifica e processa a imagem, se fornecida
             if ($request->hasFile('CoverPicture')) {
                 $photo = $request->file('CoverPicture');
-                $filename = $book->id . '' . preg_replace('/\s+/', '', strtolower($book->nome)) . '.' . $photo->getClientOriginalExtension();
+
+                // Corrige a extensão do arquivo
+                $extension = pathinfo($photo->getClientOriginalName(), PATHINFO_EXTENSION);
+
+                // Gera o nome do arquivo
+                $filename = preg_replace('/\s+/', '', strtolower($validated['title'])) . '_' . time() . '.' . $extension;
+
+                // Armazena a imagem no disco público
                 $url = $photo->storeAs('books', $filename, 'public');
-                $book->update(['$photo' => $url]);
+                $validated['CoverPicture'] = $url;
             }
-            return redirect(route('books.create'))->with('success',"Livro registado com sucesso! [#{$book->id}]");
-        }catch (\Exception $e){
+
+            // Cria e salva o livro
+            $book = new Book($validated);
+            $book->save();
+
+
+            return redirect(route('books.create'))->with('success', "Livro registado com sucesso! [#{$book->id}]");
+        } catch (\Exception $e) {
             return redirect()->back()->withErrors(['error' => "Erro ao criar um Livro!"])->withInput();
         }
     }
