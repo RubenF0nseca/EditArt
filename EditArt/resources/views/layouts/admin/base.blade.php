@@ -29,7 +29,7 @@
             </button>
             <h1 class="navbar-brand navbar-brand-autodark">
                 <a href=".">
-                    <img src="{{asset('imgs/logo-editart.png')}}" width="110" height="110" alt="Mediateca">
+                    <img src="{{asset('imgs/logo-editart.png')}}" width="110" height="110" alt="EditArt">
                 </a>
             </h1>
 
