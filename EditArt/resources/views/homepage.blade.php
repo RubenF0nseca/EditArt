@@ -17,18 +17,39 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-md-12">
-
                                 <div class="section-header text-center pb-5">
                                     <h2 class="section-title">As nossas publicações</h2>
-
-                                </div>
-
-                                <div class="tab-content">
-                                    <div id="all-genre" data-tab-content="" class="active">
-                                        produtos
-                                    </div>
                                 </div>
                             </div>
+                        </div>
+                        <div class="row">
+                            @foreach($books as $index => $book)
+                                @if($index % 4 === 0 && $index !== 0)
+                                    </div><div class="row">
+                               @endif
+
+                                <div class="col-md-3 mb-4">
+                                    <div class="product-item text-center">
+                                        <figure class="product-style">
+
+                                            @if($book->CoverPicture)
+                                                <img src="{{ asset('storage/'.$book->CoverPicture) }}" class="product-thumb rounded" alt="{{ $book->title }}" style="width: 280px; height: 400px;">
+                                            @else
+                                                <img src="https://via.placeholder.com/280x400" class="product-thumb rounded" alt="Imagem não disponível" style="width: 280px; height: 400px;">
+                                            @endif
+
+                                            <button type="button" class="add-to-cart">
+                                                Adicionar ao carrinho
+                                            </button>
+                                        </figure>
+                                        <figcaption>
+                                            <h3>{{ $book->title }}</h3>
+                                            <span>{{ $book->type }}</span>
+                                            <div class="item-price">€{{ $book->price, 2 }}</div>
+                                        </figcaption>
+                                    </div>
+                                </div>
+                            @endforeach
                         </div>
                     </div>
                 </section>

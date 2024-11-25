@@ -6,7 +6,7 @@ use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('homepage');
+    return view('homepage', ['books' => \App\Models\Book::all()]);
 })->name('home');
 
 Route::get('/admin/dashboard', function () {

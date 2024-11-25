@@ -147,7 +147,7 @@ class BookController extends Controller
 
             $book->update($validated);
 
-            return redirect(route('books.edit', $book->id))->with('success', "Livro atualizado com sucesso! [#{$book->id}]");
+            return redirect(route('books.show', $book->id))->with('success', "Livro atualizado com sucesso! [#{$book->id}]");
         } catch (\Exception $e) {
             return redirect()->back()->withErrors(['error' => "Erro ao atualizar o Livro!"])->withInput();
         }
