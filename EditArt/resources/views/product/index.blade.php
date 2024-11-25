@@ -30,7 +30,13 @@
                             @foreach($books as $book)
                                 <tr>
                                     <td>{{ $book->id }}</td>
-                                    <td><img src="{{asset('storage/'.$book->CoverPicture)}}" width="30" alt="Cover"></td>
+                                    <td>
+                                        @if($book->CoverPicture)
+                                            <img src="{{asset('storage/'.$book->CoverPicture)}}" class="product-thumb rounded" alt="{{ $book->title }}" style="width: 30px;">
+                                        @else
+                                            <img src="{{ asset('storage/books/img_nao_disponivel.png') }}" class="product-thumb rounded" alt="Imagem não disponível" style="width: 30px;">
+                                        @endif
+                                        </td>
                                     <td>{{ $book->title }}</td>
                                     <td class="d-none d-md-table-cell">{{ $book->type }}</td>
                                     <td class="d-none d-md-table-cell">{{ $book->stock }}</td>
