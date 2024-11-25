@@ -1,6 +1,6 @@
 @extends('layouts.admin.base')
 
-@section('title','Lista deLivros')
+@section('title','Lista de Produtos')
 
 @section('button')
     <a href="{{ route('books.create') }}" class="btn btn-primary rounded-pill">
@@ -34,7 +34,7 @@
                                     <td>{{ $book->title }}</td>
                                     <td class="d-none d-md-table-cell">{{ $book->type }}</td>
                                     <td class="d-none d-md-table-cell">{{ $book->stock }}</td>
-                                    <td class="d-none d-md-table-cell">{{ $book->price }}</td>
+                                    <td class="d-none d-md-table-cell">{{ $book->price }}€</td>
                                     <td class="text-end">
 
                                         <a href="{{ route('books.show', $book->id) }}" class="btn btn-info "><i class="ti ti-eye"></i></a>

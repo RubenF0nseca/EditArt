@@ -85,25 +85,19 @@ class BookController extends Controller
         $validated = $request->validate($this->getValidationRules(), $this->messages);
 
         try {
-            // Verifica e processa a imagem, se fornecida
             if ($request->hasFile('CoverPicture')) {
                 $photo = $request->file('CoverPicture');
 
-                // Corrige a extensão do arquivo
                 $extension = pathinfo($photo->getClientOriginalName(), PATHINFO_EXTENSION);
 
-                // Gera o nome do arquivo
                 $filename = preg_replace('/\s+/', '', strtolower($validated['title'])) . '_' . time() . '.' . $extension;
 
-                // Armazena a imagem no disco público
                 $url = $photo->storeAs('books', $filename, 'public');
                 $validated['CoverPicture'] = $url;
             }
 
-            // Cria e salva o livro
             $book = new Book($validated);
             $book->save();
-
 
             return redirect(route('books.create'))->with('success', "Livro registado com sucesso! [#{$book->id}]");
         } catch (\Exception $e) {
@@ -132,14 +126,31 @@ class BookController extends Controller
      */
     public function update(Request $request, Book $book)
     {
-        $validated = $request->validate($this->getValidationRules($book),$this->messages);
-        try{
-            $book->update($validated);
-            return redirect(route('books.show',$book))->with(['success','Livro atualizado com sucesso!']);
-        }catch (\Exception $e){
-            return redirect()->back()->withErrors(['error'=>"Erro ao editar livro! MSG:{$e->getMessage()}"])->withInput();
-        }
+        $validated = $request->validate($this->getValidationRules($book), $this->messages);
 
+        try {
+            $photo = $request->file('CoverPicture');
+            if ($request->hasFile('CoverPicture')) {
+
+
+                $extension = pathinfo($photo->getClientOriginalName(), PATHINFO_EXTENSION);
+                $filename = preg_replace('/\s+/', '', strtolower($validated['title'])) . '_' . time() . '.' . $extension;
+
+                $url = $photo->storeAs('books', $filename, 'public');
+                $validated['CoverPicture'] = $url;
+
+                // Remover a imagem anterior TODO perguntar ao grupo se quer isto
+                if ($book->CoverPicture) {
+                    \Storage::disk('public')->delete($book->CoverPicture);
+                }
+            }
+
+            $book->update($validated);
+
+            return redirect(route('books.edit', $book->id))->with('success', "Livro atualizado com sucesso! [#{$book->id}]");
+        } catch (\Exception $e) {
+            return redirect()->back()->withErrors(['error' => "Erro ao atualizar o Livro!"])->withInput();
+        }
     }
 
     /**
@@ -147,6 +158,9 @@ class BookController extends Controller
      */
     public function destroy(Book $book)
     {
+        if ($book->CoverPicture) {
+            \Storage::disk('public')->delete($book->CoverPicture);
+        }
         $book->delete();
         return redirect(route('books.index'));
     }
