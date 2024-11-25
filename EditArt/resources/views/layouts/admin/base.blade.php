@@ -66,11 +66,11 @@
                                 <i class="ti ti-book fs-5"></i>
                             </span>
                             <span class="nav-link-title">
-                               Obras
+                               Produtos
                             </span>
                         </a>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item active" href="#">Tipos de Obras</a>
+                            <a class="dropdown-item active" href="{{ route('books.index') }}">Lista de Produtos</a>
                             <a class="dropdown-item active" href="#">Autores</a>
 
                             <!-- Outros links para Obras podem ser adicionados aqui -->
@@ -102,11 +102,11 @@
                                 <i class="ti ti-user fs-5"></i>
                             </span>
                             <span class="nav-link-title">
-                                Cliente
+                                Utilizadores
                             </span>
                         </a>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" href="">Dashboard</a>
+                            <a class="dropdown-item" href="{{ route('users.index') }}">Lista de Utilizadores</a>
                             <!-- Outros links para Cliente podem ser adicionados aqui -->
                         </div>
                     </li>

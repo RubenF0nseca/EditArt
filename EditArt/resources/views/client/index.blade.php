@@ -1,6 +1,6 @@
 @extends('layouts.admin.base')
 
-@section('title','Lista de users')
+@section('title','Lista de Utilizadores')
 
 @section('button')
     <a href="{{ route('users.create') }}" class="btn btn-primary rounded-pill">
