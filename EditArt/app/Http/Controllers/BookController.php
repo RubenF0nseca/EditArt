@@ -139,7 +139,6 @@ class BookController extends Controller
                 $url = $photo->storeAs('books', $filename, 'public');
                 $validated['CoverPicture'] = $url;
 
-                // Remover a imagem anterior TODO perguntar ao grupo se quer isto
                 if ($book->CoverPicture) {
                     \Storage::disk('public')->delete($book->CoverPicture);
                 }
