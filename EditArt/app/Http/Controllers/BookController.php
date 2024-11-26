@@ -26,43 +26,42 @@ class BookController extends Controller
     }
 
     protected array $messages = [
-        'title.required' => 'The title is required.',
-        'title.string' => 'The title must be a valid string.',
-        'title.max' => 'The title may not exceed 255 characters.',
+        'title.required' => 'O título é obrigatório.',
+        'title.string' => 'O título deve ser um texto válido.',
+        'title.max' => 'O título não pode exceder 255 caracteres.',
 
-        'type.required' => 'The type is required.',
-        'type.string' => 'The type must be a valid string.',
-        'type.max' => 'The type may not exceed 255 characters.',
+        'type.required' => 'O tipo é obrigatório.',
+        'type.string' => 'O tipo deve ser um texto válido.',
+        'type.max' => 'O tipo não pode exceder 255 caracteres.',
 
-        'publicationDate.required' => 'The publication date is required.',
-        'publicationDate.date' => 'The publication date must be a valid date.',
+        'publicationDate.required' => 'A data de publicação é obrigatória.',
+        'publicationDate.date' => 'A data de publicação deve ser uma data válida.',
 
-        'editionNumber.required' => 'The edition number is required.',
-        'editionNumber.integer' => 'The edition number must be an integer.',
-        'editionNumber.min' => 'The edition number must be at least 1.',
+        'editionNumber.required' => 'O número da edição é obrigatório.',
+        'editionNumber.integer' => 'O número da edição deve ser um número inteiro.',
+        'editionNumber.min' => 'O número da edição deve ser pelo menos 1.',
 
-        'isbn.required' => 'The ISBN is required.',
-        'isbn.string' => 'The ISBN must be a valid string.',
-        'isbn.size' => 'The ISBN must be exactly 13 characters.',
-        'isbn.unique' => 'This ISBN has already been taken.',
+        'isbn.required' => 'O ISBN é obrigatório.',
+        'isbn.string' => 'O ISBN deve ser um texto válido.',
+        'isbn.size' => 'O ISBN deve ter exatamente 13 caracteres.',
+        'isbn.unique' => 'Este ISBN já foi registado.',
 
-        'numberOfPages.required' => 'The number of pages is required.',
-        'numberOfPages.integer' => 'The number of pages must be an integer.',
-        'numberOfPages.min' => 'The number of pages must be at least 1.',
+        'numberOfPages.required' => 'O número de páginas é obrigatório.',
+        'numberOfPages.integer' => 'O número de páginas deve ser um número inteiro.',
+        'numberOfPages.min' => 'O número de páginas deve ser pelo menos 1.',
 
-        'stock.required' => 'The stock is required.',
-        'stock.integer' => 'The stock must be an integer.',
-        'stock.min' => 'The stock cannot be negative.',
+        'stock.required' => 'O stock é obrigatório.',
+        'stock.integer' => 'O stock deve ser um número inteiro.',
+        'stock.min' => 'O stock não pode ser negativo.',
 
-        'language.required' => 'The language is required.',
-        'language.string' => 'The language must be a valid string.',
-        'language.max' => 'The language may not exceed 255 characters.',
+        'language.required' => 'O idioma é obrigatório.',
+        'language.string' => 'O idioma deve ser um texto válido.',
+        'language.max' => 'O idioma não pode exceder 255 caracteres.',
 
-        'price.required' => 'The price is required.',
-        'price.numeric' => 'The price must be a number.',
-        'price.min' => 'The price must be at least 0.',
+        'price.required' => 'O preço é obrigatório.',
+        'price.numeric' => 'O preço deve ser um número.',
+        'price.min' => 'O preço deve ser pelo menos 0.',
     ];
-
 
     public function index()
     {

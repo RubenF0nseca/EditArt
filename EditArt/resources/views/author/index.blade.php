@@ -1,8 +1,9 @@
+@extends('layouts.admin.base')
 
 @section('title','Lista de autores')
 
 @section('button')
-    <a href="{{ route('users.create') }}" class="btn btn-primary rounded-pill">
+    <a href="#" class="btn btn-primary rounded-pill">
         <i class="fa-solid fa-user-plus"></i>&nbsp Novo escritor</a>
 @endsection
 
@@ -34,7 +35,7 @@
 
                                         <a href="#" class="btn btn-info "><i class="ti ti-eye"></i></a>
                                         <a href="#" class="btn btn-warning"><i class="fa fa-pencil" aria-hidden="true"></i></a>
-                                        <form action="#" method="POST" style="display: inline" >
+                                        <form action="{{ route('authors.destroy', $author->id) }}" method="POST" style="display: inline" >
                                             @method('DELETE')
                                             @csrf
                                             <button type="submit" class="btn btn-danger"><i class="ti ti-trash"></i></button>

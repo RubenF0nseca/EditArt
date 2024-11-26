@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->text('biography')->nullable();
-            $table->date('dateOfBirth');
+            $table->date('birthdate');
             $table->string('profilePicture')->nullable();
             $table->softDeletes();
             $table->timestamps();

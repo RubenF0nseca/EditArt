@@ -12,7 +12,7 @@ class AuthorController extends Controller
      */
     public function index()
     {
-        //
+        return view('author.index', ['authors' => Author::all()]);
     }
 
     /**
@@ -60,6 +60,10 @@ class AuthorController extends Controller
      */
     public function destroy(Author $author)
     {
-        //
+        if ($author->profilePicture) {
+            \Storage::disk('public')->delete($author->profilePicture);
+        }
+        $author->delete();
+        return redirect(route('authors.index'));
     }
 }

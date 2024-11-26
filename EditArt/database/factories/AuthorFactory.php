@@ -19,7 +19,7 @@ class AuthorFactory extends Factory
         return [
             'name' => fake()->name,
             'biography' => fake()->paragraphs(2, true),
-            'dateOfBirth' => fake()->dateTimeBetween('-30 year', '-10 year'),
+            'birthdate' => fake()->dateTimeBetween('-30 year', '-10 year'),
         ];
     }
 }
