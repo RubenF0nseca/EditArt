@@ -33,7 +33,7 @@
                                     <td class="d-none d-md-table-cell">{{ $author->birthdate }}</td>
                                     <td class="text-end">
 
-                                        <a href="#" class="btn btn-info "><i class="ti ti-eye"></i></a>
+                                        <a href="{{ route('authors.show', $author->id) }}" class="btn btn-info "><i class="ti ti-eye"></i></a>
                                         <a href="{{ route('authors.edit', $author->id) }}" class="btn btn-warning"><i class="fa fa-pencil" aria-hidden="true"></i></a>
                                         <form action="{{ route('authors.destroy', $author->id) }}" method="POST" style="display: inline" >
                                             @method('DELETE')

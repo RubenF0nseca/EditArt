@@ -19,7 +19,6 @@
                             </div>
                         @endif
 
-
                         <!-- Alerta para mensagem de erro geral -->
                         @if($errors->has('error'))
                             <div class="alert alert-danger alert-dismissible fade show" role="alert" >
@@ -27,7 +26,6 @@
                                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                             </div>
                         @endif
-
 
                         <form action="{{ route('authors.update', $author->id) }}" method="POST" enctype="multipart/form-data">
                             @csrf
