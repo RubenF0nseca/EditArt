@@ -56,3 +56,15 @@ body{
     padding: 0.5rem 0;
 }
 
+/* Paginação */
+.pagination{
+    --tblr-pagination-color: #C5A992;
+    --tblr-pagination-border-color: #C5A992;
+    --tblr-pagination-hover-color: #f1caaa;
+    --tblr-pagination-hover-bg: #C5A992;
+    --tblr-pagination-hover-border-color: #C5A992;
+    --tblr-pagination-active-bg: #C5A992;
+    --tblr-pagination-active-border-color: #C5A992;
+    --tblr-pagination-disabled-border-color: #C5A992;
+}
+

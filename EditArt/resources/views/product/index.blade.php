@@ -56,6 +56,9 @@
                             </tbody>
                         </table>
                     </div>
+                    <div class="card-footer">
+                        {{ $books->links('layouts.admin.parts.pagination', ['books'=>$books]) }}
+                    </div>
                 </div>
             </div>
         </div>
