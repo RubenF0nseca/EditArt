@@ -1,6 +1,6 @@
 @extends('layouts.admin.base')
 
-@section('title','Criar um novo Tipo de Obra')
+@section('title','Criar um novo Autor')
 
 @section('content')
     <div class="container">
@@ -29,7 +29,7 @@
                         @endif
 
 
-                        <form action="{{ route('authors.store') }}" method="POST">
+                        <form action="{{ route('authors.store') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="mb-3">
                                 <label for="name" class="form-label required">Nome</label>
@@ -52,58 +52,13 @@
                                 <div class="invalid-feedback" >{{$message}}</div>
                                 @enderror
                             </div>
-
-
-
-
-
-
-
                             <div class="mb-3">
-                                <label for="address" class="form-label required">Morada</label>
-                                <input type="text" id="address" name="address" class="form-control @error('address') is-invalid @enderror" value="{{old('address')}}" >
-                                @error('address')
-                                <div class="invalid-feedback" >{{$message}}</div>
-                                @enderror
-                            </div>
-                            <div class="mb-3">
-                                <label for="nif" class="form-label required">NIF</label>
-                                <input type="text" id="nif" name="nif" class="form-control @error('nif') is-invalid @enderror" value="{{old('nif')}}" >
-                                @error('nif')
-                                <div class="invalid-feedback" >{{$message}}</div>
-                                @enderror
-                            </div>
-                            <div class="mb-3">
-                                <label for="phone_number" class="form-label required">Número de Telefone</label>
-                                <input type="text" id="phone_number" name="phone_number" class="form-control @error('phone_number') is-invalid @enderror" value="{{old('phone_number')}}" >
-                                @error('phone_number')
-                                <div class="invalid-feedback" >{{$message}}</div>
-                                @enderror
-                            </div>
-                            <div class="mb-3">
-                                <label for="birthdate" class="form-label required">Data de Nascimento</label>
-                                <input type="date" id="birthdate" name="birthdate" class="form-control @error('birthdate') is-invalid @enderror" value="{{old('birthdate')}}" >
-                                @error('birthdate')
-                                <div class="invalid-feedback" >{{$message}}</div>
-                                @enderror
-                            </div>
-                            <div class="mb-3">
-                                <label for="password" class="form-label required">Password</label>
-                                <input type="text" id="password" name="password" class="form-control @error('password') is-invalid @enderror" value="{{old('password')}}" >
-                                @error('password')
-                                <div class="invalid-feedback" >{{$message}}</div>
-                                @enderror
-                            </div>
-                            <div class="mb-3">
-                                <label for="role" class="form-label required">Tipo de Utilizador</label>
-                                <input type="text" id="role" name="role" class="form-control @error('role') is-invalid @enderror" value="{{old('role')}}" >
-                                @error('role')
-                                <div class="invalid-feedback" >{{$message}}</div>
-                                @enderror
+                                <label for="profilePicture" class="form-label">Foto do Autor</label>
+                                <input type="file" id="profilePicture" name="profilePicture" class="form-control">
                             </div>
                             <div class="text-end">
-                                <button type="submit" class="btn btn-primary">Salvar</button>
-                                <a href="{{ route('users.index') }}" class="btn btn-secondary">Cancelar</a>
+                                <button type="submit" class="btn btn-primary">Criar</button>
+                                <a href="{{ route('authors.index') }}" class="btn btn-secondary">Cancelar</a>
                             </div>
                         </form>
                     </div>

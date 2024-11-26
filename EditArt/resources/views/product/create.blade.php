@@ -99,7 +99,7 @@
                                 <input type="file" id="CoverPicture" name="CoverPicture" class="form-control">
                             </div>
                             <div class="text-end">
-                                <button type="submit" class="btn btn-primary">Salvar</button>
+                                <button type="submit" class="btn btn-primary">Criar</button>
                                 <a href="{{ route('books.index') }}" class="btn btn-secondary">Cancelar</a>
                             </div>
                         </form>

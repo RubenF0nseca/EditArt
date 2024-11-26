@@ -3,7 +3,7 @@
 @section('title','Lista de autores')
 
 @section('button')
-    <a href="#" class="btn btn-primary rounded-pill">
+    <a href="{{ route('authors.create') }}" class="btn btn-primary rounded-pill">
         <i class="fa-solid fa-user-plus"></i>&nbsp Novo escritor</a>
 @endsection
 
@@ -30,11 +30,11 @@
                                     <td>{{ $author->id }}</td>
                                     <td>{{ $author->name }}</td>
                                     <td class="d-none d-md-table-cell">{{ $author->biography }}</td>
-                                    <td class="d-none d-md-table-cell">{{ $author->dateOfBirth }}</td>
+                                    <td class="d-none d-md-table-cell">{{ $author->birthdate }}</td>
                                     <td class="text-end">
 
                                         <a href="#" class="btn btn-info "><i class="ti ti-eye"></i></a>
-                                        <a href="#" class="btn btn-warning"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                                        <a href="{{ route('authors.edit', $author->id) }}" class="btn btn-warning"><i class="fa fa-pencil" aria-hidden="true"></i></a>
                                         <form action="{{ route('authors.destroy', $author->id) }}" method="POST" style="display: inline" >
                                             @method('DELETE')
                                             @csrf
