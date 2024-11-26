@@ -34,7 +34,7 @@
                                         @if($book->CoverPicture)
                                             <img src="{{asset('storage/'.$book->CoverPicture)}}" class="product-thumb rounded" alt="{{ $book->title }}" style="width: 30px;">
                                         @else
-                                            <img src="{{ asset('storage/books/img_nao_disponivel.png') }}" class="product-thumb rounded" alt="Imagem não disponível" style="width: 30px;">
+                                            <img src="{{ asset('imgs/img_nao_disponivel.png') }}" class="product-thumb rounded" alt="Imagem não disponível" style="width: 30px;">
                                         @endif
                                         </td>
                                     <td>{{ $book->title }}</td>

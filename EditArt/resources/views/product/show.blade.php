@@ -1,7 +1,7 @@
 
 @extends('layouts.admin.base')
 
-@section('title','Detalhes do utilizador')
+@section('title','Detalhes do Produto')
 
 @section('content')
     <div class="container">
@@ -58,7 +58,7 @@
                                         <td>{{ $book->price }}€</td>
                                     </tr>
                                     <tr>
-                                        <th scope="row">produto atualizado em:</th>
+                                        <th scope="row">Produto atualizado em:</th>
                                         <td>{{ $book->updated_at }}</td>
                                     </tr>
                                     </tbody>
@@ -68,7 +68,7 @@
                                 @if($book->CoverPicture)
                                     <img src="{{ asset('storage/'.$book->CoverPicture) }}" class="product-thumb rounded" alt="{{ $book->title }}" style="width: 280px; height: 400px;">
                                 @else
-                                    <img src="{{ asset('storage/books/img_nao_disponivel.png') }}" class="product-thumb rounded" alt="Imagem não disponível" style="width: 280px; height: 400px;">
+                                    <img src="{{ asset('imgs/img_nao_disponivel.png') }}" class="product-thumb rounded" alt="Imagem não disponível" style="width: 280px; height: 400px;">
                                 @endif
                             </div>
                         </div>
