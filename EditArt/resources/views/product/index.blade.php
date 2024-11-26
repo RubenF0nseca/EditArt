@@ -3,7 +3,7 @@
 @section('title','Lista de Produtos')
 
 @section('button')
-    <a href="{{ route('books.create') }}" class="btn btn-primary rounded-pill">
+    <a href="{{ route('books.create') }}" class="btn btn-primary rounded-pill shadow-sm">
         <i class="fa-solid fa-user-plus"></i>&nbsp Novo produto</a>
 @endsection
 
@@ -11,7 +11,7 @@
     <div class="container">
         <div class="row">
             <div class="col">
-                <div class="card mt-4">
+                <div class="card shadow-lg border-0 rounded-lg mt-4">
                     <div class="table-responsive">
                         <table class="table table-striped table-hover">
                             <thead>
@@ -57,7 +57,7 @@
                         </table>
                     </div>
                     <div class="card-footer">
-                        {{ $books->links('layouts.admin.parts.pagination', ['books'=>$books]) }}
+                        {{ $books->links('layouts.admin.parts.pagination') }}
                     </div>
                 </div>
             </div>
