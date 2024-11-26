@@ -71,7 +71,7 @@
                         </a>
                         <div class="dropdown-menu">
                             <a class="dropdown-item active" href="{{ route('books.index') }}">Lista de Produtos</a>
-                            <a class="dropdown-item active" href="#">Autores</a>
+                            <a class="dropdown-item active" href="{{ route('authors.index') }}">Lista de Autores</a>
 
                             <!-- Outros links para Obras podem ser adicionados aqui -->
                         </div>

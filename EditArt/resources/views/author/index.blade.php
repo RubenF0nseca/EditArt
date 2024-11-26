@@ -1,9 +1,9 @@
 @extends('layouts.admin.base')
 
-@section('title','Lista de autores')
+@section('title','Lista de Autores')
 
 @section('button')
-    <a href="{{ route('authors.create') }}" class="btn btn-primary rounded-pill">
+    <a href="{{ route('authors.create') }}" class="btn btn-primary rounded-pill shadow-sm">
         <i class="fa-solid fa-user-plus"></i>&nbsp Novo escritor</a>
 @endsection
 
@@ -11,7 +11,7 @@
     <div class="container">
         <div class="row">
             <div class="col">
-                <div class="card mt-4">
+                <div class="card shadow-lg border-0 rounded-lg mt-4">
                     <div class="table-responsive">
                         <table class="table table-striped table-hover">
                             <thead>
@@ -37,7 +37,7 @@
                                         @endif
                                     </td>
                                     <td>{{ $author->name }}</td>
-                                    <td class="d-none d-md-table-cell">{{ $author->biography }}</td>
+                                    <td class="d-none d-md-table-cell">{{ Str::limit($author->biography, 60, '...') }}</td>
                                     <td class="d-none d-md-table-cell">{{ $author->birthdate }}</td>
                                     <td class="text-end">
 
@@ -55,7 +55,7 @@
                         </table>
                     </div>
                     <div class="card-footer">
-                        {{-- $authors->links('layouts.admin.parts.pagination', ['$authors'=>$author]) --}}
+                        {{$authors->links('layouts.admin.parts.pagination') }}
                     </div>
                 </div>
             </div>

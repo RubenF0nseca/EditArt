@@ -1,12 +1,12 @@
 @extends('layouts.admin.base')
 
-@section('title','Detalhes do autor')
+@section('title','Detalhes do Autor')
 
 @section('content')
     <div class="container">
         <div class="row">
             <div class="col">
-                <div class="card">
+                <div class="card shadow-lg border-0 rounded-lg">
                     <div class="card-body">
                         <!-- Alerta para mensagem de sucesso -->
                         @if(session('success'))
@@ -15,9 +15,9 @@
                                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                             </div>
                         @endif
-                        <h3>[#{{ $author->id }}] </h3>
                         <div class="row">
                             <div class="col-md-6">
+                                <h3>[#{{ $author->id }}] </h3>
                                 <table class="table">
                                     <tbody>
                                     <tr>
@@ -43,9 +43,9 @@
                                     </tbody>
                                 </table>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-6 d-flex justify-content-center">
                                 @if($author->profilePicture)
-                                    <img src="{{ asset('storage/'.$author->profilePicture) }}" class="product-thumb rounded" alt="{{ $author->name }}" style="width: 280px; height: 400px;">
+                                    <img src="{{ asset('storage/'.$author->profilePicture) }}" class="product-thumb rounded shadow-lg border-0 rounded-lg" alt="{{ $author->name }}" style="width: 280px; height: 400px;">
                                 @else
                                     <img src="{{ asset('imgs/img_nao_disponivel.png') }}" class="product-thumb rounded" alt="Imagem não disponível" style="width: 280px; height: 400px;">
                                 @endif
@@ -53,8 +53,8 @@
                         </div>
                     </div>
                 </div>
-                <a href="{{ route('authors.index') }}" class="btn btn-secondary mt-3">Mostrar todos os autores</a>
-                <a href="{{ route('authors.edit', $author->id) }}" class="btn btn-warning mt-3"><i class="fa fa-pencil" aria-hidden="true"></i>&nbsp Editar</a>
+                <a href="{{ route('authors.index') }}" class="btn btn-secondary mt-3 shadow-lg border-0 rounded-lg">Mostrar todos os autores</a>
+                <a href="{{ route('authors.edit', $author->id) }}" class="btn btn-warning mt-3 shadow-lg border-0 rounded-lg"><i class="fa fa-pencil" aria-hidden="true"></i>&nbsp Editar</a>
             </div>
         </div>
     </div>
