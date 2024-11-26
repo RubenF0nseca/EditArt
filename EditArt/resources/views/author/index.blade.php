@@ -17,6 +17,7 @@
                             <thead>
                             <tr>
                                 <th class="">ID</th>
+                                <th class="d-none d-md-table-cell">Capa</th>
                                 <th class="d-none d-md-table-cell">Nome</th>
                                 <th class="d-none d-md-table-cell">biografia</th>
                                 <th class="d-none d-md-table-cell">Data nascimento</th>
@@ -28,6 +29,13 @@
                             @foreach($authors as $author)
                                 <tr>
                                     <td>{{ $author->id }}</td>
+                                    <td>
+                                        @if($author->CoverPicture)
+                                            <img src="{{asset('storage/'.$author->CoverPicture)}}" class="product-thumb rounded" alt="{{ $author->name }}" style="width: 30px;">
+                                        @else
+                                            <img src="{{ asset('imgs/img_nao_disponivel.png') }}" class="product-thumb rounded" alt="Imagem não disponível" style="width: 30px;">
+                                        @endif
+                                    </td>
                                     <td>{{ $author->name }}</td>
                                     <td class="d-none d-md-table-cell">{{ $author->biography }}</td>
                                     <td class="d-none d-md-table-cell">{{ $author->birthdate }}</td>
@@ -45,6 +53,9 @@
                             @endforeach
                             </tbody>
                         </table>
+                    </div>
+                    <div class="card-footer">
+                        {{-- $authors->links('layouts.admin.parts.pagination', ['$authors'=>$author]) --}}
                     </div>
                 </div>
             </div>

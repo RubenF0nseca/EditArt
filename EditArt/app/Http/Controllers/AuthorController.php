@@ -41,7 +41,7 @@ class AuthorController extends Controller
      */
     public function index()
     {
-        return view('author.index', ['authors' => Author::all()]);
+        return view('author.index', ['authors' => Author::paginate(10)]);
     }
 
     /**
@@ -122,7 +122,7 @@ class AuthorController extends Controller
 
             $author->update($validated);
 
-            return redirect(route('authors.edit', $author->id))->with('success', "Livro atualizado com sucesso! [#{$author->id}]");
+            return redirect(route('authors.show', $author->id))->with('success', "Livro atualizado com sucesso! [#{$author->id}]");
         } catch (\Exception $e) {
             return redirect()->back()->withErrors(['error' => "Erro ao atualizar o Livro!"])->withInput();
         }
