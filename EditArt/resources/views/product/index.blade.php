@@ -4,7 +4,7 @@
 
 @section('button')
     <a href="{{ route('books.create') }}" class="btn btn-primary rounded-pill shadow-sm">
-        <i class="fa-solid fa-user-plus"></i>&nbsp Novo produto</a>
+        <i class="fa-solid fa-file-circle-plus"></i>&nbsp Novo produto</a>
 @endsection
 
 @section('content')

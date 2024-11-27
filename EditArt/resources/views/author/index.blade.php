@@ -4,7 +4,7 @@
 
 @section('button')
     <a href="{{ route('authors.create') }}" class="btn btn-primary rounded-pill shadow-sm">
-        <i class="fa-solid fa-user-plus"></i>&nbsp Novo escritor</a>
+        <i class="fa-solid fa-user-plus"></i>&nbsp Novo autor</a>
 @endsection
 
 @section('content')
