@@ -1,10 +1,10 @@
 @extends('layouts.admin.base')
 
-@section('title','Lista de Utilizadores')
+@section('title','Lista de avaliações')
 
 @section('button')
-    <a href="{{ route('users.create') }}" class="btn btn-primary rounded-pill">
-        <i class="fa-solid fa-user-plus"></i>&nbsp Novo User</a>
+    <a href="{{ route('reviews.create') }}" class="btn btn-primary rounded-pill">
+        <i class="fa-solid fa-user-plus"></i>&nbsp Nova Avaliação</a>
 @endsection
 
 @section('content')
@@ -17,25 +17,27 @@
                             <thead>
                             <tr>
                                 <th class="">ID</th>
-                                <th class="d-none d-md-table-cell">Nome</th>
-                                <th class="d-none d-md-table-cell">Email</th>
-                                <th class="d-none d-md-table-cell">Role</th>
+                                <th class="d-none d-md-table-cell">ID livro</th>
+                                <th class="d-none d-md-table-cell">ID user</th>
+                                <th class="d-none d-md-table-cell">Nota</th>
+                                <th class="d-none d-md-table-cell">Data</th>
                                 <th class="w-auto text-end">Ações</th>
                             </tr>
                             </thead>
                             <tbody>
                             <!-- Aqui, o loop deve ser substituído por uma lista de elementos gerada dinamicamente -->
-                            @foreach($users as $user)
+                            @foreach($reviews as $review)
                                 <tr>
-                                    <td>{{ $user->id }}</td>
-                                    <td>{{ $user->name }}</td>
-                                    <td class="d-none d-md-table-cell">{{ $user->email }}</td>
-                                    <td class="d-none d-md-table-cell">{{ $user->role }}</td>
+                                    <td>{{ $review->id }}</td>
+                                    <td>{{ $review->id_book }}</td>
+                                    <td>{{ $review->id_user }}</td>
+                                    <td class="d-none d-md-table-cell">{{ $review->rating }}</td>
+                                    <td class="d-none d-md-table-cell">{{ $review->review_date }}</td>
                                     <td class="text-end">
 
-                                        <a href="{{ route('users.show', $user->id) }}" class="btn btn-info "><i class="ti ti-eye"></i></a>
-                                        <a href="{{ route('users.edit', $user->id) }}" class="btn btn-warning"><i class="fa fa-pencil" aria-hidden="true"></i></a>
-                                        <form action="{{ route('users.destroy', $user->id) }}" method="POST" style="display: inline" >
+                                        <a href="#" class="btn btn-info "><i class="ti ti-eye"></i></a>
+                                        <a href="#" class="btn btn-warning"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                                        <form action="{{ route('reviews.destroy', $review->id) }}" method="POST" style="display: inline" >
                                             @method('DELETE')
                                             @csrf
                                             <button type="submit" class="btn btn-danger"><i class="ti ti-trash"></i></button>

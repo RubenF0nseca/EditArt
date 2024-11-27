@@ -108,7 +108,6 @@ class AuthorController extends Controller
             $photo = $request->file('profilePicture');
             if ($request->hasFile('profilePicture')) {
 
-
                 $extension = pathinfo($photo->getClientOriginalName(), PATHINFO_EXTENSION);
                 $filename = preg_replace('/\s+/', '', strtolower($validated['name'])) . '_' . time() . '.' . $extension;
 

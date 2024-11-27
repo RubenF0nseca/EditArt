@@ -17,7 +17,7 @@ return new class extends Migration
             $table->unsignedBigInteger('id_user');
             $table->text('comment')->nullable();
             $table->integer('rating');
-            $table->timestamp('review_date');
+            $table->date('review_date');
             $table->timestamps();
         });
     }
