@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -21,3 +22,5 @@ Route::resource('books', BookController::class);
 Route::resource('authors', AuthorController::class);
 
 Route::resource('reviews', ReviewController::class);
+
+Route::resource('posts', PostController::class);
