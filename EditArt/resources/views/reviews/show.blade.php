@@ -1,6 +1,6 @@
 @extends('layouts.admin.base')
 
-@section('title','Detalhes do utilizador')
+@section('title','Detalhes da avaliação')
 
 @section('content')
     <div class="container">
@@ -15,48 +15,43 @@
                                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                             </div>
                         @endif
-                        <h3>[#{{ $user->id }}] </h3>
+                        <h3>[#{{ $review->id }}] </h3>
                         <div class="row">
                             <div class="col-md-6">
                                 <table class="table">
                                     <tbody>
                                     <tr>
-                                        <th scope="row">Nome</th>
-                                        <td>{{ $user->name }}</td>
+                                        <th scope="row">ID Livro</th>
+                                        <td>{{ $review->id_book }}</td>
                                     </tr>
                                     <tr>
-                                        <th scope="row">Email</th>
-                                        <td>{{ $user->email }}</td>
+                                        <th scope="row">ID Utilizador</th>
+                                        <td>{{ $review->id_user }}</td>
                                     </tr>
                                     <tr>
-                                        <th scope="row">NIF</th>
-                                        <td>{{ $user->nif }}</td>
+                                        <th scope="row">Comentários</th>
+                                        <td>{{ $review->comment }}</td>
                                     </tr>
                                     <tr>
-                                        <th scope="row">Telefone</th>
-                                        <td>{{ $user->phone_number }}</td>
+                                        <th scope="row">Avaliação</th>
+                                        <td>{{ $review->rating }}</td>
                                     </tr>
                                     <tr>
-                                        <th scope="row">Morada</th>
-                                        <td>{{ $user->address }}</td>
+                                        <th scope="row">Avaliação criada em:</th>
+                                        <td>{{ $review->created_at }}</td>
                                     </tr>
                                     <tr>
-                                        <th scope="row">Сonta criada</th>
-                                        <td>{{ $user->created_at }}</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Сonta atualizada</th>
-                                        <td>{{ $user->updated_at }}</td>
+                                        <th scope="row">Avaliação atualizada em:</th>
+                                        <td>{{ $review->updated_at }}</td>
                                     </tr>
                                     </tbody>
                                 </table>
                             </div>
-                            <div class="col-md-6">?????????foto???</div>
                         </div>
                     </div>
                 </div>
-                <a href="{{ route('users.index') }}" class="btn btn-secondary mt-3">Listar todos os Tipos de Obras</a>
-                <a href="{{ route('users.edit', $user->id) }}" class="btn btn-warning mt-3"><i class="fa fa-pencil" aria-hidden="true"></i>&nbsp Editar</a>
+                <a href="{{ route('reviews.index') }}" class="btn btn-secondary mt-3">Lista de todas as avaliações</a>
+                <a href="{{ route('reviews.edit', $review->id) }}" class="btn btn-warning mt-3"><i class="fa fa-pencil" aria-hidden="true"></i>&nbsp Editar</a>
             </div>
         </div>
     </div>

@@ -1,6 +1,6 @@
 @extends('layouts.admin.base')
 
-@section('title','Ediar utilizador')
+@section('title','Editar avaliação')
 
 @section('content')
     <div class="container">
@@ -8,7 +8,7 @@
             <div class="col-md-8 offset-md-2">
                 <div class="card">
                     <div class="card-header">
-                        <h4>Editar utilizador</h4>
+                        <h4>Insira os dados para editar o comentário</h4>
                     </div>
                     <div class="card-body">
                         <!-- Alerta para mensagem de sucesso -->
@@ -29,68 +29,40 @@
                         @endif
 
 
-                        <form action="{{ route('users.update', $user->id) }}" method="POST">
+                        <form action="{{ route('reviews.update', $review->id) }}" method="POST">
                             @csrf
                             @method('PUT')
                             <div class="mb-3">
-                                <label for="name" class="form-label required">Nome</label>
-                                <input type="text" id="name" name="name" class="form-control @error('name') is-invalid @enderror" value="{{ $user->name }}" >
-                                @error('name')
+                                <label for="id_book" class="form-label required">Id Livro</label>
+                                <input type="text" id="id_book" name="id_book" class="form-control @error('id_book') is-invalid @enderror" value="{{old('id_book', $review->id_book)}}" >
+                                @error('id_book')
                                 <div class="invalid-feedback" >{{$message}}</div>
                                 @enderror
                             </div>
                             <div class="mb-3">
-                                <label for="email" class="form-label required">Email</label>
-                                <input type="text" id="email" name="email" class="form-control @error('email') is-invalid @enderror" value="{{ $user->email }}" >
-                                @error('email')
+                                <label for="id_user" class="form-label required">Id User</label>
+                                <input type="text" id="id_user" name="id_user" class="form-control @error('id_user') is-invalid @enderror" value="{{old('id_user', $review->id_user)}}" >
+                                @error('id_user')
                                 <div class="invalid-feedback" >{{$message}}</div>
                                 @enderror
                             </div>
                             <div class="mb-3">
-                                <label for="address" class="form-label required">Morada</label>
-                                <input type="text" id="address" name="address" class="form-control @error('address') is-invalid @enderror" value="{{ $user->address }}" >
-                                @error('address')
+                                <label for="comment" class="form-label required">Comentário</label>
+                                <input type="text" id="comment" name="comment" class="form-control @error('comment') is-invalid @enderror" value="{{old('comment', $review->comment)}}" >
+                                @error('comment')
                                 <div class="invalid-feedback" >{{$message}}</div>
                                 @enderror
                             </div>
                             <div class="mb-3">
-                                <label for="nif" class="form-label required">NIF</label>
-                                <input type="text" id="nif" name="nif" class="form-control @error('nif') is-invalid @enderror" value="{{ $user->nif }}" >
-                                @error('nif')
-                                <div class="invalid-feedback" >{{$message}}</div>
-                                @enderror
-                            </div>
-                            <div class="mb-3">
-                                <label for="phone_number" class="form-label required">Número de Telefone</label>
-                                <input type="text" id="phone_number" name="phone_number" class="form-control @error('phone_number') is-invalid @enderror" value="{{ $user->phone_number }}" >
-                                @error('phone_number')
-                                <div class="invalid-feedback" >{{$message}}</div>
-                                @enderror
-                            </div>
-                            <div class="mb-3">
-                                <label for="birthdate" class="form-label required">Data de Nascimento</label>
-                                <input type="text" id="birthdate" name="birthdate" class="form-control @error('birthdate') is-invalid @enderror" value="{{ $user->birthdate }}" >
-                                @error('birthdate')
-                                <div class="invalid-feedback" >{{$message}}</div>
-                                @enderror
-                            </div>
-                            <div class="mb-3">
-                                <label for="password" class="form-label required">Password</label>
-                                <input type="text" id="password" name="password" class="form-control @error('password') is-invalid @enderror">
-                                @error('password')
-                                <div class="invalid-feedback" >{{$message}}</div>
-                                @enderror
-                            </div>
-                            <div class="mb-3">
-                                <label for="role" class="form-label required">Tipo de Utilizador</label>
-                                <input type="text" id="role" name="role" class="form-control @error('role') is-invalid @enderror" value="{{ $user->role }}" >
-                                @error('role')
+                                <label for="rating" class="form-label required">Nota</label>
+                                <input type="text" id="rating" name="rating" class="form-control @error('rating') is-invalid @enderror" value="{{old('rating', $review->rating)}}" >
+                                @error('rating')
                                 <div class="invalid-feedback" >{{$message}}</div>
                                 @enderror
                             </div>
                             <div class="text-end">
-                                <button type="submit" class="btn btn-primary">Guardar</button>
-                                <a href="{{ url()->previous() }}" class="btn btn-secondary">Cancelar</a>
+                                <button type="submit" class="btn btn-primary">Editar</button>
+                                <a href="{{ route('reviews.index') }}" class="btn btn-secondary">Cancelar</a>
                             </div>
                         </form>
                     </div>

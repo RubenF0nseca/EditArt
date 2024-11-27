@@ -35,8 +35,8 @@
                                     <td class="d-none d-md-table-cell">{{ $review->review_date }}</td>
                                     <td class="text-end">
 
-                                        <a href="#" class="btn btn-info "><i class="ti ti-eye"></i></a>
-                                        <a href="#" class="btn btn-warning"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                                        <a href="{{ route('reviews.show', $review->id) }}" class="btn btn-info "><i class="ti ti-eye"></i></a>
+                                        <a href="{{ route('reviews.edit', $review->id) }}" class="btn btn-warning"><i class="fa fa-pencil" aria-hidden="true"></i></a>
                                         <form action="{{ route('reviews.destroy', $review->id) }}" method="POST" style="display: inline" >
                                             @method('DELETE')
                                             @csrf

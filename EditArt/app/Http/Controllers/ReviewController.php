@@ -94,7 +94,7 @@ class ReviewController extends Controller
         try {
             $review->update($validated);
 
-            return redirect(route('authors.show', $review->id))->with('success', "Livro atualizado com sucesso! [#{$review->id}]");
+            return redirect(route('reviews.show', $review->id))->with('success', "Livro atualizado com sucesso! [#{$review->id}]");
         } catch (\Exception $e) {
             return redirect()->back()->withErrors(['error' => "Erro ao atualizar o Livro!"])->withInput();
         }
