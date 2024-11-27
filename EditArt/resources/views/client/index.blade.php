@@ -3,7 +3,7 @@
 @section('title','Lista de Utilizadores')
 
 @section('button')
-    <a href="{{ route('users.create') }}" class="btn btn-primary rounded-pill">
+    <a href="{{ route('users.create') }}" class="btn btn-primary rounded-pill shadow-sm">
         <i class="fa-solid fa-user-plus"></i>&nbsp Novo User</a>
 @endsection
 
@@ -11,7 +11,7 @@
     <div class="container">
         <div class="row">
             <div class="col">
-                <div class="card mt-4">
+                <div class="card shadow-lg border-0 rounded-lg mt-4">
                     <div class="table-responsive">
                         <table class="table table-striped table-hover">
                             <thead>
@@ -45,6 +45,9 @@
                             @endforeach
                             </tbody>
                         </table>
+                    </div>
+                    <div class="card-footer">
+                        {{ $users->links('layouts.admin.parts.pagination') }}
                     </div>
                 </div>
             </div>
