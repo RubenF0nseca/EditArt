@@ -4,7 +4,7 @@
         <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar-menu" aria-controls="sidebar-menu" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
         <div class="collapse navbar-collapse" id="sidebar-menu">
             <ul class="navbar-nav mx-auto border-bottom border-lg-bottom-0 pt-2 pt-lg-0">
-                <li class="nav-item"><a class="nav-link active active" aria-current="page" href="#">Home</a></li>
+                <li class="nav-item"><a class="nav-link active active" aria-current="page" href="{{ route('home')}}">Home</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ route('guest.books') }}">Livros</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ route('guest.authors') }}">Autores </a></li>
             </ul>

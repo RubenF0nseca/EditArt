@@ -26,7 +26,7 @@
     <main class="main" id="top">
 
         @yield('content')
-
+        @include('layouts.guest.parts.footer')
     </main>
 <!-- Libs JS -->
 @vite(['resources/js/guest.js'])
