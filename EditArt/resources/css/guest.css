@@ -17,6 +17,16 @@
     color: #C5A992 !important;
     text-decoration: none;
 }
+.wrapper{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+body{
+    height: 100%;
+    margin: 0;
+}
+
 /* Banner */
 .banner{
     background-image: url('/public/imgs/banner.jpg');
