@@ -82,9 +82,9 @@ class UserController extends Controller
         try{
             $user = new User($validated);
             $user->save();
-            return redirect(route('users.create'))->with('success',"Tipo de Obra registada com sucesso! [#{$user->id}]");
+            return redirect(route('users.create'))->with('success',"User criado com sucesso! [#{$user->id}]");
         }catch (\Exception $e){
-            return redirect()->back()->withErrors(['error' => "Erro ao criar um User!"])->withInput();
+            return redirect()->back()->withErrors(['error' => "Erro ao criar o User!"])->withInput();
         }
     }
 
@@ -119,7 +119,7 @@ class UserController extends Controller
             $user->update($validated);
             return redirect(route('users.show',$user))->with(['success','Utilizador atualizado com sucesso!']);
         }catch (\Exception $e){
-            return redirect()->back()->withErrors(['error'=>"Erro ao editar utilizador! MSG:{$e->getMessage()}"])->withInput();
+            return redirect()->back()->withErrors(['error'=>"Erro ao editar o utilizador! MSG:{$e->getMessage()}"])->withInput();
         }
 
     }

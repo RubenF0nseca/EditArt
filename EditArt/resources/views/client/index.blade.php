@@ -4,7 +4,7 @@
 
 @section('button')
     <a href="{{ route('users.create') }}" class="btn btn-primary rounded-pill shadow-sm">
-        <i class="fa-solid fa-user-plus"></i>&nbsp Novo User</a>
+        <i class="fa-solid fa-user-plus"></i>&nbsp Novo Utilizador</a>
 @endsection
 
 @section('content')

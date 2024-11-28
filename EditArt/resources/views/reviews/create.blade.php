@@ -8,7 +8,7 @@
             <div class="col-md-8 offset-md-2">
                 <div class="card">
                     <div class="card-header">
-                        <h4>Insira os dados para a criação de um novo comentário</h4>
+                        <h4>Insira os dados para a criação da avaliação</h4>
                     </div>
                     <div class="card-body">
                         <!-- Alerta para mensagem de sucesso -->

@@ -100,7 +100,7 @@ class BookController extends Controller
 
             return redirect(route('books.create'))->with('success', "Livro registado com sucesso! [#{$book->id}]");
         } catch (\Exception $e) {
-            return redirect()->back()->withErrors(['error' => "Erro ao criar um Livro!"])->withInput();
+            return redirect()->back()->withErrors(['error' => "Erro ao criar o Livro!"])->withInput();
         }
     }
 

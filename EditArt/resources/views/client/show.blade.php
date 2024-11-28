@@ -55,7 +55,7 @@
                         </div>
                     </div>
                 </div>
-                <a href="{{ route('users.index') }}" class="btn btn-secondary mt-3 shadow-lg border-0 rounded-lg">Listar todos os Tipos de Obras</a>
+                <a href="{{ route('users.index') }}" class="btn btn-secondary mt-3 shadow-lg border-0 rounded-lg">Mostrar todos os utilizadores</a>
                 <a href="{{ route('users.edit', $user->id) }}" class="btn btn-warning mt-3 shadow-lg border-0 rounded-lg"><i class="fa fa-pencil" aria-hidden="true"></i>&nbsp Editar</a>
             </div>
         </div>

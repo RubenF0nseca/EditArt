@@ -42,7 +42,7 @@
                         </div>
                     </div>
                 </div>
-                <a href="{{ route('posts.index') }}" class="btn btn-secondary mt-3 shadow-lg border-0 rounded-lg">Lista de todos os tópicos</a>
+                <a href="{{ route('posts.index') }}" class="btn btn-secondary mt-3 shadow-lg border-0 rounded-lg">Mostrar todos os tópicos</a>
                 <a href="{{ route('posts.edit', $post->id) }}" class="btn btn-warning mt-3 shadow-lg border-0 rounded-lg"><i class="fa fa-pencil" aria-hidden="true"></i>&nbsp Editar</a>
             </div>
         </div>

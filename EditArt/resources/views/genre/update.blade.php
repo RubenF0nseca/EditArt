@@ -1,6 +1,6 @@
 @extends('layouts.admin.base')
 
-@section('title','editar género literário')
+@section('title','Editar género literário')
 
 @section('content')
     <div class="container">

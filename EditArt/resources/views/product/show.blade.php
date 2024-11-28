@@ -74,7 +74,7 @@
                         </div>
                     </div>
                 </div>
-                <a href="{{ route('books.index') }}" class="btn btn-secondary mt-3 shadow-lg border-0 rounded-lg">Listar todos os produtos</a>
+                <a href="{{ route('books.index') }}" class="btn btn-secondary mt-3 shadow-lg border-0 rounded-lg">Mostrar todos os produtos</a>
                 <a href="{{ route('books.edit', $book->id) }}" class="btn btn-warning mt-3 shadow-lg border-0 rounded-lg"><i class="fa fa-pencil" aria-hidden="true"></i>&nbsp Editar</a>
             </div>
         </div>

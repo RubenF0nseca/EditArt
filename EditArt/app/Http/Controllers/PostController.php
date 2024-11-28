@@ -54,7 +54,7 @@ class PostController extends Controller
             $post->save();
             return redirect(route('posts.create'))->with('success',"Tópico gravado com sucesso! [#{$post->id}]");
         }catch (\Exception $e){
-            return redirect()->back()->withErrors(['error' => "Erro ao criar um tópico!"])->withInput();
+            return redirect()->back()->withErrors(['error' => "Erro ao criar o tópico!"])->withInput();
         }
     }
 
@@ -79,7 +79,7 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        $validated = $request->validate($this->getValidationRules(), $this->messages);
+        $validated = $request->validate($this->getValidationRules($post), $this->messages);
         try{
             $post->update($validated);
 

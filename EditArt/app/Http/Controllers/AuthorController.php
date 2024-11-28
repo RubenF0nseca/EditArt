@@ -75,9 +75,9 @@ class AuthorController extends Controller
             $author = new Author($validated);
             $author->save();
 
-            return redirect(route('authors.create'))->with('success', "Autor registado com sucesso! [#{$author->id}]");
+            return redirect(route('authors.create'))->with('success', "Autor criado com sucesso! [#{$author->id}]");
         } catch (\Exception $e) {
-            return redirect()->back()->withErrors(['error' => "Erro ao criar um autor!"])->withInput();
+            return redirect()->back()->withErrors(['error' => "Erro ao criar o autor!"])->withInput();
         }
     }
 
@@ -121,9 +121,9 @@ class AuthorController extends Controller
 
             $author->update($validated);
 
-            return redirect(route('authors.show', $author->id))->with('success', "Livro atualizado com sucesso! [#{$author->id}]");
+            return redirect(route('authors.show', $author->id))->with('success', "autor atualizado com sucesso! [#{$author->id}]");
         } catch (\Exception $e) {
-            return redirect()->back()->withErrors(['error' => "Erro ao atualizar o Livro!"])->withInput();
+            return redirect()->back()->withErrors(['error' => "Erro ao atualizar o autor!"])->withInput();
         }
     }
 

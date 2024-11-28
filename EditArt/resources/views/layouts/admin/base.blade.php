@@ -73,7 +73,7 @@
                             <a class="dropdown-item active" href="{{ route('books.index') }}">Lista de Produtos</a>
                             <a class="dropdown-item active" href="{{ route('authors.index') }}">Lista de Autores</a>
                             <a class="dropdown-item active" href="{{ route('reviews.index') }}">Lista de Avaliações</a>
-                            <a class="dropdown-item active" href="#">Lista de Generos</a>
+                            <a class="dropdown-item active" href="{{ route('genres.index') }}">Lista de Generos</a>
 
                             <!-- Outros links para Obras podem ser adicionados aqui -->
                         </div>

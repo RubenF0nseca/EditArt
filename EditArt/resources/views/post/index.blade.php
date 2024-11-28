@@ -1,6 +1,6 @@
 @extends('layouts.admin.base')
 
-@section('title','Lista de Publicações')
+@section('title','Lista de tópicos')
 
 @section('button')
     <a href="{{ route('posts.create') }}" class="btn btn-primary rounded-pill">

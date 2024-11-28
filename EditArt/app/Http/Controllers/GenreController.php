@@ -49,7 +49,7 @@ class GenreController extends Controller
             $genre->save();
             return redirect(route('genres.create'))->with('success',"Género Literário gravado com sucesso! [#{$genre->id}]");
         }catch (\Exception $e){
-            return redirect()->back()->withErrors(['error' => "Erro ao criar um género literário!"])->withInput();
+            return redirect()->back()->withErrors(['error' => "Erro ao criar o género literário!"])->withInput();
         }
     }
 

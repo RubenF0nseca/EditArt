@@ -50,7 +50,7 @@
                         </div>
                     </div>
                 </div>
-                <a href="{{ route('reviews.index') }}" class="btn btn-secondary mt-3 shadow-lg border-0 rounded-lg">Lista de todas as avaliações</a>
+                <a href="{{ route('reviews.index') }}" class="btn btn-secondary mt-3 shadow-lg border-0 rounded-lg">Mostrar todas as avaliações</a>
                 <a href="{{ route('reviews.edit', $review->id) }}" class="btn btn-warning mt-3 shadow-lg border-0 rounded-lg"><i class="fa fa-pencil" aria-hidden="true"></i>&nbsp Editar</a>
             </div>
         </div>
