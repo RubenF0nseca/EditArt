@@ -63,6 +63,7 @@
                         </table>
                     </div>
                     <div class="card-footer">
+                        {{$genres->links('layouts.admin.parts.pagination') }}
                     </div>
                 </div>
             </div>
