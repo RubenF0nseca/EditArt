@@ -53,8 +53,14 @@
                                 @enderror
                             </div>
                             <div class="mb-3">
-                                <label for="profilePicture" class="form-label">Foto do Autor</label>
-                                <input type="file" id="profilePicture" name="profilePicture" class="form-control">
+                                <label for="profilePicture" class="form-label required">Foto do Autor</label>
+                                <input type="file"
+                                       id="profilePicture"
+                                       name="profilePicture"
+                                       class="form-control @error('profilePicture') is-invalid @enderror">
+                                @error('profilePicture')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
                             </div>
                             <div class="text-end">
                                 <button type="submit" class="btn btn-primary">Criar</button>
