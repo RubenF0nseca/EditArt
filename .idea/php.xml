@@ -126,6 +126,8 @@
       <path value="$PROJECT_DIR$/EditArt/vendor/symfony/var-dumper" />
       <path value="$PROJECT_DIR$/EditArt/vendor/symfony/yaml" />
       <path value="$PROJECT_DIR$/EditArt/vendor/theseer/tokenizer" />
+      <path value="$PROJECT_DIR$/EditArt/vendor/intervention/image" />
+      <path value="$PROJECT_DIR$/EditArt/vendor/intervention/gif" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.2" />
