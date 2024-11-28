@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\UserController;
@@ -24,3 +25,5 @@ Route::resource('authors', AuthorController::class);
 Route::resource('reviews', ReviewController::class);
 
 Route::resource('posts', PostController::class);
+
+Route::resource('comments', CommentController::class);
