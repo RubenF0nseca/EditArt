@@ -18,7 +18,7 @@ class GenreController extends Controller
     protected array $messages = [
         'name.required' => 'O nome é obrigatório.',
         'name.string' => 'O nome deve ser um texto válido.',
-        'name.max' => 'O nome não pode exceder 1000 caracteres.',
+        'name.max' => 'O nome não pode exceder 50 caracteres.',
         'name.unique' => 'Já existe um género literário com um nome idêntico registado.',
     ];
 

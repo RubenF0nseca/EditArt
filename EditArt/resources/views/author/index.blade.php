@@ -17,7 +17,7 @@
                             <thead>
                             <tr>
                                 <th class="">ID</th>
-                                <th class="d-none d-md-table-cell">Capa</th>
+                                <th class="d-none d-md-table-cell">Foto</th>
                                 <th class="d-none d-md-table-cell">Nome</th>
                                 <th class="d-none d-md-table-cell">biografia</th>
                                 <th class="d-none d-md-table-cell">Data nascimento</th>
@@ -30,8 +30,8 @@
                                 <tr>
                                     <td>{{ $author->id }}</td>
                                     <td>
-                                        @if($author->CoverPicture)
-                                            <img src="{{asset('storage/'.$author->CoverPicture)}}" class="product-thumb rounded" alt="{{ $author->name }}" style="width: 30px;">
+                                        @if($author->profilePicture)
+                                            <img src="{{asset('storage/'.$author->profilePicture)}}" class="product-thumb rounded" alt="{{ $author->name }}" style="width: 30px;">
                                         @else
                                             <img src="{{ asset('imgs/img_nao_disponivel.png') }}" class="product-thumb rounded" alt="Imagem não disponível" style="width: 30px;">
                                         @endif
