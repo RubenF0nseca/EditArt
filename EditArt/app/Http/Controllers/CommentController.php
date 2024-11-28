@@ -7,12 +7,27 @@ use Illuminate\Http\Request;
 
 class CommentController extends Controller
 {
+    protected function getValidationRules(?Comment $comment = null): array
+    {
+        $id = $comment ? $comment->id : 'NULL';
+
+        return [
+            'content' => 'required|string|max:1000|unique:comments,content,' . $id,
+        ];
+    }
+
+    protected array $messages = [
+        'content.required' => 'O comentário é obrigatório.',
+        'content.string' => 'O comentário deve ser um texto válido.',
+        'content.max' => 'O comentário não pode exceder 1000 caracteres.',
+        'content.unique' => 'Já existe um comentário idêntico registado.',
+    ];
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        return view('comment.index', ['comments' => Comment::all()]);
     }
 
     /**
@@ -20,7 +35,7 @@ class CommentController extends Controller
      */
     public function create()
     {
-        //
+        return view('comment.create');
     }
 
     /**
@@ -28,7 +43,14 @@ class CommentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate($this->getValidationRules(), $this->messages);
+        try{
+            $comment = new Comment($validated);
+            $comment->save();
+            return redirect(route('comments.create'))->with('success',"Comentário gravado com sucesso! [#{$comment->id}]");
+        }catch (\Exception $e){
+            return redirect()->back()->withErrors(['error' => "Erro ao criar um comentário!"])->withInput();
+        }
     }
 
     /**
@@ -36,7 +58,7 @@ class CommentController extends Controller
      */
     public function show(Comment $comment)
     {
-        //
+        return view('comment.show', compact('comment'));
     }
 
     /**
@@ -44,7 +66,7 @@ class CommentController extends Controller
      */
     public function edit(Comment $comment)
     {
-        //
+        return view('comment.update', compact('comment'));
     }
 
     /**
@@ -52,7 +74,14 @@ class CommentController extends Controller
      */
     public function update(Request $request, Comment $comment)
     {
-        //
+        $validated = $request->validate($this->getValidationRules($comment), $this->messages);
+        try{
+            $comment->update($validated);
+
+            return redirect(route('comments.create'))->with('success',"Comentário editado com sucesso! [#{$comment->id}]");
+        }catch (\Exception $e){
+            return redirect()->back()->withErrors(['error' => "Erro ao editar o comentário!"])->withInput();
+        }
     }
 
     /**
@@ -60,6 +89,7 @@ class CommentController extends Controller
      */
     public function destroy(Comment $comment)
     {
-        //
+        $comment->delete();
+        return redirect(route('comments.index'));
     }
 }

@@ -1,6 +1,6 @@
 @extends('layouts.admin.base')
 
-@section('title','Editar avaliação')
+@section('title','editar comentário')
 
 @section('content')
     <div class="container">
@@ -29,40 +29,19 @@
                         @endif
 
 
-                        <form action="{{ route('reviews.update', $review->id) }}" method="POST">
+                        <form action="{{ route('comments.update', $comment->id) }}" method="POST">
                             @csrf
                             @method('PUT')
                             <div class="mb-3">
-                                <label for="id_book" class="form-label required">Id Livro</label>
-                                <input type="text" id="id_book" name="id_book" class="form-control @error('id_book') is-invalid @enderror" value="{{old('id_book', $review->id_book)}}" >
-                                @error('id_book')
-                                <div class="invalid-feedback" >{{$message}}</div>
-                                @enderror
-                            </div>
-                            <div class="mb-3">
-                                <label for="id_user" class="form-label required">Id User</label>
-                                <input type="text" id="id_user" name="id_user" class="form-control @error('id_user') is-invalid @enderror" value="{{old('id_user', $review->id_user)}}" >
-                                @error('id_user')
-                                <div class="invalid-feedback" >{{$message}}</div>
-                                @enderror
-                            </div>
-                            <div class="mb-3">
-                                <label for="comment" class="form-label required">Comentário</label>
-                                <input type="text" id="comment" name="comment" class="form-control @error('comment') is-invalid @enderror" value="{{old('comment', $review->comment)}}" >
-                                @error('comment')
-                                <div class="invalid-feedback" >{{$message}}</div>
-                                @enderror
-                            </div>
-                            <div class="mb-3">
-                                <label for="rating" class="form-label required">Nota</label>
-                                <input type="text" id="rating" name="rating" class="form-control @error('rating') is-invalid @enderror" value="{{old('rating', $review->rating)}}" >
-                                @error('rating')
+                                <label for="content" class="form-label required">Comentário</label>
+                                <input type="text" id="content" name="content" class="form-control @error('content') is-invalid @enderror" value="{{old('content', $comment->content)}}" >
+                                @error('content')
                                 <div class="invalid-feedback" >{{$message}}</div>
                                 @enderror
                             </div>
                             <div class="text-end">
                                 <button type="submit" class="btn btn-primary">Editar</button>
-                                <a href="{{ route('reviews.index') }}" class="btn btn-secondary">Cancelar</a>
+                                <a href="{{ route('comments.index') }}" class="btn btn-secondary">Cancelar</a>
                             </div>
                         </form>
                     </div>

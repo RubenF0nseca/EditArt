@@ -1,6 +1,6 @@
 @extends('layouts.admin.base')
 
-@section('title','Detalhes da avaliação')
+@section('title','Detalhes do comentário')
 
 @section('content')
     <div class="container">
@@ -15,34 +15,22 @@
                                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                             </div>
                         @endif
-                        <h3>[#{{ $review->id }}] </h3>
+                        <h3>[#{{ $comment->id }}] </h3>
                         <div class="row">
                             <div class="col-md-6">
                                 <table class="table">
                                     <tbody>
                                     <tr>
-                                        <th scope="row">ID Livro</th>
-                                        <td>{{ $review->id_book }}</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">ID Utilizador</th>
-                                        <td>{{ $review->id_user }}</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Comentários</th>
-                                        <td>{{ $review->comment }}</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Avaliação</th>
-                                        <td>{{ $review->rating }}</td>
+                                        <th scope="row">Comentário</th>
+                                        <td>{{ $comment->content }}</td>
                                     </tr>
                                     <tr>
                                         <th scope="row">Avaliação criada em:</th>
-                                        <td>{{ $review->created_at }}</td>
+                                        <td>{{ $comment->created_at }}</td>
                                     </tr>
                                     <tr>
                                         <th scope="row">Avaliação atualizada em:</th>
-                                        <td>{{ $review->updated_at }}</td>
+                                        <td>{{ $comment->updated_at }}</td>
                                     </tr>
                                     </tbody>
                                 </table>
@@ -50,8 +38,8 @@
                         </div>
                     </div>
                 </div>
-                <a href="{{ route('reviews.index') }}" class="btn btn-secondary mt-3">Lista de todas as avaliações</a>
-                <a href="{{ route('reviews.edit', $review->id) }}" class="btn btn-warning mt-3"><i class="fa fa-pencil" aria-hidden="true"></i>&nbsp Editar</a>
+                <a href="{{ route('comments.index') }}" class="btn btn-secondary mt-3">Lista de todos os comentários</a>
+                <a href="{{ route('comments.edit', $comment->id) }}" class="btn btn-warning mt-3"><i class="fa fa-pencil" aria-hidden="true"></i>&nbsp Editar</a>
             </div>
         </div>
     </div>

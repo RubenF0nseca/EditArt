@@ -1,10 +1,10 @@
 @extends('layouts.admin.base')
 
-@section('title','Lista de avaliações')
+@section('title','Lista de comentários')
 
 @section('button')
-    <a href="{{ route('reviews.create') }}" class="btn btn-primary rounded-pill">
-        <i class="fa-solid fa-user-plus"></i>&nbsp Nova Avaliação</a>
+    <a href="{{ route('comments.create') }}" class="btn btn-primary rounded-pill">
+        <i class="fa-solid fa-user-plus"></i>&nbsp Novo Comentário</a>
 @endsection
 
 @section('content')
@@ -17,27 +17,21 @@
                             <thead>
                             <tr>
                                 <th class="">ID</th>
-                                <th class="d-none d-md-table-cell">ID livro</th>
-                                <th class="d-none d-md-table-cell">ID user</th>
-                                <th class="d-none d-md-table-cell">Nota</th>
-                                <th class="d-none d-md-table-cell">Data</th>
+                                <th class="d-none d-md-table-cell">Comentário</th>
                                 <th class="w-auto text-end">Ações</th>
                             </tr>
                             </thead>
                             <tbody>
                             <!-- Aqui, o loop deve ser substituído por uma lista de elementos gerada dinamicamente -->
-                            @foreach($reviews as $review)
+                            @foreach($comments as $comment)
                                 <tr>
-                                    <td>{{ $review->id }}</td>
-                                    <td>{{ $review->id_book }}</td>
-                                    <td>{{ $review->id_user }}</td>
-                                    <td class="d-none d-md-table-cell">{{ $review->rating }}</td>
-                                    <td class="d-none d-md-table-cell">{{ $review->review_date }}</td>
+                                    <td>{{ $comment->id }}</td>
+                                    <td>{{ $comment->content }}</td>
                                     <td class="text-end">
 
-                                        <a href="{{ route('reviews.show', $review->id) }}" class="btn btn-info "><i class="ti ti-eye"></i></a>
-                                        <a href="{{ route('reviews.edit', $review->id) }}" class="btn btn-warning"><i class="fa fa-pencil" aria-hidden="true"></i></a>
-                                        <form action="{{ route('reviews.destroy', $review->id) }}" method="POST" style="display: inline" >
+                                        <a href="{{ route('comments.show', $comment->id) }}" class="btn btn-info "><i class="ti ti-eye"></i></a>
+                                        <a href="{{ route('comments.edit', $comment->id) }}" class="btn btn-warning"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                                        <form action="{{ route('comments.destroy', $comment->id) }}" method="POST" style="display: inline" >
                                             @method('DELETE')
                                             @csrf
                                             <button type="submit" class="btn btn-danger"><i class="ti ti-trash"></i></button>
