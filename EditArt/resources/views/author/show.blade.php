@@ -47,7 +47,7 @@
                                 @if($author->profilePicture)
                                     <img src="{{ asset('storage/'.$author->profilePicture) }}" class="product-thumb rounded shadow-lg border-0 rounded-lg" alt="{{ $author->name }}" style="width: 280px; height: 400px;">
                                 @else
-                                    <img src="{{ asset('imgs/img_nao_disponivel.png') }}" class="product-thumb rounded" alt="Imagem não disponível" style="width: 280px; height: 400px;">
+                                    <img src="{{ asset('imgs/img_nao_disponivel.png') }}" class="product-thumb rounded shadow-lg border-0 rounded-lg" alt="Imagem não disponível" style="width: 280px; height: 400px;">
                                 @endif
                             </div>
                         </div>
