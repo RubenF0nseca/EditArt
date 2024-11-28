@@ -15,9 +15,9 @@
                                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                             </div>
                         @endif
-                        <h3>[#{{ $comment->id }}] </h3>
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-12">
+                                <h3>[#{{ $comment->id }}] </h3>
                                 <table class="table">
                                     <tbody>
                                     <tr>
@@ -38,8 +38,8 @@
                         </div>
                     </div>
                 </div>
-                <a href="{{ route('comments.index') }}" class="btn btn-secondary mt-3">Lista de todos os comentários</a>
-                <a href="{{ route('comments.edit', $comment->id) }}" class="btn btn-warning mt-3"><i class="fa fa-pencil" aria-hidden="true"></i>&nbsp Editar</a>
+                <a href="{{ route('comments.index') }}" class="btn btn-secondary mt-3 shadow-lg border-0 rounded-lg">Lista de todos os comentários</a>
+                <a href="{{ route('comments.edit', $comment->id) }}" class="btn btn-warning mt-3 shadow-lg border-0 rounded-lg"><i class="fa fa-pencil" aria-hidden="true"></i>&nbsp Editar</a>
             </div>
         </div>
     </div>

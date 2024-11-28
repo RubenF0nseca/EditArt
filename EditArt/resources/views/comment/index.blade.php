@@ -1,17 +1,17 @@
 @extends('layouts.admin.base')
 
-@section('title','Lista de comentários')
+@section('title','Lista de Comentários')
 
 @section('button')
     <a href="{{ route('comments.create') }}" class="btn btn-primary rounded-pill">
-        <i class="fa-solid fa-user-plus"></i>&nbsp Novo Comentário</a>
+        <i class="fa-solid fa-plus"></i>&nbsp Novo Comentário</a>
 @endsection
 
 @section('content')
     <div class="container">
         <div class="row">
             <div class="col">
-                <div class="card mt-4">
+                <div class="card shadow-lg border-0 rounded-lg mt-4">
                     <div class="table-responsive">
                         <table class="table table-striped table-hover">
                             <thead>
@@ -26,7 +26,7 @@
                             @foreach($comments as $comment)
                                 <tr>
                                     <td>{{ $comment->id }}</td>
-                                    <td>{{ $comment->content }}</td>
+                                    <td class="d-none d-md-table-cell">{{ Str::limit($comment->content, 120, '...') }}</td>
                                     <td class="text-end">
 
                                         <a href="{{ route('comments.show', $comment->id) }}" class="btn btn-info "><i class="ti ti-eye"></i></a>
@@ -41,6 +41,9 @@
                             @endforeach
                             </tbody>
                         </table>
+                    </div>
+                    <div class="card-footer">
+                        {{ $comments->links('layouts.admin.parts.pagination') }}
                     </div>
                 </div>
             </div>
