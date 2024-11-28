@@ -143,3 +143,10 @@ h1, h5{
         width: 100%;
     }
 }
+
+/* Guest/authors */
+#title_authors{
+    color: #24344f;
+    font-size: 4rem;
+}
+

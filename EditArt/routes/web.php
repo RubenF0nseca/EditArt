@@ -17,6 +17,14 @@ Route::get('/admin/dashboard', function () {
     return view('admin.dashboard');
 })->name('admin.dashboard');
 
+Route::get('/guest/authors', function () {
+    return view('guest.authors');
+})->name('guest.authors');
+
+Route::get('/guest/books', function () {
+    return view('guest.books');
+})->name('guest.books');
+
 Route::resource('users', UserController::class);
 
 Route::resource('books', BookController::class);
