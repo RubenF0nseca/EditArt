@@ -22,17 +22,14 @@
                             </thead>
                             <tbody>
                             <!-- Aqui, o loop deve ser substituído por uma lista de elementos gerada dinamicamente -->
-                            @foreach($genres as $genre)
+                            @foreach($genre as $gen)
                                 <tr>
-                                    <td>{{ $genre->id }}</td>
-                                    <td>{{ $genre->name }}</td>
+                                    <td>{{ $gen->id }}</td>
+                                    <td>{{ $gen->name }}</td>
                                     <td class="text-end">
-
-                                        <a href="{{ route('genres.show', $genre->id) }}" class="btn btn-info "><i
-                                                class="ti ti-eye"></i></a>
-                                        <a href="{{ route('genres.edit', $genre->id) }}" class="btn btn-warning"><i
+                                        <a href="{{ route('genres.edit', $gen->id) }}" class="btn btn-warning"><i
                                                 class="fa fa-pencil" aria-hidden="true"></i></a>
-                                        <form action="{{ route('genres.destroy', $genre->id) }}" method="POST"
+                                        <form action="{{ route('genres.destroy', $gen->id) }}" method="POST"
                                               style="display: inline">
                                             @method('DELETE')
                                             @csrf
@@ -46,7 +43,7 @@
                         </table>
                     </div>
                     <div class="card-footer">
-                        {{$genres->links('layouts.admin.parts.pagination') }}
+                        {{$genre->links('layouts.admin.parts.pagination') }}
                     </div>
                 </div>
             </div>

@@ -27,6 +27,4 @@ Route::resource('reviews', ReviewController::class);
 
 Route::resource('posts', PostController::class);
 
-Route::resource('genres', GenreController::class)->except('show');
-
 Route::resource('comments', CommentController::class);
