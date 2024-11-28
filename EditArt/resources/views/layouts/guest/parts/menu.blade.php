@@ -1,6 +1,6 @@
 {{--Navegação--}}
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top" >
-    <div class="container"><a class="navbar-brand" href="#"><img src={{asset('imgs/logo-editart.png')}} alt="EditArt" width="50" /></a>
+    <div class="container"><a class="navbar-brand" href="{{ route('home') }}"><img src={{asset('imgs/logo-editart.png')}} alt="EditArt" width="50" /></a>
         <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar-menu" aria-controls="sidebar-menu" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
         <div class="collapse navbar-collapse" id="sidebar-menu">
             <ul class="navbar-nav mx-auto border-bottom border-lg-bottom-0 pt-2 pt-lg-0">
