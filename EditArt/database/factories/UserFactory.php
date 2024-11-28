@@ -31,7 +31,7 @@ class UserFactory extends Factory
             'remember_token' => Str::random(10),
             'address' => fake()->address(),
             'nif' => fake()->randomNumber(9),
-            'phone_number' => fake()->phoneNumber,
+            'phone_number' => fake()->randomNumber(9),
 
 
             'birthdate' => fake()->dateTimeBetween('-30 year', '-10 year'),

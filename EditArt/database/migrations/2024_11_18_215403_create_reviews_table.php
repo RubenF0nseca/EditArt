@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('id_book');
             $table->unsignedBigInteger('id_user');
-            $table->text('comment')->nullable();
-            $table->integer('rating');
+            $table->string('comment', 1000)->nullable();
+            $table->tinyInteger('rating')->unsigned();
             $table->date('review_date');
             $table->timestamps();
         });

@@ -21,7 +21,7 @@ class BookFactory extends Factory
             'type' => fake()->randomElement(['book', 'ebook']),
             'publicationDate' => fake()->dateTimeBetween('-2 years'),
             'editionNumber' => fake()->randomNumber('1'),
-            'isbn' => fake()->isbn13(),
+            'isbn' => fake()->unique()->isbn13(),
             'numberOfPages' => fake()->randomNumber(2),
             'stock' => fake()->randomNumber(2),
             'language' => fake()->languageCode(),
