@@ -96,8 +96,14 @@
                                 @enderror
                             </div>
                             <div class="mb-3">
-                                <label for="CoverPicture" class="form-label">Imagem da capa</label>
-                                <input type="file" id="CoverPicture" name="CoverPicture" class="form-control">
+                                <label for="CoverPicture" class="form-label required">Imagem da Capa</label>
+                                <input type="file"
+                                       id="CoverPicture"
+                                       name="CoverPicture"
+                                       class="form-control @error('CoverPicture') is-invalid @enderror">
+                                @error('CoverPicture')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
                             </div>
                             <div class="text-end">
                                 <button type="submit" class="btn btn-primary">Salvar</button>
