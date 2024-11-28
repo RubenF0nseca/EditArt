@@ -1,6 +1,6 @@
 @extends('layouts.admin.base')
 
-@section('title','Criar uma nova avaliação')
+@section('title','Criar um novo comentário')
 
 @section('content')
     <div class="container">
@@ -29,39 +29,18 @@
                         @endif
 
 
-                        <form action="{{ route('reviews.store') }}" method="POST">
+                        <form action="{{ route('comments.store') }}" method="POST">
                             @csrf
                             <div class="mb-3">
-                                <label for="id_book" class="form-label required">Id Livro</label>
-                                <input type="text" id="id_book" name="id_book" class="form-control @error('id_book') is-invalid @enderror" value="{{old('id_book')}}" >
-                                @error('id_book')
-                                <div class="invalid-feedback" >{{$message}}</div>
-                                @enderror
-                            </div>
-                            <div class="mb-3">
-                                <label for="id_user" class="form-label required">Id User</label>
-                                <input type="text" id="id_user" name="id_user" class="form-control @error('id_user') is-invalid @enderror" value="{{old('id_user')}}" >
-                                @error('id_user')
-                                <div class="invalid-feedback" >{{$message}}</div>
-                                @enderror
-                            </div>
-                            <div class="mb-3">
-                                <label for="comment" class="form-label required">Comentário</label>
-                                <input type="text" id="comment" name="comment" class="form-control @error('comment') is-invalid @enderror" value="{{old('comment')}}" >
-                                @error('comment')
-                                <div class="invalid-feedback" >{{$message}}</div>
-                                @enderror
-                            </div>
-                            <div class="mb-3">
-                                <label for="rating" class="form-label required">Nota</label>
-                                <input type="text" id="rating" name="rating" class="form-control @error('rating') is-invalid @enderror" value="{{old('rating')}}" >
-                                @error('rating')
+                                <label for="content" class="form-label required">Comentário</label>
+                                <input type="text" id="content" name="content" class="form-control @error('content') is-invalid @enderror" value="{{old('content')}}" >
+                                @error('content')
                                 <div class="invalid-feedback" >{{$message}}</div>
                                 @enderror
                             </div>
                             <div class="text-end">
                                 <button type="submit" class="btn btn-primary">Criar</button>
-                                <a href="{{ route('reviews.index') }}" class="btn btn-secondary">Cancelar</a>
+                                <a href="{{ route('comments.index') }}" class="btn btn-secondary">Cancelar</a>
                             </div>
                         </form>
                     </div>
