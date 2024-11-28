@@ -41,7 +41,7 @@ class ReviewController extends Controller
      */
     public function index()
     {
-        return view('reviews.index', ['reviews' => Review::all()]);
+        return view('reviews.index', ['reviews' => Review::paginate(11)]);
     }
 
     /**

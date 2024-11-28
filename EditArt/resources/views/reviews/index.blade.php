@@ -1,6 +1,6 @@
 @extends('layouts.admin.base')
 
-@section('title','Lista de avaliações')
+@section('title','Lista de Avaliações')
 
 @section('button')
     <a href="{{ route('reviews.create') }}" class="btn btn-primary rounded-pill">
@@ -11,7 +11,7 @@
     <div class="container">
         <div class="row">
             <div class="col">
-                <div class="card mt-4">
+                <div class="card shadow-lg border-0 rounded-lg mt-4">
                     <div class="table-responsive">
                         <table class="table table-striped table-hover">
                             <thead>
@@ -47,6 +47,9 @@
                             @endforeach
                             </tbody>
                         </table>
+                    </div>
+                    <div class="card-footer">
+                        {{ $reviews->links('layouts.admin.parts.pagination') }}
                     </div>
                 </div>
             </div>

@@ -1,12 +1,12 @@
 @extends('layouts.admin.base')
 
-@section('title','Detalhes da avaliação')
+@section('title','Detalhes da Avaliação')
 
 @section('content')
     <div class="container">
         <div class="row">
             <div class="col">
-                <div class="card">
+                <div class="card shadow-lg border-0 rounded-lg">
                     <div class="card-body">
                         <!-- Alerta para mensagem de sucesso -->
                         @if(session('success'))
@@ -15,9 +15,9 @@
                                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                             </div>
                         @endif
-                        <h3>[#{{ $review->id }}] </h3>
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-12">
+                                <h3>[#{{ $review->id }}] </h3>
                                 <table class="table">
                                     <tbody>
                                     <tr>
@@ -50,8 +50,8 @@
                         </div>
                     </div>
                 </div>
-                <a href="{{ route('reviews.index') }}" class="btn btn-secondary mt-3">Lista de todas as avaliações</a>
-                <a href="{{ route('reviews.edit', $review->id) }}" class="btn btn-warning mt-3"><i class="fa fa-pencil" aria-hidden="true"></i>&nbsp Editar</a>
+                <a href="{{ route('reviews.index') }}" class="btn btn-secondary mt-3 shadow-lg border-0 rounded-lg">Lista de todas as avaliações</a>
+                <a href="{{ route('reviews.edit', $review->id) }}" class="btn btn-warning mt-3 shadow-lg border-0 rounded-lg"><i class="fa fa-pencil" aria-hidden="true"></i>&nbsp Editar</a>
             </div>
         </div>
     </div>
