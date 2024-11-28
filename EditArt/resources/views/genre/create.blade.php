@@ -1,6 +1,6 @@
 @extends('layouts.admin.base')
 
-@section('title','Criar um novo Género Literário')
+@section('title','Criar um novo género literário')
 
 @section('content')
     <div class="container">
@@ -29,10 +29,10 @@
                         @endif
 
 
-                        <form action="{{ route('genres.store') }}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('genres.store') }}" method="POST">
                             @csrf
                             <div class="mb-3">
-                                <label for="name" class="form-label required">Nome</label>
+                                <label for="content" class="form-label required">Nome do Género Literário</label>
                                 <input type="text" id="name" name="name" class="form-control @error('name') is-invalid @enderror" value="{{old('name')}}" >
                                 @error('name')
                                 <div class="invalid-feedback" >{{$message}}</div>
