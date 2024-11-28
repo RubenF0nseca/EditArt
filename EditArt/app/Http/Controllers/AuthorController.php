@@ -15,7 +15,7 @@ class AuthorController extends Controller
             'name' => 'required|string|max:255',
             'biography' => 'required|string|max:1000',
             'birthdate' => 'required|date|before:today',
-            'profilePicture' => 'nullable|image|max:2048',
+            'profilePicture' => 'nullable|mimes:jpg,png|max:2048',
         ];
     }
 
@@ -32,7 +32,7 @@ class AuthorController extends Controller
         'birthdate.date' => 'A data de nascimento deve ser uma data válida.',
         'birthdate.before' => 'A data de nascimento deve ser anterior a hoje.',
 
-        'profilePicture.image' => 'A foto do autor deve ser uma imagem.',
+        'profilePicture.mimes' => 'A imagem deve estar no formato JPG ou PNG.',
         'profilePicture.max' => 'A foto do autor não pode exceder 2 MB.',
     ];
 

@@ -21,7 +21,7 @@ class BookController extends Controller
             'stock' => 'required|integer|min:0',
             'language' => 'required|string|max:255',
             'price' => 'required|numeric|min:0',
-            'CoverPicture' => 'nullable|image|max:2048'
+            'CoverPicture' => 'nullable|mimes:jpg,png|max:2048'
         ];
     }
 
@@ -61,6 +61,9 @@ class BookController extends Controller
         'price.required' => 'O preço é obrigatório.',
         'price.numeric' => 'O preço deve ser um número.',
         'price.min' => 'O preço deve ser pelo menos 0.',
+
+        'CoverPicture.mimes' => 'A imagem deve estar no formato JPG ou PNG.',
+        'CoverPicture.max' => 'A foto do livro não pode exceder 2 MB.',
     ];
 
     public function index()
