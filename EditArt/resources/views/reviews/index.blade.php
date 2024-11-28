@@ -4,7 +4,7 @@
 
 @section('button')
     <a href="{{ route('reviews.create') }}" class="btn btn-primary rounded-pill">
-        <i class="fa-solid fa-user-plus"></i>&nbsp Nova Avaliação</a>
+        <i class="fa-solid fa-plus"></i>&nbsp Nova Avaliação</a>
 @endsection
 
 @section('content')

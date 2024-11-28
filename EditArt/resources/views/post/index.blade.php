@@ -4,7 +4,7 @@
 
 @section('button')
     <a href="{{ route('posts.create') }}" class="btn btn-primary rounded-pill">
-        <i class="fa-solid fa-user-plus"></i>&nbsp Novo Topico</a>
+        <i class="fa-solid fa-plus"></i>&nbsp Novo Topico</a>
 @endsection
 
 @section('content')
