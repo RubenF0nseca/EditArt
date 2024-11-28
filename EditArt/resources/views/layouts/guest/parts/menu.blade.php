@@ -10,7 +10,7 @@
             </ul>
             <form class="d-flex py-3 py-lg-0">
                 <button class="btn btn-link text-1000 fw-medium order-1 order-lg-0" type="button">Registar</button>
-                <a href="http://localhost:8000/admin/dashboard" class="btn btn-enter rounded-pill order-0" type="submit">Entrar</a>
+                <a href="{{ route('admin.dashboard') }}" class="btn btn-enter rounded-pill order-0" type="submit">Entrar</a>
             </form>
         </div>
     </div>
