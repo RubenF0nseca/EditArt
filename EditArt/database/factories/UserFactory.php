@@ -35,7 +35,7 @@ class UserFactory extends Factory
 
 
             'birthdate' => fake()->dateTimeBetween('-30 year', '-10 year'),
-            'role'=> fake()->randomNumber(1)
+            'role' => fake()->numberBetween(1, 5),
         ];
     }
 
