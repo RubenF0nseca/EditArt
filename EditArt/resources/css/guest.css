@@ -153,6 +153,22 @@ h1, h5{
         width: 100%;
     }
 }
+/* Paginação */
+.page-item.active .page-link{
+    color: #fff;
+    background-color: #C5A992;
+    border-color: #C5A992;
+}
+.page-link{
+    color: #C5A992;
+}
+.page-item:hover{
+    color: #f1caaa !important;
+    border-color: #C5A992;
+}
+.page-item:disabled{
+    color: #434343;
+}
 
 /* Guest/authors */
 #title_authors{
