@@ -34,6 +34,10 @@ Route::get('/guest/books', function () {
     return view('guest.books', ['books' => \App\Models\Book::paginate(12)]);
 })->name('guest.books');
 
+Route::get('/registration', function () {
+    return view('registration.show');
+})->name('registration');
+
 Route::resource('users', UserController::class);
 
 Route::resource('books', BookController::class);

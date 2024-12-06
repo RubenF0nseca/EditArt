@@ -9,7 +9,7 @@
                 <li class="nav-item"><a class="nav-link" href="{{ route('guest.authors') }}">Autores </a></li>
             </ul>
             <form class="d-flex py-3 py-lg-0">
-                <button class="btn btn-link text-1000 fw-medium order-1 order-lg-0" type="button">Registar</button>
+                <a href="{{ route('registration') }}" class="btn btn-link text-1000 fw-medium order-1 order-lg-0" type="submit">Registar</a>
                 <a href="{{ route('login') }}" class="btn btn-enter rounded-pill order-0" type="submit">Entrar</a>
             </form>
         </div>

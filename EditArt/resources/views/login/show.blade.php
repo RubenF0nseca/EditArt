@@ -44,7 +44,7 @@
                             </form>
                         </div>
                         <div class="card-footer text-center py-3">
-                            <div class="small"><a href="#">Não tem conta? Registe-se!</a></div>    {{--TODO link to registration --}}
+                            <div class="small"><a href="{{route('registration')}}">Não tem conta? Registe-se!</a></div>
                         </div>
                     </div>
                 </div>
