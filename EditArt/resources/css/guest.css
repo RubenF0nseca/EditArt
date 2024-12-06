@@ -46,6 +46,14 @@ body{
     left: 50%;
     transform: translate(-50%, -50%);
 }
+.text-container2 {
+    text-align: center;
+    position: absolute;
+    top: 40%;
+    left: 11%;
+    font-size: 2rem;
+}
+
 h1, h5{
     color: white;
 }
@@ -57,6 +65,36 @@ h1, h5{
     color: white;
     border-color: #C5A992;
     background-color: #C5A992;
+}
+
+/* Login & Registration */
+.card {
+    width: 80%;
+    opacity: 90%;
+    background-color: rgb(29, 29, 28);
+    color: #C5A992;
+    a {
+        color: #C5A992;
+        text-decoration: none;
+    }
+    .form-control{
+        background-color: rgba(29, 29, 28, 0.82);
+        border: 1px solid #C5A992;
+        color: #C5A992;
+    }
+    h3{
+        color: #C5A992;
+    }
+}
+.btn-primary, .btn-primary:active {
+    color: #fff;
+    background-color: #C5A992;
+    border-color: #C5A992;
+}
+.btn-primary:hover{
+    color: #fff;
+    background-color: #f1caaa;
+    border-color: #C5A992;
 }
 
 /* Produtos */

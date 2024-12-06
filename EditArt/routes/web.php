@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\CommentController;
@@ -13,6 +14,14 @@ Route::get('/', function () {
     return view('homepage', ['books' => \App\Models\Book::all()]);
 })->name('home');
 
+//login
+Route::get('/login', [LoginController::class, 'showLogin'])->name('login');
+Route::post('/login', [LoginController::class, 'login'])->name('login');
+//logout
+Route::post('/logout', [LoginController::class, 'logout'])
+    ->name('logout')
+    ->middleware('auth');
+
 Route::get('/admin/dashboard', function () {
     return view('admin.dashboard');
 })->name('admin.dashboard');
@@ -22,7 +31,7 @@ Route::get('/guest/authors', function () {
 })->name('guest.authors');
 
 Route::get('/guest/books', function () {
-    return view('guest.books');
+    return view('guest.books', ['books' => \App\Models\Book::paginate(12)]);
 })->name('guest.books');
 
 Route::resource('users', UserController::class);
