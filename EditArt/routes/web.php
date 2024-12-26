@@ -34,6 +34,26 @@ Route::get('/guest/books', function () {
     return view('guest.books', ['books' => \App\Models\Book::paginate(12)]);
 })->name('guest.books');
 
+Route::get('/client/book', function () {
+    return view('client.book');
+})->name('client.book');
+
+Route::get('/client/profile', function () {
+    return view('client.profile');
+})->name('client.profile');
+
+Route::get('/client/wishlist', function () {
+    return view('client.wishlist');
+})->name('client.wishlist');
+
+Route::get('/client/cart', function () {
+    return view('client.cart');
+})->name('client.cart');
+
+Route::get('/client/forum', function () {
+    return view('client.forum');
+})->name('client.forum');
+
 Route::get('/registration', function () {
     return view('registration.show');
 })->name('registration');
