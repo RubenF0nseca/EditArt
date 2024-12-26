@@ -217,17 +217,27 @@ blockquote {
 /*----------------------------------------------------------
 	   Paginação
 ------------------------------------------------------------*/
-.pagination{
-    --tblr-pagination-color: #C5A992;
-    --tblr-pagination-border-color: #C5A992;
-    --tblr-pagination-hover-color: #f1caaa;
-    --tblr-pagination-hover-bg: #C5A992;
-    --tblr-pagination-hover-border-color: #C5A992;
-    --tblr-pagination-active-bg: #C5A992;
-    --tblr-pagination-active-border-color: #C5A992;
-    --tblr-pagination-disabled-border-color: #C5A992;
-    --tblr-pagination-focus-box-shadow: 0 0 0 0.25rem rgba(var(--tblr-pagination-color), 0.25);
-    --tblr-pagination-focus-color: #C5A992;
+.pagination a {
+    border: 1px solid #eaeaea;
+    display: inline-block;
+    text-transform: uppercase;
+    text-align: center;
+    color: #999;
+    padding: 4px 12px;
+    text-decoration: none;
+}
+.pagination a:hover {
+    border-color: #C5A992;
+    color: #C5A992;
+}
+.pagination a.active {
+    background-color: #C5A992;
+    color: white;
+}
+.pagination li.disabled a {
+    color: #ccc;
+    pointer-events: none;
+    cursor: default;
 }
 /*----------------------------------------------------------
 	   Tabs & Nav-tabs
