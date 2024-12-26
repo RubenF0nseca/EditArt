@@ -1,5 +1,5 @@
 // Fonts
-@import url('https://fonts.bunny.net/css?family=Nunito');
+@import url('https://fonts.bunny.net/css?family=roboto-condensed|raleway:900');
 
 // Variables
 @import 'variables';
@@ -9,8 +9,11 @@
 @import '@fortawesome/fontawesome-free/css/all.min.css';
 
 //Tema LeslesVPN
-@import '/resources/css/theme.min.css'; //Ficheiro css do tema
+//@import '/resources/css/theme.min.css'; //Ficheiro css do tema
 
 //CSS próprio
 @import '/resources/css/guest.css';
 @import '/resources/css/app.css';
+
+//Icons
+@import "/public/icons/et-line-font/et-line-font.css";

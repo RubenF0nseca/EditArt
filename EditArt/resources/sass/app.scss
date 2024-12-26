@@ -1,5 +1,5 @@
 // Fonts
-@import url('https://fonts.bunny.net/css?family=Nunito');
+@import url('https://fonts.bunny.net/css?family=roboto-condensed|raleway:900');
 
 //Bibliotecas
 @import "@tabler/core/dist/css/tabler.css";
@@ -8,3 +8,7 @@
 
 //CSS próprio
 @import "/resources/css/app.css";
+@import "/resources/css/admin.css";
+
+//Icons
+@import "/public/icons/et-line-font/et-line-font.css";
