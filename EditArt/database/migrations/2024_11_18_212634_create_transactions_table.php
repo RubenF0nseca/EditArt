@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('id_user');
-            $table->unsignedBigInteger('id_staff');
+            $table->foreignId('user_id')->constrained();
+            $table->foreignId('staff_id')->constrained('users', 'id');
             $table->float('price');
             $table->dateTime('transaction_date');
             $table->dateTime('delivery_date');

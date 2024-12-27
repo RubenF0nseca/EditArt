@@ -44,4 +44,20 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    /**
+     * Relacionamento 1:N para transações como cliente.
+     */
+    public function transactions()
+    {
+        return $this->hasMany(Transactions::class, 'user_id', 'id');
+    }
+
+    /**
+     * Relacionamento 1:N para transações como staff.
+     */
+    public function staffTransactions()
+    {
+        return $this->hasMany(Transactions::class, 'staff_id', 'id');
+    }
 }
