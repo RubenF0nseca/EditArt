@@ -3,7 +3,7 @@
 @section('title','Lista de Autores')
 
 @section('button')
-    <a href="{{ route('authors.create') }}" class="btn btn-primary rounded-pill shadow-sm">
+    <a href="{{ route('authors.create') }}" class="btn btn-lightnew rounded-pill shadow-sm">
         <i class="fa-solid fa-user-plus"></i>&nbsp Novo autor</a>
 @endsection
 
@@ -41,12 +41,12 @@
                                     <td class="d-none d-md-table-cell">{{ $author->birthdate }}</td>
                                     <td class="text-end">
 
-                                        <a href="{{ route('authors.show', $author->id) }}" class="btn btn-info "><i class="ti ti-eye"></i></a>
-                                        <a href="{{ route('authors.edit', $author->id) }}" class="btn btn-warning"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                                        <a href="{{ route('authors.show', $author->id) }}" class="btn btn-info"><i class="ti ti-eye"></i></a>
+                                        <a href="{{ route('authors.edit', $author->id) }}" class="btn btn-edit"><i class="fa fa-pencil" aria-hidden="true"></i></a>
                                         <form action="{{ route('authors.destroy', $author->id) }}" method="POST" style="display: inline" >
                                             @method('DELETE')
                                             @csrf
-                                            <button type="submit" class="btn btn-danger"><i class="ti ti-trash"></i></button>
+                                            <button type="submit" class="btn btn-delete"><i class="ti ti-trash"></i></button>
                                         </form>
                                     </td>
                                 </tr>

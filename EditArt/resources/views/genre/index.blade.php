@@ -3,7 +3,7 @@
 @section('title','Lista de Géneros Literários')
 
 @section('button')
-    <a href="{{ route('genres.create') }}" class="btn btn-primary rounded-pill">
+    <a href="{{ route('genres.create') }}" class="btn btn-lightnew rounded-pill">
         <i class="fa-solid fa-plus"></i>&nbsp Novo Género Literário</a>
 @endsection
 
@@ -47,13 +47,13 @@
                                     <td class="d-none d-md-table-cell">{{$genre->name}}</td>
                                     <td class="text-end">
 
-                                        <a href="{{ route('genres.edit', $genre->id) }}" class="btn btn-warning"><i
+                                        <a href="{{ route('genres.edit', $genre->id) }}" class="btn btn-edit"><i
                                                 class="fa fa-pencil" aria-hidden="true"></i></a>
                                         <form action="{{ route('genres.destroy', $genre->id) }}" method="POST"
                                               style="display: inline">
                                             @method('DELETE')
                                             @csrf
-                                            <button type="submit" class="btn btn-danger"><i class="ti ti-trash"></i>
+                                            <button type="submit" class="btn btn-delete"><i class="ti ti-trash"></i>
                                             </button>
                                         </form>
                                     </td>

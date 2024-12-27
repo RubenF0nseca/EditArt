@@ -3,7 +3,7 @@
 @section('title','Lista de Produtos')
 
 @section('button')
-    <a href="{{ route('books.create') }}" class="btn btn-primary rounded-pill shadow-sm">
+    <a href="{{ route('books.create') }}" class="btn btn-lightnew rounded-pill shadow-sm">
         <i class="fa-solid fa-file-circle-plus"></i>&nbsp Novo produto</a>
 @endsection
 
@@ -44,11 +44,11 @@
                                     <td class="text-end">
 
                                         <a href="{{ route('books.show', $book->id) }}" class="btn btn-info "><i class="ti ti-eye"></i></a>
-                                        <a href="{{ route('books.edit', $book->id) }}" class="btn btn-warning"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                                        <a href="{{ route('books.edit', $book->id) }}" class="btn btn-edit"><i class="fa fa-pencil" aria-hidden="true"></i></a>
                                         <form action="{{ route('books.destroy', $book->id) }}" method="POST" style="display: inline" >
                                             @method('DELETE')
                                             @csrf
-                                            <button type="submit" class="btn btn-danger"><i class="ti ti-trash"></i></button>
+                                            <button type="submit" class="btn btn-delete"><i class="ti ti-trash"></i></button>
                                         </form>
                                     </td>
                                 </tr>

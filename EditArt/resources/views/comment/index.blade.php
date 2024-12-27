@@ -3,7 +3,7 @@
 @section('title','Lista de Comentários')
 
 @section('button')
-    <a href="{{ route('comments.create') }}" class="btn btn-primary rounded-pill">
+    <a href="{{ route('comments.create') }}" class="btn btn-lightnew rounded-pill">
         <i class="fa-solid fa-plus"></i>&nbsp Novo Comentário</a>
 @endsection
 
@@ -30,11 +30,11 @@
                                     <td class="text-end">
 
                                         <a href="{{ route('comments.show', $comment->id) }}" class="btn btn-info "><i class="ti ti-eye"></i></a>
-                                        <a href="{{ route('comments.edit', $comment->id) }}" class="btn btn-warning"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                                        <a href="{{ route('comments.edit', $comment->id) }}" class="btn btn-edit"><i class="fa fa-pencil" aria-hidden="true"></i></a>
                                         <form action="{{ route('comments.destroy', $comment->id) }}" method="POST" style="display: inline" >
                                             @method('DELETE')
                                             @csrf
-                                            <button type="submit" class="btn btn-danger"><i class="ti ti-trash"></i></button>
+                                            <button type="submit" class="btn btn-delete"><i class="ti ti-trash"></i></button>
                                         </form>
                                     </td>
                                 </tr>

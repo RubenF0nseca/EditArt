@@ -3,7 +3,7 @@
 @section('title','Lista de Utilizadores')
 
 @section('button')
-    <a href="{{ route('users.create') }}" class="btn btn-primary rounded-pill shadow-sm">
+    <a href="{{ route('users.create') }}" class="btn btn-lightnew rounded-pill shadow-sm">
         <i class="fa-solid fa-user-plus"></i>&nbsp Novo Utilizador</a>
 @endsection
 
@@ -34,11 +34,11 @@
                                     <td class="text-end">
 
                                         <a href="{{ route('users.show', $user->id) }}" class="btn btn-info "><i class="ti ti-eye"></i></a>
-                                        <a href="{{ route('users.edit', $user->id) }}" class="btn btn-warning"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                                        <a href="{{ route('users.edit', $user->id) }}" class="btn btn-edit"><i class="fa fa-pencil" aria-hidden="true"></i></a>
                                         <form action="{{ route('users.destroy', $user->id) }}" method="POST" style="display: inline" >
                                             @method('DELETE')
                                             @csrf
-                                            <button type="submit" class="btn btn-danger"><i class="ti ti-trash"></i></button>
+                                            <button type="submit" class="btn btn-delete"><i class="ti ti-trash"></i></button>
                                         </form>
                                     </td>
                                 </tr>
