@@ -3,14 +3,14 @@
 @section('content')
     <div class="page-wrapper wrapper d-flex flex-column min-vh-100">
         <section class="banner">
-            <div class="row">
+            <div class="row mt-5">
                 <div class="col-md-6 ">
                     <div class="text-container2">
                         <h1>“Think before you speak.<br>Read before you think.”</h1>
                         <h5>― Fran Lebowitz</h5>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-5">
+                <div class="col-md-6 col-lg-5 mt-5">
                     <div class="card shadow-lg border-0 rounded-lg mb-5">
                         <div class="card-header"><h3 class="text-center font-weight-light my-4">Criar Conta</h3></div>
                         <div class="card-body">
