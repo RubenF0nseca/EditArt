@@ -125,7 +125,7 @@
                     <div class="col-md-6">
                         <!-- Page pre-title -->
                         <div class="page-pretitle">Admin</div>
-                        <h2 class="page-title">@yield('title')</h2>
+                        <h2 class="page-title font-alt">@yield('title')</h2>
                     </div>
                     <!-- Page title actions -->
                     <div class="col-md-6 ms-auto text-end">
@@ -143,14 +143,15 @@
         </div>
         {{--Footer--}}
         <footer class="footer footer-transparent d-print-none">
-            <div class="container-xl"></div>
+            <div class="container-xl"><hr></div>
             <div class="row text-center align-items-center flex-row-reverse">
-                <div class="col">
-                    <p>2024 © EditArt</p>
+                <div class="col font-alt">
+                    <p>2025 © EditArt, All Rights Reserved</p>
                     <p class="text-center">
                         <a href="https://github.com/RubenF0nseca/EditArt" class="git link-body-emphasis text-decoration-none">
                             <i class="fa-brands fa-github"></i>
                         </a>
+                    </p>
                 </div>
             </div>
         </footer>
