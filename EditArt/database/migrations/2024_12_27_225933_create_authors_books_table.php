@@ -11,14 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('reviews', function (Blueprint $table) {
-            $table->id();
+        Schema::create('authors_books', function (Blueprint $table) {
+            $table->foreignId('author_id')->constrained();
             $table->foreignId('book_id')->constrained();
-            $table->foreignId('user_id')->constrained();
-            $table->string('comment', 1000)->nullable();
-            $table->tinyInteger('rating')->unsigned();
-            $table->date('review_date');
-            $table->timestamps();
+            $table->primary(['author_id', 'book_id']);
         });
     }
 
@@ -27,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('reviews');
+        Schema::dropIfExists('authors_books');
     }
 };

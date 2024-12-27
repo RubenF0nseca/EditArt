@@ -13,4 +13,12 @@ class Genre extends Model
     protected $fillable = [
         'name'
     ];
+
+    /**
+     * Relação muitos-para-muitos com o modelo Book.
+     */
+    public function books()
+    {
+        return $this->belongsToMany(Book::class, 'books_genres', 'genre_id', 'book_id');
+    }
 }

@@ -60,4 +60,29 @@ class User extends Authenticatable
     {
         return $this->hasMany(Transactions::class, 'staff_id', 'id');
     }
+
+    /**
+     * Relacionamento 1:N para reviews.
+     */
+    public function reviews()
+    {
+        return $this->hasMany(Review::class, 'user_id', 'id');
+    }
+
+
+    /**
+     * Relacionamento 1:N (um user pode criar varios posts).
+     */
+    public function posts()
+    {
+        return $this->hasMany(Post::class, 'user_id', 'id');
+    }
+
+    /**
+     * Relacionamento 1:N (um user pode fazer muitos comentários).
+     */
+    public function comments()
+    {
+        return $this->hasMany(Comment::class, 'user_id', 'id');
+    }
 }

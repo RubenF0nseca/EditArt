@@ -14,4 +14,20 @@ class Comment extends Model
         'content',
 
     ];
+
+    /**
+     * Relacionamento N:1 (um comentário pertence a um user).
+     */
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id', 'id');
+    }
+
+    /**
+     * Relacionamento N:1 (um comentário pertence a um post).
+     */
+    public function post()
+    {
+        return $this->belongsTo(Post::class, 'post_id', 'id');
+    }
 }

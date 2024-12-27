@@ -17,4 +17,20 @@ class Review extends Model
         'comment',
         'review_date'
     ];
+
+    /**
+     * Relacionamento com o user que realizou a review.
+     */
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id', 'id');
+    }
+
+    /**
+     * Relacionamento com o book que foi realizado review.
+     */
+    public function book()
+    {
+        return $this->belongsTo(Book::class, 'book_id', 'id');
+    }
 }

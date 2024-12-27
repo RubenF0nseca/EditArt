@@ -14,4 +14,20 @@ class Post extends Model
         'title', 'content'
 
     ];
+
+    /**
+     * Relacionamento N:1 (um post pertence a um user).
+     */
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id', 'id');
+    }
+
+    /**
+     * Relacionamento 1:N (um post pode ter muitos comentários).
+     */
+    public function comments()
+    {
+        return $this->hasMany(Comment::class, 'post_id', 'id');
+    }
 }
