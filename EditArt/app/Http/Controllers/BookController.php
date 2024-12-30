@@ -22,7 +22,9 @@ class BookController extends Controller
             'stock' => 'required|integer|min:0',
             'language' => 'required|string|max:255',
             'price' => 'required|numeric|min:0',
-            'CoverPicture' => 'nullable|mimes:jpg,png|max:2048'
+            'CoverPicture' => 'nullable|mimes:jpg,png|max:2048',
+            'authors' => 'required|array',
+            'authors.*' => 'exists:authors,id', // Garante que os IDs existem na tabela authors
         ];
     }
 
@@ -89,23 +91,29 @@ class BookController extends Controller
         $validated = $request->validate($this->getValidationRules(), $this->messages);
 
         try {
+            // Upload da imagem, se existir
             if ($request->hasFile('CoverPicture')) {
                 $photo = $request->file('CoverPicture');
-
-                $extension = pathinfo($photo->getClientOriginalName(), PATHINFO_EXTENSION);
-
+                $extension = $photo->getClientOriginalExtension();
                 $filename = preg_replace('/\s+/', '', strtolower($validated['title'])) . '_' . time() . '.' . $extension;
-
                 $url = $photo->storeAs('books', $filename, 'public');
                 $validated['CoverPicture'] = $url;
             }
 
+
+
+            $authors=$validated['authors'];
+            unset($validated['autores']);
+
+            // Criar o livro
             $book = new Book($validated);
             $book->save();
+            $book->authors()->attach($authors);
+
 
             return redirect(route('books.create'))->with('success', "Livro registado com sucesso! [#{$book->id}]");
         } catch (\Exception $e) {
-            return redirect()->back()->withErrors(['error' => "Erro ao criar o Livro!"])->withInput();
+            return redirect()->back()->withErrors(['error' => "Erro ao criar o Livro: {$e->getMessage()}"])->withInput();
         }
     }
 

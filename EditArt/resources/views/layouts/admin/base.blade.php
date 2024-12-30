@@ -159,7 +159,7 @@
     </div>
 </div>
 <!-- Libs JS -->
-@vite(['resources/js/app.js'])
+@vite(['resources/js/app.js','resources/js/admin.js'])
 @stack('scripts')
 </body>
 </html>

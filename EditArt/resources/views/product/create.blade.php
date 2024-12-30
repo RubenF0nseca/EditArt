@@ -55,7 +55,8 @@
                                             <div class="dropdown-item" data-value="{{ $author->id }}">{{ $author->name }}</div>
                                         @endforeach
                                     </div>
-                                    <input type="hidden" id="authors" name="authors" value="">
+                                    <!-- Campo oculto para envio dos IDs selecionados -->
+                                    <input type="hidden" id="authors" name="authors[]" value="">
                                 </div>
                                 @error('authors')
                                 <div class="invalid-feedback">{{$message}}</div>

@@ -38,8 +38,8 @@ document.addEventListener("DOMContentLoaded", function () {
             if (!selectedAuthors.includes(selectedValue)) {
                 selectedAuthors.push(selectedValue);
 
-                // Adiciona o autor ao campo oculto
-                hiddenInput.value = selectedAuthors.join(",");
+                // Atualiza o campo oculto com os valores separados por vírgulas
+                hiddenInput.value = selectedAuthors.join(',');
 
                 // Cria a tag do autor selecionado
                 const tag = document.createElement("div");
@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 removeBtn.addEventListener("click", function () {
                     // Remove o autor selecionado
                     selectedAuthors = selectedAuthors.filter((id) => id !== selectedValue);
-                    hiddenInput.value = selectedAuthors.join(",");
+                    hiddenInput.value = selectedAuthors.join(','); // Atualiza o campo oculto
                     tag.remove();
                 });
 

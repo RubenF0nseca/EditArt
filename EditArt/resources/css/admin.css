@@ -46,7 +46,7 @@
     border: 1px solid #ccc;
     background-color: white;
     z-index: 1000;
-    display: none; /* Escondido por padrão */
+    display: none;
 }
 
 .dropdown-item {

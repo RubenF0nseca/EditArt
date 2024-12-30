@@ -9,6 +9,7 @@ export default defineConfig({
                 'resources/sass/guest.scss',
                 'resources/js/guest.js',
                 'resources/js/app.js',
+                'resources/js/admin.js',
             ],
             refresh: true,
         }),
