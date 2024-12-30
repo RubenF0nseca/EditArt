@@ -14,6 +14,7 @@
 
     <link rel="manifest" href="{{asset('icons/site.webmanifest')}}">
 
+
     <title>EditArt-Admin</title>
     <!-- CSS files -->
     @vite(['resources/sass/app.scss'])

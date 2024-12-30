@@ -19,7 +19,7 @@ class BookSeeder extends Seeder
         DB::table('books')->insert([
             [
                 'title' => 'Os Lusíadas',
-                'type' => 'Poetry',
+                'type' => 'book',
                 'publicationDate' => '1572-01-01',
                 'editionNumber' => 1,
                 'isbn' => '1234567890123',
@@ -33,7 +33,7 @@ class BookSeeder extends Seeder
             ],
             [
                 'title' => 'Don Quixote',
-                'type' => 'Novel',
+                'type' => 'book',
                 'publicationDate' => '1605-01-01',
                 'editionNumber' => 1,
                 'isbn' => '9876543210123',
@@ -47,7 +47,7 @@ class BookSeeder extends Seeder
             ],
             [
                 'title' => 'Pride and Prejudice',
-                'type' => 'Novel',
+                'type' => 'book',
                 'publicationDate' => '1813-01-28',
                 'editionNumber' => 1,
                 'isbn' => '9780141439518',
@@ -61,7 +61,7 @@ class BookSeeder extends Seeder
             ],
             [
                 'title' => 'The Great Gatsby',
-                'type' => 'Novel',
+                'type' => 'book',
                 'publicationDate' => '1925-04-10',
                 'editionNumber' => 1,
                 'isbn' => '9780743273565',
@@ -75,7 +75,7 @@ class BookSeeder extends Seeder
             ],
             [
                 'title' => 'Moby-Dick',
-                'type' => 'Adventure',
+                'type' => 'book',
                 'publicationDate' => '1851-11-14',
                 'editionNumber' => 1,
                 'isbn' => '9781503280786',
