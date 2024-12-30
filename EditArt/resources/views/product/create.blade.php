@@ -40,9 +40,13 @@
                             </div>
                             <div class="mb-3">
                                 <label for="type" class="form-label required">Tipo</label>
-                                <input type="text" id="type" name="type" class="form-control @error('type') is-invalid @enderror" value="{{ old('type') }}" >
+                                <select id="type" name="type" class="form-control @error('type') is-invalid @enderror">
+                                    <option value="" disabled {{ old('type') ? '' : 'selected' }}>Selecione uma opção</option>
+                                    <option value="book" {{ old('type') == 'book' ? 'selected' : '' }}>Book</option>
+                                    <option value="ebook" {{ old('type') == 'ebook' ? 'selected' : '' }}>eBook</option>
+                                </select>
                                 @error('type')
-                                <div class="invalid-feedback" >{{$message}}</div>
+                                <div class="invalid-feedback">{{$message}}</div>
                                 @enderror
                             </div>
                             <div class="mb-3">
