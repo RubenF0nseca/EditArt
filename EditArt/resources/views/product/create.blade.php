@@ -52,7 +52,7 @@
                                     </div>
                                     <div id="dropdown-authors" class="dropdown-list">
                                         @foreach($authors as $author)
-                                            <div class="dropdown-item" data-value="{{ $author->id }}">{{ $author->name }}</div>
+                                            <div class="dropdown-item" id="drop-item" data-value="{{ $author->id }}">{{ $author->name }}</div>
                                         @endforeach
                                     </div>
                                     <!-- Campo oculto para envio dos IDs selecionados -->
@@ -147,8 +147,8 @@
                                 @enderror
                             </div>
                             <div class="text-end">
-                                <button type="submit" class="btn btn-primary">Criar</button>
-                                <a href="{{ route('books.index') }}" class="btn btn-secondary">Cancelar</a>
+                                <button type="submit" class="btn btn-solid">Criar</button>
+                                <a href="{{ route('books.index') }}" class="btn btn-lightnew">Cancelar</a>
                             </div>
                         </form>
                     </div>

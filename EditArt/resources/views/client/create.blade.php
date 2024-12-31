@@ -88,8 +88,8 @@
                                 @enderror
                             </div>
                             <div class="text-end">
-                                <button type="submit" class="btn btn-primary">Salvar</button>
-                                <a href="{{ route('users.index') }}" class="btn btn-secondary">Cancelar</a>
+                                <button type="submit" class="btn btn-solid">Salvar</button>
+                                <a href="{{ route('users.index') }}" class="btn btn-lightnew">Cancelar</a>
                             </div>
                         </form>
                     </div>
