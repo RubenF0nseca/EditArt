@@ -48,14 +48,12 @@
                                 <div class="custom-dropdown">
                                     <input type="text" id="search-authors" class="form-control" placeholder="Pesquise e selecione autores...">
                                     <div id="selected-authors" class="selected-authors">
-                                        <!-- Autores selecionados aparecerão aqui -->
                                     </div>
                                     <div id="dropdown-authors" class="dropdown-list">
                                         @foreach($authors as $author)
                                             <div class="dropdown-item" id="drop-item" data-value="{{ $author->id }}">{{ $author->name }}</div>
                                         @endforeach
                                     </div>
-                                    <!-- Campo oculto para envio dos IDs selecionados -->
                                     <input type="hidden" id="authors" name="authors[]" value="">
                                 </div>
                                 @error('authors')

@@ -101,9 +101,9 @@ class BookController extends Controller
             }
 
 
-
-            $authors=$validated['authors'];
-            unset($validated['autores']);
+            //$authors=$validated['authors'];
+            $authors = explode(',', $validated['authors'][0]);
+            unset($validated['authors']);
 
             // Criar o livro
             $book = new Book($validated);
@@ -130,7 +130,8 @@ class BookController extends Controller
      */
     public function edit(Book $book)
     {
-        return view('product.update', compact('book'));
+        $authors = Author::all();
+        return view('product.update', compact('book', 'authors'));
     }
 
     /**
@@ -154,6 +155,14 @@ class BookController extends Controller
                 if ($book->CoverPicture) {
                     \Storage::disk('public')->delete($book->CoverPicture);
                 }
+            }
+
+            // Atualizar os autores associados
+            if ($request->has('authors')) {
+                $authors = explode(',', $request->input('authors')[0]); // Converter para array
+                $book->authors()->sync($authors);
+            } else {
+                $book->authors()->detach(); // Remove todos os autores, se não forem selecionados
             }
 
             $book->update($validated);

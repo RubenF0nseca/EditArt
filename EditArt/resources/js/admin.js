@@ -4,7 +4,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const selectedContainer = document.getElementById("selected-authors");
     const hiddenInput = document.getElementById("authors");
 
-    let selectedAuthors = []; // IDs dos autores selecionados
+    // Inicializar autores selecionados a partir do valor do input oculto
+    let selectedAuthors = hiddenInput.value ? hiddenInput.value.split(',') : [];
 
     // Mostrar/esconder dropdown
     searchInput.addEventListener("focus", () => {
@@ -14,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
     searchInput.addEventListener("blur", () => {
         setTimeout(() => {
             dropdown.style.display = "none";
-        }, 200); // Pequeno atraso para permitir clique nos itens
+        }, 200);
     });
 
     // Filtrar itens do dropdown
@@ -34,36 +35,51 @@ document.addEventListener("DOMContentLoaded", function () {
             const selectedValue = e.target.getAttribute("data-value");
             const selectedText = e.target.textContent;
 
-            // Verifica se o autor já foi selecionado
             if (!selectedAuthors.includes(selectedValue)) {
                 selectedAuthors.push(selectedValue);
-
-                // Atualiza o campo oculto com os valores separados por vírgulas
-                hiddenInput.value = selectedAuthors.join(',');
-
-                // Cria a tag do autor selecionado
-                const tag = document.createElement("div");
-                tag.classList.add("author-tag");
-                tag.textContent = selectedText;
-
-                // Botão para remover a tag
-                const removeBtn = document.createElement("span");
-                removeBtn.classList.add("remove-tag");
-                removeBtn.textContent = "x";
-                removeBtn.addEventListener("click", function () {
-                    // Remove o autor selecionado
-                    selectedAuthors = selectedAuthors.filter((id) => id !== selectedValue);
-                    hiddenInput.value = selectedAuthors.join(','); // Atualiza o campo oculto
-                    tag.remove();
-                });
-
-                tag.appendChild(removeBtn);
-                selectedContainer.appendChild(tag);
+                updateHiddenInput();
+                addTag(selectedValue, selectedText);
             }
 
-            // Limpa o campo de pesquisa e esconde o dropdown
             searchInput.value = "";
             dropdown.style.display = "none";
         }
+    });
+
+    // Função para criar uma tag do autor selecionado
+    function addTag(value, text) {
+        const tag = document.createElement("div");
+        tag.classList.add("author-tag");
+        tag.textContent = text;
+
+        const removeBtn = document.createElement("span");
+        removeBtn.classList.add("remove-tag");
+        removeBtn.textContent = "x";
+        removeBtn.setAttribute("data-value", value);
+
+        removeBtn.addEventListener("click", function () {
+            selectedAuthors = selectedAuthors.filter((id) => id !== value);
+            updateHiddenInput();
+            tag.remove();
+        });
+
+        tag.appendChild(removeBtn);
+        selectedContainer.appendChild(tag);
+    }
+
+    // Função para atualizar o input oculto
+    function updateHiddenInput() {
+        hiddenInput.value = selectedAuthors.join(',');
+    }
+
+    // Adicionar evento para remover tags existentes
+    const removeTags = document.querySelectorAll(".remove-tag");
+    removeTags.forEach((btn) => {
+        btn.addEventListener("click", function () {
+            const value = btn.getAttribute("data-value");
+            selectedAuthors = selectedAuthors.filter((id) => id !== value);
+            updateHiddenInput();
+            btn.parentElement.remove();
+        });
     });
 });

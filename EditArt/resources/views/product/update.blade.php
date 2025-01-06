@@ -40,11 +40,41 @@
                                 @enderror
                             </div>
                             <div class="mb-3">
+                                <label for="authors" class="form-label required">Autores</label>
+                                <div class="custom-dropdown">
+                                    <input type="text" id="search-authors" class="form-control" placeholder="Pesquise e selecione autores...">
+
+                                    <!-- Contém os autores selecionados -->
+                                    <div id="selected-authors" class="selected-authors">
+                                        @foreach($book->authors as $author)
+                                            <div class="author-tag">
+                                                {{ $author->name }}
+                                                <span class="remove-tag" data-value="{{ $author->id }}">x</span>
+                                            </div>
+                                        @endforeach
+                                    </div>
+
+                                    <!-- Dropdown com a lista de autores -->
+                                    <div id="dropdown-authors" class="dropdown-list">
+                                        @foreach($authors as $author)
+                                            <div class="dropdown-item" data-value="{{ $author->id }}">{{ $author->name }}</div>
+                                        @endforeach
+                                    </div>
+
+                                    <!-- Input oculto que guarda os IDs dos autores selecionados -->
+                                    <input type="hidden" id="authors" name="authors[]" value="{{ $book->authors->pluck('id')->implode(',') }}">
+                                </div>
+
+                                @error('authors')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
+                            <div class="mb-3">
                                 <label for="type" class="form-label required">Tipo</label>
                                 <select id="type" name="type" class="form-control @error('type') is-invalid @enderror">
-                                    <option value="" disabled {{ old('type') ? '' : 'selected' }}>Selecione uma opção</option>
-                                    <option value="book" {{ old('type') == 'book' ? 'selected' : '' }}>Book</option>
-                                    <option value="ebook" {{ old('type') == 'ebook' ? 'selected' : '' }}>eBook</option>
+                                    <option value="" disabled {{ old('type', $book->type) == '' ? 'selected' : '' }}>Selecione uma opção</option>
+                                    <option value="book" {{ old('type', $book->type) == 'book' ? 'selected' : '' }}>Book</option>
+                                    <option value="ebook" {{ old('type', $book->type) == 'ebook' ? 'selected' : '' }}>eBook</option>
                                 </select>
                                 @error('type')
                                 <div class="invalid-feedback">{{$message}}</div>

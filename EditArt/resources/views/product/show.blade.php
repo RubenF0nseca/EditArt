@@ -30,6 +30,20 @@
                                         <td>{{ $book->type }}</td>
                                     </tr>
                                     <tr>
+                                        <th scope="row">Autores</th>
+                                        <td>
+                                            @if($book->authors->isNotEmpty())
+                                                <ul>
+                                                    @foreach($book->authors as $author)
+                                                        <li>{{ $author->name }}</li>
+                                                    @endforeach
+                                                </ul>
+                                            @else
+                                                <p>Nenhum autor associado.</p>
+                                            @endif
+                                        </td>
+                                    </tr>
+                                    <tr>
                                         <th scope="row">Data Publicação</th>
                                         <td>{{ $book->publicationDate }}</td>
                                     </tr>
