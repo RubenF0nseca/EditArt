@@ -39,7 +39,7 @@
                                                     @endforeach
                                                 </ul>
                                             @else
-                                                <p>Nenhum autor associado.</p>
+                                                Nenhum autor associado.
                                             @endif
                                         </td>
                                     </tr>
