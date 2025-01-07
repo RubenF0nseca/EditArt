@@ -16,14 +16,14 @@
                         <div class="card-body">
                             @if($errors->any())
                                 <div class="row p-2">
-                                    <div class="alert alert-danger" role="alert">
+                                    <x-alert type="danger">
                                         Verifique os dados inseridos
                                         <ul>
                                             @foreach($errors->all() as $message)
                                                 <li>{{$message}}</li>
                                             @endforeach
                                         </ul>
-                                    </div>
+                                    </x-alert>
                                 </div>
                             @endif
 
