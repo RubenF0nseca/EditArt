@@ -13,7 +13,6 @@ class Add extends Component
      */
     public function __construct(
         public string $link,
-        public string $name,
         public string $icon
     )
     {

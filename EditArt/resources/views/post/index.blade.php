@@ -3,8 +3,7 @@
 @section('title','Lista de tópicos')
 
 @section('button')
-    <a href="{{ route('posts.create') }}" class="btn btn-lightnew rounded-pill">
-        <i class="fa-solid fa-plus"></i>&nbsp Novo Topico</a>
+    <x-button.add link="{{ route('posts.create') }}" icon="fa-plus">&nbsp Novo Topico</x-button.add>
 @endsection
 
 @section('content')

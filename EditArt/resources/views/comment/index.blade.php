@@ -3,8 +3,7 @@
 @section('title','Lista de Comentários')
 
 @section('button')
-    <a href="{{ route('comments.create') }}" class="btn btn-lightnew rounded-pill">
-        <i class="fa-solid fa-plus"></i>&nbsp Novo Comentário</a>
+    <x-button.add link="{{ route('comments.create') }}" icon="fa-plus">&nbsp Novo Comentário</x-button.add>
 @endsection
 
 @section('content')

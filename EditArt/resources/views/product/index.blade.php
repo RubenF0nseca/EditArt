@@ -3,8 +3,7 @@
 @section('title','Lista de Produtos')
 
 @section('button')
-    <a href="{{ route('books.create') }}" class="btn btn-lightnew rounded-pill shadow-sm">
-        <i class="fa-solid fa-file-circle-plus"></i>&nbsp Novo produto</a>
+    <x-button.add link="{{ route('books.create') }}" icon="fa-file-circle-plus">&nbsp Novo produto</x-button.add>
 @endsection
 
 @section('content')

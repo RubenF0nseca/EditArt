@@ -3,7 +3,7 @@
 @section('title','Lista de Autores')
 
 @section('button')
-    <x-button.add link="{{ route('authors.create') }}" name="lightnew" icon="fa-user-plus">&nbsp Novo autor</x-button.add>
+    <x-button.add link="{{ route('authors.create') }}" icon="fa-user-plus">&nbsp Novo autor</x-button.add>
 @endsection
 
 @section('content')

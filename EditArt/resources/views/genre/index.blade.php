@@ -3,8 +3,7 @@
 @section('title','Lista de Géneros Literários')
 
 @section('button')
-    <a href="{{ route('genres.create') }}" class="btn btn-lightnew rounded-pill">
-        <i class="fa-solid fa-plus"></i>&nbsp Novo Género Literário</a>
+    <x-button.add link="{{ route('genres.create') }}" icon="fa-plus">&nbsp Novo Género Literário</x-button.add>
 @endsection
 
 @section('content')

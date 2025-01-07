@@ -3,8 +3,7 @@
 @section('title','Lista de Utilizadores')
 
 @section('button')
-    <a href="{{ route('users.create') }}" class="btn btn-lightnew rounded-pill shadow-sm">
-        <i class="fa-solid fa-user-plus"></i>&nbsp Novo Utilizador</a>
+    <x-button.add link="{{ route('users.create') }}" icon="fa-user-plus">&nbsp Novo Utilizador</x-button.add>
 @endsection
 
 @section('content')

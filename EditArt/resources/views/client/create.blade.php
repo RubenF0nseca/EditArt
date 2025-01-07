@@ -1,6 +1,6 @@
 @extends('layouts.admin.base')
 
-@section('title','Criar um novo Tipo de Obra')
+@section('title','Criar um novo utilizador')
 
 @section('content')
     <div class="container">
