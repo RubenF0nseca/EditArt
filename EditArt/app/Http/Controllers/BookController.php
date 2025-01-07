@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Author;
 use App\Models\Book;
+use App\Models\Genre;
 use Illuminate\Http\Request;
 
 class BookController extends Controller
@@ -80,7 +81,8 @@ class BookController extends Controller
     public function create()
     {
         $authors = Author::all();
-        return view('product.create', compact('authors'));
+        $genres = Genre::all();
+        return view('product.create', compact('authors', 'genres'));
     }
 
     /**
@@ -100,16 +102,15 @@ class BookController extends Controller
                 $validated['CoverPicture'] = $url;
             }
 
+            $authors = $request->input('authors', []);
 
-            //$authors=$validated['authors'];
-            $authors = explode(',', $validated['authors'][0]);
-            unset($validated['authors']);
+            $genres = $request->input('genres', []);
 
-            // Criar o livro
             $book = new Book($validated);
             $book->save();
-            $book->authors()->attach($authors);
 
+            $book->authors()->attach($authors);
+            $book->genres()->attach($genres);
 
             return redirect(route('books.create'))->with('success', "Livro registado com sucesso! [#{$book->id}]");
         } catch (\Exception $e) {
@@ -131,7 +132,8 @@ class BookController extends Controller
     public function edit(Book $book)
     {
         $authors = Author::all();
-        return view('product.update', compact('book', 'authors'));
+        $genres = Genre::all();
+        return view('product.update', compact('book', 'authors', 'genres'));
     }
 
     /**
@@ -157,12 +159,19 @@ class BookController extends Controller
                 }
             }
 
-            // Atualizar os autores associados
             if ($request->has('authors')) {
-                $authors = explode(',', $request->input('authors')[0]); // Converter para array
+                $authors = $request->input('authors');
                 $book->authors()->sync($authors);
             } else {
-                $book->authors()->detach(); // Remove todos os autores, se não forem selecionados
+                $book->authors()->detach();
+            }
+
+            if ($request->has('genres')) {
+                $genres = $request->input('genres');
+                $book->genres()->sync($genres);
+            } else {
+                // Se não veio nenhum gênero, remove todos
+                $book->genres()->detach();
             }
 
             $book->update($validated);

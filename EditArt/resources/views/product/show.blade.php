@@ -44,6 +44,20 @@
                                         </td>
                                     </tr>
                                     <tr>
+                                        <th scope="row">Generos</th>
+                                        <td>
+                                            @if($book->genres->isNotEmpty())
+                                                <ul>
+                                                    @foreach($book->genres as $genre)
+                                                        <li>{{ $genre->name }}</li>
+                                                    @endforeach
+                                                </ul>
+                                            @else
+                                                Nenhum autor associado.
+                                            @endif
+                                        </td>
+                                    </tr>
+                                    <tr>
                                         <th scope="row">Data Publicação</th>
                                         <td>{{ $book->publicationDate }}</td>
                                     </tr>

@@ -47,17 +47,16 @@
                                 <label for="authors" class="form-label required">Autores</label>
                                 <div class="custom-dropdown">
                                     <input type="text" id="search-authors" class="form-control" placeholder="Pesquise e selecione autores...">
-                                    <div id="selected-authors" class="selected-authors">
-                                    </div>
+                                    <div id="selected-authors" class="selected-authors"></div>
                                     <div id="dropdown-authors" class="dropdown-list">
                                         @foreach($authors as $author)
-                                            <div class="dropdown-item" id="drop-item" data-value="{{ $author->id }}">{{ $author->name }}</div>
+                                            <div class="dropdown-item" data-value="{{ $author->id }}">{{ $author->name }}</div>
                                         @endforeach
                                     </div>
-                                    <input type="hidden" id="authors" name="authors[]" value="">
+                                    <div id="authors-container"></div>
                                 </div>
                                 @error('authors')
-                                <div class="invalid-feedback">{{$message}}</div>
+                                <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                             </div>
                             <div class="mb-3">
@@ -70,6 +69,23 @@
                                 </select>
                                 @error('type')
                                 <div class="invalid-feedback">{{$message}}</div>
+                                @enderror
+                            </div>
+                            <div class="mb-3">
+                                <label for="genres" class="form-label required">Géneros</label>
+                                <div class="custom-dropdown">
+                                    <input type="text" id="search-genres" class="form-control" placeholder="Pesquise e selecione géneros...">
+                                    <div id="selected-genres" class="selected-authors"></div>
+                                    <div id="dropdown-genres" class="dropdown-list">
+                                        @foreach($genres as $genre)
+                                            <div class="dropdown-item" data-value="{{ $genre->id }}">{{ $genre->name }}</div>
+                                        @endforeach
+                                    </div>
+                                    <!-- Campo oculto para envio dos IDs selecionados -->
+                                    <div id="genres-container"></div>
+                                </div>
+                                @error('genres')
+                                <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                             </div>
                             <div class="mb-3">

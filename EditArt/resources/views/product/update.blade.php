@@ -1,6 +1,6 @@
 @extends('layouts.admin.base')
 
-@section('title','Criar um novo Produto')
+@section('title','Editar Produto')
 
 @section('content')
     <div class="container">
@@ -14,121 +14,231 @@
                         <!-- Alerta para mensagem de sucesso -->
                         @if(session('success'))
                             <div id="success-alert" class="alert alert-success alert-dismissible fade show" role="alert">
-                                {{session('success')}}
+                                {{ session('success') }}
                                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                             </div>
                         @endif
-
 
                         <!-- Alerta para mensagem de erro geral -->
                         @if($errors->has('error'))
-                            <div class="alert alert-danger alert-dismissible fade show" role="alert" >
-                                {{$errors->first('error')}}
+                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                {{ $errors->first('error') }}
                                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                             </div>
                         @endif
-
 
                         <form action="{{ route('books.update', $book->id) }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
+
+                            <!-- Título -->
                             <div class="mb-3">
-                                <label for="title" class="form-label required">Title</label>
-                                <input type="text" id="title" name="title" class="form-control @error('title') is-invalid @enderror" value="{{ $book->title }}" >
+                                <label for="title" class="form-label required">Título</label>
+                                <input type="text"
+                                       id="title"
+                                       name="title"
+                                       class="form-control @error('title') is-invalid @enderror"
+                                       value="{{ $book->title }}" >
                                 @error('title')
-                                <div class="invalid-feedback" >{{$message}}</div>
+                                <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                             </div>
+
+                            <!-- Autores -->
                             <div class="mb-3">
                                 <label for="authors" class="form-label required">Autores</label>
                                 <div class="custom-dropdown">
-                                    <input type="text" id="search-authors" class="form-control" placeholder="Pesquise e selecione autores...">
+                                    <!-- Campo de busca -->
+                                    <input type="text"
+                                           id="search-authors"
+                                           class="form-control"
+                                           placeholder="Pesquise e selecione autores...">
 
-                                    <!-- Contém os autores selecionados -->
+                                    <!-- Tags visuais já existentes -->
                                     <div id="selected-authors" class="selected-authors">
                                         @foreach($book->authors as $author)
-                                            <div class="author-tag">
+                                            <div class="author-tag" data-value="{{ $author->id }}">
                                                 {{ $author->name }}
                                                 <span class="remove-tag" data-value="{{ $author->id }}">x</span>
                                             </div>
                                         @endforeach
                                     </div>
 
-                                    <!-- Dropdown com a lista de autores -->
+                                    <!-- Itens do dropdown -->
                                     <div id="dropdown-authors" class="dropdown-list">
                                         @foreach($authors as $author)
-                                            <div class="dropdown-item" data-value="{{ $author->id }}">{{ $author->name }}</div>
+                                            <div class="dropdown-item" data-value="{{ $author->id }}">
+                                                {{ $author->name }}
+                                            </div>
                                         @endforeach
                                     </div>
 
-                                    <!-- Input oculto que guarda os IDs dos autores selecionados -->
-                                    <input type="hidden" id="authors" name="authors[]" value="{{ $book->authors->pluck('id')->implode(',') }}">
+                                    <!-- Inputs hidden para enviar autores selecionados -->
+                                    <div id="authors-container">
+                                        @foreach($book->authors as $author)
+                                            <input type="hidden" name="authors[]" value="{{ $author->id }}">
+                                        @endforeach
+                                    </div>
                                 </div>
-
                                 @error('authors')
                                 <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                             </div>
+
+                            <!-- Tipo (Book/eBook) -->
                             <div class="mb-3">
                                 <label for="type" class="form-label required">Tipo</label>
-                                <select id="type" name="type" class="form-control @error('type') is-invalid @enderror">
-                                    <option value="" disabled {{ old('type', $book->type) == '' ? 'selected' : '' }}>Selecione uma opção</option>
-                                    <option value="book" {{ old('type', $book->type) == 'book' ? 'selected' : '' }}>Book</option>
-                                    <option value="ebook" {{ old('type', $book->type) == 'ebook' ? 'selected' : '' }}>eBook</option>
+                                <select id="type"
+                                        name="type"
+                                        class="form-control @error('type') is-invalid @enderror">
+                                    <option value="" disabled {{ old('type', $book->type) == '' ? 'selected' : '' }}>
+                                        Selecione uma opção
+                                    </option>
+                                    <option value="book"  {{ old('type', $book->type) == 'book'  ? 'selected' : '' }}>
+                                        Book
+                                    </option>
+                                    <option value="ebook" {{ old('type', $book->type) == 'ebook' ? 'selected' : '' }}>
+                                        eBook
+                                    </option>
                                 </select>
                                 @error('type')
-                                <div class="invalid-feedback">{{$message}}</div>
+                                <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                             </div>
+
+                            <!-- Gêneros -->
+                            <div class="mb-3">
+                                <label for="genres" class="form-label required">Géneros</label>
+                                <div class="custom-dropdown">
+                                    <!-- Campo de busca -->
+                                    <input type="text"
+                                           id="search-genres"
+                                           class="form-control"
+                                           placeholder="Pesquise e selecione géneros...">
+
+                                    <!-- Tags visuais já existentes -->
+                                    <div id="selected-genres" class="selected-authors">
+                                        @foreach($book->genres as $genre)
+                                            <div class="author-tag" data-value="{{ $genre->id }}">
+                                                {{ $genre->name }}
+                                                <span class="remove-tag" data-value="{{ $genre->id }}">x</span>
+                                            </div>
+                                        @endforeach
+                                    </div>
+
+                                    <!-- Itens do dropdown -->
+                                    <div id="dropdown-genres" class="dropdown-list">
+                                        @foreach($genres as $genre)
+                                            <div class="dropdown-item" data-value="{{ $genre->id }}">
+                                                {{ $genre->name }}
+                                            </div>
+                                        @endforeach
+                                    </div>
+
+                                    <!-- Inputs hidden para enviar gêneros selecionados -->
+                                    <div id="genres-container">
+                                        @foreach($book->genres as $genre)
+                                            <input type="hidden" name="genres[]" value="{{ $genre->id }}">
+                                        @endforeach
+                                    </div>
+                                </div>
+                                @error('genres')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
+
+                            <!-- Data de publicação -->
                             <div class="mb-3">
                                 <label for="publicationDate" class="form-label required">Data publicação</label>
-                                <input type="date" id="publicationDate" name="publicationDate" class="form-control @error('publicationDate') is-invalid @enderror" value="{{ $book->publicationDate }}" >
+                                <input type="date"
+                                       id="publicationDate"
+                                       name="publicationDate"
+                                       class="form-control @error('publicationDate') is-invalid @enderror"
+                                       value="{{ $book->publicationDate }}" >
                                 @error('publicationDate')
-                                <div class="invalid-feedback" >{{$message}}</div>
+                                <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                             </div>
+
+                            <!-- Número de edição -->
                             <div class="mb-3">
                                 <label for="editionNumber" class="form-label required">Numero de edição</label>
-                                <input type="text" id="editionNumber" name="editionNumber" class="form-control @error('editionNumber') is-invalid @enderror" value="{{ $book->editionNumber }}" >
+                                <input type="text"
+                                       id="editionNumber"
+                                       name="editionNumber"
+                                       class="form-control @error('editionNumber') is-invalid @enderror"
+                                       value="{{ $book->editionNumber }}" >
                                 @error('editionNumber')
-                                <div class="invalid-feedback" >{{$message}}</div>
+                                <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                             </div>
+
+                            <!-- ISBN -->
                             <div class="mb-3">
                                 <label for="isbn" class="form-label required">ISBN</label>
-                                <input type="text" id="isbn" name="isbn" class="form-control @error('isbn') is-invalid @enderror" value="{{ $book->isbn }}" >
+                                <input type="text"
+                                       id="isbn"
+                                       name="isbn"
+                                       class="form-control @error('isbn') is-invalid @enderror"
+                                       value="{{ $book->isbn }}" >
                                 @error('isbn')
-                                <div class="invalid-feedback" >{{$message}}</div>
+                                <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                             </div>
+
+                            <!-- Número de páginas -->
                             <div class="mb-3">
-                                <label for="numberOfPages" class="form-label required">Numero de paginas</label>
-                                <input type="text" id="numberOfPages" name="numberOfPages" class="form-control @error('numberOfPages') is-invalid @enderror" value="{{ $book->numberOfPages }}" >
+                                <label for="numberOfPages" class="form-label required">Número de páginas</label>
+                                <input type="text"
+                                       id="numberOfPages"
+                                       name="numberOfPages"
+                                       class="form-control @error('numberOfPages') is-invalid @enderror"
+                                       value="{{ $book->numberOfPages }}" >
                                 @error('numberOfPages')
-                                <div class="invalid-feedback" >{{$message}}</div>
+                                <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                             </div>
+
+                            <!-- Stock -->
                             <div class="mb-3">
                                 <label for="stock" class="form-label required">Stock</label>
-                                <input type="text" id="stock" name="stock" class="form-control @error('stock') is-invalid @enderror" value="{{ $book->stock }}" >
+                                <input type="text"
+                                       id="stock"
+                                       name="stock"
+                                       class="form-control @error('stock') is-invalid @enderror"
+                                       value="{{ $book->stock }}" >
                                 @error('stock')
-                                <div class="invalid-feedback" >{{$message}}</div>
+                                <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                             </div>
+
+                            <!-- Idioma -->
                             <div class="mb-3">
                                 <label for="language" class="form-label required">Idioma</label>
-                                <input type="text" id="language" name="language" class="form-control @error('language') is-invalid @enderror" value="{{ $book->language }}" >
+                                <input type="text"
+                                       id="language"
+                                       name="language"
+                                       class="form-control @error('language') is-invalid @enderror"
+                                       value="{{ $book->language }}" >
                                 @error('language')
-                                <div class="invalid-feedback" >{{$message}}</div>
+                                <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                             </div>
+
+                            <!-- Preço -->
                             <div class="mb-3">
                                 <label for="price" class="form-label required">Preço</label>
-                                <input type="text" id="price" name="price" class="form-control @error('price') is-invalid @enderror" value="{{ $book->price }}" >
+                                <input type="text"
+                                       id="price"
+                                       name="price"
+                                       class="form-control @error('price') is-invalid @enderror"
+                                       value="{{ $book->price }}" >
                                 @error('price')
-                                <div class="invalid-feedback" >{{$message}}</div>
+                                <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                             </div>
+
+                            <!-- Imagem da capa -->
                             <div class="mb-3">
                                 <label for="CoverPicture" class="form-label required">Imagem da Capa</label>
                                 <input type="file"
@@ -139,6 +249,8 @@
                                 <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                             </div>
+
+                            <!-- Botões -->
                             <div class="text-end">
                                 <button type="submit" class="btn btn-primary">Gravar</button>
                                 <a href="{{ route('books.index') }}" class="btn btn-secondary">Cancelar</a>
@@ -149,13 +261,12 @@
             </div>
         </div>
     </div>
-
 @endsection
 
 @push('scripts')
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const successAlert = document.getElementById('success-alert');//
+            const successAlert = document.getElementById('success-alert');
             if (successAlert) {
                 setTimeout(function() {
                     // Adiciona a classe 'fade' e remove a classe 'show' para iniciar a transição de fechamento
@@ -170,5 +281,4 @@
             }
         });
     </script>
-
 @endpush
