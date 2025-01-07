@@ -3,9 +3,7 @@
 @section('title','Lista de Avaliações')
 
 @section('button')
-    <x-button.add link="{{ route('authors.create') }}" name="lightnew" icon="fa-user-plus">&nbsp Novo autor</x-button.add>
-    <a href="{{ route('reviews.create') }}" class="btn btn-lightnew rounded-pill">
-        <i class="fa-solid fa-plus"></i>&nbsp Nova Avaliação</a>
+    <x-button.add link="{{ route('reviews.create') }}" icon="fa-plus">&nbsp Nova Avaliação</x-button.add>
 @endsection
 
 @section('content')
