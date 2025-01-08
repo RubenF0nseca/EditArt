@@ -92,9 +92,13 @@ blockquote {
     p{ color: #74642F }
     .quot{ font-size: 2.5rem; }
 }
+.page-title{
+    color: #74642F;
+}
 /*----------------------------------------------------------
 	   Botões
 ------------------------------------------------------------*/
+/*-- Geral --*/
 .btn {
     border-radius: 0;
     font-family: "Roboto Condensed", sans-serif;
@@ -103,26 +107,32 @@ blockquote {
     font-size: 12px;
     padding: 8px 37px;
 }
-.btn-darknew {
-    color: #C5A992;
-    border-color: #C5A992;
-}
-.btn-darknew:hover{
-    color: white;
-    border-color: #af8867;
-    background-color: #af8867;
-}
-.btn-lightnew{
+.btn-light-new,
+.btn-solid:hover,
+.btn.btn-solid:focus,
+.btn-dark-solid:hover,
+.btn.btn-dark-solid:focus{
     color: #af8867;
     border-color: #af8867;
     font-size: 12px;
 }
-.btn-lightnew:hover,
-.btn.btn-lightnew:focus{
+.btn-light-new:hover,
+.btn.btn-light-new:focus{
     color: white;
     border-color: #af8867;
     background-color: #af8867;
 }
+.btn-dark-solid{
+    color: #f1caaa;
+    border-color: rgba(29, 29, 28, 0.97);
+    background-color: rgba(29, 29, 28, 0.97);
+}
+.btn-solid{
+    color: #fff;
+    border-color: #af8867;
+    background-color: #af8867;
+}
+/*-- Botões com opções na tabela--*/
 .btn-info, .btn-edit, .btn-delete{
     padding: 8px 8px;
     background: transparent;
@@ -139,21 +149,10 @@ blockquote {
     border: 1px dotted #b91330;
     color: white;
 }
-.btn-solid {
-     color: #f1caaa;
-     border-color: rgba(29, 29, 28, 0.97);
-     font-size: 12px;
-     background-color: rgba(29, 29, 28, 0.97);
- }
-.btn-solid:hover,
-.btn.btn-solid:focus{
-    color: #fff;
-    border-color: #af8867;
-    background-color: #af8867;
-}
 .btn-block{
     width: 100%;
 }
+/*-- Botão de pesquisa --*/
 .search-btn {
     position: absolute;
     background: transparent;
@@ -174,6 +173,7 @@ blockquote {
 ------------------------------------------------------------*/
 .table{
     --bs-table-striped-bg: #c5a99229;
+    --tblr-table-striped-bg: #c5a99229;
     /*text-align: center;*/
 }
 .table-border > tbody > tr > td,
@@ -183,6 +183,13 @@ blockquote {
 .table-border > thead > tr > td,
 .table-border > thead > tr > th {
     border-color: rgba(175, 136, 103, 0.32);
+}
+.table-hover > tbody > tr:hover > * {
+    --tblr-table-bg-state: rgba(175, 136, 103, 0.2);
+}
+.table thead th, .markdown > table thead th {
+    background: rgba(175, 136, 103, 0.32);
+    color: #74642F;
 }
 .ds-table > tbody > tr > td,
 .ds-table > tbody > tr > th,
@@ -213,6 +220,9 @@ blockquote {
 .checkout-table tbody tr td:first-child,
 .checkout-table tbody tr th:first-child {
     max-width: 36px;
+}
+.card-footer{
+    background-color: #c5a99229;
 }
 /*----------------------------------------------------------
 	   Paginação
