@@ -1,5 +1,5 @@
-<form action="{{$link}}" method="POST" style="display: inline" >
+<form action="{{$action}}" method="POST" style="display: inline" >
     @method('DELETE')
     @csrf
-    <button type="submit" class="btn btn-{{$name}}"><i class="{{$icon}}"></i></button>
+    <button type="submit" class="btn btn-delete"><i class="ti ti-trash"></i></button>
 </form>

@@ -29,13 +29,10 @@
                                     <td>{{ Str::limit($comment->content, 120, '...') }}</td>
                                     <td class="text-end">
 
-                                        <a href="{{ route('comments.show', $comment->id) }}" class="btn btn-info "><i class="ti ti-eye"></i></a>
-                                        <a href="{{ route('comments.edit', $comment->id) }}" class="btn btn-edit"><i class="fa fa-pencil" aria-hidden="true"></i></a>
-                                        <form action="{{ route('comments.destroy', $comment->id) }}" method="POST" style="display: inline" >
-                                            @method('DELETE')
-                                            @csrf
-                                            <button type="submit" class="btn btn-delete"><i class="ti ti-trash"></i></button>
-                                        </form>
+                                        <x-table.operation link="{{ route('comments.show', $comment->id) }}" name="info" icon="ti ti-eye"></x-table.operation>
+                                        <x-table.operation link="{{ route('comments.edit', $comment->id) }}" name="edit" icon="fa fa-pencil"></x-table.operation>
+                                        <x-table.delete action="{{ route('comments.destroy', $comment->id) }}"></x-table.delete>
+
                                     </td>
                                 </x-table.tr>
                             @endforeach

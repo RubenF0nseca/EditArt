@@ -43,13 +43,10 @@
                                     <td>{{ $book->price }}€</td>
                                     <td class="text-end">
 
-                                        <a href="{{ route('books.show', $book->id) }}" class="btn btn-info "><i class="ti ti-eye"></i></a>
-                                        <a href="{{ route('books.edit', $book->id) }}" class="btn btn-edit"><i class="fa fa-pencil" aria-hidden="true"></i></a>
-                                        <form action="{{ route('books.destroy', $book->id) }}" method="POST" style="display: inline" >
-                                            @method('DELETE')
-                                            @csrf
-                                            <button type="submit" class="btn btn-delete"><i class="ti ti-trash"></i></button>
-                                        </form>
+                                        <x-table.operation link="{{ route('books.show', $book->id) }}" name="info" icon="ti ti-eye"></x-table.operation>
+                                        <x-table.operation link="{{ route('books.edit', $book->id) }}" name="edit" icon="fa fa-pencil"></x-table.operation>
+                                        <x-table.delete action="{{ route('books.destroy', $book->id) }}"></x-table.delete>
+
                                     </td>
                                 </x-table.tr>
                             @endforeach

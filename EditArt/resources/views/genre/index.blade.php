@@ -47,15 +47,9 @@
                                     <td>{{$genre->name}}</td>
                                     <td class="text-end">
 
-                                        <a href="{{ route('genres.edit', $genre->id) }}" class="btn btn-edit"><i
-                                                class="fa fa-pencil" aria-hidden="true"></i></a>
-                                        <form action="{{ route('genres.destroy', $genre->id) }}" method="POST"
-                                              style="display: inline">
-                                            @method('DELETE')
-                                            @csrf
-                                            <button type="submit" class="btn btn-delete"><i class="ti ti-trash"></i>
-                                            </button>
-                                        </form>
+                                        <x-table.operation link="{{ route('genres.edit', $genre->id) }}" name="edit" icon="fa fa-pencil"></x-table.operation>
+                                        <x-table.delete action="{{ route('genres.destroy', $genre->id) }}"></x-table.delete>
+
                                     </td>
                                 </x-table.tr>
                             @endforeach

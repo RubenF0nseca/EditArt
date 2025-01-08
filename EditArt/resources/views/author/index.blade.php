@@ -41,9 +41,9 @@
                                         <td class="d-none d-md-table-cell">{{ $author->birthdate }}</td>
                                         <td class="text-end">
 
-                                            <x-table.info link="{{ route('authors.show', $author->id) }}" name="info" icon="ti ti-eye"></x-table.info>
-                                            <x-table.edit link="{{ route('authors.edit', $author->id) }}" name="edit" icon="fa fa-pencil"></x-table.edit>
-                                            <x-table.delete link="{{ route('authors.destroy', $author->id) }}" name="delete" icon="ti ti-trash"></x-table.delete>
+                                            <x-table.operation link="{{ route('authors.show', $author->id) }}" name="info" icon="ti ti-eye"></x-table.operation>
+                                            <x-table.operation link="{{ route('authors.edit', $author->id) }}" name="edit" icon="fa fa-pencil"></x-table.operation>
+                                            <x-table.delete action="{{ route('authors.destroy', $author->id) }}"></x-table.delete>
 
                                         </td>
                                     </x-table.tr>

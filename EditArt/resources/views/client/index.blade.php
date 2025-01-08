@@ -33,13 +33,10 @@
                                     <td>{{ $user->role }}</td>
                                     <td class="text-end">
 
-                                        <a href="{{ route('users.show', $user->id) }}" class="btn btn-info "><i class="ti ti-eye"></i></a>
-                                        <a href="{{ route('users.edit', $user->id) }}" class="btn btn-edit"><i class="fa fa-pencil" aria-hidden="true"></i></a>
-                                        <form action="{{ route('users.destroy', $user->id) }}" method="POST" style="display: inline" >
-                                            @method('DELETE')
-                                            @csrf
-                                            <button type="submit" class="btn btn-delete"><i class="ti ti-trash"></i></button>
-                                        </form>
+                                        <x-table.operation link="{{ route('users.show', $user->id) }}" name="info" icon="ti ti-eye"></x-table.operation>
+                                        <x-table.operation link="{{ route('users.edit', $user->id) }}" name="edit" icon="fa fa-pencil"></x-table.operation>
+                                        <x-table.delete action="{{ route('users.destroy', $user->id) }}"></x-table.delete>
+
                                     </td>
                                 </x-table.tr>
                             @endforeach

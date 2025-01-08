@@ -12,9 +12,7 @@ class Delete extends Component
      * Create a new component instance.
      */
     public function __construct(
-        public string $link,
-        public string $name,
-        public string $icon
+        public string $action
     )
     {
         //

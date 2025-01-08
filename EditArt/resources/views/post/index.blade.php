@@ -30,13 +30,11 @@
                                     <td>{{ $post->title }}</td>
                                     <td>{{ Str::limit($post->content, 60, '...') }}</td>
                                     <td class="text-end">
-                                        <a href="{{ route('posts.show', $post->id) }}" class="btn btn-info "><i class="ti ti-eye"></i></a>
-                                        <a href="{{ route('posts.edit', $post->id) }}" class="btn btn-edit"><i class="fa fa-pencil" aria-hidden="true"></i></a>
-                                        <form action="{{ route('posts.destroy', $post->id) }}" method="POST" style="display: inline" >
-                                            @method('DELETE')
-                                            @csrf
-                                            <button type="submit" class="btn btn-delete"><i class="ti ti-trash"></i></button>
-                                        </form>
+
+                                        <x-table.operation link="{{ route('posts.show', $post->id) }}" name="info" icon="ti ti-eye"></x-table.operation>
+                                        <x-table.operation link="{{ route('posts.edit', $post->id) }}" name="edit" icon="fa fa-pencil"></x-table.operation>
+                                        <x-table.delete action="{{ route('posts.destroy', $post->id) }}"></x-table.delete>
+
                                     </td>
                                 </x-table.tr>
                             @endforeach
