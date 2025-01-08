@@ -8,6 +8,8 @@ use App\Http\Controllers\GenreController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\UserController;
+use App\Mail\EmailEditArt;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -71,3 +73,11 @@ Route::resource('posts', PostController::class);
 Route::resource('comments', CommentController::class);
 
 Route::resource('genres', GenreController::class)->except('show');
+
+
+//EMAIL
+Route::get('/send-email', function(){
+    Mail::to('lucas.ss.patricio@gmail.com')->send(new EmailEditArt("Lucas", "Olá esta é uma mensagem"));
+
+    return "Email enviado com sucesso";
+});

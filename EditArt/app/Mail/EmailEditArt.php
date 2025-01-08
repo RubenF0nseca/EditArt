@@ -16,9 +16,9 @@ class EmailEditArt extends Mailable
     /**
      * Create a new message instance.
      */
-    public function __construct()
+    public function __construct(public string $name, public string $content,)
     {
-        //
+
     }
 
     /**
@@ -37,7 +37,7 @@ class EmailEditArt extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'view.name',
+            view: 'mails.mail',
         );
     }
 
