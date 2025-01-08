@@ -30,20 +30,21 @@
 
                 <div class="card shadow-lg border-0 rounded-lg mt-4">
                     <div class="table-responsive">
-                        <table class="table table-striped table-hover">
-                            <thead>
-                            <tr>
-                                <th class="">ID</th>
-                                <th class="d-none d-md-table-cell">Nome</th>
-                                <th class="w-auto text-end">Ações</th>
-                            </tr>
-                            </thead>
-                            <tbody>
+
+                        <x-table>
+                            <x-table.thead>
+                                <x-table.tr>
+                                    <x-table.th>ID</x-table.th>
+                                    <x-table.th>Nome</x-table.th>
+                                    <x-table.th class="text-end">Ações</x-table.th>
+                                </x-table.tr>
+                            </x-table.thead>
+                            <x-table.tbody>
                             <!-- Aqui, o loop deve ser substituído por uma lista de elementos gerada dinamicamente -->
                             @foreach($genres as $genre)
-                                <tr>
+                                <x-table.tr>
                                     <td>{{ $genre->id }}</td>
-                                    <td class="d-none d-md-table-cell">{{$genre->name}}</td>
+                                    <td>{{$genre->name}}</td>
                                     <td class="text-end">
 
                                         <a href="{{ route('genres.edit', $genre->id) }}" class="btn btn-edit"><i
@@ -56,10 +57,10 @@
                                             </button>
                                         </form>
                                     </td>
-                                </tr>
+                                </x-table.tr>
                             @endforeach
-                            </tbody>
-                        </table>
+                            </x-table.tbody>
+                        </x-table>
                     </div>
                     <div class="card-footer">
                         {{$genres->links('layouts.admin.parts.pagination') }}

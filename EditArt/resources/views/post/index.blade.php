@@ -12,22 +12,23 @@
             <div class="col">
                 <div class="card shadow-lg border-0 rounded-lg mt-4">
                     <div class="table-responsive">
-                        <table class="table table-striped table-hover">
-                            <thead>
-                            <tr>
-                                <th class="">ID</th>
-                                <th class="d-none d-md-table-cell">Titulo</th>
-                                <th class="d-none d-md-table-cell">Conteúdo</th>
-                                <th class="w-auto text-end">Ações</th>
-                            </tr>
-                            </thead>
-                            <tbody>
+
+                        <x-table>
+                            <x-table.thead>
+                                <x-table.tr>
+                                    <x-table.th>ID</x-table.th>
+                                    <x-table.th>Titulo</x-table.th>
+                                    <x-table.th>Conteúdo</x-table.th>
+                                    <x-table.th class="text-end">Ações</x-table.th>
+                                </x-table.tr>
+                            </x-table.thead>
+                            <x-table.tbody>
                             <!-- Aqui, o loop deve ser substituído por uma lista de elementos gerada dinamicamente -->
                             @foreach($posts as $post)
-                                <tr>
+                                <x-table.tr>
                                     <td>{{ $post->id }}</td>
                                     <td>{{ $post->title }}</td>
-                                    <td class="d-none d-md-table-cell">{{ Str::limit($post->content, 60, '...') }}</td>
+                                    <td>{{ Str::limit($post->content, 60, '...') }}</td>
                                     <td class="text-end">
                                         <a href="{{ route('posts.show', $post->id) }}" class="btn btn-info "><i class="ti ti-eye"></i></a>
                                         <a href="{{ route('posts.edit', $post->id) }}" class="btn btn-edit"><i class="fa fa-pencil" aria-hidden="true"></i></a>
@@ -37,10 +38,10 @@
                                             <button type="submit" class="btn btn-delete"><i class="ti ti-trash"></i></button>
                                         </form>
                                     </td>
-                                </tr>
+                                </x-table.tr>
                             @endforeach
-                            </tbody>
-                        </table>
+                            </x-table.tbody>
+                        </x-table>
                     </div>
                     <div class="card-footer">
                         {{ $posts->links('layouts.admin.parts.pagination') }}

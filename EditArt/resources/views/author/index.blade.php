@@ -19,8 +19,8 @@
                                     <x-table.th>ID</x-table.th>
                                     <x-table.th>Foto</x-table.th>
                                     <x-table.th>Nome</x-table.th>
-                                    <x-table.th>Biografia</x-table.th>
-                                    <x-table.th>Data nascimento</x-table.th>
+                                    <x-table.th class="d-none">Biografia</x-table.th>
+                                    <x-table.th class="d-none">Data nascimento</x-table.th>
                                     <x-table.th class="text-end">Ações</x-table.th>
                                 </x-table.tr>
                             </x-table.thead>

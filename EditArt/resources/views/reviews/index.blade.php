@@ -12,26 +12,27 @@
             <div class="col">
                 <div class="card shadow-lg border-0 rounded-lg mt-4">
                     <div class="table-responsive">
-                        <table class="table table-striped table-hover">
-                            <thead>
-                            <tr>
-                                <th class="">ID</th>
-                                <th class="d-none d-md-table-cell">ID livro</th>
-                                <th class="d-none d-md-table-cell">ID user</th>
-                                <th class="d-none d-md-table-cell">Nota</th>
-                                <th class="d-none d-md-table-cell">Data</th>
-                                <th class="w-auto text-end">Ações</th>
-                            </tr>
-                            </thead>
-                            <tbody>
+
+                        <x-table>
+                            <x-table.thead>
+                                <x-table.tr>
+                                    <x-table.th>ID</x-table.th>
+                                    <x-table.th>ID livro</x-table.th>
+                                    <x-table.th>ID user</x-table.th>
+                                    <x-table.th>Nota</x-table.th>
+                                    <x-table.th>Data</x-table.th>
+                                    <x-table.th class="text-end">Ações</x-table.th>
+                                </x-table.tr>
+                            </x-table.thead>
+                            <x-table.tbody>
                             <!-- Aqui, o loop deve ser substituído por uma lista de elementos gerada dinamicamente -->
                             @foreach($reviews as $review)
-                                <tr>
+                                <x-table.tr>
                                     <td>{{ $review->id }}</td>
                                     <td>{{ $review->id_book }}</td>
                                     <td>{{ $review->id_user }}</td>
-                                    <td class="d-none d-md-table-cell">{{ $review->rating }}</td>
-                                    <td class="d-none d-md-table-cell">{{ $review->review_date }}</td>
+                                    <td>{{ $review->rating }}</td>
+                                    <td>{{ $review->review_date }}</td>
                                     <td class="text-end">
 
                                         <a href="{{ route('reviews.show', $review->id) }}" class="btn btn-info "><i class="ti ti-eye"></i></a>
@@ -42,10 +43,10 @@
                                             <button type="submit" class="btn btn-delete"><i class="ti ti-trash"></i></button>
                                         </form>
                                     </td>
-                                </tr>
+                                </x-table.tr>
                             @endforeach
-                            </tbody>
-                        </table>
+                            </x-table.tbody>
+                        </x-table>
                     </div>
                     <div class="card-footer">
                         {{ $reviews->links('layouts.admin.parts.pagination') }}
