@@ -88,8 +88,8 @@
                                 @enderror
                             </div>
                             <div class="text-end">
-                                <button type="submit" class="btn btn-solid">Salvar</button>
-                                <a href="{{ route('users.index') }}" class="btn btn-lightnew">Cancelar</a>
+                                <x-button.submit color="solid">Criar</x-button.submit>
+                                <x-button.link link="{{ route('users.index') }}" color="dark-solid">Cancelar</x-button.link>
                             </div>
                         </form>
                     </div>

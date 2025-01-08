@@ -39,8 +39,8 @@
                                 @enderror
                             </div>
                             <div class="text-end">
-                                <button type="submit" class="btn btn-solid">Criar</button>
-                                <a href="{{ route('comments.index') }}" class="btn btn-lightnew">Cancelar</a>
+                                <x-button.submit color="solid">Criar</x-button.submit>
+                                <x-button.link link="{{ route('comments.index') }}" color="dark-solid">Cancelar</x-button.link>
                             </div>
                         </form>
                     </div>
