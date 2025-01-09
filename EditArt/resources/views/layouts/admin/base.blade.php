@@ -59,6 +59,18 @@
                             </span>
                         </a>
                     </li>
+                    <hr class="m-0">
+                    <!-- Admin Section -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('admin.dashboard') }}">
+                            <span class="nav-link-icon d-md-none d-lg-inline-block">
+                                <i class="ti ti-dashboard fs-5"></i>
+                            </span>
+                            <span class="nav-link-title">
+                                Dashboard
+                            </span>
+                        </a>
+                    </li>
                     <!-- Obras Section -->
                     <li class="nav-item dropdown active">
                         <a class="nav-link dropdown-toggle" href="#admin-menu" data-bs-toggle="dropdown"
@@ -79,7 +91,7 @@
                             <!-- Outros links para Obras podem ser adicionados aqui -->
                         </div>
                     </li>
-                    <!-- Admin Section -->
+                    <!-- Forum Section -->
                     <li class="nav-item dropdown active">
                         <a class="nav-link dropdown-toggle" href="#admin-menu" data-bs-toggle="dropdown"
                            data-bs-auto-close="false" role="button" aria-expanded="false">
