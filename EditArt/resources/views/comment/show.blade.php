@@ -17,7 +17,7 @@
                         @endif
                         <div class="row">
                             <div class="col-md-12">
-                                <h3>[#{{ $comment->id }}] </h3>
+                                <h3>ID / {{ $comment->id }}</h3>
                                 <table class="table">
                                     <tbody>
                                     <tr>
@@ -35,11 +35,13 @@
                                     </tbody>
                                 </table>
                             </div>
+                            <div class="col-md-12 mt-4">
+                                <x-button.link link="{{ route('comments.edit', $comment->id) }}" color="solid">Editar</x-button.link>
+                                <x-button.link link="{{ route('comments.index') }}" color="light-new">Mostrar todos os comentários</x-button.link>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <a href="{{ route('comments.index') }}" class="btn btn-secondary mt-3 shadow-lg border-0 rounded-lg">Mostrar todos os comentários</a>
-                <a href="{{ route('comments.edit', $comment->id) }}" class="btn btn-warning mt-3 shadow-lg border-0 rounded-lg"><i class="fa fa-pencil" aria-hidden="true"></i>&nbsp Editar</a>
             </div>
         </div>
     </div>

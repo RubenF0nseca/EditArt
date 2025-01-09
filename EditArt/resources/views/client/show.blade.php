@@ -17,7 +17,7 @@
                         @endif
                         <div class="row">
                             <div class="col-md-6">
-                                <h3>[#{{ $user->id }}] </h3>
+                                <h3>ID / {{ $user->id }}</h3>
                                 <table class="table">
                                     <tbody>
                                     <tr>
@@ -52,11 +52,13 @@
                                 </table>
                             </div>
                             <div class="col-md-6"></div>
+                            <div class="col-md-12 mt-4">
+                                <x-button.link link="{{ route('users.edit', $user->id) }}" color="solid">Editar</x-button.link>
+                                <x-button.link link="{{ route('users.index') }}" color="light-new">Mostrar todos os utilizadores</x-button.link>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <a href="{{ route('users.index') }}" class="btn btn-secondary mt-3 shadow-lg border-0 rounded-lg">Mostrar todos os utilizadores</a>
-                <a href="{{ route('users.edit', $user->id) }}" class="btn btn-warning mt-3 shadow-lg border-0 rounded-lg"><i class="fa fa-pencil" aria-hidden="true"></i>&nbsp Editar</a>
             </div>
         </div>
     </div>

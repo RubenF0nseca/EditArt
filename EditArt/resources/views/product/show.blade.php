@@ -18,7 +18,7 @@
                         @endif
                         <div class="row">
                             <div class="col-md-6">
-                                <h3>[#{{ $book->id }}] </h3>
+                                <h3>ID / {{ $book->id }}</h3>
                                 <table class="table">
                                     <tbody>
                                     <tr>
@@ -94,16 +94,18 @@
                             </div>
                             <div class="col-md-6 d-flex justify-content-center">
                                 @if($book->CoverPicture)
-                                    <img src="{{ asset('storage/'.$book->CoverPicture) }}" class="product-thumb rounded shadow-lg border-0 rounded-lg" alt="{{ $book->title }}" style="width: 280px; height: 400px;">
+                                    <img src="{{ asset('storage/'.$book->CoverPicture) }}" class="product-thumb rounded shadow-lg border-0 rounded-lg mt-5" alt="{{ $book->title }}" style="width: 280px; height: 400px;">
                                 @else
-                                    <img src="{{ asset('imgs/img_nao_disponivel.png') }}" class="product-thumb rounded shadow-lg border-0 rounded-lg" alt="Imagem não disponível" style="width: 280px; height: 400px;">
+                                    <img src="{{ asset('imgs/img_nao_disponivel.png') }}" class="product-thumb rounded shadow-lg border-0 rounded-lg mt-5" alt="Imagem não disponível" style="width: 280px; height: 400px;">
                                 @endif
+                            </div>
+                            <div class="col-md-12 mt-4">
+                                <x-button.link link="{{ route('books.edit', $book->id) }}" color="solid">Editar</x-button.link>
+                                <x-button.link link="{{ route('books.index') }}" color="light-new">Mostrar todos os produtos</x-button.link>
                             </div>
                         </div>
                     </div>
                 </div>
-                <a href="{{ route('books.index') }}" class="btn btn-secondary mt-3 shadow-lg border-0 rounded-lg">Mostrar todos os produtos</a>
-                <a href="{{ route('books.edit', $book->id) }}" class="btn btn-warning mt-3 shadow-lg border-0 rounded-lg"><i class="fa fa-pencil" aria-hidden="true"></i>&nbsp Editar</a>
             </div>
         </div>
     </div>
