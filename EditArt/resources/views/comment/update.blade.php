@@ -40,8 +40,8 @@
                                 @enderror
                             </div>
                             <div class="text-end">
-                                <button type="submit" class="btn btn-primary">Editar</button>
-                                <a href="{{ route('comments.index') }}" class="btn btn-secondary">Cancelar</a>
+                                <x-button.submit color="solid">Guardar</x-button.submit>
+                                <x-button.link link="{{ route('comments.show', $comment->id) }}" color="dark-solid">Cancelar</x-button.link>
                             </div>
                         </form>
                     </div>

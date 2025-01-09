@@ -62,8 +62,8 @@
                                 @enderror
                             </div>
                             <div class="text-end">
-                                <button type="submit" class="btn btn-primary">Alterar</button>
-                                <a href="{{ route('authors.index') }}" class="btn btn-secondary">Cancelar</a>
+                                <x-button.submit color="solid">Guardar</x-button.submit>
+                                <x-button.link link="{{ route('authors.show', $author->id) }}" color="dark-solid">Cancelar</x-button.link>
                             </div>
                         </form>
                     </div>
