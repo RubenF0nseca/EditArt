@@ -12,7 +12,7 @@
             </ul>
             <form class="d-flex py-3 py-lg-0">
                 <a href="{{ route('registration') }}" class="btn btn-link text-1000 fw-medium order-1 order-lg-0" type="submit">Registar</a>
-                <a href="{{ route('login') }}" class="btn btn-darknew rounded-pill order-0" type="submit">Entrar</a>
+                <x-button.link link="{{ route('login') }}" color="light-new rounded-pill" type="submit">Entrar</x-button.link>
             </form>
         </div>
     </div>

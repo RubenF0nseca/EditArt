@@ -25,7 +25,7 @@
                     <form id="subscription-form" role="form" method="post" action="php/subscribe.php">
                         <div class="input-group">
                             <input class="form-control" type="email" id="semail" name="semail" placeholder="Your Email" data-validation-required-message="Please enter your email address." required="required"/><span class="input-group-btn">
-                        <button class="btn btn-darknew" id="subscription-form-submit" type="submit">Submit</button></span>
+                        <button class="btn btn-light-new" id="subscription-form-submit" type="submit">Submit</button></span>
                         </div>
                     </form>
                 </div>
