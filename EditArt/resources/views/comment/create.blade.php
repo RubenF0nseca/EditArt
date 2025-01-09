@@ -13,21 +13,17 @@
                     <div class="card-body">
                         <!-- Alerta para mensagem de sucesso -->
                         @if(session('success'))
-                            <div id="success-alert" class="alert alert-success alert-dismissible fade show" role="alert">
+                            <x-alert id="success-alert" type="success">
                                 {{session('success')}}
-                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                            </div>
+                            </x-alert>
                         @endif
-
 
                         <!-- Alerta para mensagem de erro geral -->
                         @if($errors->has('error'))
-                            <div class="alert alert-danger alert-dismissible fade show" role="alert" >
+                            <x-alert id="" type="danger">
                                 {{$errors->first('error')}}
-                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                            </div>
+                            </x-alert>
                         @endif
-
 
                         <form action="{{ route('comments.store') }}" method="POST">
                             @csrf

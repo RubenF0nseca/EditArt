@@ -16,7 +16,7 @@
                         <div class="card-body">
                             @if($errors->any())
                                 <div class="row p-2">
-                                    <x-alert type="danger">
+                                    <x-alert id="" type="danger">
                                         Verifique os dados inseridos
                                         <ul>
                                             @foreach($errors->all() as $message)
