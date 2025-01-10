@@ -10,7 +10,7 @@
     <link rel="icon" type="image/png" sizes="96x96" href="{{asset('icons/favicon-96x96.png')}}">
     <link rel="icon" type="image/png" sizes="192x192" href="{{asset('icons/favicon-192x192.png')}}">
     {{--Aple--}}
-    <link rel="apple-touch-icon"  href="{{asset('icons/apple-touch-icon.png')}}">
+    <link rel="apple-touch-icon" href="{{asset('icons/apple-touch-icon.png')}}">
 
     <link rel="manifest" href="{{asset('icons/site.webmanifest')}}">
 
@@ -39,14 +39,16 @@
                 <ul class="navbar-nav pt-lg-3">
                     <!-- Logout Link -->
                     <li class="nav-item">
-                        <a class="nav-link" href="/">
-                            <span class="nav-link-icon d-md-none d-lg-inline-block">
-                                <i class="ti ti-logout fs-5"></i>
-                            </span>
-                            <span class="nav-link-title">
+                        <form action="{{ route('logout') }}" method="POST">
+                            @csrf
+                            <button class="nav-link border-0 bg-transparent" type="submit">
+                                <span class="nav-link-icon d-md-none d-lg-inline-block">
+                                    <i class="ti ti-logout fs-5"></i>
+                                </span><span class="nav-link-title">
                                 Sair
-                            </span>
-                        </a>
+                                </span>
+                            </button>
+                        </form>
                     </li>
                     <!-- Home Link -->
                     <li class="nav-item">
@@ -142,7 +144,7 @@
                     </div>
                     <!-- Page title actions -->
                     <div class="col-md-6 ms-auto text-end">
-                            @yield('button')
+                        @yield('button')
                         {{--Botões de açao da página--}}
                     </div>
                 </div>
@@ -156,12 +158,15 @@
         </div>
         {{--Footer--}}
         <footer class="footer footer-transparent d-print-none">
-            <div class="container-xl"><hr></div>
+            <div class="container-xl">
+                <hr>
+            </div>
             <div class="row text-center align-items-center flex-row-reverse">
                 <div class="col font-alt">
                     <p>2025 © EditArt, All Rights Reserved</p>
                     <p class="text-center">
-                        <a href="https://github.com/RubenF0nseca/EditArt" class="git link-body-emphasis text-decoration-none">
+                        <a href="https://github.com/RubenF0nseca/EditArt"
+                           class="git link-body-emphasis text-decoration-none">
                             <i class="fa-brands fa-github"></i>
                         </a>
                     </p>
