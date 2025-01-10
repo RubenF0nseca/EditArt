@@ -15,6 +15,10 @@ class LoginController extends Controller
         $credentials = $request->validate([
             'email' => ['required', 'email'],
             'password' => ['required'],
+        ], [
+            'email.required' => 'Por favor, introduza o seu email.',
+            'email.email' => 'Introduza um email válido.',
+            'password.required' => 'A palavra-passe é obrigatória.',
         ]);
 
         if (Auth::attempt($credentials)) {
@@ -23,7 +27,7 @@ class LoginController extends Controller
             if (auth()->user()->hasRole('admin'))
                 return redirect()->route('admin.dashboard');
             else
-                return redirect()->intended(route('client.dashboard'));
+                return redirect()->intended('client.dashboard');
         }
 
         return redirect()->back()->withErrors([

@@ -30,11 +30,11 @@
                             <form method="POST" action="{{route('login')}}">
                                 @csrf
                                 <div class="form-floating mb-3">
-                                    <input value="{{old('email')}}" class="form-control" id="inputEmail" type="email" placeholder="" name="log_email"/>
+                                    <input value="{{old('email')}}" class="form-control" id="inputEmail" type="email" placeholder="" name="email"/>
                                     <label for="inputEmail">name@example.com</label>
                                 </div>
                                 <div class="form-floating mb-3">
-                                    <input class="form-control" id="inputPassword" type="password" placeholder="" name="log_password"/>
+                                    <input class="form-control" id="inputPassword" type="password" placeholder="" name="password"/>
                                     <label for="inputPassword">Password</label>
                                 </div>
                                 <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
