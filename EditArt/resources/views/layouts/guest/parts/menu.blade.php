@@ -8,7 +8,6 @@
                 <li class="nav-item"><a class="nav-link" href="{{ route('guest.books') }}">Livros</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ route('guest.authors') }}">Autores</a></li>
                 <li class="nav-item"><a class="nav-link" href="#">Online Editora</a></li>
-                <li class="nav-item"><a class="nav-link" href="{{ route('client.forum') }}">Forum</a></li>
             </ul>
             <form class="d-flex py-3 py-lg-0">
                 <a href="{{ route('registration') }}" class="btn btn-link text-1000 fw-medium order-1 order-lg-0" type="submit">Registar</a>
