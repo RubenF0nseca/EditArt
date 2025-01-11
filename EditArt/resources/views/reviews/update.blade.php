@@ -58,7 +58,7 @@
                             </div>
                             <div class="text-end">
                                 <x-button.submit color="solid">Guardar</x-button.submit>
-                                <x-button.link link="{{ route('reviews.show', $review->id) }}" color="dark-solid">Cancelar</x-button.link>
+                                <x-button.link link="{{ route('admin.reviews.show', $review->id) }}" color="dark-solid">Cancelar</x-button.link>
                             </div>
                         </form>
                     </div>

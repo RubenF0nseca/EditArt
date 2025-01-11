@@ -14,7 +14,19 @@
                 <li class="nav-item"><a class="nav-link" href="{{ route('client.profile') }}"><i class="fa-solid fa-user"></i></a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ route('client.wishlist') }}"><i class="fa-solid fa-heart"></i></a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ route('client.cart') }}"><i class="fa-solid fa-cart-shopping"></i></a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Sair</a></li>
+                <li class="nav-item">
+                    <form action="{{ route('logout') }}" method="POST">
+                        @csrf
+                        <button class="nav-link border-0 bg-transparent" type="submit">
+            <span class="nav-link-icon d-md-none d-lg-inline-block">
+                <i class="ti ti-logout fs-5"></i>
+            </span>
+                            <span class="nav-link-title">
+                Sair
+            </span>
+                        </button>
+                    </form>
+                </li>
             </ul>
         </div>
     </div>

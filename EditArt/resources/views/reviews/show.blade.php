@@ -48,8 +48,8 @@
                                 </table>
                             </div>
                             <div class="col-md-12 mt-4">
-                                <x-button.link link="{{ route('reviews.edit', $review->id) }}" color="solid">Editar</x-button.link>
-                                <x-button.link link="{{ route('reviews.index') }}" color="light-new">Mostrar todas as avaliações</x-button.link>
+                                <x-button.link link="{{ route('admin.reviews.edit', $review->id) }}" color="solid">Editar</x-button.link>
+                                <x-button.link link="{{ route('admin.reviews.index') }}" color="light-new">Mostrar todas as avaliações</x-button.link>
                             </div>
                         </div>
                     </div>

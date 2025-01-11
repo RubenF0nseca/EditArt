@@ -28,9 +28,9 @@ Route::middleware('role:admin')->group(function (){
     Route::prefix('/admin')->group(function (){
         Route::name('admin.')->group(function (){
 
-            Route::get('/admin/dashboard', function () {
+            Route::get('/dashboard', function () {
                 return view('admin.dashboard');
-            })->name('admin.dashboard');
+            })->name('dashboard');
 
             Route::resource('users', UserController::class);
 
@@ -51,32 +51,31 @@ Route::middleware('role:admin')->group(function (){
 });
 
 Route::middleware('role:cliente')->group(function (){
-    Route::prefix('/cliente')->group(function (){
-        Route::name('cliente.')->group(function (){
-            Route::get('/book', function () {
-                return view('client.book');
-            })->name('client.book');
+    Route::prefix('/client')->group(function (){
+        Route::name('client.')->group(function (){
 
             Route::get('/profile', function () {
                 return view('client.profile');
-            })->name('client.profile');
+            })->name('profile');
 
             Route::get('/wishlist', function () {
                 return view('client.wishlist');
-            })->name('client.wishlist');
+            })->name('wishlist');
 
             Route::get('/cart', function () {
                 return view('client.cart');
-            })->name('client.cart');
+            })->name('cart');
 
             Route::get('/forum', function () {
                 return view('client.forum');
-            })->name('client.forum');
+            })->name('forum');
 
         });
     });
 });
-
+Route::get('/book', function () {
+    return view('client.book');
+})->name('book');
 
 Route::get('/guest/authors', function () {
     return view('guest.authors');

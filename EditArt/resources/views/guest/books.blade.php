@@ -1,5 +1,12 @@
-@extends('layouts.guest.base')
+@php
+    $layout = 'layouts.guest.base';
 
+    if (auth()->check() && auth()->user()->hasAnyRole(['admin', 'cliente'])) {
+        $layout = 'layouts.client.base';
+    }
+@endphp
+
+@extends($layout)
 @section('content')
     <!-- Banner ------------------------------------  -->
     <div id="myCarousel" class="carousel slide mb-6" data-bs-ride="carousel">

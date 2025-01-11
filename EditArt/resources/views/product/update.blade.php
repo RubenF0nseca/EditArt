@@ -251,7 +251,7 @@
                             <!-- Botões -->
                             <div class="text-end">
                                 <x-button.submit color="solid">Guardar</x-button.submit>
-                                <x-button.link link="{{ route('books.show', $book->id) }}" color="dark-solid">Cancelar</x-button.link>
+                                <x-button.link link="{{ route('admin.books.show', $book->id) }}" color="dark-solid">Cancelar</x-button.link>
                             </div>
                         </form>
                     </div>

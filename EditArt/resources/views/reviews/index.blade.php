@@ -3,7 +3,7 @@
 @section('title','Lista de Avaliações')
 
 @section('button')
-    <x-button.add link="{{ route('reviews.create') }}" icon="fa-plus">&nbsp Nova Avaliação</x-button.add>
+    <x-button.add link="{{ route('admin.reviews.create') }}" icon="fa-plus">&nbsp Nova Avaliação</x-button.add>
 @endsection
 
 @section('content')
@@ -35,9 +35,9 @@
                                     <td>{{ $review->review_date }}</td>
                                     <td class="text-end">
 
-                                        <x-table.operation link="{{ route('reviews.show', $review->id) }}" name="info" icon="ti ti-eye"></x-table.operation>
-                                        <x-table.operation link="{{ route('reviews.edit', $review->id) }}" name="edit" icon="fa fa-pencil"></x-table.operation>
-                                        <x-table.delete action="{{ route('reviews.destroy', $review->id) }}"></x-table.delete>
+                                        <x-table.operation link="{{ route('admin.reviews.show', $review->id) }}" name="info" icon="ti ti-eye"></x-table.operation>
+                                        <x-table.operation link="{{ route('admin.reviews.edit', $review->id) }}" name="edit" icon="fa fa-pencil"></x-table.operation>
+                                        <x-table.delete action="{{ route('admin.reviews.destroy', $review->id) }}"></x-table.delete>
 
                                     </td>
                                 </x-table.tr>

@@ -100,8 +100,8 @@
                                 @endif
                             </div>
                             <div class="col-md-12 mt-4">
-                                <x-button.link link="{{ route('books.edit', $book->id) }}" color="solid">Editar</x-button.link>
-                                <x-button.link link="{{ route('books.index') }}" color="light-new">Mostrar todos os produtos</x-button.link>
+                                <x-button.link link="{{ route('admin.books.edit', $book->id) }}" color="solid">Editar</x-button.link>
+                                <x-button.link link="{{ route('admin.books.index') }}" color="light-new">Mostrar todos os produtos</x-button.link>
                             </div>
                         </div>
                     </div>

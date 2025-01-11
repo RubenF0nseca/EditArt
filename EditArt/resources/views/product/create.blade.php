@@ -25,7 +25,7 @@
                             </x-alert>
                         @endif
 
-                        <form action="{{ route('books.store') }}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('admin.books.store') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="mb-3">
                                 <label for="title" class="form-label required">Title</label>
@@ -155,7 +155,7 @@
                             </div>
                             <div class="text-end">
                                 <x-button.submit color="solid">Criar</x-button.submit>
-                                <x-button.link link="{{ route('books.index') }}" color="dark-solid">Cancelar</x-button.link>
+                                <x-button.link link="{{ route('admin.books.index') }}" color="dark-solid">Cancelar</x-button.link>
                             </div>
                         </form>
                     </div>

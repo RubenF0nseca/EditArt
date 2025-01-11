@@ -28,7 +28,7 @@ class LoginController extends Controller
             if (auth()->user()->hasRole('admin'))
                 return redirect()->route('admin.dashboard');
             else
-                return redirect()->intended('client.dashboard');
+                return redirect()->intended('/');
         }
 
         return redirect()->back()->withErrors([

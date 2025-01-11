@@ -43,9 +43,9 @@
                                     <td>{{ $book->price }}€</td>
                                     <td class="text-end">
 
-                                        <x-table.operation link="{{ route('books.show', $book->id) }}" name="info" icon="ti ti-eye"></x-table.operation>
-                                        <x-table.operation link="{{ route('books.edit', $book->id) }}" name="edit" icon="fa fa-pencil"></x-table.operation>
-                                        <x-table.delete action="{{ route('books.destroy', $book->id) }}"></x-table.delete>
+                                        <x-table.operation link="{{ route('admin.books.show', $book->id) }}" name="info" icon="ti ti-eye"></x-table.operation>
+                                        <x-table.operation link="{{ route('admin.books.edit', $book->id) }}" name="edit" icon="fa fa-pencil"></x-table.operation>
+                                        <x-table.delete action="{{ route('admin.books.destroy', $book->id) }}"></x-table.delete>
 
                                     </td>
                                 </x-table.tr>
