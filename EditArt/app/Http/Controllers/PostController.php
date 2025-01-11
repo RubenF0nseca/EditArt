@@ -32,7 +32,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        return view('post.index', ['posts' => Post::paginate(11)]);
+        return view('post.index', ['posts' => Post::paginate(12)]);
     }
 
     /**

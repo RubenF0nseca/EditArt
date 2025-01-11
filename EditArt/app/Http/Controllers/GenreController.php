@@ -27,7 +27,7 @@ class GenreController extends Controller
      */
     public function index()
     {
-        return view('genre.index', ['genres' => Genre::paginate(11)]);
+        return view('genre.index', ['genres' => Genre::paginate(12)]);
     }
 
     /**
