@@ -53,7 +53,7 @@ Route::middleware('role:admin')->group(function (){
     });
 });
 
-Route::middleware('role:cliente')->group(function (){
+Route::middleware('role:cliente|admin')->group(function (){
     Route::prefix('/client')->group(function (){
         Route::name('client.')->group(function (){
 
