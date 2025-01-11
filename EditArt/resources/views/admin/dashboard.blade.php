@@ -1,12 +1,74 @@
 @extends('layouts.admin.base')
 
+@section('title','Admin Dashboard')
+
 @section('content')
-    <h2>Admin Dashboard</h2>
     <div class="container">
         <div class="row">
-            <div class="col-md-12 d-flex justify-content-center">
-                <img src="{{asset('imgs/logo-editart.png')}}" height="100%" alt="EditArt">
+            <div class="col-md-6 col-xl-3 mb-4">
+                <x-card id="widget-card">
+                    <div class="row align-items-center widget-item">
+                        <div class="col-3 text-center circle">
+                          <span>
+                            <i class="icon-profile-male widget-icon"></i>
+                          </span>
+                        </div>
+                        <div class="col pr-0">
+                            <p class="font-alt mb-0">Utilizadores</p>
+                            <span class="h3 mb-0">1250</span>
+                        </div>
+                    </div>
+                </x-card>
             </div>
+
+            <div class="col-md-6 col-xl-3 mb-4">
+                <x-card id="widget-card">
+                    <div class="row align-items-center widget-item">
+                        <div class="col-3 text-center circle">
+                          <span>
+                            <i class="icon-profile-male widget-icon"></i>
+                          </span>
+                        </div>
+                        <div class="col pr-0">
+                            <p class="font-alt mb-0">Utilizadores</p>
+                            <span class="h3 mb-0">1250</span>
+                        </div>
+                    </div>
+                </x-card>
+            </div>
+
+            <div class="col-md-6 col-xl-3 mb-4">
+                <x-card id="widget-card">
+                    <div class="row align-items-center widget-item">
+                        <div class="col-3 text-center circle">
+                          <span>
+                            <i class="icon-profile-male widget-icon"></i>
+                          </span>
+                        </div>
+                        <div class="col pr-0">
+                            <p class="font-alt mb-0">Utilizadores</p>
+                            <span class="h3 mb-0">1250</span>
+                        </div>
+                    </div>
+                </x-card>
+            </div>
+
+            <div class="col-md-6 col-xl-3 mb-4">
+                <x-card id="widget-card">
+                    <div class="row align-items-center widget-item">
+                        <div class="col-3 text-center circle">
+                          <span>
+                            <i class="icon-profile-male widget-icon"></i>
+                          </span>
+                        </div>
+                        <div class="col pr-0">
+                            <p class="font-alt mb-0">Utilizadores</p>
+                            <span class="h3 mb-0">1250</span>
+                        </div>
+                    </div>
+                </x-card>
+            </div>
+            
         </div>
     </div>
 @endsection
