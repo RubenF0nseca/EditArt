@@ -121,7 +121,7 @@ class AuthorController extends Controller
 
             $author->update($validated);
 
-            return redirect(route('authors.show', $author->id))->with('success', "autor atualizado com sucesso! [#{$author->id}]");
+            return redirect(route('admin.authors.show', $author->id))->with('success', "autor atualizado com sucesso! [#{$author->id}]");
         } catch (\Exception $e) {
             return redirect()->back()->withErrors(['error' => "Erro ao atualizar o autor!"])->withInput();
         }
@@ -136,6 +136,6 @@ class AuthorController extends Controller
             \Storage::disk('public')->delete($author->profilePicture);
         }
         $author->delete();
-        return redirect(route('authors.index'));
+        return redirect(route('admin.authors.index'));
     }
 }

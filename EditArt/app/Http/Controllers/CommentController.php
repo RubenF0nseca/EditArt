@@ -47,7 +47,7 @@ class CommentController extends Controller
         try{
             $comment = new Comment($validated);
             $comment->save();
-            return redirect(route('comments.create'))->with('success',"Comentário gravado com sucesso! [#{$comment->id}]");
+            return redirect(route('admin.comments.create'))->with('success',"Comentário gravado com sucesso! [#{$comment->id}]");
         }catch (\Exception $e){
             return redirect()->back()->withErrors(['error' => "Erro ao criar um comentário!"])->withInput();
         }
@@ -78,7 +78,7 @@ class CommentController extends Controller
         try{
             $comment->update($validated);
 
-            return redirect(route('comments.create'))->with('success',"Comentário editado com sucesso! [#{$comment->id}]");
+            return redirect(route('admin.comments.create'))->with('success',"Comentário editado com sucesso! [#{$comment->id}]");
         }catch (\Exception $e){
             return redirect()->back()->withErrors(['error' => "Erro ao editar o comentário!"])->withInput();
         }
@@ -90,6 +90,6 @@ class CommentController extends Controller
     public function destroy(Comment $comment)
     {
         $comment->delete();
-        return redirect(route('comments.index'));
+        return redirect(route('admin.comments.index'));
     }
 }

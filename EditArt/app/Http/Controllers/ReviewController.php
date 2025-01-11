@@ -62,7 +62,7 @@ class ReviewController extends Controller
             $review = new Review($validated);
             $review->review_date = now();
             $review->save();
-            return redirect(route('reviews.create'))->with('success',"Avaliação registada com sucesso! [#{$review->id}]");
+            return redirect(route('admin.reviews.create'))->with('success',"Avaliação registada com sucesso! [#{$review->id}]");
         }catch (\Exception $e){
             return redirect()->back()->withErrors(['error' => "Erro ao criar avaliação!"])->withInput();
         }
@@ -94,7 +94,7 @@ class ReviewController extends Controller
         try {
             $review->update($validated);
 
-            return redirect(route('reviews.show', $review->id))->with('success', "Avaliação editada com sucesso! [#{$review->id}]");
+            return redirect(route('admin.reviews.show', $review->id))->with('success', "Avaliação editada com sucesso! [#{$review->id}]");
         } catch (\Exception $e) {
             return redirect()->back()->withErrors(['error' => "Erro ao atualizar a avaliação!"])->withInput();
         }
@@ -106,6 +106,6 @@ class ReviewController extends Controller
     public function destroy(Review $review)
     {
         $review->delete();
-        return redirect(route('reviews.index'));
+        return redirect(route('admin.reviews.index'));
     }
 }

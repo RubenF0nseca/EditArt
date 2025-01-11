@@ -82,7 +82,7 @@ class UserController extends Controller
         try{
             $user = new User($validated);
             $user->save();
-            return redirect(route('users.create'))->with('success',"User criado com sucesso! [#{$user->id}]");
+            return redirect(route('admin.users.create'))->with('success',"User criado com sucesso! [#{$user->id}]");
         }catch (\Exception $e){
             return redirect()->back()->withErrors(['error' => "Erro ao criar o User!"])->withInput();
         }
@@ -117,7 +117,7 @@ class UserController extends Controller
                 unset($validated['password']);
             }
             $user->update($validated);
-            return redirect(route('users.show',$user))->with(['success','Utilizador atualizado com sucesso!']);
+            return redirect(route('admin.users.show',$user))->with(['success','Utilizador atualizado com sucesso!']);
         }catch (\Exception $e){
             return redirect()->back()->withErrors(['error'=>"Erro ao editar o utilizador! MSG:{$e->getMessage()}"])->withInput();
         }
@@ -130,6 +130,6 @@ class UserController extends Controller
     public function destroy(user $user)
     {
         $user->delete();
-        return redirect(route('users.index'));
+        return redirect(route('admin.users.index'));
     }
 }

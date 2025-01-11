@@ -25,7 +25,7 @@
                             </x-alert>
                         @endif
 
-                        <form action="{{ route('reviews.update', $review->id) }}" method="POST">
+                        <form action="{{ route('admin.reviews.update', $review->id) }}" method="POST">
                             @csrf
                             @method('PUT')
                             <div class="mb-3">

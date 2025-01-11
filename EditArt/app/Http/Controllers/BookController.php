@@ -112,7 +112,7 @@ class BookController extends Controller
             $book->authors()->attach($authors);
             $book->genres()->attach($genres);
 
-            return redirect(route('books.create'))->with('success', "Livro registado com sucesso! [#{$book->id}]");
+            return redirect(route('admin.books.create'))->with('success', "Livro registado com sucesso! [#{$book->id}]");
         } catch (\Exception $e) {
             return redirect()->back()->withErrors(['error' => "Erro ao criar o Livro: {$e->getMessage()}"])->withInput();
         }
@@ -176,7 +176,7 @@ class BookController extends Controller
 
             $book->update($validated);
 
-            return redirect(route('books.show', $book->id))->with('success', "Livro atualizado com sucesso! [#{$book->id}]");
+            return redirect(route('admin.books.show', $book->id))->with('success', "Livro atualizado com sucesso! [#{$book->id}]");
         } catch (\Exception $e) {
             return redirect()->back()->withErrors(['error' => "Erro ao atualizar o Livro!"])->withInput();
         }
@@ -191,6 +191,6 @@ class BookController extends Controller
             \Storage::disk('public')->delete($book->CoverPicture);
         }
         $book->delete();
-        return redirect(route('books.index'));
+        return redirect(route('admin.books.index'));
     }
 }

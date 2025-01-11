@@ -52,7 +52,7 @@ class PostController extends Controller
         try{
             $post = new Post($validated);
             $post->save();
-            return redirect(route('posts.create'))->with('success',"Tópico gravado com sucesso! [#{$post->id}]");
+            return redirect(route('admin.posts.create'))->with('success',"Tópico gravado com sucesso! [#{$post->id}]");
         }catch (\Exception $e){
             return redirect()->back()->withErrors(['error' => "Erro ao criar o tópico!"])->withInput();
         }
@@ -83,7 +83,7 @@ class PostController extends Controller
         try{
             $post->update($validated);
 
-            return redirect(route('posts.show', $post->id))->with('success',"Tópico alterado com sucesso! [#{$post->id}]");
+            return redirect(route('admin.posts.show', $post->id))->with('success',"Tópico alterado com sucesso! [#{$post->id}]");
         }catch (\Exception $e){
             return redirect()->back()->withErrors(['error' => "Erro ao alterar o tópico!"])->withInput();
         }
@@ -95,6 +95,6 @@ class PostController extends Controller
     public function destroy(Post $post)
     {
         $post->delete();
-        return redirect(route('posts.index'));
+        return redirect(route('admin.posts.index'));
     }
 }

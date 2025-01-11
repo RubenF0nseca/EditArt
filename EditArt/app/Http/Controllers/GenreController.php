@@ -47,7 +47,7 @@ class GenreController extends Controller
         try{
             $genre = new Genre($validated);
             $genre->save();
-            return redirect(route('genres.create'))->with('success',"Género Literário gravado com sucesso! [#{$genre->id}]");
+            return redirect(route('admin.genres.create'))->with('success',"Género Literário gravado com sucesso! [#{$genre->id}]");
         }catch (\Exception $e){
             return redirect()->back()->withErrors(['error' => "Erro ao criar o género literário!"])->withInput();
         }
@@ -70,7 +70,7 @@ class GenreController extends Controller
         try{
             $genre->update($validated);
 
-            return redirect(route('genres.index'))->with('success',"Género Literário editado com sucesso! [#{$genre->id}]");
+            return redirect(route('admin.genres.index'))->with('success',"Género Literário editado com sucesso! [#{$genre->id}]");
         }catch (\Exception $e){
             return redirect()->back()->withErrors(['error' => "Erro ao editar o género literário!"])->withInput();
         }
@@ -82,6 +82,6 @@ class GenreController extends Controller
     public function destroy(Genre $genre)
     {
         $genre->delete();
-        return redirect(route('genres.index'));
+        return redirect(route('admin.genres.index'));
     }
 }
