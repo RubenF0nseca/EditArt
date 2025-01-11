@@ -25,7 +25,7 @@
                             </x-alert>
                         @endif
 
-                        <form action="{{ route('comments.store') }}" method="POST">
+                        <form action="{{ route('admin.comments.store') }}" method="POST">
                             @csrf
                             <div class="mb-3">
                                 <label for="content" class="form-label required">Comentário</label>
@@ -36,7 +36,7 @@
                             </div>
                             <div class="text-end">
                                 <x-button.submit color="solid">Criar</x-button.submit>
-                                <x-button.link link="{{ route('comments.index') }}" color="dark-solid">Cancelar</x-button.link>
+                                <x-button.link link="{{ route('admin.comments.index') }}" color="dark-solid">Cancelar</x-button.link>
                             </div>
                         </form>
                     </div>

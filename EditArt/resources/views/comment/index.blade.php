@@ -3,7 +3,7 @@
 @section('title','Lista de Comentários')
 
 @section('button')
-    <x-button.add link="{{ route('comments.create') }}" icon="fa-plus">&nbsp Novo Comentário</x-button.add>
+    <x-button.add link="{{ route('admin.comments.create') }}" icon="fa-plus">&nbsp Novo Comentário</x-button.add>
 @endsection
 
 @section('content')
@@ -29,9 +29,9 @@
                                     <td>{{ Str::limit($comment->content, 120, '...') }}</td>
                                     <td class="text-end">
 
-                                        <x-table.operation link="{{ route('comments.show', $comment->id) }}" name="info" icon="ti ti-eye"></x-table.operation>
-                                        <x-table.operation link="{{ route('comments.edit', $comment->id) }}" name="edit" icon="fa fa-pencil"></x-table.operation>
-                                        <x-table.delete action="{{ route('comments.destroy', $comment->id) }}"></x-table.delete>
+                                        <x-table.operation link="{{ route('admin.comments.show', $comment->id) }}" name="info" icon="ti ti-eye"></x-table.operation>
+                                        <x-table.operation link="{{ route('admin.comments.edit', $comment->id) }}" name="edit" icon="fa fa-pencil"></x-table.operation>
+                                        <x-table.delete action="{{ route('admin.comments.destroy', $comment->id) }}"></x-table.delete>
 
                                     </td>
                                 </x-table.tr>

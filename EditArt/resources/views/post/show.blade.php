@@ -40,8 +40,8 @@
                                 </table>
                             </div>
                             <div class="col-md-12 mt-4">
-                                <x-button.link link="{{ route('posts.edit', $post->id) }}" color="solid">Editar</x-button.link>
-                                <x-button.link link="{{ route('posts.index') }}" color="light-new">Mostrar todos os tópicos</x-button.link>
+                                <x-button.link link="{{ route('admin.posts.edit', $post->id) }}" color="solid">Editar</x-button.link>
+                                <x-button.link link="{{ route('admin.posts.index') }}" color="light-new">Mostrar todos os tópicos</x-button.link>
                             </div>
                         </div>
                     </div>

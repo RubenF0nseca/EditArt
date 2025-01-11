@@ -3,7 +3,7 @@
 @section('title','Lista de Utilizadores')
 
 @section('button')
-    <x-button.add link="{{ route('users.create') }}" icon="fa-user-plus">&nbsp Novo Utilizador</x-button.add>
+    <x-button.add link="{{ route('admin.users.create') }}" icon="fa-user-plus">&nbsp Novo Utilizador</x-button.add>
 @endsection
 
 @section('content')
@@ -33,9 +33,9 @@
                                     <td>{{ $user->role }}</td>
                                     <td class="text-end">
 
-                                        <x-table.operation link="{{ route('users.show', $user->id) }}" name="info" icon="ti ti-eye"></x-table.operation>
-                                        <x-table.operation link="{{ route('users.edit', $user->id) }}" name="edit" icon="fa fa-pencil"></x-table.operation>
-                                        <x-table.delete action="{{ route('users.destroy', $user->id) }}"></x-table.delete>
+                                        <x-table.operation link="{{ route('admin.users.show', $user->id) }}" name="info" icon="ti ti-eye"></x-table.operation>
+                                        <x-table.operation link="{{ route('admin.users.edit', $user->id) }}" name="edit" icon="fa fa-pencil"></x-table.operation>
+                                        <x-table.delete action="{{ route('admin.users.destroy', $user->id) }}"></x-table.delete>
 
                                     </td>
                                 </x-table.tr>

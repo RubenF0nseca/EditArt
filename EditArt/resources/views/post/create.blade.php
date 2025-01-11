@@ -25,7 +25,7 @@
                             </x-alert>
                         @endif
 
-                        <form action="{{ route('posts.store') }}" method="POST">
+                        <form action="{{ route('admin.posts.store') }}" method="POST">
                             @csrf
                             <div class="mb-3">
                                 <label for="title" class="form-label required">Titulo</label>
@@ -43,7 +43,7 @@
                             </div>
                             <div class="text-end">
                                 <x-button.submit color="solid">Criar</x-button.submit>
-                                <x-button.link link="{{ route('posts.index') }}" color="dark-solid">Cancelar</x-button.link>
+                                <x-button.link link="{{ route('admin.posts.index') }}" color="dark-solid">Cancelar</x-button.link>
                             </div>
                         </form>
                     </div>

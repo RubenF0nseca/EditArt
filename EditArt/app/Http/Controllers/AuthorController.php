@@ -75,7 +75,7 @@ class AuthorController extends Controller
             $author = new Author($validated);
             $author->save();
 
-            return redirect(route('authors.create'))->with('success', "Autor criado com sucesso! [#{$author->id}]");
+            return redirect(route('admin.authors.create'))->with('success', "Autor criado com sucesso! [#{$author->id}]");
         } catch (\Exception $e) {
             return redirect()->back()->withErrors(['error' => "Erro ao criar o autor!"])->withInput();
         }

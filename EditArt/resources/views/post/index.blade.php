@@ -3,7 +3,7 @@
 @section('title','Lista de tópicos')
 
 @section('button')
-    <x-button.add link="{{ route('posts.create') }}" icon="fa-plus">&nbsp Novo Topico</x-button.add>
+    <x-button.add link="{{ route('admin.posts.create') }}" icon="fa-plus">&nbsp Novo Topico</x-button.add>
 @endsection
 
 @section('content')
@@ -31,9 +31,9 @@
                                     <td>{{ Str::limit($post->content, 60, '...') }}</td>
                                     <td class="text-end">
 
-                                        <x-table.operation link="{{ route('posts.show', $post->id) }}" name="info" icon="ti ti-eye"></x-table.operation>
-                                        <x-table.operation link="{{ route('posts.edit', $post->id) }}" name="edit" icon="fa fa-pencil"></x-table.operation>
-                                        <x-table.delete action="{{ route('posts.destroy', $post->id) }}"></x-table.delete>
+                                        <x-table.operation link="{{ route('admin.posts.show', $post->id) }}" name="info" icon="ti ti-eye"></x-table.operation>
+                                        <x-table.operation link="{{ route('admin.posts.edit', $post->id) }}" name="edit" icon="fa fa-pencil"></x-table.operation>
+                                        <x-table.delete action="{{ route('admin.posts.destroy', $post->id) }}"></x-table.delete>
 
                                     </td>
                                 </x-table.tr>

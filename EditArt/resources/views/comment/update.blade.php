@@ -25,7 +25,7 @@
                             </x-alert>
                         @endif
 
-                        <form action="{{ route('comments.update', $comment->id) }}" method="POST">
+                        <form action="{{ route('admin.comments.update', $comment->id) }}" method="POST">
                             @csrf
                             @method('PUT')
                             <div class="mb-3">
@@ -37,7 +37,7 @@
                             </div>
                             <div class="text-end">
                                 <x-button.submit color="solid">Guardar</x-button.submit>
-                                <x-button.link link="{{ route('comments.show', $comment->id) }}" color="dark-solid">Cancelar</x-button.link>
+                                <x-button.link link="{{ route('admin.comments.show', $comment->id) }}" color="dark-solid">Cancelar</x-button.link>
                             </div>
                         </form>
                     </div>

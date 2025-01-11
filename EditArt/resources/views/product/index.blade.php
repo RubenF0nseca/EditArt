@@ -3,7 +3,7 @@
 @section('title','Lista de Produtos')
 
 @section('button')
-    <x-button.add link="{{ route('books.create') }}" icon="fa-file-circle-plus">&nbsp Novo produto</x-button.add>
+    <x-button.add link="{{ route('admin.books.create') }}" icon="fa-file-circle-plus">&nbsp Novo produto</x-button.add>
 @endsection
 
 @section('content')

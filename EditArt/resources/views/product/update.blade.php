@@ -25,7 +25,7 @@
                             </x-alert>
                         @endif
 
-                        <form action="{{ route('books.update', $book->id) }}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('admin.books.update', $book->id) }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
 

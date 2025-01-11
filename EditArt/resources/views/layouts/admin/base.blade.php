@@ -85,10 +85,10 @@
                             </span>
                         </a>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" href="{{ route('books.index') }}">Lista de Produtos</a>
-                            <a class="dropdown-item" href="{{ route('authors.index') }}">Lista de Autores</a>
-                            <a class="dropdown-item" href="{{ route('reviews.index') }}">Lista de Avaliações</a>
-                            <a class="dropdown-item" href="{{ route('genres.index') }}">Lista de Generos</a>
+                            <a class="dropdown-item" href="{{ route('admin.books.index') }}">Lista de Produtos</a>
+                            <a class="dropdown-item" href="{{ route('admin.authors.index') }}">Lista de Autores</a>
+                            <a class="dropdown-item" href="{{ route('admin.reviews.index') }}">Lista de Avaliações</a>
+                            <a class="dropdown-item" href="{{ route('admin.genres.index') }}">Lista de Generos</a>
 
                             <!-- Outros links para Obras podem ser adicionados aqui -->
                         </div>
@@ -105,8 +105,8 @@
                             </span>
                         </a>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" href="{{ route('posts.index') }}">Lista de Publicações</a>
-                            <a class="dropdown-item" href="{{ route('comments.index') }}">Lista de Comentarios</a>
+                            <a class="dropdown-item" href="{{ route('admin.posts.index') }}">Lista de Publicações</a>
+                            <a class="dropdown-item" href="{{ route('admin.comments.index') }}">Lista de Comentarios</a>
                             <!-- Outros links para Admin podem ser adicionados aqui -->
                         </div>
                     </li>
@@ -123,7 +123,7 @@
                             </span>
                         </a>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" href="{{ route('users.index') }}">Lista de Utilizadores</a>
+                            <a class="dropdown-item" href="{{ route('admin.users.index') }}">Lista de Utilizadores</a>
                             <!-- Outros links para Cliente podem ser adicionados aqui -->
                         </div>
                     </li>

@@ -3,7 +3,7 @@
 @section('title','Lista de Autores')
 
 @section('button')
-    <x-button.add link="{{ route('authors.create') }}" icon="fa-user-plus">&nbsp Novo autor</x-button.add>
+    <x-button.add link="{{ route('admin.authors.create') }}" icon="fa-user-plus">&nbsp Novo autor</x-button.add>
 @endsection
 
 @section('content')
@@ -41,9 +41,9 @@
                                         <td class="d-none d-md-table-cell">{{ $author->birthdate }}</td>
                                         <td class="text-end">
 
-                                            <x-table.operation link="{{ route('authors.show', $author->id) }}" name="info" icon="ti ti-eye"></x-table.operation>
-                                            <x-table.operation link="{{ route('authors.edit', $author->id) }}" name="edit" icon="fa fa-pencil"></x-table.operation>
-                                            <x-table.delete action="{{ route('authors.destroy', $author->id) }}"></x-table.delete>
+                                            <x-table.operation link="{{ route('admin.authors.show', $author->id) }}" name="info" icon="ti ti-eye"></x-table.operation>
+                                            <x-table.operation link="{{ route('admin.authors.edit', $author->id) }}" name="edit" icon="fa fa-pencil"></x-table.operation>
+                                            <x-table.delete action="{{ route('admin.authors.destroy', $author->id) }}"></x-table.delete>
 
                                         </td>
                                     </x-table.tr>

@@ -36,8 +36,8 @@
                                 </table>
                             </div>
                             <div class="col-md-12 mt-4">
-                                <x-button.link link="{{ route('comments.edit', $comment->id) }}" color="solid">Editar</x-button.link>
-                                <x-button.link link="{{ route('comments.index') }}" color="light-new">Mostrar todos os comentários</x-button.link>
+                                <x-button.link link="{{ route('admin.comments.edit', $comment->id) }}" color="solid">Editar</x-button.link>
+                                <x-button.link link="{{ route('admin.comments.index') }}" color="light-new">Mostrar todos os comentários</x-button.link>
                             </div>
                         </div>
                     </div>

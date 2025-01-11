@@ -51,8 +51,8 @@
                                 @endif
                             </div>
                             <div class="col-md-12 mt-4">
-                                <x-button.link link="{{ route('authors.edit', $author->id) }}" color="solid">Editar</x-button.link>
-                                <x-button.link link="{{ route('authors.index') }}" color="light-new">Mostrar todos os autores</x-button.link>
+                                <x-button.link link="{{ route('admin.authors.edit', $author->id) }}" color="solid">Editar</x-button.link>
+                                <x-button.link link="{{ route('admin.authors.index') }}" color="light-new">Mostrar todos os autores</x-button.link>
                             </div>
                         </div>
                     </div>

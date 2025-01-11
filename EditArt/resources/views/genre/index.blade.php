@@ -3,7 +3,7 @@
 @section('title','Lista de Géneros Literários')
 
 @section('button')
-    <x-button.add link="{{ route('genres.create') }}" icon="fa-plus">&nbsp Novo Género Literário</x-button.add>
+    <x-button.add link="{{ route('admin.genres.create') }}" icon="fa-plus">&nbsp Novo Género Literário</x-button.add>
 @endsection
 
 @section('content')
@@ -47,8 +47,8 @@
                                     <td>{{$genre->name}}</td>
                                     <td class="text-end">
 
-                                        <x-table.operation link="{{ route('genres.edit', $genre->id) }}" name="edit" icon="fa fa-pencil"></x-table.operation>
-                                        <x-table.delete action="{{ route('genres.destroy', $genre->id) }}"></x-table.delete>
+                                        <x-table.operation link="{{ route('admin.genres.edit', $genre->id) }}" name="edit" icon="fa fa-pencil"></x-table.operation>
+                                        <x-table.delete action="{{ route('admin.genres.destroy', $genre->id) }}"></x-table.delete>
 
                                     </td>
                                 </x-table.tr>

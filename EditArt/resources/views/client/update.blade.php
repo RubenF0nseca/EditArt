@@ -25,7 +25,7 @@
                             </x-alert>
                         @endif
 
-                        <form action="{{ route('users.update', $user->id) }}" method="POST">
+                        <form action="{{ route('admin.users.update', $user->id) }}" method="POST">
                             @csrf
                             @method('PUT')
                             <div class="mb-3">
@@ -86,7 +86,7 @@
                             </div>
                             <div class="text-end">
                                 <x-button.submit color="solid">Guardar</x-button.submit>
-                                <x-button.link link="{{ route('users.show', $user->id) }}" color="dark-solid">Cancelar</x-button.link>
+                                <x-button.link link="{{ route('admin.users.show', $user->id) }}" color="dark-solid">Cancelar</x-button.link>
                             </div>
                         </form>
                     </div>

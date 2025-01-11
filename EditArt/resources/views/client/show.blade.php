@@ -53,8 +53,8 @@
                             </div>
                             <div class="col-md-6"></div>
                             <div class="col-md-12 mt-4">
-                                <x-button.link link="{{ route('users.edit', $user->id) }}" color="solid">Editar</x-button.link>
-                                <x-button.link link="{{ route('users.index') }}" color="light-new">Mostrar todos os utilizadores</x-button.link>
+                                <x-button.link link="{{ route('admin.users.edit', $user->id) }}" color="solid">Editar</x-button.link>
+                                <x-button.link link="{{ route('admin.users.index') }}" color="light-new">Mostrar todos os utilizadores</x-button.link>
                             </div>
                         </div>
                     </div>
