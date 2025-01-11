@@ -46,6 +46,9 @@ Route::middleware('role:admin')->group(function (){
 
             Route::resource('genres', GenreController::class)->except('show');
 
+            Route::get('/mail-compose', function () {
+                return view('mails.mail-compose');
+            });
         });
     });
 });
