@@ -1,4 +1,4 @@
 
-<div class="tab-pane fade" id="{{$id}}" role="tabpanel" aria-labelledby="{{$label}}" tabindex="0">
+<div class="tab-pane fade {{$class}}" id="{{$id}}" role="tabpanel" aria-labelledby="{{$label}}" tabindex="0">
     {{$slot}}
 </div>
