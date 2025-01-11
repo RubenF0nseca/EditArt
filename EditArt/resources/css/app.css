@@ -108,6 +108,7 @@ blockquote {
     padding: 8px 37px;
 }
 .btn-light-new,
+.btn-light-new:active,
 .btn-solid:hover,
 .btn.btn-solid:focus,
 .btn-dark-solid:hover,
@@ -174,7 +175,6 @@ blockquote {
 .table{
     --bs-table-striped-bg: #c5a99229;
     --tblr-table-striped-bg: #c5a99229;
-    /*text-align: center;*/
 }
 .table-border > tbody > tr > td,
 .table-border > tbody > tr > th,
@@ -222,7 +222,7 @@ blockquote {
     max-width: 36px;
 }
 .card-footer{
-    background-color: #c5a99229;
+    background-color: transparent;
 }
 /*----------------------------------------------------------
 	   Paginação
@@ -284,6 +284,9 @@ blockquote {
     position: relative;
     display: block;
     padding: 10px 15px;
+}
+.nav-pills .nav-link.active{
+    background-color: #af8867;
 }
 /*----------------------------------------------------------
 	   Sidebar / Widget common

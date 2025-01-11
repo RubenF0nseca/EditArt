@@ -346,8 +346,9 @@
     margin-top: 7rem;
 }
 #avatar{
+    height: 10rem;
     border-radius: 100%;
-    background-color: rgba(29, 29, 28, 0.97);
+    background-color: rgb(175, 136, 103);
 }
 /*=========================================================
        Footer
