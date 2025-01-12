@@ -24,7 +24,7 @@
                 <section id="popular-books" class="bookshelf py-5">
                     <div class="container">
                         <div class="row">
-                            <div class="col-md-12">
+                            <div class="col-12">
                                 <div class="section-header text-center pb-5">
                                     <h2 class="section-title">Os livros mais vendidos</h2>
                                 </div>
@@ -40,7 +40,7 @@
                         </div><div class="row">
                             @endif
 
-                            <div class="col-md-3 mb-4">
+                            <div class="col-sm-12 col-md-6 col-lg-3 mb-4 d-flex justify-content-center">
                                 <div class="product-item text-center">
                                     <figure class="product-style">
 

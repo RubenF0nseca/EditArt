@@ -57,7 +57,7 @@
                     </div>
                     <div class="row">
                         <!-- ----- Categories (Left sidebar) ----------  -->
-                        <div class="col-sm-4 col-md-3 sidebar">
+                        <div class="col-sm-3 col-md-3 sidebar">
                             <div class="widget">
                                 <form role="form">
                                     <div class="search-box">
@@ -78,14 +78,14 @@
                             </div>
                         </div>
                         <!-- ----- Os livros ----------  -->
-                        <div class="col-sm-8 col-sm-offset-1">
+                        <div class="col-sm-9 col-sm-offset-1">
                             <div class="row">
                                 @foreach($books as $index => $book)
                                     @if($index % 4 === 0 && $index !== 0)
                             </div><div class="row">
                                 @endif
 
-                                <div class="col-md-3 mb-4">
+                                <div class="col-sm-12 col-md-6 col-lg-3 mb-4 d-flex justify-content-center">
                                     <div class="product-item text-center">
                                         <figure class="product-style">
 
