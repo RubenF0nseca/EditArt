@@ -18,6 +18,7 @@
     letter-spacing: 2px;
     font-family: "Roboto Condensed", sans-serif;
     --bs-navbar-nav-link-padding-x: 1rem;
+    --bs-navbar-brand-margin-end: 15rem;
 }
 .border-bottom {
     border-bottom: var(--bs-border-width) var(--bs-border-style) #c5a99242 !important;
