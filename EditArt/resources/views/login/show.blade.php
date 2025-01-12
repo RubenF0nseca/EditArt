@@ -15,6 +15,12 @@
                         <div class="card shadow-lg border-0 rounded-lg">
                             <div class="card-header"><h3 class="text-center font-weight-light my-4 font-alt">Login</h3></div>
                             <div class="card-body">
+                                <!-- Alerta de sucesso -->
+                                @if(session('success'))
+                                    <x-alert id="success-alert" type="success">
+                                        {{ session('success') }}
+                                    </x-alert>
+                                @endif
                                 @if($errors->any())
                                     <div class="row p-2">
                                         <x-alert id="" type="danger">
