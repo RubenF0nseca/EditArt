@@ -110,7 +110,6 @@
                             <!-- Outros links para Admin podem ser adicionados aqui -->
                         </div>
                     </li>
-
                     <!-- Cliente Section -->
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#client-menu" data-bs-toggle="dropdown"
@@ -127,6 +126,19 @@
                             <!-- Outros links para Cliente podem ser adicionados aqui -->
                         </div>
                     </li>
+                    <hr class="m-0">
+                    <!-- Sens mail Link -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('admin.mail.compose') }}">
+                            <span class="nav-link-icon d-md-none d-lg-inline-block">
+                                <i class="ti ti-mail fs-5"></i>
+                            </span>
+                            <span class="nav-link-title">
+                                Enviar email
+                            </span>
+                        </a>
+                    </li>
+
                 </ul>
             </div>
         </div>
