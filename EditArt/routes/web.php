@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\BookController;
@@ -81,6 +82,7 @@ Route::middleware('guest')->group(function () {
             Route::get('/registration', function () {
                 return view('registration.show');
             })->name('registration');
+            Route::post('/register', [RegisterController::class, 'store'])->name('register.store');
             //login
             Route::get('/login', [LoginController::class, 'showLogin'])->name('login');
             Route::post('/login', [LoginController::class, 'login']);
