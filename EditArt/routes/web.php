@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\BookController;
@@ -28,6 +29,8 @@ Route::middleware('role:admin')->group(function (){
             Route::get('/dashboard', function () {
                 return view('admin.dashboard');
             })->name('dashboard');
+
+            Route::get('/dashboard',[DashboardController::class,'admin'])->name('dashboard');
 
             Route::resource('users', UserController::class);
 

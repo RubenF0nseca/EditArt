@@ -26,7 +26,7 @@
                         <div class="row">
                             <div class="col-12">
                                 <div class="section-header text-center pb-5">
-                                    <h2 class="section-title">Os livros mais vendidos</h2>
+                                    <h2 class="section-title font-alt">Os livros mais vendidos</h2>
                                 </div>
                             </div>
                         </div>
