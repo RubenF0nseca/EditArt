@@ -109,11 +109,3 @@ Route::get('/guest/authors', function () {
 Route::get('/guest/books', function () {
     return view('guest.books', ['books' => \App\Models\Book::paginate(12)]);
 })->name('guest.books');
-
-
-//EMAIL
-Route::get('/send-email', function(){
-    Mail::to('lucas.ss.patricio@gmail.com')->send(new EmailEditArt("Lucas", "Olá esta é uma mensagem"));
-
-    return "Email enviado com sucesso";
-});
