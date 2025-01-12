@@ -28,16 +28,16 @@ admin.@extends('layouts.admin.base')
                         <form action="{{ route('admin.reviews.store') }}" method="POST">
                             @csrf
                             <div class="mb-3">
-                                <label for="id_book" class="form-label required">Id Livro</label>
-                                <input type="text" id="id_book" name="id_book" class="form-control @error('id_book') is-invalid @enderror" value="{{old('id_book')}}" >
-                                @error('id_book')
+                                <label for="book_id" class="form-label required">Id Livro</label>
+                                <input type="text" id="book_id" name="book_id" class="form-control @error('book_id') is-invalid @enderror" value="{{old('book_id')}}" >
+                                @error('book_id')
                                 <div class="invalid-feedback" >{{$message}}</div>
                                 @enderror
                             </div>
                             <div class="mb-3">
-                                <label for="id_user" class="form-label required">Id User</label>
-                                <input type="text" id="id_user" name="id_user" class="form-control @error('id_user') is-invalid @enderror" value="{{old('id_user')}}" >
-                                @error('id_user')
+                                <label for="user_id" class="form-label required">Id User</label>
+                                <input type="text" id="user_id" name="user_id" class="form-control @error('user_id') is-invalid @enderror" value="{{old('user_id')}}" >
+                                @error('user_id')
                                 <div class="invalid-feedback" >{{$message}}</div>
                                 @enderror
                             </div>

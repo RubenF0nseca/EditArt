@@ -17,8 +17,8 @@
                             <x-table.thead>
                                 <x-table.tr>
                                     <x-table.th>ID</x-table.th>
-                                    <x-table.th>ID livro</x-table.th>
-                                    <x-table.th>ID user</x-table.th>
+                                    <x-table.th>livro</x-table.th>
+                                    <x-table.th>user</x-table.th>
                                     <x-table.th>Nota</x-table.th>
                                     <x-table.th>Data</x-table.th>
                                     <x-table.th class="text-end">Ações</x-table.th>
@@ -29,8 +29,8 @@
                             @foreach($reviews as $review)
                                 <x-table.tr>
                                     <td>{{ $review->id }}</td>
-                                    <td>{{ $review->id_book }}</td>
-                                    <td>{{ $review->id_user }}</td>
+                                    <td>{{ $review->book->title }}</td>
+                                    <td>{{ $review->user->name }}</td>
                                     <td>{{ $review->rating }}</td>
                                     <td>{{ $review->review_date }}</td>
                                     <td class="text-end">

@@ -22,11 +22,11 @@
                                     <tbody>
                                     <tr>
                                         <th scope="row">ID Livro</th>
-                                        <td>{{ $review->id_book }}</td>
+                                        <td>{{ $review->book_id }}</td>
                                     </tr>
                                     <tr>
                                         <th scope="row">ID Utilizador</th>
-                                        <td>{{ $review->id_user }}</td>
+                                        <td>{{ $review->user_id }}</td>
                                     </tr>
                                     <tr>
                                         <th scope="row">Comentários</th>

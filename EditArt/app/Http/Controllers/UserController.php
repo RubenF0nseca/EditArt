@@ -82,6 +82,7 @@ class UserController extends Controller
         try{
             $user = new User($validated);
             $user->save();
+            $user->assignRole('cliente');
             return redirect(route('admin.users.create'))->with('success',"User criado com sucesso! [#{$user->id}]");
         }catch (\Exception $e){
             return redirect()->back()->withErrors(['error' => "Erro ao criar o User!"])->withInput();

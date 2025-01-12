@@ -30,7 +30,7 @@
                                     <td>{{ $user->id }}</td>
                                     <td>{{ $user->name }}</td>
                                     <td>{{ $user->email }}</td>
-                                    <td>{{ $user->role }}</td>
+                                    <td>{{ $user->roles->pluck('name')->join(', ') }}</td>
                                     <td class="text-end">
 
                                         <x-table.operation link="{{ route('admin.users.show', $user->id) }}" name="info" icon="ti ti-eye"></x-table.operation>
