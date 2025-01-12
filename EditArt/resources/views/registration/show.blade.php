@@ -15,7 +15,7 @@
                     <div class="col-md-6 d-flex justify-content-center align-items-center">
                         <div class="card shadow-lg border-0 rounded-lg">
                             <div class="card-header">
-                                <h3 class="text-center font-weight-light my-4">Criar Conta</h3>
+                                <h3 class="text-center font-alt font-weight-light my-4">Criar Conta</h3>
                             </div>
                             <div class="card-body">
 

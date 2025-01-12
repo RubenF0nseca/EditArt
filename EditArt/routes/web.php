@@ -109,3 +109,11 @@ Route::get('/guest/authors', function () {
 Route::get('/guest/books', function () {
     return view('guest.books', ['books' => \App\Models\Book::paginate(12)]);
 })->name('guest.books');
+
+Route::get('/recover', function () {
+    return view('client.RecoverPassword');
+})->name('recover');
+
+Route::get('/forgot', function () {
+    return view('client.ForgotPassword');
+})->name('forgot');
