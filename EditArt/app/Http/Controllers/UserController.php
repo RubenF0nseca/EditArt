@@ -62,7 +62,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('client.index', ['users' => User::paginate(11)]);
+        return view('client.index', ['users' => User::paginate(12)]);
     }
 
     /**
