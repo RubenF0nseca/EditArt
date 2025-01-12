@@ -50,7 +50,7 @@ Route::middleware('role:admin')->group(function (){
 
             Route::get('/mail-compose', function () {
                 return view('mails.mail-compose');
-            });
+            })->name('mail.compose');
 
             Route::post('/send-email', [EmailController::class, 'sendEmail'])->name('send.email');
         });
@@ -93,6 +93,10 @@ Route::middleware('guest')->group(function () {
             Route::get('/login', [LoginController::class, 'showLogin'])->name('login');
             Route::post('/login', [LoginController::class, 'login']);
 
+            Route::get('/forgot', function () {
+                return view('client.ForgotPassword');
+            })->name('forgot');
+
         });
     });
 });
@@ -113,7 +117,3 @@ Route::get('/guest/books', function () {
 Route::get('/recover', function () {
     return view('client.RecoverPassword');
 })->name('recover');
-
-Route::get('/forgot', function () {
-    return view('client.ForgotPassword');
-})->name('forgot');

@@ -45,7 +45,7 @@
                                         <label for="inputPassword">Password</label>
                                     </div>
                                     <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
-                                        <a class="small" href="#">Esqueceu-se da Password?</a>      {{--TODO fix or delete --}}
+                                        <a class="small" href="{{ route('forgot') }}">Esqueceu-se da Password?</a>      {{--TODO fix or delete --}}
                                         <button class="btn btn-primary" type="submit" name="bt_login">Entrar</button>
                                     </div>
                                 </form>
