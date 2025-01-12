@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\EmailController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\BookController;
@@ -50,6 +51,8 @@ Route::middleware('role:admin')->group(function (){
             Route::get('/mail-compose', function () {
                 return view('mails.mail-compose');
             });
+
+            Route::post('/send-email', [EmailController::class, 'sendEmail'])->name('send.email');
         });
     });
 });
