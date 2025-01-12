@@ -16,9 +16,6 @@ Route::get('/', function () {
     return view('homepage', ['books' => \App\Models\Book::all()]);
 })->name('home');
 
-//login
-Route::get('/login', [LoginController::class, 'showLogin'])->name('login');
-Route::post('/login', [LoginController::class, 'login']);
 //logout
 Route::post('/logout', [LoginController::class,'logout'])->name('logout')
     ->middleware('auth');
@@ -76,6 +73,23 @@ Route::middleware('role:cliente|admin')->group(function (){
         });
     });
 });
+
+Route::middleware('guest')->group(function () {
+    Route::prefix('')->group(function () {
+        Route::name('')->group(function () {
+            //registo
+            Route::get('/registration', function () {
+                return view('registration.show');
+            })->name('registration');
+            //login
+            Route::get('/login', [LoginController::class, 'showLogin'])->name('login');
+            Route::post('/login', [LoginController::class, 'login']);
+
+        });
+    });
+});
+
+
 Route::get('/book', function () {
     return view('client.book');
 })->name('book');
@@ -87,12 +101,6 @@ Route::get('/guest/authors', function () {
 Route::get('/guest/books', function () {
     return view('guest.books', ['books' => \App\Models\Book::paginate(12)]);
 })->name('guest.books');
-
-
-
-Route::get('/registration', function () {
-    return view('registration.show');
-})->name('registration');
 
 
 //EMAIL
