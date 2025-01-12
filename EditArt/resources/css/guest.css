@@ -191,10 +191,6 @@
        Login & Registration
 =========================================================== */
 .text-container2 {
-    text-align: center;
-    position: absolute;
-    top: 40%;
-    left: 11%;
     font-size: 2rem;
     h1, h5{
         color: white;
@@ -214,8 +210,9 @@
         border: 1px solid #C5A992;
         color: #C5A992;
     }
+
     h3{
-        color: #C5A992;
+        color: #C5A992 !important;
     }
 }
 .btn-primary, .btn-primary:active {
@@ -227,6 +224,15 @@
     color: #fff;
     background-color: #f1caaa;
     border-color: #C5A992;
+}
+.form-floating input:-internal-autofill-selected,
+.form-floating input:-webkit-autofill {
+    background-color: rgba(29, 29, 28, 0.82) !important;
+    border: 1px solid #C5A992 !important;
+    color: #C5A992 !important;
+    -webkit-text-fill-color: #C5A992 !important;
+    appearance: none !important;
+    transition: background-color 5000s ease-in-out 0s !important;
 }
 /*=========================================================
        Forum page
