@@ -6,7 +6,7 @@
     <div class="container">
         <div class="row">
             @if(session("success"))
-                <x-alert id="login-notify" type="success">
+                <x-alert id="success-alert" type="success">
                     {{session("success")}}
                 </x-alert>
             @endif
@@ -77,3 +77,23 @@
         </div>
     </div>
 @endsection
+
+@push('scripts')
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const successAlert = document.getElementById('success-alert');//
+            if (successAlert) {
+                setTimeout(function() {
+                    // Adiciona a classe 'fade' e remove a classe 'show' para iniciar a transição de fechamento
+                    successAlert.classList.remove('show');
+                    successAlert.classList.add('fade');
+
+                    // Remove o elemento do DOM depois da transição
+                    setTimeout(function() {
+                        successAlert.remove();
+                    }, 500); // Ajuste o tempo conforme o efeito 'fade'
+                }, 3000); // Fecha o alerta após 3 segundos
+            }
+        });
+    </script>
+@endpush
