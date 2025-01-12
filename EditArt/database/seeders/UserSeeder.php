@@ -32,7 +32,7 @@ class UserSeeder extends Seeder
         ]);
         \DB::table('users')->insert([
             'name' => 'cliente',
-            'email' => 'cliente@gmail.com',
+            'email' => 'edit.art.cliente@gmail.com',
             'email_verified_at' => now(),
             'password' => Hash::make('password'),
             'remember_token' => \Str::random(10),

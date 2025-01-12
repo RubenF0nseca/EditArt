@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Notifications\UserLoggedInNotification;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -25,10 +26,13 @@ class LoginController extends Controller
         if (Auth::attempt($credentials)) {
 
             $request->session()->regenerate();
+            $user = auth()->user();
             if (auth()->user()->hasRole('admin'))
-                return redirect()->route('admin.dashboard');
-            else
-                return redirect()->intended('/');
+                return redirect()->route('admin.dashboard')->with("success", "Login efetuado com sucesso!.");
+            else {
+                $user->notify(new UserLoggedInNotification($user->name));
+                return redirect()->intended('/')->with("success", "Login efetuado com sucesso!.");
+            }
         }
 
         return redirect()->back()->withErrors([

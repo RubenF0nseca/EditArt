@@ -16,7 +16,7 @@ class EmailEditArt extends Mailable
     /**
      * Create a new message instance.
      */
-    public function __construct(public string $name, public string $content,)
+    public function __construct(public string $recipient, public string $content,)
     {
 
     }

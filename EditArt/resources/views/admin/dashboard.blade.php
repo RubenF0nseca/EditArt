@@ -5,6 +5,11 @@
 @section('content')
     <div class="container">
         <div class="row">
+            @if(session("success"))
+                <x-alert id="login-notify" type="success">
+                    {{session("success")}}
+                </x-alert>
+            @endif
             <div class="col-md-6 col-xl-3 mb-4">
                 <x-card id="widget-card">
                     <div class="row align-items-center widget-item">
@@ -68,7 +73,7 @@
                     </div>
                 </x-card>
             </div>
-            
+
         </div>
     </div>
 @endsection
