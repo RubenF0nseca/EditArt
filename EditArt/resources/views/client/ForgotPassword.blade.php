@@ -47,7 +47,7 @@
                                             value="{{ old('email') }}"
                                             placeholder="Insira o seu email"
                                         />
-                                        <label for="inputEmail">Email ⃰ </label>
+                                        <label for="inputEmail">Email *</label>
                                         @error('email')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror

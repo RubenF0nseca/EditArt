@@ -49,7 +49,7 @@
                                                     name="password"
                                                     placeholder="Insira a password"
                                                 />
-                                                <label for="password">Nova Password ⃰ </label>
+                                                <label for="password">Nova Password *</label>
                                                 @error('password')
                                                 <div class="invalid-feedback">{{ $message }}</div>
                                                 @enderror
@@ -64,7 +64,7 @@
                                                     name="password_confirmation"
                                                     placeholder="Confirme a password"
                                                 />
-                                                <label for="password_confirmation">Confirmar Password ⃰ </label>
+                                                <label for="password_confirmation">Confirmar Password *</label>
                                                 @error('password_confirmation')
                                                 <div class="invalid-feedback">{{ $message }}</div>
                                                 @enderror

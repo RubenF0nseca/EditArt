@@ -48,7 +48,7 @@
                                                     value="{{ old('name') }}"
                                                     placeholder="Insira o seu nome"
                                                 />
-                                                <label for="inputName">Nome ⃰ </label>
+                                                <label for="inputName">Nome *</label>
                                                 @error('name')
                                                 <div class="invalid-feedback">{{ $message }}</div>
                                                 @enderror
@@ -81,7 +81,7 @@
                                             value="{{ old('email') }}"
                                             placeholder="Insira o seu email"
                                         />
-                                        <label for="inputEmail">Email ⃰ </label>
+                                        <label for="inputEmail">Email *</label>
                                         @error('email')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
@@ -132,7 +132,7 @@
                                                     name="password"
                                                     placeholder="Insira a password"
                                                 />
-                                                <label for="password">Password ⃰ </label>
+                                                <label for="password">Password *</label>
                                                 @error('password')
                                                 <div class="invalid-feedback">{{ $message }}</div>
                                                 @enderror
@@ -147,7 +147,7 @@
                                                     name="password_check"
                                                     placeholder="Confirme a password"
                                                 />
-                                                <label for="inputPasswordConfirm">Confirmar Password ⃰ </label>
+                                                <label for="inputPasswordConfirm">Confirmar Password * </label>
                                                 @error('password_check')
                                                 <div class="invalid-feedback">{{ $message }}</div>
                                                 @enderror

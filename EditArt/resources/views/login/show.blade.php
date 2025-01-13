@@ -46,11 +46,11 @@
                                     @csrf
                                     <div class="form-floating mb-3">
                                         <input value="{{old('email')}}" class="form-control" id="inputEmail" type="email" placeholder="" name="email"/>
-                                        <label for="inputEmail">Email ⃰ </label>
+                                        <label for="inputEmail">Email * </label>
                                     </div>
                                     <div class="form-floating mb-3">
                                         <input class="form-control" id="inputPassword" type="password" placeholder="" name="password"/>
-                                        <label for="inputPassword">Password ⃰ </label>
+                                        <label for="inputPassword">Password * </label>
                                     </div>
                                     <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
                                         <a class="small" href="{{ route('password.forgot') }}">Esqueceu-se da Password?</a>
