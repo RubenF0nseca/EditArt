@@ -219,6 +219,10 @@
     h3{
         color: #C5A992 !important;
     }
+    label{
+        color: rgba(197, 169, 146, 0.44);
+    }
+
 }
 .btn-primary, .btn-primary:active {
     color: #fff;
@@ -238,6 +242,19 @@
     -webkit-text-fill-color: #C5A992 !important;
     appearance: none !important;
     transition: background-color 5000s ease-in-out 0s !important;
+}
+label::after {
+    content: none;
+}
+input:focus + label::after,
+input:valid + label::after {
+    display: none;
+    transform: none;
+    position: static;
+}
+.form-floating>.form-control-plaintext:-webkit-autofill, .form-floating>.form-control:-webkit-autofill {
+    padding-top: 0.625rem;
+    padding-bottom: .625rem;
 }
 /*=========================================================
        Forum page
