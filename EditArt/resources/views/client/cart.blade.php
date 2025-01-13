@@ -21,34 +21,34 @@
                                     <th>Remover</th>
                                 </tr>
                                 <tr>
-                                    <td class="hidden-xs"><a href="#"><img src="assets/images/shop/product-14.jpg" alt="Accessories Pack"/></a></td>
+                                    <td class="hidden-xs"><a href="#"><img src="#" alt="foto"/></a></td>
                                     <td>
-                                        <p class="product-title font-alt">Accessories Pack</p>
+                                        <p class="product-title font-alt">Titulo</p>
                                     </td>
                                     <td class="hidden-xs">
-                                        <p class="product-title font-alt">£20.00</p>
+                                        <p class="product-title font-alt">€20.00</p>
                                     </td>
                                     <td>
                                         <input class="form-control" type="number" name="" value="1" max="50" min="1"/>
                                     </td>
                                     <td>
-                                        <p class="product-title font-alt">£20.00</p>
+                                        <p class="product-title font-alt">€20.00</p>
                                     </td>
                                     <td class="pr-remove"><a href="#" title="Remove"><i class="fa fa-times"></i></a></td>
                                 </tr>
                                 <tr>
-                                    <td class="hidden-xs"><a href="#"><img src="assets/images/shop/product-13.jpg" alt="Men’s Casual Pack"/></a></td>
+                                    <td class="hidden-xs"><a href="#"><img src="#" alt="foto"/></a></td>
                                     <td>
-                                        <p class="product-title font-alt">Men’s Casual Pack</p>
+                                        <p class="product-title font-alt">Titulo</p>
                                     </td>
                                     <td class="hidden-xs">
-                                        <p class="product-title font-alt">£20.00</p>
+                                        <p class="product-title font-alt">€20.00</p>
                                     </td>
                                     <td>
                                         <input class="form-control" type="number" name="" value="1" max="50" min="1"/>
                                     </td>
                                     <td>
-                                        <p class="product-title font-alt">£20.00</p>
+                                        <p class="product-title font-alt">€20.00</p>
                                     </td>
                                     <td class="pr-remove"><a href="#" title="Remove"><i class="fa fa-times"></i></a></td>
                                 </tr>
@@ -79,15 +79,15 @@
                             <tbody>
                             <tr>
                                 <th>Subtotal:</th>
-                                <td>£40.00</td>
+                                <td>€40.00</td>
                             </tr>
                             <tr>
                                 <th>Total de envio:</th>
-                                <td>£2.00</td>
+                                <td>€2.00</td>
                             </tr>
                             <tr class="shop-Cart-totalprice">
                                 <th>Total:</th>
-                                <td>£42.00</td>
+                                <td>€42.00</td>
                             </tr>
                             </tbody>
                         </table>
