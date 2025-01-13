@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Notifications\AccountCreated;
 use Illuminate\Http\Request;
 
 class RegisterController extends Controller
@@ -57,6 +58,7 @@ class RegisterController extends Controller
             $user = new User($validated);
             $user->save();
             $user->assignRole('cliente');
+            $user->notify(new AccountCreated($user->name));
             return redirect(route('login'))->with('success',"Conta criada com sucesso!");
         }catch (\Exception $e){
             return redirect()->back()->withErrors(['error' => "Erro ao criar a conta"])->withInput();
