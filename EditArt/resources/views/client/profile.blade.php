@@ -27,10 +27,6 @@
                         <x-tab.content class="show active" id="v-pills-profile" label="v-pills-profile-tab">
                             <div class="post">
                                 <div class="row">
-                                    <span class="col-2 font-alt">ID</span>
-                                    <span class="col-10">{{ auth()->user()->id }}</span>
-                                </div>
-                                <div class="row post-entry">
                                     <span class="col-2 font-alt">Nome</span>
                                     <span class="col-10">{{ auth()->user()->name }}</span>
                                 </div>
