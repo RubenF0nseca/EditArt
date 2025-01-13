@@ -27,10 +27,18 @@
                                     </x-alert>
                                 @endif
 
-                                <!-- Formulário -->
-                                <form method="POST" action="#">
-                                    @csrf
+                                <!-- Alerta para mensagem de sucesso -->
+                                @if(session('success'))
+                                    <x-alert id="success-alert" type="success">
+                                        {{session('success')}}
+                                    </x-alert>
+                                @endif
 
+                                <!-- Formulário -->
+                                <form method="POST" action="{{ route('password.update') }}">
+                                    @csrf
+                                    <input type="hidden" name="token" value="{{ $token }}">
+                                    <input type="hidden" name="email" value="{{ $email }}">
                                     <div class="row mb-3">
                                         <div class="col-md-6">
                                             <div class="form-floating mb-3 mb-md-0">
@@ -50,14 +58,14 @@
                                         <div class="col-md-6">
                                             <div class="form-floating mb-3 mb-md-0">
                                                 <input
-                                                    class="form-control @error('password_check') is-invalid @enderror"
-                                                    id="inputPasswordConfirm"
+                                                    class="form-control @error('password_confirmation') is-invalid @enderror"
+                                                    id="password_confirmation"
                                                     type="password"
-                                                    name="password_check"
+                                                    name="password_confirmation"
                                                     placeholder="Confirme a password"
                                                 />
-                                                <label for="inputPasswordConfirm">Confirmar Password(Obrigatório)</label>
-                                                @error('password_check')
+                                                <label for="password_confirmation">Confirmar Password(Obrigatório)</label>
+                                                @error('password_confirmation')
                                                 <div class="invalid-feedback">{{ $message }}</div>
                                                 @enderror
                                             </div>

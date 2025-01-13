@@ -17,6 +17,12 @@
                             <div class="card-header">
                                 <h3 class="text-center font-alt font-weight-light my-4">Esqueceu-se da sua senha</h3>
                                 <p>Será enviado um email com um link para recuperar a password</p>
+                                <!-- Alerta para mensagem de sucesso -->
+                                @if(session('success'))
+                                    <x-alert id="success-alert" type="success">
+                                        {{session('success')}}
+                                    </x-alert>
+                                @endif
                             </div>
                             <div class="card-body">
 
@@ -29,7 +35,7 @@
 
 
                                 <!-- Formulário -->
-                                <form method="POST" action="#">
+                                <form method="POST" action="{{ route('password.email') }}">
                                     @csrf
 
                                     <div class="form-floating mb-3">

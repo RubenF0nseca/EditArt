@@ -21,6 +21,14 @@
                                         {{ session('success') }}
                                     </x-alert>
                                 @endif
+
+                                <!-- Alerta de erros -->
+                                @if($errors->has('error'))
+                                    <x-alert id="" type="danger">
+                                        {{$errors->first('error')}}
+                                    </x-alert>
+                                @endif
+
                                 @if($errors->any())
                                     <div class="row p-2">
                                         <x-alert id="" type="danger">
@@ -45,7 +53,7 @@
                                         <label for="inputPassword">Password</label>
                                     </div>
                                     <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
-                                        <a class="small" href="{{ route('forgot') }}">Esqueceu-se da Password?</a>      {{--TODO fix or delete --}}
+                                        <a class="small" href="{{ route('password.forgot') }}">Esqueceu-se da Password?</a>
                                         <button class="btn btn-primary" type="submit" name="bt_login">Entrar</button>
                                     </div>
                                 </form>
@@ -58,5 +66,22 @@
                 </div>
             </div>
         </section>
+        @push('scripts')
+            <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    const successAlert = document.getElementById('success-alert');
+                    if (successAlert) {
+                        setTimeout(function() {
+                            successAlert.classList.remove('show');
+                            successAlert.classList.add('fade');
+
+                            setTimeout(function() {
+                                successAlert.remove();
+                            }, 500);
+                        }, 3000);
+                    }
+                });
+            </script>
+        @endpush
     </div>
 @endsection
