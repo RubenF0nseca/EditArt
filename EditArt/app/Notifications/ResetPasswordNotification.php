@@ -7,14 +7,14 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
-class UserLoggedInNotification extends Notification
+class ResetPasswordNotification extends Notification
 {
     use Queueable;
 
     /**
      * Create a new notification instance.
      */
-    public function __construct(public string $name)
+    public function __construct(public $token)
     {
         //
     }
@@ -26,7 +26,7 @@ class UserLoggedInNotification extends Notification
      */
     public function via(object $notifiable): array
     {
-        return ['mail', "database"];
+        return ['mail'];
     }
 
     /**
@@ -34,20 +34,17 @@ class UserLoggedInNotification extends Notification
      */
     public function toMail(object $notifiable): MailMessage
     {
-        return (new MailMessage)
-                    ->subject("Novo Login efetuado")
-                    ->greeting("Olá {$notifiable->name},")
-                    ->line("Foi detetado um novo login na sua conta")
-                    ->action("Se não foste tu, clica aqui!", url("/forgot-password"))
-                    ->salutation("Atenciosamente, Edit Art");
-    }
+        $resetUrl = url(route('password.reset', [
+            'token' => $this->token,
+            'email' => $notifiable->getEmailForPasswordReset(),
+        ], false));
 
-    public function toDatabase(object $notifiable): array
-    {
-        return [
-            "message" => "Novo Login na conta",
-            "name" => $this->name
-        ];
+        return (new MailMessage)
+            ->subject("Pedido de Reset da Password")
+            ->greeting("Olá {$notifiable->name},")
+            ->line("Estás a receber este email porque foi recebido um pedido de reset de password para a sua conta.")
+            ->action("Reset Password", url($resetUrl))
+            ->salutation("Atenciosamente, EditArt");
     }
 
     /**
