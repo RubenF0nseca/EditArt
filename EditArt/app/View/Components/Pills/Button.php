@@ -1,12 +1,12 @@
 <?php
 
-namespace App\View\Components\Tab;
+namespace App\View\Components\Pills;
 
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class Div extends Component
+class Button extends Component
 {
     /**
      * Create a new component instance.
@@ -14,7 +14,9 @@ class Div extends Component
     public function __construct(
         public string $class,
         public string $id,
-        public string $orientation
+        public string $target,
+        public string $controls,
+        public string $select
     )
     {
         //
@@ -25,6 +27,6 @@ class Div extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.tab.div');
+        return view('components.pills.button');
     }
 }

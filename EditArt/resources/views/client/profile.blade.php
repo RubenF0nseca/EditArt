@@ -11,11 +11,11 @@
                         <h5>Bem-vindo(a),<br><b>{{ auth()->user()->name}}</b></h5>
                         <img src="{{asset('imgs/no_user.png')}}" class="mt-4" alt="EditArt" id="avatar">
                         <hr>
-                        <x-tab.div class="nav flex-column nav-pills me-3" id="v-pills-tab" orientation="vertical">
-                            <x-tab.button class="active" id="v-pills-profile-tab" toggle="pill" target="#v-pills-profile" controls="v-pills-profile" select="true">Perfil</x-tab.button>
-                            <x-tab.button class="" id="v-pills-rewiew-tab" toggle="pill" target="#v-pills-rewiew" controls="v-pills-rewiew" select="false">Minhas avaliações</x-tab.button>
-                            <x-tab.button class="" id="v-pills-comment-tab" toggle="pill" target="#v-pills-comment" controls="v-pills-comment" select="false">Meus comentários</x-tab.button>
-                        </x-tab.div>
+                        <x-pills>
+                            <x-pills.button class="active" id="profile" target="profile" controls="profile" select="true">Perfil</x-pills.button>
+                            <x-pills.button class="" id="review" target="review" controls="review" select="false">Minhas avaliações</x-pills.button>
+                            <x-pills.button class="" id="comment" target="comment" controls="comment" select="false">Meus comentários</x-pills.button>
+                        </x-pills>
                     </div>
                 </div>
 
@@ -24,7 +24,7 @@
                     <div class="tab-content mt-5" id="v-pills-tabContent">
 
                         <!-- Tab: Perfil ------------------------------------  -->
-                        <x-tab.content class="show active" id="v-pills-profile" label="v-pills-profile-tab">
+                        <x-pills.content class="show active" id="profile" label="profile">
                             <div class="post">
                                 <div class="row">
                                     <span class="col-2 font-alt">Nome</span>
@@ -51,13 +51,13 @@
                                     <span class="col-10">{{ auth()->user()->created_at }}</span>
                                 </div>
                             </div>
-                        </x-tab.content>
+                        </x-pills.content>
 
                         <!-- Tab: Minhas avaliações ------------------------------------  -->
-                        <x-tab.content class="" id="v-pills-rewiew" label="v-pills-rewiew-tab">Nenhuma revisão ainda</x-tab.content>
+                        <x-pills.content class="" id="review" label="review">Nenhuma revisão ainda</x-pills.content>
 
                         <!-- Tab: Meus comentários ------------------------------------  -->
-                        <x-tab.content class="" id="v-pills-comment" label="v-pills-comment-tab">Nenhum comentário ainda</x-tab.content>
+                        <x-pills.content class="" id="comment" label="comment">Nenhum comentário ainda</x-pills.content>
 
                     </div>
                 </div>
