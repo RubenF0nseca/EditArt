@@ -92,25 +92,26 @@
                                         <div class="review-date font-alt">June 21, 2018</div>
                                         <div class="col-sm-12"><span><i class="fa fa-star star"></i></span><span><i class="fa fa-star star"></i></span><span><i class="fa fa-star star"></i></span><span><i class="fa fa-star star"></i></span><span><i class="fa fa-star star-off"></i></span></div>
                                         <div class="review-comment">3 Comentarios</div>
-                                </div>
-                                <div class="review-entry">
-                                    <h2 class="review-title font-serif mb-3">Title lorem ipsum</h2>
-                                    <p class="review-text">A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine.</p>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <span><i class="fa-solid fa-angles-up">&nbsp 18</i></span>
-                                            <span><i class="fa-solid fa-angles-down">&nbsp 0</i></span>
-                                        </div>
-                                        <div class="col-md-6 text-end">
-                                            <a class="more-link font-serif" href="#">Mostrar resenha completa</a>
+                                    </div>
+                                    <div class="review-entry">
+                                        <h2 class="review-title font-serif mb-3">Title lorem ipsum</h2>
+                                        <p class="review-text">A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine.</p>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <span><i class="fa-solid fa-angles-up">&nbsp 18</i></span>
+                                                <span><i class="fa-solid fa-angles-down">&nbsp 0</i></span>
+                                            </div>
+                                            <div class="col-md-6 text-end">
+                                                <a class="more-link font-serif" href="#">Mostrar resenha completa</a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
                                 <!-- Pagination -->
 
                             <!-- Formulário para envio de avaliação -->
 
+                            </div>
                         </x-tab.content>
                     </div>
                 </div>
