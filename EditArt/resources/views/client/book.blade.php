@@ -107,24 +107,29 @@
                                         </div>
                                     </div>
                                 </div>
-                                <!-- Pagination -->
+                            </div>
+
+                            <!-- TODO Pagination -->
+                            <div class="text-center mb-5">
+                                Pagination
+                            </div>
 
                             <!-- Formulário para envio de avaliação -->
+                            <div class="review-post">
                                 <form action="#" method="POST">
                                     @csrf
 
                                     <div class="form-group mb-3">
-                                        <label for="editor-container">Escreva aqui sua crítica</label>
+                                        <label for="editor-container font-alt">Escreva aqui sua crítica</label>
                                         <div id="editor-container" style="height: 200px; border: 1px solid #ccc;"></div>
                                     </div>
 
                                     <input type="hidden" name="content" />
 
-                                    <button type="submit" class="btn btn-primary">Enviar</button>
+                                    <button type="submit" class="btn btn-solid">Enviar</button>
                                 </form>
-
-
                             </div>
+
                         </x-tab.content>
                     </div>
                 </div>
