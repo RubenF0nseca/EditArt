@@ -10,6 +10,7 @@ export default defineConfig({
                 'resources/js/guest.js',
                 'resources/js/app.js',
                 'resources/js/admin.js',
+                'resources/js/quill.js,'
             ],
             refresh: true,
         }),
