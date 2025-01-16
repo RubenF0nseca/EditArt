@@ -24,7 +24,7 @@
             </div>
             <!-- ----- Slide 2 ---------------------------  -->
             <div class="carousel-item">
-                <img src="{{ asset('imgs/banner-books.png') }}" width="100%" height="100%">
+                <img src="{{ asset('imgs/banner-books2.png') }}" width="100%" height="100%">
                 <div class="container">
                     <div class="carousel-caption text-end">
                         <!-- ------TODO TEXTO--------  -->
