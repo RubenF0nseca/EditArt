@@ -92,5 +92,6 @@ class BookSeeder extends Seeder
         Book::factory(20)->create();
 
 
+
     }
 }

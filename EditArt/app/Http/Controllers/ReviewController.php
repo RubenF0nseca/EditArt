@@ -12,21 +12,21 @@ class ReviewController extends Controller
         $id = $review ? $review->id : 'NULL';
 
         return [
-            'id_book' => 'required|integer|exists:books,id',
-            'id_user' => 'required|integer|exists:users,id',
+            'book_id' => 'required|integer|exists:books,id',
+            'user_id' => 'required|integer|exists:users,id',
             'comment' => 'nullable|string|max:1000',
             'rating' => 'required|integer|between:1,5',
         ];
     }
 
     protected array $messages = [
-        'id_book.required' => 'O ID do livro é obrigatório.',
-        'id_book.integer' => 'O ID do livro deve ser um número inteiro.',
-        'id_book.exists' => 'O livro selecionado não existe.',
+        'book_id.required' => 'O ID do livro é obrigatório.',
+        'book_id.integer' => 'O ID do livro deve ser um número inteiro.',
+        'book_id.exists' => 'O livro selecionado não existe.',
 
-        'id_user.required' => 'O ID do utilizador é obrigatório.',
-        'id_user.integer' => 'O ID do utilizador deve ser um número inteiro.',
-        'id_user.exists' => 'O utilizador selecionado não existe.',
+        'user_id.required' => 'O ID do utilizador é obrigatório.',
+        'user_id.integer' => 'O ID do utilizador deve ser um número inteiro.',
+        'user_id.exists' => 'O utilizador selecionado não existe.',
 
         'comment.string' => 'O comentário deve ser um texto válido.',
         'comment.max' => 'O comentário não pode exceder 1000 caracteres.',
