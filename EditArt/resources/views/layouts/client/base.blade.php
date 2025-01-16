@@ -29,7 +29,7 @@
     @include('layouts.guest.parts.footer')
 </main>
 <!-- Libs JS -->
-@vite(['resources/js/guest.js', 'resources/js/quill.js,'])
+@vite(['resources/js/guest.js', 'resources/js/quill.js'])
 @stack('scripts')
 </body>
 </html>

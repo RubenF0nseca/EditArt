@@ -110,6 +110,19 @@
                                 <!-- Pagination -->
 
                             <!-- Formulário para envio de avaliação -->
+                                <form action="#" method="POST">
+                                    @csrf
+
+                                    <div class="form-group mb-3">
+                                        <label for="editor-container">Escreva aqui sua crítica</label>
+                                        <div id="editor-container" style="height: 200px; border: 1px solid #ccc;"></div>
+                                    </div>
+
+                                    <input type="hidden" name="content" />
+
+                                    <button type="submit" class="btn btn-primary">Enviar</button>
+                                </form>
+
 
                             </div>
                         </x-tab.content>
