@@ -19,6 +19,13 @@
                     </div>
                     <div class="row mb-20">
                         <div class="col-sm-12">
+                            <div class="tipo">
+                                <p>Livro</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb-20">
+                        <div class="col-sm-12">
                             <h2 class="author-name font-serif">Author</h2>
                         </div>
                     </div>
