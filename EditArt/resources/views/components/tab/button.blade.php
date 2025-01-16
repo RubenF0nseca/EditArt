@@ -1,4 +1,5 @@
 
-<button class="nav-link btn btn-light-new mb-2 {{$class}}" id="{{$id}}" data-bs-toggle="{{$toggle}}" data-bs-target="{{$target}}" type="button" role="tab" aria-controls="{{$controls}}" aria-selected="{{$select}}">
+<button class="nav-link font-alt {{$class}}" id="nav-{{$id}}-tab" data-bs-toggle="tab" data-bs-target="#nav-{{$target}}" type="button" role="tab" aria-controls="nav-{{$controls}}" aria-selected="{{$select}}">
+    <span class="{{$icon}}"></span>
     {{$slot}}
 </button>

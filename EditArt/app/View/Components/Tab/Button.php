@@ -14,10 +14,10 @@ class Button extends Component
     public function __construct(
         public string $class,
         public string $id,
-        public string $toggle,
         public string $target,
         public string $controls,
-        public string $select
+        public string $select,
+        public string $icon
     )
     {
         //
