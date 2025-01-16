@@ -4,18 +4,25 @@
     <div class="page-wrapper wrapper d-flex flex-column min-vh-100">
         <div class="container">
             <div class="row" id="margin-top">
+
                 <!-- Imagem do livro ------------------------------------  -->
-                <div class="col-sm-6 mb-sm-40 d-flex justify-content-center">
-                    <img class="product-img" src="{{ asset('imgs/img_nao_disponivel.png') }}" alt="Product Image"/>
+                <div class="col-sm-5 mb-sm-40 d-flex justify-content-center">
+                    <img class="product-img product-thumb rounded" src="{{ asset('imgs/img_nao_disponivel.png') }}" alt="Product Image"/>
                 </div>
+
                 <!-- Detalhes do livro ------------------------------------  -->
-                <div class="col-sm-6">
+                <div class="col-sm-7">
                     <div class="row">
                         <div class="col-sm-12">
                             <h1 class="product-title font-alt">Title</h1>
                         </div>
                     </div>
                     <div class="row mb-20">
+                        <div class="col-sm-12">
+                            <h2 class="author-name font-serif">Author</h2>
+                        </div>
+                    </div>
+                    <div class="row mb-20"> <!-- Estrelas -->
                         <div class="col-sm-12"><span><i class="fa fa-star star"></i></span><span><i class="fa fa-star star"></i></span><span><i class="fa fa-star star"></i></span><span><i class="fa fa-star star"></i></span><span><i class="fa fa-star star-off"></i></span>
                         </div>
                     </div>
@@ -31,7 +38,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row mb-20">
+                    <div class="row mb-20 mt-3">
                         <div class="col-sm-4 mb-sm-20">
                             <input class="form-control input-lg" type="number" name="" value="1" max="40" min="1" required="required"/>
                         </div>
@@ -39,96 +46,72 @@
                     </div>
                     <div class="row mb-20">
                         <div class="col-sm-12">
-                            <div class="product_meta">Categories:<a href="#"> Man, </a><a href="#">Clothing, </a><a href="#">T-shirts</a>
+                            <div class="categories font-alt mt-5">Categories:<a href="#"> Romance, </a><a href="#">Fantasia </a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+
             <!-- Tablist ------------------------------------  -->
             <div class="row mt-70">
                 <div class="col-sm-12">
-                    <ul class="nav nav-tabs font-alt" role="tablist">
-                        <li class=""><a href="#description" data-toggle="tab"><span class="icon-book-open"></span>&nbsp Descrição</a></li>
-                        <li><a href="#data-sheet" data-toggle="tab"><span class="icon-map"></span>&nbsp Informações de envio</a></li>
-                        <li><a href="#reviews" data-toggle="tab"><span class="icon-pencil"></span>&nbsp Avaliações (2)</a></li>
-                    </ul>
-                    <!-- Tab - Descrição ------------------------------------  -->
-                    <div class="tab-content">
-                        <div class="tab-pane " id="description">
-                            <p>Everyone realizes why a new common language would be desirable: one could refuse to pay expensive translators. To achieve this, it would be necessary to have uniform grammar, pronunciation and more common words. If several languages coalesce, the grammar of the resulting language is more simple and regular than that of the individual languages.</p>
+                    <x-tab>
+                        <x-tab.button class="active" id="description" target="description" controls="description" select="true" icon="icon-book-open">&nbsp Descrição</x-tab.button>
+                        <x-tab.button class="" id="shipping-info" target="shipping-info" controls="shipping-info" select="false" icon="icon-map">&nbsp Informações de envio</x-tab.button>
+                        <x-tab.button class="" id="reviews" target="reviews" controls="reviews" select="false" icon="icon-pencil">&nbsp Avaliações (2)</x-tab.button>
+                    </x-tab>
 
-                        </div>
+                    <div class="tab-content" id="nav-tabContent">
+                    <!-- Tab - Descrição ------------------------------------  -->
+                        <x-tab.content class="show active" id="description" label="description">
+                            <!-- TODO TEXT  --> TO DO TEXT
+                        </x-tab.content>
+
                         <!-- Tab - Informações de envio ---------------------  -->
-                        <div class="tab-pane" id="data-sheet">
-                            <p>The European languages are members of the same family. Their separate existence is a myth. For science, music, sport, etc, Europe uses the same vocabulary. The languages only differ in their grammar, their pronunciation and their most common words.</p>
-                        </div>
+                        <x-tab.content class="" id="shipping-info" label="shipping-info">
+                            <!-- TODO TEXT  --> TO DO TEXT
+                        </x-tab.content>
+
                         <!-- Tab - Avaliações ------------------------------------  -->
-                        <div class="tab-pane active" id="reviews">
-                            <div class="comments reviews">
-                                <div class="comment clearfix">
-                                    <div class="comment-avatar"><img src="" alt="avatar"/></div>
-                                    <div class="comment-content clearfix">
-                                        <div class="comment-author font-alt"><a href="#">John Doe</a></div>
-                                        <div class="comment-body">
-                                            <p>The European languages are members of the same family. Their separate existence is a myth. For science, music, sport, etc, Europe uses the same vocabulary. The European languages are members of the same family. Their separate existence is a myth.</p>
-                                        </div>
-                                        <div class="comment-meta font-alt">Today, 14:55 -<span><i class="fa fa-star star"></i></span><span><i class="fa fa-star star"></i></span><span><i class="fa fa-star star"></i></span><span><i class="fa fa-star star"></i></span><span><i class="fa fa-star star-off"></i></span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="comment clearfix">
-                                    <div class="comment-avatar"><img src="" alt="avatar"/></div>
-                                    <div class="comment-content clearfix">
-                                        <div class="comment-author font-alt"><a href="#">Mark Stone</a></div>
-                                        <div class="comment-body">
-                                            <p>Europe uses the same vocabulary. The European languages are members of the same family. Their separate existence is a myth.</p>
-                                        </div>
-                                        <div class="comment-meta font-alt">Today, 14:59 -<span><i class="fa fa-star star"></i></span><span><i class="fa fa-star star"></i></span><span><i class="fa fa-star star"></i></span><span><i class="fa fa-star star-off"></i></span><span><i class="fa fa-star star-off"></i></span>
-                                        </div>
-                                    </div>
-                                </div>
+                        <x-tab.content class="" id="reviews" label="reviews">
+                            <div class="section-header text-center">
+                                <h2 class="section-title font-alt">CRÍTICAS DE LEITORES</h2>
                             </div>
-                            <div class="comment-form mt-30">
-                                <h4 class="comment-form-title font-alt">Add review</h4>
-                                <form method="post">
+                            <!-- Avaliações -->
+                            <div class="review-post">
+                                <div class="row">
+                                    <div class="col-md-2 text-center">
+                                        <img src="{{asset('imgs/no_user.png')}}" class="author-avatar" alt="">
+                                    </div>
+                                    <div class="col-md-5">
+                                        <h2 class="review-author font-alt"><a href="#">Maria Mendes</a></h2>
+                                        <p>32 críticas</p>
+                                    </div>
+                                    <div class="col-md-5 text-end">
+                                        <div class="review-date font-alt">June 21, 2018</div>
+                                        <div class="col-sm-12"><span><i class="fa fa-star star"></i></span><span><i class="fa fa-star star"></i></span><span><i class="fa fa-star star"></i></span><span><i class="fa fa-star star"></i></span><span><i class="fa fa-star star-off"></i></span></div>
+                                        <div class="review-comment">3 Comentarios</div>
+                                </div>
+                                <div class="review-entry">
+                                    <h2 class="review-title font-serif mb-3">Title lorem ipsum</h2>
+                                    <p class="review-text">A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine.</p>
                                     <div class="row">
-                                        <div class="col-sm-4">
-                                            <div class="form-group">
-                                                <label class="sr-only" for="name">Name</label>
-                                                <input class="form-control" id="name" type="text" name="name" placeholder="Name"/>
-                                            </div>
+                                        <div class="col-md-6">
+                                            <span><i class="fa-solid fa-angles-up">&nbsp 18</i></span>
+                                            <span><i class="fa-solid fa-angles-down">&nbsp 0</i></span>
                                         </div>
-                                        <div class="col-sm-4">
-                                            <div class="form-group">
-                                                <label class="sr-only" for="email">Name</label>
-                                                <input class="form-control" id="email" type="text" name="email" placeholder="E-mail"/>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-4">
-                                            <div class="form-group">
-                                                <select class="form-control">
-                                                    <option selected="true" disabled="">Rating</option>
-                                                    <option value="1">1</option>
-                                                    <option value="2">2</option>
-                                                    <option value="3">3</option>
-                                                    <option value="4">4</option>
-                                                    <option value="5">5</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-12">
-                                            <div class="form-group">
-                                                <textarea class="form-control" id="" name="" rows="4" placeholder="Review"></textarea>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-12">
-                                            <button class="btn btn-solid" type="submit">Submit Review</button>
+                                        <div class="col-md-6 text-end">
+                                            <a class="more-link font-serif" href="#">Mostrar resenha completa</a>
                                         </div>
                                     </div>
-                                </form>
+                                </div>
                             </div>
-                        </div>
+                                <!-- Pagination -->
+
+                            <!-- Formulário para envio de avaliação -->
+
+                        </x-tab.content>
                     </div>
                 </div>
             </div>
