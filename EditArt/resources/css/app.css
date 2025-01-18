@@ -19,10 +19,18 @@
         max-width: 1550px;
     }
 }
+/*-- Cores --*/
+:root{
+    --main-bg-color: #faf9f7;
+    --navbar-bg-color: #1d1d1c;
+    --navbar-text-color: #C5A992;
+
+}
+
 body{
     height: 100%;
     margin: 0;
-    background-color: #faf9f7;
+    background-color: var(--main-bg-color);
     overflow-x: hidden;
     font: 400 12px / 1.8 "Open Sans", sans-serif;
     color: #666;
@@ -227,16 +235,20 @@ blockquote {
 .card-footer{
     background-color: transparent;
 }
+td{
+    text-align: center;
+    vertical-align: middle;
+}
 /*----------------------------------------------------------
 	   Paginação
 ------------------------------------------------------------*/
-.pagination a {
+.pagination a, #page-dots {
     border: 1px solid #eaeaea;
     display: inline-block;
     text-transform: uppercase;
     text-align: center;
     color: #999;
-    padding: 4px 12px;
+    padding: 2px 10px;
     text-decoration: none;
 }
 .pagination a:hover {
