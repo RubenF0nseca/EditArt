@@ -1,6 +1,7 @@
 import Quill from 'quill';
 import 'quill/dist/quill.snow.css';
 
+// editor escolhemos o tema aqui e o que queremos que o editor faça
 document.addEventListener('DOMContentLoaded', function () {
     const quill = new Quill('#editor-container', {
         theme: 'snow',
@@ -10,7 +11,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 [{ 'header': [1, 2, false] }],
                 ['bold', 'italic', 'underline'],
                 [{ 'list': 'ordered' }, { 'list': 'bullet' }],
-                ['link', 'image']
             ]
         }
     });

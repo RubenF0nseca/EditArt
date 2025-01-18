@@ -26,4 +26,31 @@ class ReviewFactory extends Factory
             'review_date' => now(),
         ];
     }
+
+    public function good()
+    {
+        return $this->state(function (array $attributes) {
+            return [
+                'rating' => fake()->numberBetween(4, 5),
+            ];
+        });
+    }
+
+    public function average()
+    {
+        return $this->state(function (array $attributes) {
+            return [
+                'rating' => fake()->numberBetween(2, 5),
+            ];
+        });
+    }
+
+    public function bad()
+    {
+        return $this->state(function (array $attributes) {
+            return [
+                'rating' => fake()->numberBetween(1, 3),
+            ];
+        });
+    }
 }
