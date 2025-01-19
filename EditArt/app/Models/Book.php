@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -54,4 +55,10 @@ class Book extends Model
     {
         return $this->belongsToMany(Genre::class, 'books_genres', 'book_id', 'genre_id');
     }
+
+    public function scopeTitle(Builder $query, string $title): Builder
+    {
+        return $query->where('title', 'LIKE', '%' . $title . '%');
+    }
+
 }
