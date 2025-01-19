@@ -256,6 +256,12 @@ input:valid + label::after {
     padding-top: 0.625rem;
     padding-bottom: .625rem;
 }
+.top-icons a:hover, .top-icons i:hover{
+    color: white;
+}
+nav button:focus{
+    box-shadow: none;
+}
 /*=========================================================
        Forum page
 =========================================================== */
