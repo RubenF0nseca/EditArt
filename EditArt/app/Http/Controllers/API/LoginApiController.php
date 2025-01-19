@@ -13,6 +13,7 @@ class LoginApiController extends BaseController
             $user = Auth::user();
             $success['token'] = $user->createToken('EditArtToken')->plainTextToken;
             $success['name'] = $user->name;
+            $success['role'] = $user->getRoleNames()->first();
             return $this->sendResponse($success, 'Login efetuado com sucesso.');
         }
         else return $this->sendError("Acesso não autorizado.",null, 401);
