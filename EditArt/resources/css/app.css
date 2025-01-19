@@ -35,6 +35,11 @@ body{
     font: 400 12px / 1.8 "Open Sans", sans-serif;
     color: #666;
 }
+/*-- Cor do foco --*/
+input:focus, textarea:focus, button:focus, .form-control:focus {
+    outline: none;
+    box-shadow: 0 0 5px 2px rgba(175, 136, 103, 0.5);
+}
 /*-- Alterar cor quando o texto é selecionado --*/
 ::selection {
     background: #000;
@@ -400,6 +405,26 @@ td{
         margin-left: 75px;
     }
 }
+/*----------------------------------------------------------
+	   Editor
+------------------------------------------------------------*/
+.editor{
+    background-color: rgba(197, 169, 146, 0.14);
+    padding: 33px 55px;
+    margin: 6rem 0;
+    overflow: hidden;
+    border: 1px dotted #c2c2c2;
+}
+#editor-container, #editor-container-2 {
+    height: 200px;
+    border: 1px dotted #c2c2c2;
+    background-color: white;
+}
+#topic{
+    border-color: transparent;
+    width: 100%;
+}
+
 /*=========================================================
        Pagina do produto (livro)
 =========================================================== */

@@ -12,7 +12,7 @@
 .navbar{
     color: #C5A992;
     background-color: rgba(29, 29, 28, 0.97);
-    --tblr-navbar-border-color: #1d1d1c;
+    --tblr-navbar-border-color: var(--navbar-bg-color);
     text-transform: uppercase;
     font-size: 12px;
     letter-spacing: 2px;
@@ -289,11 +289,37 @@ input:valid + label::after {
     background-position: center;
     background-size: cover;
     width: 100%;
-    height: 80vh;
+    height: 90vh;
     position: relative;
     margin-top: 76px;
 }
+/*----------------------------------------------------------
+	   Forum
+------------------------------------------------------------*/
+.forum{
+    padding: 33px 55px;
+    margin-bottom: 21px;
+    overflow: hidden;
+    border: 1px dotted #c2c2c2;
+}
 
+/*----------------------------------------------------------
+	   Accordion
+------------------------------------------------------------*/
+.accordion-button:not(.collapsed) {
+    color: white;
+    background-color: #af8867;
+}
+.accordion-button {
+    color: #af8867;
+    background-color: rgba(197, 169, 146, 0.14);
+}
+.accordion{
+    --bs-accordion-btn-focus-box-shadow: 0 0 0 0.15rem rgba(197, 169, 146, 0.4);
+}
+.quot{
+    color: #74642F;
+}
 /*=========================================================
        Utilizador
 =========================================================== */
