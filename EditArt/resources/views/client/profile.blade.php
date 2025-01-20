@@ -25,30 +25,30 @@
 
                         <!-- Tab: Perfil ------------------------------------  -->
                         <x-pills.content class="show active" id="profile" label="profile">
-                            <div class="post">
+                            <div class="review-post">
                                 <div class="row">
-                                    <span class="col-2 font-alt">Nome</span>
-                                    <span class="col-10">{{ auth()->user()->name }}</span>
+                                    <span class="col-3 font-alt">Nome</span>
+                                    <span class="col-9">{{ auth()->user()->name }}</span>
                                 </div>
-                                <div class="row post-entry">
-                                    <span class="col-2 font-alt">Email</span>
-                                    <span class="col-10">{{ auth()->user()->email }}</span>
+                                <div class="row review-entry">
+                                    <span class="col-3 font-alt">Email</span>
+                                    <span class="col-9">{{ auth()->user()->email }}</span>
                                 </div>
-                                <div class="row post-entry">
-                                    <span class="col-2 font-alt">NIF</span>
-                                    <span class="col-10">{{ auth()->user()->nif }}</span>
+                                <div class="row review-entry">
+                                    <span class="col-3 font-alt">NIF</span>
+                                    <span class="col-9">{{ auth()->user()->nif }}</span>
                                 </div>
-                                <div class="row post-entry">
-                                    <span class="col-2 font-alt">Telefone</span>
-                                    <span class="col-10">{{ auth()->user()->phone_number }}</span>
+                                <div class="row review-entry">
+                                    <span class="col-3 font-alt">Telefone</span>
+                                    <span class="col-9">{{ auth()->user()->phone_number }}</span>
                                 </div>
-                                <div class="row post-entry">
-                                    <span class="col-2 font-alt">Morada</span>
-                                    <span class="col-10">{{ auth()->user()->address }}</span>
+                                <div class="row review-entry">
+                                    <span class="col-3 font-alt">Morada</span>
+                                    <span class="col-9">{{ auth()->user()->address }}</span>
                                 </div>
-                                <div class="row post-entry">
-                                    <span class="col-2 font-alt">Сonta criada</span>
-                                    <span class="col-10">{{ auth()->user()->created_at }}</span>
+                                <div class="row review-entry">
+                                    <span class="col-3 font-alt">Сonta criada</span>
+                                    <span class="col-9">{{ auth()->user()->created_at }}</span>
                                 </div>
                             </div>
                         </x-pills.content>

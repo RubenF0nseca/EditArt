@@ -470,7 +470,7 @@ td{
     margin-bottom: 21px;
     overflow: hidden;
     border: 1px dotted #c2c2c2;
-    width: 70%;
+    width: 70%;                      /*TODO alterar no book e apagar aqui*/
 }
 .review-author{
     font-size: 1rem;
@@ -509,6 +509,10 @@ td{
     color: rgba(134, 0, 0, 0.51);
     font-size: 1rem;
     margin-left: 1rem;
+}
+.tab-content .review-post{
+    margin-left: 0;
+    margin-right: 0;
 }
 /*=========================================================
        Paginas do erros
