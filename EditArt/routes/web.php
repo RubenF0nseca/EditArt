@@ -125,6 +125,9 @@ Route::middleware('guest')->group(function () {
     });
 });
 
+Route::get('/post', function () {
+    return view('client.ForumPost');
+})->name('post');
 
 Route::get('/book', function () {
     return view('client.book');

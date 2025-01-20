@@ -479,6 +479,9 @@ td{
 .review-title {
     color: #af8867;
 }
+.post-title{
+    color: #74642F;
+}
 .review-comment {
     font-size: 12px;
     color: #aaa;
@@ -513,6 +516,9 @@ td{
 .tab-content .review-post{
     margin-left: 0;
     margin-right: 0;
+}
+.comments, .comment-form {
+    margin: 50px 0 0;
 }
 /*=========================================================
        Paginas do erros
