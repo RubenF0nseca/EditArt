@@ -10,13 +10,13 @@
 
             <div class="row mt-5">
                 <!-- Forum post------------------------------------  -->
-                <div class="col-sm-8">
+                <div class="col-sm-12 col-lg-8">
                     <div class="forum">
                         <div class="row">
-                            <div class="col-md-1 text-center">
+                            <div class="col-md-2 text-center">
                                 <img src="{{asset('imgs/no_user.png')}}" class="author-avatar" alt="">
                             </div>
-                            <div class="col-md-7">
+                            <div class="col-md-6">
                                 <h2 class="post-title font-alt">Our trip to the Alps</h2>
                                 <h2 class="review-author font-alt"><a href="#">Maria Mendes</a></h2>
 
@@ -114,7 +114,7 @@
                     </div>
                 </div>
                 <!-- Regras do Fórum -------------------TODO TEXTO----------------- -->
-                <div class="col-sm-4">
+                <div class="col-sm-12 col-lg-4">
                     <div class="text-center">
                         <h2 class="section-title font-alt">Regras do Fórum</h2>
                     </div>

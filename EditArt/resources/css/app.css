@@ -48,6 +48,10 @@ input:focus, textarea:focus, button:focus, .form-control:focus {
     outline: none;
     box-shadow: 0 0 5px 2px rgba(175, 136, 103, 0.5);
 }
+.navbar-toggler:focus{
+    outline: none;
+    box-shadow: none;
+}
 /*-- Alterar cor quando o texto é selecionado --*/
 ::selection {
     background: #000;
@@ -79,7 +83,7 @@ input:focus, textarea:focus, button:focus, .form-control:focus {
     letter-spacing: 40px;
     text-align: center;
     font-weight: 900;
-    font-size: 6rem;
+    font-size: calc(var(--index)* 4.5);
     color: #e7e7e0;
     margin: 0 0 50px;
     text-shadow: 0 0 20px rgb(241, 225, 134);
@@ -89,7 +93,7 @@ input:focus, textarea:focus, button:focus, .form-control:focus {
     letter-spacing: 4px;
     text-align: center;
     font-weight: 400;
-    font-size: 30px;
+    font-size: calc(var(--index) * 1.3);
     color: #111;
     margin: 0 0 50px;
 }
@@ -98,7 +102,7 @@ input:focus, textarea:focus, button:focus, .form-control:focus {
 }
 .section-subtitle {
     text-align: center;
-    font-size: 1.3rem;
+    font-size: calc(var(--index)* 1);
     color: #111;
     margin-bottom: 50px;
 }
@@ -193,6 +197,9 @@ blockquote {
 }
 .input-lg {
     height: 38px;
+}
+.navbar-dark{
+    --bs-navbar-toggler-border-color: none;
 }
 /*----------------------------------------------------------
 	   Tabelas
@@ -481,6 +488,7 @@ td{
 }
 .post-title{
     color: #74642F;
+    font-size: 1.5rem;
 }
 .review-comment {
     font-size: 12px;

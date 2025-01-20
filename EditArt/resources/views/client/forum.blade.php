@@ -10,7 +10,7 @@
 
             <div class="row mt-5">
                 <!-- Forum ------------------------------------  -->
-                <div class="col-sm-8">
+                <div class="col-sm-12 col-lg-8">
 
                     <!-- Barra de pesquisa -->
                     <div class="widget">
@@ -36,7 +36,7 @@
                             <x-table.tr>
                                 <td class="text-center"><a href="#"><img src="{{asset('imgs/no_user.png')}}" class="author-avatar" alt="">
                                         <p>Maria Mendes</p></a></td>
-                                <td><h2 class="review-author font-alt align-items-center"><a href="#">Tema Title lorem ipsum</a></h2></td>
+                                <td><h2 class="review-author font-alt align-items-center"><a href="{{ route('post') }}">Tema Title lorem ipsum</a></h2></td>
                                 <td><p class="font-serif"><a href="#">Blog</a></p></td>
                                 <td><p><a href="#">3 Comentarios</a></p></td>
                                 <td><p><a href="#">June 21, 2018</a></p></td>
@@ -73,7 +73,7 @@
                 </div>
 
                 <!-- Regras do Fórum -------------------TODO TEXTO----------------- -->
-                <div class="col-sm-4">
+                <div class="col-sm-12 col-lg-4">
                     <div class="text-center">
                         <h2 class="section-title font-alt">Regras do Fórum</h2>
                     </div>

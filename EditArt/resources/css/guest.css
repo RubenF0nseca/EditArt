@@ -18,7 +18,7 @@
     letter-spacing: 2px;
     font-family: "Roboto Condensed", sans-serif;
     --bs-navbar-nav-link-padding-x: 1rem;
-    --bs-navbar-brand-margin-end: 15rem;
+    --bs-navbar-brand-margin-end: calc(var(--index) * 9);
 }
 .border-bottom {
     border-bottom: var(--bs-border-width) var(--bs-border-style) #c5a99242 !important;
@@ -43,7 +43,7 @@
 .top-icons li{
     display: inline;
     margin: 1rem 0 0 1.5rem;
-    font-size: 15px;
+    font-size: 13px;
 }
 /*----------------------------------------------------------
 	   Forms common style
