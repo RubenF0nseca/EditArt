@@ -11,6 +11,7 @@ use App\Http\Controllers\CommentController;
 use App\Http\Controllers\GenreController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\Store\SalesController;
 use App\Http\Controllers\UserController;
 use App\Mail\EmailEditArt;
 use App\Models\User;
@@ -137,6 +138,8 @@ Route::get('/guest/authors', function () {
     return view('guest.authors');
 })->name('guest.authors');
 
-Route::get('/guest/books', function () {
-    return view('guest.books', ['books' => \App\Models\Book::paginate(12)]);
-})->name('guest.books');
+//Route::get('/guest/books', function () {
+//    return view('guest.books', ['books' => \App\Models\Book::paginate(12)]);
+//})->name('guest.books');
+
+Route::get('/guest/books', [SalesController::class, 'index'])->name('guest.books');

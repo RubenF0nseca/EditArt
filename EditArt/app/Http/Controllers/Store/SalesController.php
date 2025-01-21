@@ -16,7 +16,7 @@ class SalesController extends Controller
             $title,
             fn($query, $title) => $query->title($title)
         )
-            ->get();
+            ->paginate(12);
 
         return view('guest.books' , ['books' => $books]);
     }

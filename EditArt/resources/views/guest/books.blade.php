@@ -59,9 +59,9 @@
                         <!-- ----- Categories (Left sidebar) ----------  -->
                         <div class="col-sm-3 col-md-3 sidebar">
                             <div class="widget">
-                                <form role="form" method="GET" action="#">
+                                <form role="form" method="GET" action="{{ route('guest.books') }}">
                                     <div class="search-box">
-                                        <input class="form-control" type="text" placeholder="Search..."/>
+                                        <input class="form-control" type="text" name="title" placeholder="Search..."/>
                                         <button class="search-btn" type="submit"><i class="fa fa-search"></i></button>
                                     </div>
                                 </form>
