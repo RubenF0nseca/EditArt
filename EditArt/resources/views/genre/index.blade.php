@@ -8,6 +8,10 @@
 
 @section('content')
     <div class="container">
+        <!-- Barra de pesquisa -->
+        <x-widget.search action="#" name="#" placeholder="#" value="#"></x-widget.search>
+
+        <!-- Tabela -->
         <div class="row">
             <div class="col">
 

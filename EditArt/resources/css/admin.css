@@ -75,6 +75,35 @@ ul{margin: 0;}
     cursor: pointer;
 }
 /*----------------------------------------------------------
+	   Search
+------------------------------------------------------------*/
+.search-admin {
+    position: absolute;
+    background: transparent;
+    border: none;
+    overflow: hidden;
+    right: 1px;
+    width: 111px;
+    height: 40px;
+    line-height: 38px;
+    font-size: 14px;
+    outline: none;
+    color: #c5a992;
+    margin-top: -38px;
+}
+.form-control-admin {
+    display: block;
+    width: 100%;
+    padding: 0.5625rem 0.75rem;
+    font-family: var(--tblr-font-sans-serif);
+    font-size: 0.875rem;
+    line-height: 1.4285714286;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border: rgba(197, 169, 146, 0.37) solid 1px;
+    border-radius: 8px;
+}
+/*----------------------------------------------------------
 	   Widgets
 ------------------------------------------------------------*/
 #widget-card{
