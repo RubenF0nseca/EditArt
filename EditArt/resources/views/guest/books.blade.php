@@ -61,7 +61,7 @@
                             <div class="widget">
                                 <form role="form" method="GET" action="{{ route('guest.books') }}">
                                     <div class="search-box">
-                                        <input class="form-control" type="text" name="title" placeholder="Search..."/>
+                                        <input class="form-control" type="text" name="title" placeholder="Titulo do livro" value="{{ request('title') }}"/>
                                         <button class="search-btn" type="submit"><i class="fa fa-search"></i></button>
                                     </div>
                                 </form>
