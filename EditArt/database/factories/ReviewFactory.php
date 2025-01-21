@@ -23,7 +23,13 @@ class ReviewFactory extends Factory
             'user_id' => fake()->numberBetween(1, User::count()),
             'comment' => fake()->paragraphs(2, true),
             'rating' => fake()->numberBetween(1, 5),
-            'review_date' => now(),
+            'created_at' => fake()->dateTimeBetween('-2 years'),
+            'updated_at' => function (array $attributes) {
+                return fake()->dateTimeBetween($attributes['created_at']);
+            },
+            'review_date' => function (array $attributes) {
+        return fake()->dateTimeBetween($attributes['created_at']);
+    },
         ];
     }
 
