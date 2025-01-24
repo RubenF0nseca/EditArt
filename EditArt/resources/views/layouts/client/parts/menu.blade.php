@@ -10,7 +10,7 @@
                 <li class="nav-item"><a class="nav-link" href="{{ route('guest.books') }}">{{ __('menu.books') }}</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ route('guest.authors') }}">{{ __('menu.authors') }}</a></li>
                 <li class="nav-item"><a class="nav-link" href="#">{{ __('menu.online_publisher') }}</a></li>
-                <li class="nav-item"><a class="nav-link" href="{{ route('client.forum') }}">Forum</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('forum') }}">Forum</a></li>
                 <li class="nav-item">{{app()->getLocale()}}</li>
                 <li class="nav-item"><a class="nav-link" href="{{route('lang.switch',['locale'=>'pt'])}}">{{ __('menu.language_pt') }}</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{route('lang.switch',['locale'=>'en'])}}">{{ __('menu.language_en') }}</a></li>
@@ -19,8 +19,8 @@
             <ul class="d-flex py-3 py-lg-0 flex-end top-icons">
                 @role('admin') <li class="nav-item"><a class="nav-link" href="{{ route('admin.dashboard') }}"><i class="fa-solid fa-dashboard"></i>&nbsp Dashboard</a></li>@endrole
                 <li class="nav-item"><a class="nav-link" href="{{ route('client.profile') }}"><i class="fa-solid fa-user"></i></a></li>
-                <li class="nav-item"><a class="nav-link" href="{{ route('client.wishlist') }}"><i class="fa-solid fa-heart"></i></a></li>
-                <li class="nav-item"><a class="nav-link" href="{{ route('client.cart') }}"><i class="fa-solid fa-cart-shopping"></i></a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('wishlist') }}"><i class="fa-solid fa-heart"></i></a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('cart') }}"><i class="fa-solid fa-cart-shopping"></i></a></li>
                 <li class="nav-item">
                     <form action="{{ route('logout') }}" method="POST">
                         @csrf

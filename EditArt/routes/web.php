@@ -82,18 +82,6 @@ Route::middleware('role:cliente|admin')->group(function (){
                 return view('client.profile');
             })->name('profile');
 
-            Route::get('/wishlist', function () {
-                return view('client.wishlist');
-            })->name('wishlist');
-
-            Route::get('/cart', function () {
-                return view('client.cart');
-            })->name('cart');
-
-            Route::get('/forum', function () {
-                return view('client.forum');
-            })->name('forum');
-
         });
     });
 });
@@ -137,9 +125,20 @@ Route::middleware('guest')->group(function () {
         });
     });
 });
+Route::get('/wishlist', function () {
+    return view('wishlist.wishlist');
+})->name('wishlist');
+
+Route::get('/cart', function () {
+    return view('cart.cart');
+})->name('cart');
+
+Route::get('/forum', function () {
+    return view('forum.forum');
+})->name('forum');
 
 Route::get('/post', function () {
-    return view('client.ForumPost');
+    return view('forum.ForumPost');
 })->name('post');
 
 Route::get('/book', function () {
