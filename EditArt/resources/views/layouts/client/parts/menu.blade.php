@@ -11,9 +11,6 @@
                 <li class="nav-item"><a class="nav-link" href="{{ route('guest.authors') }}">{{ __('menu.authors') }}</a></li>
                 <li class="nav-item"><a class="nav-link" href="#">{{ __('menu.online_publisher') }}</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ route('forum') }}">Forum</a></li>
-                <li class="nav-item">{{app()->getLocale()}}</li>
-                <li class="nav-item"><a class="nav-link" href="{{route('lang.switch',['locale'=>'pt'])}}">{{ __('menu.language_pt') }}</a></li>
-                <li class="nav-item"><a class="nav-link" href="{{route('lang.switch',['locale'=>'en'])}}">{{ __('menu.language_en') }}</a></li>
             </ul>
             <!-- Icons -->
             <ul class="d-flex py-3 py-lg-0 flex-end top-icons">
@@ -30,6 +27,20 @@
                             </span>
                         </button>
                     </form>
+                </li>
+                <!-- Tradução PT/EN -->
+                <li class="nav-item">
+                    @if(app()->getLocale() === 'pt')
+                        <a class="nav-link" href="{{route('lang.switch',['locale'=>'en'])}}">
+                            <img src="{{ asset('flags/uk.png') }}" alt="English" style="width: 25px; height: auto;">
+                            {{ __('menu.language_en') }}
+                        </a>
+                    @else
+                        <a class="nav-link" href="{{route('lang.switch',['locale'=>'pt'])}}">
+                            <img src="{{ asset('flags/pt.png') }}" alt="Portuguese" style="width: 25px; height: auto;">
+                            {{ __('menu.language_pt') }}
+                        </a>
+                    @endif
                 </li>
             </ul>
         </div>
