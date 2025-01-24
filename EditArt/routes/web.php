@@ -19,10 +19,22 @@ use Illuminate\Auth\Events\PasswordReset;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
+use App\Http\Controllers\LanguageController;
 
 Route::get('/', function () {
     return view('homepage', ['books' => \App\Models\Book::all()]);
 })->name('home');
+
+Route::get('/lang/{locale}',function (String $locale){
+    if(in_array($locale,['pt','en'])){
+        //Definir o idioma
+        session()->put('locale',$locale);
+    }else
+        session()->put('locale','pt');
+
+    return redirect()->back();
+
+})->name('lang.switch');
 
 //logout
 Route::post('/logout', [LoginController::class,'logout'])->name('logout')

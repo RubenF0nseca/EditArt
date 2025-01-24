@@ -7,10 +7,13 @@
         <div class="collapse navbar-collapse" id="sidebar-menu">
             <ul class="navbar-nav mx-auto border-bottom border-lg-bottom-0 pt-2 pt-lg-0">
                 <li class="nav-item"><a class="nav-link active active" aria-current="page" href="{{ route('home')}}">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="{{ route('guest.books') }}">Livros</a></li>
-                <li class="nav-item"><a class="nav-link" href="{{ route('guest.authors') }}">Autores</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Online Editora</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('guest.books') }}">{{ __('menu.books') }}</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('guest.authors') }}">{{ __('menu.authors') }}</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">{{ __('menu.online_publisher') }}</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ route('client.forum') }}">Forum</a></li>
+                <li class="nav-item">{{app()->getLocale()}}</li>
+                <li class="nav-item"><a class="nav-link" href="{{route('lang.switch',['locale'=>'pt'])}}">{{ __('menu.language_pt') }}</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{route('lang.switch',['locale'=>'en'])}}">{{ __('menu.language_en') }}</a></li>
             </ul>
             <!-- Icons -->
             <ul class="d-flex py-3 py-lg-0 flex-end top-icons">

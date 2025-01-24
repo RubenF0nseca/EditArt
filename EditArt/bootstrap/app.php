@@ -4,6 +4,7 @@ use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
 use Spatie\Permission\Middleware\RoleMiddleware;
+use App\Http\Middleware\SetLocale;
 
 
 return Application::configure(basePath: dirname(__DIR__))
@@ -17,6 +18,7 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->alias([
             'role'=> RoleMiddleware::class,
         ]);
+        $middleware->appendToGroup('web',SetLocale::class);
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //
