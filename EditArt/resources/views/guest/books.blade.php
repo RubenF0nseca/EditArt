@@ -17,14 +17,14 @@
         <!-- ------ Slide 1 ---------------------------  -->
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="{{ asset('imgs/banner-books.png') }}" width="100%" height="100%">
+                <img src="{{ asset('imgs/banner-books.png') }}" alt="Banner" width="100%" height="100%">
                 <div class="container">
                     <!-- ------TODO TEXTO--------  -->
                 </div>
             </div>
             <!-- ----- Slide 2 ---------------------------  -->
             <div class="carousel-item">
-                <img src="{{ asset('imgs/banner-books2.png') }}" width="100%" height="100%">
+                <img src="{{ asset('imgs/banner-books2.png') }}" alt="Banner" width="100%" height="100%">
                 <div class="container">
                     <div class="carousel-caption text-end">
                         <!-- ------TODO TEXTO--------  -->
@@ -56,7 +56,9 @@
                         </div>
                     </div>
                     <div class="row">
-                        <!-- ----- Categories (Left sidebar) ----------  -->
+                        <!-- ----- Left sidebar ----------  -->
+
+                        <!-- Pesquisar por títulos de livros  -->
                         <div class="col-sm-3 col-md-3 sidebar">
                             <div class="widget">
                                 <form role="form" method="GET" action="{{ route('guest.books') }}">
@@ -66,20 +68,17 @@
                                     </div>
                                 </form>
                             </div>
+
+                            <!-- Filtrar por categorias de livros  -->
                             <div class="widget">
                                 <h5 class="widget-title font-alt">Categories</h5>
                                 <ul class="icon-list">
-                                    <div>
-                                        <h2>Filter by Genre</h2>
-                                        <ul>
-                                            <li><a href="{{ route('guest.books') }}">All Genres</a></li>
-                                            @foreach($genres as $genre)
-                                                <li>
-                                                    <a href="{{ route('guest.books', ['genre' => $genre->id]) }}">{{ $genre->name }}</a>
-                                                </li>
-                                            @endforeach
-                                        </ul>
-                                    </div>
+                                    <li><a href="{{ route('guest.books') }}">All Genres</a></li>
+                                    @foreach($genres as $genre)
+                                        <li>
+                                            <a href="{{ route('guest.books', ['genre' => $genre->id]) }}">{{ $genre->name }}</a>
+                                        </li>
+                                    @endforeach
                                 </ul>
                             </div>
                         </div>
@@ -96,9 +95,13 @@
                                         <figure class="product-style">
 
                                             @if($book->CoverPicture)
-                                                <img src="{{ asset('storage/'.$book->CoverPicture) }}" class="product-thumb rounded" alt="{{ $book->title }}" style="max-width: 90%; height: auto;">
+                                                <a href="{{route('book')}}">
+                                                    <img src="{{ asset('storage/'.$book->CoverPicture) }}" class="product-thumb rounded" alt="{{ $book->title }}" style="max-width: 90%; height: auto;">
+                                                </a>
                                             @else
-                                                <img src="{{ asset('imgs/img_nao_disponivel.png') }}" class="product-thumb rounded" alt="Imagem não disponível" style="max-width: 90%; height: auto;">
+                                                <a href="{{route('book')}}">
+                                                    <img src="{{ asset('imgs/img_nao_disponivel.png') }}" class="product-thumb rounded" alt="Imagem não disponível" style="max-width: 90%; height: auto;">
+                                                </a>
                                             @endif
 
                                             <button type="button" class="add-to-cart"><i class="fa-solid fa-cart-shopping"></i>&nbsp
