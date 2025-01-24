@@ -105,4 +105,16 @@ class Book extends Model
         }
     }
 
+    // Scope para filtrar por género
+    public function scopeByGenre($query, $genreId)
+    {
+        if ($genreId) {
+            $query->whereHas('genres', function ($query) use ($genreId) {
+                $query->where('genres.id', $genreId);
+            });
+        }
+
+        return $query;
+    }
+
 }

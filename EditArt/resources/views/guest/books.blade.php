@@ -69,11 +69,17 @@
                             <div class="widget">
                                 <h5 class="widget-title font-alt">Categories</h5>
                                 <ul class="icon-list">
-                                    <li><a href="#">Fantasia - 7</a></li> <!-- ------TODO numeros--------  -->
-                                    <li><a href="#">Romance - 3</a></li>
-                                    <li><a href="#">Biografia - 12</a></li>
-                                    <li><a href="#">Humor - 1</a></li>
-                                    <li><a href="#">Novela - 16</a></li>
+                                    <div>
+                                        <h2>Filter by Genre</h2>
+                                        <ul>
+                                            <li><a href="{{ route('guest.books') }}">All Genres</a></li>
+                                            @foreach($genres as $genre)
+                                                <li>
+                                                    <a href="{{ route('guest.books', ['genre' => $genre->id]) }}">{{ $genre->name }}</a>
+                                                </li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
                                 </ul>
                             </div>
                         </div>
