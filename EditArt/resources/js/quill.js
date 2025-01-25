@@ -11,7 +11,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 [{ 'header': [1, 2, false] }],
                 ['bold', 'italic', 'underline'],
                 [{ 'list': 'ordered' }, { 'list': 'bullet' }],
-                ['link', 'blockquote', 'image']
             ]
         }
     });
@@ -45,7 +44,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 [{ 'header': [1, 2, false] }],
                 ['bold', 'italic', 'underline'],
                 [{ 'list': 'ordered' }, { 'list': 'bullet' }],
-                ['link', 'blockquote', 'image']
             ]
         }
     });
