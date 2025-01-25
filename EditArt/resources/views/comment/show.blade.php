@@ -1,6 +1,6 @@
 @extends('layouts.admin.base')
 
-@section('title','Detalhes do Comentário')
+@section('title',__('settings.comment_details'))
 
 @section('content')
     <div class="container">
@@ -17,27 +17,27 @@
 
                         <div class="row">
                             <div class="col-md-12">
-                                <h3>ID / {{ $comment->id }}</h3>
+                                <h3>{{ __('settings.comment_id') }} / {{ $comment->id }}</h3>
                                 <table class="table">
                                     <tbody>
                                     <tr>
-                                        <th scope="row">Comentário</th>
+                                        <th scope="row">{{ __('settings.comment') }}</th>
                                         <td>{{ $comment->content }}</td>
                                     </tr>
                                     <tr>
-                                        <th scope="row">Avaliação criada em:</th>
+                                        <th scope="row">{{ __('settings.created_at') }}</th>
                                         <td>{{ $comment->created_at }}</td>
                                     </tr>
                                     <tr>
-                                        <th scope="row">Avaliação atualizada em:</th>
+                                        <th scope="row">{{ __('settings.updated_at') }}</th>
                                         <td>{{ $comment->updated_at }}</td>
                                     </tr>
                                     </tbody>
                                 </table>
                             </div>
                             <div class="col-md-12 mt-4">
-                                <x-button.link link="{{ route('admin.comments.edit', $comment->id) }}" color="solid">Editar</x-button.link>
-                                <x-button.link link="{{ route('admin.comments.index') }}" color="light-new">Mostrar todos os comentários</x-button.link>
+                                <x-button.link link="{{ route('admin.comments.edit', $comment->id) }}" color="solid">{{ __('settings.edit') }}</x-button.link>
+                                <x-button.link link="{{ route('admin.comments.index') }}" color="light-new">{{ __('settings.view_all_comments') }}</x-button.link>
                             </div>
                         </div>
                     </div>

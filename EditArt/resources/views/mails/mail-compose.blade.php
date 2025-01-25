@@ -1,6 +1,6 @@
 @extends('layouts.admin.base')
 
-@section('title','Enviar email')
+@section('title',__('admin.title'))
 
 @section('content')
     <div class="container">
@@ -8,7 +8,7 @@
             <div class="col-md-8 offset-md-2">
                 <div class="card">
                     <div class="card-header">
-                        <h4>Enviar email</h4>
+                        <h4>{{ __('admin.header') }}</h4>
                     </div>
                     <div class="card-body">
                         <!-- Alerta para mensagem de sucesso -->
@@ -28,29 +28,29 @@
                         <form action="{{ route('admin.send.email') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="mb-3">
-                                <label for="subject" class="form-label required">Assunto</label>
+                                <label for="subject" class="form-label required">{{ __('admin.subject_label') }}</label>
                                 <input id="subject" name="subject" class="form-control @error('subject') is-invalid @enderror">{{ old('subject') }}
                                 @error('subject')
                                 <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                             </div>
                             <div class="mb-3">
-                                <label for="content" class="form-label required">Conteúdo</label>
+                                <label for="content" class="form-label required">{{ __('admin.content_label') }}</label>
                                 <textarea id="content" name="content" class="form-control @error('content') is-invalid @enderror">{{ old('content') }}</textarea>
                                 @error('content')
                                 <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                             </div>
                             <div class="mb-3">
-                                <label for="files" class="form-label required">Anexar Ficheiros</label>
+                                <label for="files" class="form-label required">{{ __('admin.files_label') }}</label>
                                 <input type="file" id="files" name="files" class="form-control @error('files') is-invalid @enderror">
                                 @error('files')
                                 <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                             </div>
                             <div class="text-end">
-                                <x-button.submit color="solid">Enviar</x-button.submit>
-                                <x-button.link link="{{ route('admin.dashboard') }}" color="dark-solid">Cancelar</x-button.link>
+                                <x-button.submit color="solid">{{ __('admin.send_button') }}</x-button.submit>
+                                <x-button.link link="{{ route('admin.dashboard') }}" color="dark-solid">{{ __('admin.cancel_button') }}</x-button.link>
                             </div>
                         </form>
 

@@ -13,7 +13,7 @@
                     </div>
                     <div class="col-md-6 d-flex justify-content-center align-items-center">
                         <div class="card shadow-lg border-0 rounded-lg">
-                            <div class="card-header"><h3 class="text-center font-weight-light my-4 font-alt">Login</h3></div>
+                            <div class="card-header"><h3 class="text-center font-weight-light my-4 font-alt">{{ __('auth.login') }}</h3>
                             <div class="card-body">
                                 <!-- Alerta de sucesso -->
                                 @if(session('success'))
@@ -24,15 +24,15 @@
 
                                 <!-- Alerta de erros -->
                                 @if($errors->has('error'))
-                                    <x-alert id="" type="danger">
-                                        {{$errors->first('error')}}
+                                    <x-alert id="error-alert" type="danger">
+                                        {{ __('auth.error') }}: {{$errors->first('error')}}
                                     </x-alert>
                                 @endif
 
                                 @if($errors->any())
                                     <div class="row p-2">
-                                        <x-alert id="" type="danger">
-                                            Verifique os dados inseridos
+                                        <x-alert id="validation-errors-alert" type="danger">
+                                            {{ __('auth.check_data') }}
                                             <ul>
                                                 @foreach($errors->all() as $message)
                                                     <li>{{$message}}</li>
@@ -45,21 +45,21 @@
                                 <form method="POST" action="{{route('login')}}">
                                     @csrf
                                     <div class="form-floating mb-3">
-                                        <input value="{{old('email')}}" class="form-control" id="inputEmail" type="email" placeholder="" name="email"/>
-                                        <label for="inputEmail">Email * </label>
+                                        <input value="{{old('email')}}" class="form-control" id="inputEmail" type="email" placeholder="{{ __('auth.email_placeholder') }}" name="email"/>
+                                        <label for="inputEmail">{{ __('auth.email') }} *</label>
                                     </div>
                                     <div class="form-floating mb-3">
                                         <input class="form-control" id="inputPassword" type="password" placeholder="" name="password"/>
-                                        <label for="inputPassword">Password * </label>
+                                        <label for="inputPassword">{{ __('auth.password') }} *</label>
                                     </div>
                                     <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
-                                        <a class="small" href="{{ route('password.forgot') }}">Esqueceu-se da Password?</a>
-                                        <button class="btn btn-primary" type="submit" name="bt_login">Entrar</button>
+                                        <a class="small" href="{{ route('password.forgot') }}">{{ __('auth.forgot_password') }}</a>
+                                        <button class="btn btn-primary" type="submit" name="bt_login">{{ __('auth.enter') }}</button>
                                     </div>
                                 </form>
                             </div>
                             <div class="card-footer text-center py-3">
-                                <div class="small"><a href="{{route('registration')}}">Não tem conta? Registe-se!</a></div>
+                                <div class="small"><a href="{{route('registration')}}">{{ __('auth.register_prompt') }}</a></div>
                             </div>
                         </div>
                     </div>

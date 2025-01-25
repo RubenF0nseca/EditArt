@@ -1,9 +1,9 @@
 @extends('layouts.admin.base')
 
-@section('title','Lista de Comentários')
+@section('title',__('settings.list_comments'))
 
 @section('button')
-    <x-button.add link="{{ route('admin.comments.create') }}" icon="fa-plus">&nbsp Novo Comentário</x-button.add>
+    <x-button.add link="{{ route('admin.comments.create') }}" icon="fa-plus">&nbsp {{ __('settings.new_comment') }}</x-button.add>
 @endsection
 
 @section('content')
@@ -16,9 +16,9 @@
                         <x-table>
                             <x-table.thead>
                                 <x-table.tr>
-                                    <x-table.th>ID</x-table.th>
-                                    <x-table.th>Comentário</x-table.th>
-                                    <x-table.th class="text-end">Ações</x-table.th>
+                                    <x-table.th>{{ __('settings.table_id') }}</x-table.th>
+                                    <x-table.th>{{ __('settings.table_comment') }}</x-table.th>
+                                    <x-table.th class="text-end">{{ __('settings.table_actions') }}</x-table.th>
                                 </x-table.tr>
                             </x-table.thead>
                             <x-table.tbody>

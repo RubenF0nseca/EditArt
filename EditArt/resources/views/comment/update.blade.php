@@ -1,6 +1,6 @@
 @extends('layouts.admin.base')
 
-@section('title','Editar comentário')
+@section('title',__('settings.edit_comment'))
 
 @section('content')
     <div class="container">
@@ -8,7 +8,7 @@
             <div class="col-md-8 offset-md-2">
                 <div class="card">
                     <div class="card-header">
-                        <h4>Insira os dados para editar o comentário</h4>
+                        <h4>{{ __('settings.edit_comment_header') }}</h4>
                     </div>
                     <div class="card-body">
                         <!-- Alerta para mensagem de sucesso -->
@@ -29,15 +29,15 @@
                             @csrf
                             @method('PUT')
                             <div class="mb-3">
-                                <label for="content" class="form-label required">Comentário</label>
+                                <label for="content" class="form-label required">{{ __('settings.comment') }}</label>
                                 <input type="text" id="content" name="content" class="form-control @error('content') is-invalid @enderror" value="{{old('content', $comment->content)}}" >
                                 @error('content')
                                 <div class="invalid-feedback" >{{$message}}</div>
                                 @enderror
                             </div>
                             <div class="text-end">
-                                <x-button.submit color="solid">Guardar</x-button.submit>
-                                <x-button.link link="{{ route('admin.comments.show', $comment->id) }}" color="dark-solid">Cancelar</x-button.link>
+                                <x-button.submit color="solid">{{ __('settings.save') }}</x-button.submit>
+                                <x-button.link link="{{ route('admin.comments.show', $comment->id) }}" color="dark-solid">{{ __('settings.cancel') }}</x-button.link>
                             </div>
                         </form>
                     </div>

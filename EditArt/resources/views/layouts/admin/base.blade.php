@@ -45,7 +45,7 @@
                                 <span class="nav-link-icon d-md-none d-lg-inline-block">
                                     <i class="ti ti-logout fs-5"></i>
                                 </span><span class="nav-link-title">
-                                Sair
+                                {{ __('admin.logout') }}
                                 </span>
                             </button>
                         </form>
@@ -57,7 +57,7 @@
                                 <i class="ti ti-home fs-5"></i>
                             </span>
                             <span class="nav-link-title">
-                                Home
+                                {{ __('admin.home') }}
                             </span>
                         </a>
                     </li>
@@ -81,14 +81,14 @@
                                 <i class="ti ti-book fs-5"></i>
                             </span>
                             <span class="nav-link-title">
-                               Produtos
+                              {{ __('admin.products') }}
                             </span>
                         </a>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" href="{{ route('admin.books.index') }}">Lista de Produtos</a>
-                            <a class="dropdown-item" href="{{ route('admin.authors.index') }}">Lista de Autores</a>
-                            <a class="dropdown-item" href="{{ route('admin.reviews.index') }}">Lista de Avaliações</a>
-                            <a class="dropdown-item" href="{{ route('admin.genres.index') }}">Lista de Generos</a>
+                            <a class="dropdown-item" href="{{ route('admin.books.index') }}">{{ __('admin.product_list') }}</a>
+                            <a class="dropdown-item" href="{{ route('admin.authors.index') }}">{{__('admin.authors_list') }}</a>
+                            <a class="dropdown-item" href="{{ route('admin.reviews.index') }}">{{ __('admin.reviews_list') }}</a>
+                            <a class="dropdown-item" href="{{ route('admin.genres.index') }}">{{ __('admin.genres_list') }}</a>
 
                             <!-- Outros links para Obras podem ser adicionados aqui -->
                         </div>
@@ -105,8 +105,8 @@
                             </span>
                         </a>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" href="{{ route('admin.posts.index') }}">Lista de Publicações</a>
-                            <a class="dropdown-item" href="{{ route('admin.comments.index') }}">Lista de Comentarios</a>
+                            <a class="dropdown-item" href="{{ route('admin.posts.index') }}">{{ __('admin.posts_list') }}</a>
+                            <a class="dropdown-item" href="{{ route('admin.comments.index') }}">{{ __('admin.comments_list') }}</a>
                             <!-- Outros links para Admin podem ser adicionados aqui -->
                         </div>
                     </li>
@@ -118,11 +118,11 @@
                                 <i class="ti ti-user fs-5"></i>
                             </span>
                             <span class="nav-link-title">
-                                Utilizadores
+                                {{ __('admin.users') }}
                             </span>
                         </a>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" href="{{ route('admin.users.index') }}">Lista de Utilizadores</a>
+                            <a class="dropdown-item" href="{{ route('admin.users.index') }}">{{ __('admin.user_list') }}</a>
                             <!-- Outros links para Cliente podem ser adicionados aqui -->
                         </div>
                     </li>
@@ -134,7 +134,7 @@
                                 <i class="ti ti-mail fs-5"></i>
                             </span>
                             <span class="nav-link-title">
-                                Enviar email
+                                {{ __('admin.send_email') }}
                             </span>
                         </a>
                     </li>
@@ -175,7 +175,7 @@
             </div>
             <div class="row text-center align-items-center flex-row-reverse">
                 <div class="col font-alt">
-                    <p>2025 © EditArt, All Rights Reserved</p>
+                    <p>2025 © EditArt, {{ __('admin.all_rights_reserved') }}</p>
                     <p class="text-center">
                         <a href="https://github.com/RubenF0nseca/EditArt"
                            class="git link-body-emphasis text-decoration-none">

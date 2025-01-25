@@ -1,6 +1,6 @@
 @extends('layouts.admin.base')
 
-@section('title','Editar género literário')
+@section('title', __('c_i_s_u.edit_genre'))
 
 @section('content')
     <div class="container">
@@ -8,7 +8,7 @@
             <div class="col-md-8 offset-md-2">
                 <div class="card">
                     <div class="card-header">
-                        <h4>Insira os dados para editar o género literário</h4>
+                        <h4>{{ __('c_i_s_u.insert_genre_edit') }}</h4>
                     </div>
                     <div class="card-body">
                         <!-- Alerta para mensagem de sucesso -->
@@ -29,15 +29,15 @@
                             @csrf
                             @method('PUT')
                             <div class="mb-3">
-                                <label for="name" class="form-label required">Género Literário</label>
+                                <label for="name" class="form-label required">{{ __('c_i_s_u.genre_name') }}</label>
                                 <input type="text" id="name" name="name" class="form-control @error('name') is-invalid @enderror" value="{{old('name', $genre->name)}}" >
                                 @error('content')
                                 <div class="invalid-feedback" >{{$message}}</div>
                                 @enderror
                             </div>
                             <div class="text-end">
-                                <x-button.submit color="solid">Guardar</x-button.submit>
-                                <x-button.link link="{{ route('admin.genres.index') }}" color="dark-solid">Cancelar</x-button.link>
+                                <x-button.submit color="solid">{{ __('c_i_s_u.save_genre') }}</x-button.submit>
+                                <x-button.link link="{{ route('admin.genres.index') }}" color="dark-solid">{{ __('c_i_s_u.cancel_genre') }}</x-button.link>
                             </div>
                         </form>
                     </div>

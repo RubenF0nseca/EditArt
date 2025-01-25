@@ -1,6 +1,6 @@
 @extends('layouts.admin.base')
 
-@section('title','Editar avaliação')
+@section('title', __('c_i_s_u.review_edit'))
 
 @section('content')
     <div class="container">
@@ -8,7 +8,7 @@
             <div class="col-md-8 offset-md-2">
                 <div class="card">
                     <div class="card-header">
-                        <h4>Insira os dados para editar o comentário</h4>
+                        <h4>{{ __('c_i_s_u.insert_edit_review') }}</h4>
                     </div>
                     <div class="card-body">
                         <!-- Alerta para mensagem de sucesso -->
@@ -29,36 +29,36 @@
                             @csrf
                             @method('PUT')
                             <div class="mb-3">
-                                <label for="book_id" class="form-label required">Id Livro</label>
+                                <label for="book_id" class="form-label required">{{ __('c_i_s_u.book_id') }}</label>
                                 <input type="text" id="book_id" name="book_id" class="form-control @error('book_id') is-invalid @enderror" value="{{old('book_id', $review->book_id)}}" >
                                 @error('book_id')
                                 <div class="invalid-feedback" >{{$message}}</div>
                                 @enderror
                             </div>
                             <div class="mb-3">
-                                <label for="user_id" class="form-label required">Id User</label>
+                                <label for="user_id" class="form-label required">{{ __('c_i_s_u.user_id') }}</label>
                                 <input type="text" id="user_id" name="user_id" class="form-control @error('user_id') is-invalid @enderror" value="{{old('user_id', $review->user_id)}}" >
                                 @error('user_id')
                                 <div class="invalid-feedback" >{{$message}}</div>
                                 @enderror
                             </div>
                             <div class="mb-3">
-                                <label for="comment" class="form-label required">Comentário</label>
+                                <label for="comment" class="form-label required">{{ __('c_i_s_u.comment') }}</label>
                                 <input type="text" id="comment" name="comment" class="form-control @error('comment') is-invalid @enderror" value="{{old('comment', $review->comment)}}" >
                                 @error('comment')
                                 <div class="invalid-feedback" >{{$message}}</div>
                                 @enderror
                             </div>
                             <div class="mb-3">
-                                <label for="rating" class="form-label required">Nota</label>
+                                <label for="rating" class="form-label required">{{ __('c_i_s_u.rating') }}</label>
                                 <input type="text" id="rating" name="rating" class="form-control @error('rating') is-invalid @enderror" value="{{old('rating', $review->rating)}}" >
                                 @error('rating')
                                 <div class="invalid-feedback" >{{$message}}</div>
                                 @enderror
                             </div>
                             <div class="text-end">
-                                <x-button.submit color="solid">Guardar</x-button.submit>
-                                <x-button.link link="{{ route('admin.reviews.show', $review->id) }}" color="dark-solid">Cancelar</x-button.link>
+                                <x-button.submit color="solid">{{ __('c_i_s_u.save') }}</x-button.submit>
+                                <x-button.link link="{{ route('admin.reviews.show', $review->id) }}" color="dark-solid">{{ __('c_i_s_u.cancel') }}</x-button.link>
                             </div>
                         </form>
                     </div>

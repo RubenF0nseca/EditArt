@@ -1,6 +1,6 @@
 @extends('layouts.admin.base')
 
-@section('title','Criar um novo Produto')
+@section('title', __('c_i_s_u.create_new_book'))
 
 @section('content')
     <div class="container">
@@ -8,7 +8,7 @@
             <div class="col-md-8 offset-md-2">
                 <div class="card">
                     <div class="card-header">
-                        <h4>Insira os dados para a criação de um novo produto</h4>
+                        <h4>{{ __('c_i_s_u.insert_new_book') }}</h4>
                     </div>
                     <div class="card-body">
                         <!-- Alerta para mensagem de sucesso -->
@@ -28,7 +28,7 @@
                         <form action="{{ route('admin.books.store') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="mb-3">
-                                <label for="title" class="form-label required">Title</label>
+                                <label for="title" class="form-label required">{{ __('c_i_s_u.title') }}</label>
                                 <input type="text" id="title" name="title"
                                        class="form-control @error('title') is-invalid @enderror"
                                        value="{{ old('title' )}}">
@@ -37,9 +37,9 @@
                                 @enderror
                             </div>
                             <div class="mb-3">
-                                <label for="authors" class="form-label required">Autores</label>
+                                <label for="authors" class="form-label required">{{ __('c_i_s_u.authors') }}</label>
                                 <div class="custom-dropdown">
-                                    <input type="text" id="search-authors" class="form-control" placeholder="Pesquise e selecione autores...">
+                                    <input type="text" id="search-authors" class="form-control" placeholder="{{ __('c_i_s_u.search_authors') }}">
                                     <div id="selected-authors" class="selected-authors"></div>
                                     <div id="dropdown-authors" class="dropdown-list">
                                         @foreach($authors as $author)
@@ -53,21 +53,21 @@
                                 @enderror
                             </div>
                             <div class="mb-3">
-                                <label for="type" class="form-label required">Tipo</label>
+                                <label for="type" class="form-label required">{{ __('c_i_s_u.type') }}</label>
                                 <select id="type" name="type" class="form-control @error('type') is-invalid @enderror">
-                                    <option value="" disabled {{ old('type') ? '' : 'selected' }}>Selecione uma opção
+                                    <option value="" disabled {{ old('type') ? '' : 'selected' }}>{{ __('c_i_s_u.select_option') }}
                                     </option>
-                                    <option value="book" {{ old('type') == 'book' ? 'selected' : '' }}>Book</option>
-                                    <option value="ebook" {{ old('type') == 'ebook' ? 'selected' : '' }}>eBook</option>
+                                    <option value="book" {{ old('type') == 'book' ? 'selected' : '' }}>{{ __('c_i_s_u.book') }}</option>
+                                    <option value="ebook" {{ old('type') == 'ebook' ? 'selected' : '' }}>{{ __('c_i_s_u.ebook') }}</option>
                                 </select>
                                 @error('type')
                                 <div class="invalid-feedback">{{$message}}</div>
                                 @enderror
                             </div>
                             <div class="mb-3">
-                                <label for="genres" class="form-label required">Géneros</label>
+                                <label for="genres" class="form-label required">{{ __('c_i_s_u.genres') }}</label>
                                 <div class="custom-dropdown">
-                                    <input type="text" id="search-genres" class="form-control" placeholder="Pesquise e selecione géneros...">
+                                    <input type="text" id="search-genres" class="form-control" placeholder="{{ __('c_i_s_u.search_genres') }}">
                                     <div id="selected-genres" class="selected-authors"></div>
                                     <div id="dropdown-genres" class="dropdown-list">
                                         @foreach($genres as $genre)
@@ -82,7 +82,7 @@
                                 @enderror
                             </div>
                             <div class="mb-3">
-                                <label for="publicationDate" class="form-label required">Data publicação</label>
+                                <label for="publicationDate" class="form-label required">{{ __('c_i_s_u.publication_date') }}</label>
                                 <input type="date" id="publicationDate" name="publicationDate"
                                        class="form-control @error('publicationDate') is-invalid @enderror"
                                        value="{{old('publicationDate')}}">
@@ -91,7 +91,7 @@
                                 @enderror
                             </div>
                             <div class="mb-3">
-                                <label for="editionNumber" class="form-label required">Numero de edição</label>
+                                <label for="editionNumber" class="form-label required">{{ __('c_i_s_u.edition_number') }}</label>
                                 <input type="text" id="editionNumber" name="editionNumber"
                                        class="form-control @error('editionNumber') is-invalid @enderror"
                                        value="{{old('editionNumber')}}">
@@ -100,7 +100,7 @@
                                 @enderror
                             </div>
                             <div class="mb-3">
-                                <label for="isbn" class="form-label required">ISBN</label>
+                                <label for="isbn" class="form-label required">{{ __('c_i_s_u.isbn') }}</label>
                                 <input type="text" id="isbn" name="isbn"
                                        class="form-control @error('isbn') is-invalid @enderror" value="{{old('isbn')}}">
                                 @error('isbn')
@@ -108,7 +108,7 @@
                                 @enderror
                             </div>
                             <div class="mb-3">
-                                <label for="numberOfPages" class="form-label required">Numero de paginas</label>
+                                <label for="numberOfPages" class="form-label required">{{ __('c_i_s_u.number_of_pages') }}</label>
                                 <input type="text" id="numberOfPages" name="numberOfPages"
                                        class="form-control @error('numberOfPages') is-invalid @enderror"
                                        value="{{old('numberOfPages')}}">
@@ -117,7 +117,7 @@
                                 @enderror
                             </div>
                             <div class="mb-3">
-                                <label for="stock" class="form-label required">Stock</label>
+                                <label for="stock" class="form-label required">{{ __('c_i_s_u.stock') }}</label>
                                 <input type="text" id="stock" name="stock"
                                        class="form-control @error('stock') is-invalid @enderror"
                                        value="{{old('stock')}}">
@@ -126,7 +126,7 @@
                                 @enderror
                             </div>
                             <div class="mb-3">
-                                <label for="language" class="form-label required">Idioma</label>
+                                <label for="language" class="form-label required">{{ __('c_i_s_u.language') }}</label>
                                 <input type="text" id="language" name="language"
                                        class="form-control @error('language') is-invalid @enderror"
                                        value="{{old('language')}}">
@@ -135,7 +135,7 @@
                                 @enderror
                             </div>
                             <div class="mb-3">
-                                <label for="price" class="form-label required">Preço</label>
+                                <label for="price" class="form-label required">{{ __('c_i_s_u.price') }}</label>
                                 <input type="text" id="price" name="price"
                                        class="form-control @error('price') is-invalid @enderror"
                                        value="{{old('price')}}">
@@ -144,7 +144,7 @@
                                 @enderror
                             </div>
                             <div class="mb-3">
-                                <label for="CoverPicture" class="form-label required">Imagem da Capa</label>
+                                <label for="CoverPicture" class="form-label required">{{ __('c_i_s_u.cover_picture') }}</label>
                                 <input type="file"
                                        id="CoverPicture"
                                        name="CoverPicture"
@@ -154,8 +154,8 @@
                                 @enderror
                             </div>
                             <div class="text-end">
-                                <x-button.submit color="solid">Criar</x-button.submit>
-                                <x-button.link link="{{ route('admin.books.index') }}" color="dark-solid">Cancelar</x-button.link>
+                                <x-button.submit color="solid">{{ __('c_i_s_u.create') }}</x-button.submit>
+                                <x-button.link link="{{ route('admin.books.index') }}" color="dark-solid">{{ __('c_i_s_u.cancel') }}</x-button.link>
                             </div>
                         </form>
                     </div>

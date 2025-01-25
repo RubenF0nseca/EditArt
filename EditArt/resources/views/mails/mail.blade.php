@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Edit Art Email Composer</title>
+    <title>{{ __('admin.title') }}</title>
 </head>
 <body>
-<h1>Olá, {{ $name }}</h1>
+<h1>__('emails.greeting', ['name' => $name]) }}</h1>
 <p>{{ $content }}</p>
-<p>This email was successfully sent</p>
+<p>__('admin.success_message') }}</p>
 </body>
 </html>

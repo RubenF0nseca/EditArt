@@ -17,5 +17,17 @@ return [
     'password' => 'A palavra-passe fornecida está incorreta.',
     'throttle' => 'Demasiadas tentativas falhadas. Tente novamente daqui a :seconds segundos.',
 
+    //Para o show.blade.php
+    'login' => 'Login',
+    'password' => 'Password',
+    'forgot_password' => 'Esqueceu-se da Password?',
+    'enter' => 'Entrar',
+    'register_prompt' => 'Não tem conta? Registe-se!',
+    'email' => 'Email',
+    'success_message' => 'Sucesso!',
+    'error_message' => 'Verifique os dados inseridos',
+    'check_data' => 'Verifique os dados inseridos.',
+    'email_placeholder' => 'Insira o seu email',
+
 
 ];

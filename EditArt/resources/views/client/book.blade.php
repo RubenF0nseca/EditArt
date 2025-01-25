@@ -31,7 +31,7 @@
                                         <h2 class="author-name font-serif">{{ $author->name }}</h2>
                                     @endforeach
                             @else
-                                Nenhum autor associado.
+                                {{ __('c_i_s_u.no_authors') }}
                             @endif
 
                         </div>
@@ -83,18 +83,18 @@
                         </x-tab.content>
 
                         <!-- Tab - Informações de envio ---------------------  -->
-                        <x-tab.content class="" id="shipping-info" label="shipping-info">
+                        <x-tab.content class="" id="shipping-info" label="shipping-info">{{ __('c_i_s_u.shipping_info') }}
                             <!-- TODO TEXT  --> TO DO TEXT
                         </x-tab.content>
 
                         <!-- Tab - Avaliações ------------------------------------  -->
                         <x-tab.content class="" id="reviews" label="reviews">
                             <div class="section-header text-center">
-                                <h2 class="section-title font-alt">CRÍTICAS DE LEITORES</h2>
+                                <h2 class="section-title font-alt">{{ __('c_i_s_u.reviews_count') }}</h2>
                             </div>
                             <!-- Avaliações -->
                             <div class="reviews-section">
-                                <h2 class="section-title font-alt">Críticas de Leitores</h2>
+                                <h2 class="section-title font-alt">{{ __('c_i_s_u.reviews_count') }}</h2>
 
                                 @forelse($book->reviews as $review)
                                     <div class="review-post">
@@ -106,7 +106,7 @@
                                                 <h2 class="review-author font-alt">
                                                     <a href="#">{{ $review->user->name }}</a>
                                                 </h2>
-                                                <p>{{ $review->user->reviews->count() }} críticas</p>
+                                                <p>{{ $review->user->reviews->count() }} {{ __('c_i_s_u.reviews') }}</p>
                                             </div>
                                             <div class="col-md-5 text-end">
                                                 <div class="review-date font-alt">{{ $review->created_at }}</div>
@@ -117,13 +117,13 @@
                                                 </div>
                                             </div>
                                             <div class="review-entry">
-                                                <h2 class="review-title font-serif mb-3">Título da Crítica</h2>
+                                                <h2 class="review-title font-serif mb-3">{{ __('c_i_s_u.review_title') }}</h2>
                                                 <p class="review-text">{{ $review->comment }}</p>
                                             </div>
                                         </div>
                                     </div>
                                 @empty
-                                    <p>Este livro ainda não tem críticas.</p>
+                                    <p>{{ __('c_i_s_u.no_reviews') }}</p>
                                 @endforelse
                             </div>
 
@@ -138,13 +138,13 @@
                                     @csrf
 
                                     <div class="form-group mb-3">
-                                        <label for="editor-container font-alt">Escreva aqui sua crítica</label>
+                                        <label for="editor-container font-alt">{{ __('c_i_s_u.write_review') }}</label>
                                         <div id="editor-container" style="height: 200px; border: 1px solid #ccc;"></div>
                                     </div>
 
                                     <input type="hidden" name="content" />
 
-                                    <button type="submit" class="btn btn-solid">Enviar</button>
+                                    <button type="submit" class="btn btn-solid">{{ __('c_i_s_u.send') }}</button>
                                 </form>
                             </div>
 

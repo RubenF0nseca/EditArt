@@ -1,6 +1,6 @@
 @extends('layouts.admin.base')
 
-@section('title','Criar um novo comentário')
+@section('title',__('settings.create_new_comment'))
 
 @section('content')
     <div class="container">
@@ -8,7 +8,7 @@
             <div class="col-md-8 offset-md-2">
                 <div class="card">
                     <div class="card-header">
-                        <h4>Insira os dados para a criação de um novo comentário</h4>
+                        <h4>{{__('settings.insert_new_comment') }}</h4>
                     </div>
                     <div class="card-body">
                         <!-- Alerta para mensagem de sucesso -->
@@ -28,15 +28,15 @@
                         <form action="{{ route('admin.comments.store') }}" method="POST">
                             @csrf
                             <div class="mb-3">
-                                <label for="content" class="form-label required">Comentário</label>
-                                <input type="text" id="content" name="content" class="form-control @error('content') is-invalid @enderror" value="{{old('content')}}" >
+                                <label for="content" class="form-label required">{{ __('settings.comment_content') }}</label>
+                                <input type="text" id="content" name="content" class="form-control @error('content') is-invalid @enderror" placeholder="{{ __('settings.comment_placeholder') }}"{{old('content')}}" >
                                 @error('content')
                                 <div class="invalid-feedback" >{{$message}}</div>
                                 @enderror
                             </div>
                             <div class="text-end">
-                                <x-button.submit color="solid">Criar</x-button.submit>
-                                <x-button.link link="{{ route('admin.comments.index') }}" color="dark-solid">Cancelar</x-button.link>
+                                <x-button.submit color="solid">{{ __('settings.create_comment') }}</x-button.submit>
+                                <x-button.link link="{{ route('admin.comments.index') }}" color="dark-solid">{{ __('settings.cancel_comment') }}</x-button.link>
                             </div>
                         </form>
                     </div>

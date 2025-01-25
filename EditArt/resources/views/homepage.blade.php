@@ -26,7 +26,7 @@
                         <div class="row">
                             <div class="col-12">
                                 <div class="section-header text-center pb-5">
-                                    <h2 class="section-title font-alt">Os livros mais vendidos</h2>
+                                    <h2 class="section-title font-alt">{{ __('homepage.best_sellers') }}</h2>
                                 </div>
                             </div>
                         </div>
@@ -47,11 +47,11 @@
                                         @if($book->CoverPicture)
                                             <img src="{{ asset('storage/'.$book->CoverPicture) }}" class="product-thumb rounded" alt="{{ $book->title }}" style="max-width: 90%; height: auto;">
                                         @else
-                                            <img src="{{ asset('imgs/img_nao_disponivel.png') }}" class="product-thumb rounded" alt="Imagem não disponível" style="max-width: 90%; height: auto;">
+                                            <img src="{{ asset('imgs/img_nao_disponivel.png') }}" class="product-thumb rounded" alt="{{ __('homepage.image_not_available') }}" style="max-width: 90%; height: auto;">
                                         @endif
 
                                         <button type="button" class="add-to-cart">
-                                            Adicionar ao carrinho
+                                            {{ __('homepage.add_to_cart') }}
                                         </button>
                                     </figure>
                                     <figcaption>

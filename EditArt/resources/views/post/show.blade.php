@@ -1,6 +1,6 @@
 @extends('layouts.admin.base')
 
-@section('title','Detalhes do Tópico')
+@section('title',__('c_i_s_u.details_title'))
 
 @section('content')
     <div class="container">
@@ -17,31 +17,31 @@
 
                         <div class="row">
                             <div class="col-md-12">
-                                <h3>ID / {{ $post->id }}</h3>
+                                <h3>{{__('c_i_s_u.id') }} / {{ $post->id }}</h3>
                                 <table class="table">
                                     <tbody>
                                     <tr>
-                                        <th scope="row">Titulo</th>
+                                        <th scope="row">{{ __('c_i_s_u.title') }}</th>
                                         <td>{{ $post->title }}</td>
                                     </tr>
                                     <tr>
-                                        <th scope="row">Conteúdo</th>
+                                        <th scope="row">{{ __('c_i_s_u.content') }}</th>
                                         <td>{{ $post->content }}</td>
                                     </tr>
                                     <tr>
-                                        <th scope="row">Tópico criado em:</th>
+                                        <th scope="row">{{ __('c_i_s_u.created_at') }}</th>
                                         <td>{{ $post->created_at }}</td>
                                     </tr>
                                     <tr>
-                                        <th scope="row">Tópico atualizado em:</th>
+                                        <th scope="row">{{ __('c_i_s_u.updated_at') }}</th>
                                         <td>{{ $post->updated_at }}</td>
                                     </tr>
                                     </tbody>
                                 </table>
                             </div>
                             <div class="col-md-12 mt-4">
-                                <x-button.link link="{{ route('admin.posts.edit', $post->id) }}" color="solid">Editar</x-button.link>
-                                <x-button.link link="{{ route('admin.posts.index') }}" color="light-new">Mostrar todos os tópicos</x-button.link>
+                                <x-button.link link="{{ route('admin.posts.edit', $post->id) }}" color="solid">{{ __('c_i_s_u.edit_button') }}</x-button.link>
+                                <x-button.link link="{{ route('admin.posts.index') }}" color="light-new">{{ __('c_i_s_u.show_all_button') }}</x-button.link>
                             </div>
                         </div>
                     </div>

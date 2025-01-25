@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Notification</title>
+    <title>{{ __('admin.notification_title') }}</title>
 </head>
 <body>
 <h1>{{ $subject }}</h1>

@@ -1,9 +1,9 @@
 @extends('layouts.admin.base')
 
-@section('title','Lista de Géneros Literários')
+@section('title', __('c_i_s_u.genre_list'))
 
 @section('button')
-    <x-button.add link="{{ route('admin.genres.create') }}" icon="fa-plus">&nbsp Novo Género Literário</x-button.add>
+    <x-button.add link="{{ route('admin.genres.create') }}" icon="fa-plus">&nbsp {{ __('c_i_s_u.new_genre') }}</x-button.add>
 @endsection
 
 @section('content')
@@ -38,9 +38,9 @@
                         <x-table>
                             <x-table.thead>
                                 <x-table.tr>
-                                    <x-table.th>ID</x-table.th>
-                                    <x-table.th>Nome</x-table.th>
-                                    <x-table.th class="text-end">Ações</x-table.th>
+                                    <x-table.th>{{ __('c_i_s_u.id_column') }}</x-table.th>
+                                    <x-table.th>{{__('c_i_s_u.genre_name_column') }}</x-table.th>
+                                    <x-table.th class="text-end">{{ __('c_i_s_u.actions_column') }}</x-table.th>
                                 </x-table.tr>
                             </x-table.thead>
                             <x-table.tbody>

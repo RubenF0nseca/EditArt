@@ -1,15 +1,15 @@
 @extends('layouts.admin.base')
 
-@section('title','Lista de Utilizadores')
+@section('title', __('c_i_s_u.user_list'))
 
 @section('button')
-    <x-button.add link="{{ route('admin.users.create') }}" icon="fa-user-plus">&nbsp Novo Utilizador</x-button.add>
+    <x-button.add link="{{ route('admin.users.create') }}" icon="fa-user-plus">&nbsp {{ __('c_i_s_u.new_user') }}</x-button.add>
 @endsection
 
 @section('content')
     <div class="container">
         <!-- Barra de pesquisa -->
-        <x-widget.search action="#" name="#" placeholder="#" value="#"></x-widget.search>
+        <x-widget.search action="#" name="#" placeholder="{{ __('c_i_s_u.search_placeholder') }}" value="#"></x-widget.search>
 
         <!-- Tabela -->
         <div class="row">
@@ -20,11 +20,11 @@
                         <x-table>
                             <x-table.thead>
                                 <x-table.tr>
-                                    <x-table.th>ID</x-table.th>
-                                    <x-table.th>Nome</x-table.th>
-                                    <x-table.th>Email</x-table.th>
-                                    <x-table.th>Role</x-table.th>
-                                    <x-table.th class="text-end">Ações</x-table.th>
+                                    <x-table.th>{{ __('c_i_s_u.id') }}</x-table.th>
+                                    <x-table.th>{{ __('c_i_s_u.name') }}</x-table.th>
+                                    <x-table.th>{{ __('c_i_s_u.email') }}</x-table.th>
+                                    <x-table.th>{{ __('c_i_s_u.role') }}</x-table.th>
+                                    <x-table.th class="text-end">{{ __('c_i_s_u.actions') }}</x-table.th>
                                 </x-table.tr>
                             </x-table.thead>
                             <x-table.tbody>

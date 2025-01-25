@@ -15,8 +15,8 @@
                     <div class="col-md-6 d-flex justify-content-center align-items-center">
                         <div class="card shadow-lg border-0 rounded-lg">
                             <div class="card-header">
-                                <h3 class="text-center font-alt font-weight-light my-4">Esqueceu-se da sua senha</h3>
-                                <p>Será enviado um email com um link para recuperar a password</p>
+                                <h3 class="text-center font-alt font-weight-light my-4">{{ __('c_i_s_u.forgot_password') }}</h3>
+                                <p>{{ __('c_i_s_u.password_recovery_instructions') }}</p>
                                 <!-- Alerta para mensagem de sucesso -->
                                 @if(session('success'))
                                     <x-alert id="success-alert" type="success">
@@ -45,9 +45,9 @@
                                             type="email"
                                             name="email"
                                             value="{{ old('email') }}"
-                                            placeholder="Insira o seu email"
+                                            placeholder="{{ __('c_i_s_u.email_placeholder') }}"
                                         />
-                                        <label for="inputEmail">Email *</label>
+                                        <label for="inputEmail">{{ __('c_i_s_u.email') }} *</label>
                                         @error('email')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
@@ -56,7 +56,7 @@
                                     <div class="mt-4 mb-0">
                                         <div class="d-grid">
                                             <button class="btn btn-primary btn-block" type="submit" name="bt_registration">
-                                                Enviar
+                                                {{ __('c_i_s_u.send') }}
                                             </button>
                                         </div>
                                     </div>

@@ -1,6 +1,6 @@
 @extends('layouts.admin.base')
 
-@section('title','Editar Produto')
+@section('title', __('c_i_s_u.edit_product'))
 
 @section('content')
     <div class="container">
@@ -8,13 +8,13 @@
             <div class="col-md-8 offset-md-2">
                 <div class="card">
                     <div class="card-header">
-                        <h4>Insira os dados para editar o produto</h4>
+                        <h4>{{ __('c_i_s_u.insert_product_details') }}</h4>
                     </div>
                     <div class="card-body">
                         <!-- Alerta para mensagem de sucesso -->
                         @if(session('success'))
                             <x-alert id="success-alert" type="success">
-                                {{session('success')}}
+                                {{ session('success') }}
                             </x-alert>
                         @endif
 
@@ -31,7 +31,7 @@
 
                             <!-- Título -->
                             <div class="mb-3">
-                                <label for="title" class="form-label required">Título</label>
+                                <label for="title" class="form-label required">{{ __('c_i_s_u.title') }}</label>
                                 <input type="text"
                                        id="title"
                                        name="title"
@@ -44,9 +44,9 @@
 
                             <!-- Autores -->
                             <div class="mb-3">
-                                <label for="authors" class="form-label required">Autores</label>
+                                <label for="authors" class="form-label required">{{ __('c_i_s_u.authors') }}</label>
                                 <div class="custom-dropdown">
-                                    <!-- Campo de busca -->
+                                    <!-- Campo de pesquisa -->
                                     <input type="text"
                                            id="search-authors"
                                            class="form-control"
@@ -85,18 +85,18 @@
 
                             <!-- Tipo (Book/eBook) -->
                             <div class="mb-3">
-                                <label for="type" class="form-label required">Tipo</label>
+                                <label for="type" class="form-label required">{{ __('c_i_s_u.type') }}</label>
                                 <select id="type"
                                         name="type"
                                         class="form-control @error('type') is-invalid @enderror">
                                     <option value="" disabled {{ old('type', $book->type) == '' ? 'selected' : '' }}>
-                                        Selecione uma opção
+                                        {{ __('c_i_s_u.select_option') }}
                                     </option>
                                     <option value="book"  {{ old('type', $book->type) == 'book'  ? 'selected' : '' }}>
-                                        Book
+                                        {{ __('c_i_s_u.book') }}
                                     </option>
                                     <option value="ebook" {{ old('type', $book->type) == 'ebook' ? 'selected' : '' }}>
-                                        eBook
+                                        {{ __('c_i_s_u.ebook') }}
                                     </option>
                                 </select>
                                 @error('type')
@@ -106,13 +106,13 @@
 
                             <!-- Gêneros -->
                             <div class="mb-3">
-                                <label for="genres" class="form-label required">Géneros</label>
+                                <label for="genres" class="form-label required">{{ __('c_i_s_u.genres') }}</label>
                                 <div class="custom-dropdown">
-                                    <!-- Campo de busca -->
+                                    <!-- Campo de pesquisa -->
                                     <input type="text"
                                            id="search-genres"
                                            class="form-control"
-                                           placeholder="Pesquise e selecione géneros...">
+                                           placeholder="{{ __('messages.search_and_select_genres') }}">
 
                                     <!-- Tags visuais já existentes -->
                                     <div id="selected-genres" class="selected-authors">
@@ -133,7 +133,7 @@
                                         @endforeach
                                     </div>
 
-                                    <!-- Inputs hidden para enviar gêneros selecionados -->
+                                    <!-- Inputs hidden para enviar géneros selecionados -->
                                     <div id="genres-container">
                                         @foreach($book->genres as $genre)
                                             <input type="hidden" name="genres[]" value="{{ $genre->id }}">
@@ -147,7 +147,7 @@
 
                             <!-- Data de publicação -->
                             <div class="mb-3">
-                                <label for="publicationDate" class="form-label required">Data publicação</label>
+                                <label for="publicationDate" class="form-label required">{{ __('c_i_s_u.publication_date') }}</label>
                                 <input type="date"
                                        id="publicationDate"
                                        name="publicationDate"
@@ -160,7 +160,7 @@
 
                             <!-- Número de edição -->
                             <div class="mb-3">
-                                <label for="editionNumber" class="form-label required">Numero de edição</label>
+                                <label for="editionNumber" class="form-label required">{{ __('c_i_s_u.edition_number') }}</label>
                                 <input type="text"
                                        id="editionNumber"
                                        name="editionNumber"
@@ -173,7 +173,7 @@
 
                             <!-- ISBN -->
                             <div class="mb-3">
-                                <label for="isbn" class="form-label required">ISBN</label>
+                                <label for="isbn" class="form-label required">{{ __('c_i_s_u.isbn') }}</label>
                                 <input type="text"
                                        id="isbn"
                                        name="isbn"
@@ -186,7 +186,7 @@
 
                             <!-- Número de páginas -->
                             <div class="mb-3">
-                                <label for="numberOfPages" class="form-label required">Número de páginas</label>
+                                <label for="numberOfPages" class="form-label required">{{ __('c_i_s_u.number_of_pages') }}</label>
                                 <input type="text"
                                        id="numberOfPages"
                                        name="numberOfPages"
@@ -199,7 +199,7 @@
 
                             <!-- Stock -->
                             <div class="mb-3">
-                                <label for="stock" class="form-label required">Stock</label>
+                                <label for="stock" class="form-label required">{{ __('c_i_s_u.stock') }}</label>
                                 <input type="text"
                                        id="stock"
                                        name="stock"
@@ -212,7 +212,7 @@
 
                             <!-- Idioma -->
                             <div class="mb-3">
-                                <label for="language" class="form-label required">Idioma</label>
+                                <label for="language" class="form-label required">{{ __('c_i_s_u.language') }}</label>
                                 <input type="text"
                                        id="language"
                                        name="language"
@@ -225,7 +225,7 @@
 
                             <!-- Preço -->
                             <div class="mb-3">
-                                <label for="price" class="form-label required">Preço</label>
+                                <label for="price" class="form-label required">{{ __('c_i_s_u.price') }}</label>
                                 <input type="text"
                                        id="price"
                                        name="price"
@@ -238,7 +238,7 @@
 
                             <!-- Imagem da capa -->
                             <div class="mb-3">
-                                <label for="CoverPicture" class="form-label required">Imagem da Capa</label>
+                                <label for="CoverPicture" class="form-label required">{{ __('c_i_s_u.cover_picture') }}</label>
                                 <input type="file"
                                        id="CoverPicture"
                                        name="CoverPicture"
@@ -250,8 +250,8 @@
 
                             <!-- Botões -->
                             <div class="text-end">
-                                <x-button.submit color="solid">Guardar</x-button.submit>
-                                <x-button.link link="{{ route('admin.books.show', $book->id) }}" color="dark-solid">Cancelar</x-button.link>
+                                <x-button.submit color="solid">{{ __('c_i_s_u.save') }}</x-button.submit>
+                                <x-button.link link="{{ route('admin.books.show', $book->id) }}" color="dark-solid">{{ __('c_i_s_u.cancel') }}</x-button.link>
                             </div>
                         </form>
                     </div>
