@@ -94,7 +94,6 @@
                             </div>
                             <!-- Avaliações -->
                             <div class="reviews-section">
-                                <h2 class="section-title font-alt">{{ __('c_i_s_u.reviews_count') }}</h2>
 
                                 @forelse($book->reviews as $review)
                                     <div class="review-post">
