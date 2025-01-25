@@ -26,6 +26,7 @@ class BookFactory extends Factory
             'stock' => fake()->randomNumber(2),
             'language' => fake()->languageCode(),
             'price' => fake()->randomFloat(2, 10, 50),
+            'description' => implode(' ', fake()->sentences(50)),
             'created_at' => fake()->dateTimeBetween('-2 years'),
             'updated_at' => function (array $attributes) {
                 return fake()->dateTimeBetween($attributes['created_at']);

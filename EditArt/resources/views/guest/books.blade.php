@@ -95,11 +95,11 @@
                                         <figure class="product-style">
 
                                             @if($book->CoverPicture)
-                                                <a href="{{route('book')}}">
+                                                <a href="{{route('book', $book->id)}}">
                                                     <img src="{{ asset('storage/'.$book->CoverPicture) }}" class="product-thumb rounded" alt="{{ $book->title }}" style="max-width: 90%; height: auto;">
                                                 </a>
                                             @else
-                                                <a href="{{route('book')}}">
+                                                <a href="{{route('book', $book->id)}}">
                                                     <img src="{{ asset('imgs/img_nao_disponivel.png') }}" class="product-thumb rounded" alt="Imagem não disponível" style="max-width: 90%; height: auto;">
                                                 </a>
                                             @endif

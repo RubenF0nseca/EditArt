@@ -22,4 +22,9 @@ class SalesController extends Controller
 
         return view('guest.books', ['books' => $books, 'genres' => $genres]);
     }
+
+    public function showBook(Book $book)
+    {
+        return view('client.book', compact('book'));
+    }
 }

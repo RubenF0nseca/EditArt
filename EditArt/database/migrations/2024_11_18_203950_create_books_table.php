@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('language', 255);
             $table->string('CoverPicture')->nullable();
             $table->double('price');
+            $table->text('description')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

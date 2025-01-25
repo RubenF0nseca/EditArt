@@ -14,19 +14,26 @@
                 <div class="col-sm-7">
                     <div class="row">
                         <div class="col-sm-12">
-                            <h1 class="product-title font-alt">Title</h1>
+                            <h1 class="product-title font-alt">{{ $book->title }}</h1>
                         </div>
                     </div>
                     <div class="row mb-20">
                         <div class="col-sm-12">
                             <div class="tipo">
-                                <p>Livro</p>
+                                <p>{{ $book->type }}</p>
                             </div>
                         </div>
                     </div>
                     <div class="row mb-20">
                         <div class="col-sm-12">
-                            <h2 class="author-name font-serif">Author</h2>
+                            @if($book->authors->isNotEmpty())
+                                    @foreach($book->authors as $author)
+                                        <h2 class="author-name font-serif">{{ $author->name }}</h2>
+                                    @endforeach
+                            @else
+                                Nenhum autor associado.
+                            @endif
+
                         </div>
                     </div>
                     <div class="row mb-20"> <!-- Estrelas -->
@@ -35,13 +42,13 @@
                     </div>
                     <div class="row mb-20">
                         <div class="col-sm-12">
-                            <div class="price font-alt"><span class="amount">€20.00</span></div>
+                            <div class="price font-alt"><span class="amount">{{ $book->price }}€</span></div>
                         </div>
                     </div>
                     <div class="row mb-20">
                         <div class="col-sm-12">
                             <div class="description">
-                                <p>The European languages are members of the same family. Their separate existence is a myth. For science, music, sport, etc, Europe uses the same vocabulary. The languages only differ in their grammar, their pronunciation and their most common words.</p>
+                                <p>{{ $book->description }}</p>
                             </div>
                         </div>
                     </div>
@@ -72,7 +79,7 @@
                     <div class="tab-content" id="nav-tabContent">
                     <!-- Tab - Descrição ------------------------------------  -->
                         <x-tab.content class="show active" id="description" label="description">
-                            <!-- TODO TEXT  --> TO DO TEXT
+                            {{ $book->description }}
                         </x-tab.content>
 
                         <!-- Tab - Informações de envio ---------------------  -->

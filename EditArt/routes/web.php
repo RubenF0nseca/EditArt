@@ -154,3 +154,4 @@ Route::get('/guest/authors', function () {
 //})->name('guest.books');
 
 Route::get('/guest/books', [SalesController::class, 'index'])->name('guest.books');
+Route::get('/book/{book}', [SalesController::class, 'showBook'])->name('book');
