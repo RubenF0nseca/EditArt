@@ -28,7 +28,11 @@ class SalesController extends Controller
         $book->load('reviews.user');
 
         $reviewsCount = $book->reviews()->count();
+        $averageRating = $book->reviews()->avg('rating');
 
-        return view('client.book', compact('book', 'reviewsCount'));
+        $wholeStars = floor($averageRating);
+        $hasHalfStar = ($averageRating - $wholeStars) >= 0.5;
+
+        return view('client.book', compact('book', 'reviewsCount', 'averageRating', 'wholeStars', 'hasHalfStar'));
     }
 }

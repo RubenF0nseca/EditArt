@@ -36,9 +36,16 @@
 
                         </div>
                     </div>
-                    <div class="row mb-20"> <!-- Estrelas -->
-                        <div class="col-sm-12"><span><i class="fa fa-star star"></i></span><span><i class="fa fa-star star"></i></span><span><i class="fa fa-star star"></i></span><span><i class="fa fa-star star"></i></span><span><i class="fa fa-star star-off"></i></span>
-                        </div>
+                    <div class="col-sm-12">
+                        @for ($i = 1; $i <= 5; $i++)
+                            @if ($i <= $wholeStars)
+                                <i class="fa fa-star" style="color: gold;"></i>
+                            @elseif ($i == $wholeStars + 1 && $hasHalfStar)
+                                <i class="fa fa-star-half-alt" style="color: gold;"></i>
+                            @else
+                                <i class="fa fa-star" style="color: lightgray;"></i>
+                            @endif
+                        @endfor
                     </div>
                     <div class="row mb-20">
                         <div class="col-sm-12">
