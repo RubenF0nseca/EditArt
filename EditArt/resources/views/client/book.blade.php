@@ -93,34 +93,38 @@
                                 <h2 class="section-title font-alt">CRÍTICAS DE LEITORES</h2>
                             </div>
                             <!-- Avaliações -->
-                            <div class="review-post">
-                                <div class="row">
-                                    <div class="col-md-2 text-center">
-                                        <img src="{{asset('imgs/no_user.png')}}" class="author-avatar" alt="">
-                                    </div>
-                                    <div class="col-md-5">
-                                        <h2 class="review-author font-alt"><a href="#">Maria Mendes</a></h2>
-                                        <p>32 críticas</p>
-                                    </div>
-                                    <div class="col-md-5 text-end">
-                                        <div class="review-date font-alt">June 21, 2018</div>
-                                        <div class="col-sm-12"><span><i class="fa fa-star star"></i></span><span><i class="fa fa-star star"></i></span><span><i class="fa fa-star star"></i></span><span><i class="fa fa-star star"></i></span><span><i class="fa fa-star star-off"></i></span></div>
-                                        <div class="review-comment">3 Comentarios</div>
-                                    </div>
-                                    <div class="review-entry">
-                                        <h2 class="review-title font-serif mb-3">Title lorem ipsum</h2>
-                                        <p class="review-text">A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine.</p>
+                            <div class="reviews-section">
+                                <h2 class="section-title font-alt">Críticas de Leitores</h2>
+
+                                @forelse($book->reviews as $review)
+                                    <div class="review-post">
                                         <div class="row">
-                                            <div class="col-md-6">
-                                                <span><i class="fa-solid fa-angles-up">&nbsp 18</i></span>
-                                                <span><i class="fa-solid fa-angles-down">&nbsp 0</i></span>
+                                            <div class="col-md-2 text-center">
+                                                <img src="{{ asset('imgs/no_user.png') }}" class="author-avatar" alt="User Avatar">
                                             </div>
-                                            <div class="col-md-6 text-end">
-                                                <a class="more-link font-serif" href="#">Mostrar resenha completa</a>
+                                            <div class="col-md-5">
+                                                <h2 class="review-author font-alt">
+                                                    <a href="#">{{ $review->user->name }}</a>
+                                                </h2>
+                                                <p>{{ $review->user->reviews->count() }} críticas</p>
+                                            </div>
+                                            <div class="col-md-5 text-end">
+                                                <div class="review-date font-alt">{{ $review->created_at }}</div>
+                                                <div class="col-sm-12">
+                                                    @for($i = 1; $i <= 5; $i++)
+                                                        <i class="fa fa-star{{ $i <= $review->rating ? '' : '-off' }}"></i>
+                                                    @endfor
+                                                </div>
+                                            </div>
+                                            <div class="review-entry">
+                                                <h2 class="review-title font-serif mb-3">Título da Crítica</h2>
+                                                <p class="review-text">{{ $review->comment }}</p>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                @empty
+                                    <p>Este livro ainda não tem críticas.</p>
+                                @endforelse
                             </div>
 
                             <!-- TODO Pagination -->

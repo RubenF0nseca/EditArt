@@ -25,6 +25,10 @@ class SalesController extends Controller
 
     public function showBook(Book $book)
     {
+        $book->load(['reviews.user' => function ($query) {
+            $query->withReviewCount();
+        }]);
+
         return view('client.book', compact('book'));
     }
 }
