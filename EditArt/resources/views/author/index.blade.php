@@ -1,15 +1,15 @@
 @extends('layouts.admin.base')
 
-@section('title','Lista de Autores')
+@section('title',__('c_i_s_u.authors_list_title'))
 
 @section('button')
-    <x-button.add link="{{ route('admin.authors.create') }}" icon="fa-user-plus">&nbsp Novo autor</x-button.add>
+    <x-button.add link="{{ route('admin.authors.create') }}" icon="fa-user-plus">&nbsp {{ __('c_i_s_u.add_new_author_button') }}</x-button.add>
 @endsection
 
 @section('content')
     <div class="container">
         <!-- Barra de pesquisa -->
-        <x-widget.search action="#" name="#" placeholder="#" value="#"></x-widget.search>
+        <x-widget.search action="#" name="#" placeholder="{{ __('c_i_s_u.search_placeholder_author') }}" value="#"></x-widget.search>
 
         <!-- Tabela -->
         <div class="row">
@@ -20,12 +20,12 @@
                         <x-table>
                             <x-table.thead>
                                 <x-table.tr>
-                                    <x-table.th>ID</x-table.th>
-                                    <x-table.th>Foto</x-table.th>
-                                    <x-table.th>Nome</x-table.th>
-                                    <x-table.th class="d-none">Biografia</x-table.th>
-                                    <x-table.th class="d-none">Data nascimento</x-table.th>
-                                    <x-table.th class="text-end">Ações</x-table.th>
+                                    <x-table.th>{{ __('c_i_s_u.table_id') }}</x-table.th>
+                                    <x-table.th>{{ __('c_i_s_u.table_photo') }}</x-table.th>
+                                    <x-table.th>{{ __('c_i_s_u.table_name') }}</x-table.th>
+                                    <x-table.th class="d-none">{{ __('c_i_s_u.table_biography') }}</x-table.th>
+                                    <x-table.th class="d-none">{{ __('c_i_s_u.table_birthdate') }}</x-table.th>
+                                    <x-table.th class="text-end">{{ __('c_i_s_u.table_actions') }}</x-table.th>
                                 </x-table.tr>
                             </x-table.thead>
                             <x-table.tbody>
@@ -37,7 +37,7 @@
                                             @if($author->profilePicture)
                                                 <img src="{{asset('storage/'.$author->profilePicture)}}" class="product-thumb rounded" alt="{{ $author->name }}" style="width: 30px;">
                                             @else
-                                                <img src="{{ asset('imgs/img_nao_disponivel.png') }}" class="product-thumb rounded" alt="Imagem não disponível" style="width: 30px;">
+                                                <img src="{{ asset('imgs/img_nao_disponivel.png') }}" class="product-thumb rounded" alt="{{ __('c_i_s_u.image_not_available') }}" style="width: 30px;">
                                             @endif
                                         </td>
                                         <td>{{ $author->name }}</td>

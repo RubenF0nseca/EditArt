@@ -8,13 +8,13 @@
                 <!-- Avatar do utilizador e nav-tab ------------------------------------  -->
                 <div class="col-md-4 d-flex justify-content-center text-center">
                     <div id="user-card">
-                        <h5>Bem-vindo(a),<br><b>{{ auth()->user()->name}}</b></h5>
+                        <h5>{{ __('c_i_s_u.welcome') }}<br><b>{{ auth()->user()->name}}</b></h5>
                         <img src="{{asset('imgs/no_user.png')}}" class="mt-4" alt="EditArt" id="avatar">
                         <hr>
                         <x-pills>
-                            <x-pills.button class="active" id="profile" target="profile" controls="profile" select="true">Perfil</x-pills.button>
-                            <x-pills.button class="" id="review" target="review" controls="review" select="false">Minhas avaliações</x-pills.button>
-                            <x-pills.button class="" id="comment" target="comment" controls="comment" select="false">Meus comentários</x-pills.button>
+                            <x-pills.button class="active" id="profile" target="profile" controls="profile" select="true">{{ __('c_i_s_u.profile') }}</x-pills.button>
+                            <x-pills.button class="" id="review" target="review" controls="review" select="false">{{ __('c_i_s_u.my_reviews') }}</x-pills.button>
+                            <x-pills.button class="" id="comment" target="comment" controls="comment" select="false">{{ __('c_i_s_u.my_comments') }}</x-pills.button>
                         </x-pills>
                     </div>
                 </div>
@@ -27,37 +27,37 @@
                         <x-pills.content class="show active" id="profile" label="profile">
                             <div class="review-post">
                                 <div class="row">
-                                    <span class="col-3 font-alt">Nome</span>
+                                    <span class="col-3 font-alt">{{ __('c_i_s_u.name') }}</span>
                                     <span class="col-9">{{ auth()->user()->name }}</span>
                                 </div>
                                 <div class="row review-entry">
-                                    <span class="col-3 font-alt">Email</span>
+                                    <span class="col-3 font-alt">{{ __('c_i_s_u.email') }}</span>
                                     <span class="col-9">{{ auth()->user()->email }}</span>
                                 </div>
                                 <div class="row review-entry">
-                                    <span class="col-3 font-alt">NIF</span>
+                                    <span class="col-3 font-alt">{{ __('c_i_s_u.nif') }}</span>
                                     <span class="col-9">{{ auth()->user()->nif }}</span>
                                 </div>
                                 <div class="row review-entry">
-                                    <span class="col-3 font-alt">Telefone</span>
+                                    <span class="col-3 font-alt">{{ __('c_i_s_u.phone') }}</span>
                                     <span class="col-9">{{ auth()->user()->phone_number }}</span>
                                 </div>
                                 <div class="row review-entry">
-                                    <span class="col-3 font-alt">Morada</span>
+                                    <span class="col-3 font-alt">{{ __('c_i_s_u.address') }}</span>
                                     <span class="col-9">{{ auth()->user()->address }}</span>
                                 </div>
                                 <div class="row review-entry">
-                                    <span class="col-3 font-alt">Сonta criada</span>
+                                    <span class="col-3 font-alt">{{ __('c_i_s_u.account_created') }}</span>
                                     <span class="col-9">{{ auth()->user()->created_at }}</span>
                                 </div>
                             </div>
                         </x-pills.content>
 
                         <!-- Tab: Minhas avaliações ------------------------------------  -->
-                        <x-pills.content class="" id="review" label="review">Nenhuma revisão ainda</x-pills.content>
+                        <x-pills.content class="" id="review" label="review">{{ __('c_i_s_u.no_reviews') }}</x-pills.content>
 
                         <!-- Tab: Meus comentários ------------------------------------  -->
-                        <x-pills.content class="" id="comment" label="comment">Nenhum comentário ainda</x-pills.content>
+                        <x-pills.content class="" id="comment" label="comment">{{ __('c_i_s_u.no_comments') }}</x-pills.content>
 
                     </div>
                 </div>

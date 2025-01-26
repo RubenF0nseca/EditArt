@@ -1,6 +1,6 @@
 @extends('layouts.admin.base')
 
-@section('title','Detalhes do Autor')
+@section('title', __('c_i_s_u.author_details_title'))
 
 @section('content')
     <div class="container">
@@ -17,27 +17,27 @@
 
                         <div class="row">
                             <div class="col-md-6">
-                                <h3>ID / {{ $author->id }}</h3>
+                                <h3>{{ __('c_i_s_u.author_id') }} / {{ $author->id }}</h3>
                                 <table class="table">
                                     <tbody>
                                     <tr>
-                                        <th scope="row">Nome</th>
+                                        <th scope="row">{{ __('c_i_s_u.author_name') }}</th>
                                         <td>{{ $author->name }}</td>
                                     </tr>
                                     <tr>
-                                        <th scope="row">Biografia</th>
+                                        <th scope="row">{{ __('c_i_s_u.author_biography') }}</th>
                                         <td>{{ $author->biography }}</td>
                                     </tr>
                                     <tr>
-                                        <th scope="row">Data Nascimento</th>
+                                        <th scope="row">{{ __('c_i_s_u.author_birthdate') }}</th>
                                         <td>{{ $author->birthdate }}</td>
                                     </tr>
                                     <tr>
-                                        <th scope="row">Сonta criada</th>
+                                        <th scope="row">{{ __('c_i_s_u.account_created_at') }}</th>
                                         <td>{{ $author->created_at }}</td>
                                     </tr>
                                     <tr>
-                                        <th scope="row">Сonta atualizada</th>
+                                        <th scope="row">{{ __('c_i_s_u.account_updated_at') }}</th>
                                         <td>{{ $author->updated_at }}</td>
                                     </tr>
                                     </tbody>
@@ -47,12 +47,12 @@
                                 @if($author->profilePicture)
                                     <img src="{{ asset('storage/'.$author->profilePicture) }}" class="product-thumb rounded shadow-lg border-0 rounded-lg mt-5" alt="{{ $author->name }}" style="width: 280px; height: 400px;">
                                 @else
-                                    <img src="{{ asset('imgs/img_nao_disponivel.png') }}" class="product-thumb rounded shadow-lg border-0 rounded-lg mt-5" alt="Imagem não disponível" style="width: 280px; height: 400px;">
+                                    <img src="{{ asset('imgs/img_nao_disponivel.png') }}" class="product-thumb rounded shadow-lg border-0 rounded-lg mt-5" alt="{{ __('c_i_s_u.image_not_available') }}" style="width: 280px; height: 400px;">
                                 @endif
                             </div>
                             <div class="col-md-12 mt-4">
-                                <x-button.link link="{{ route('admin.authors.edit', $author->id) }}" color="solid">Editar</x-button.link>
-                                <x-button.link link="{{ route('admin.authors.index') }}" color="light-new">Mostrar todos os autores</x-button.link>
+                                <x-button.link link="{{ route('admin.authors.edit', $author->id) }}" color="solid">{{ __('c_i_s_u.edit_author') }}</x-button.link>
+                                <x-button.link link="{{ route('admin.authors.index') }}" color="light-new">{{ __('c_i_s_u.view_all_authors') }}</x-button.link>
                             </div>
                         </div>
                     </div>

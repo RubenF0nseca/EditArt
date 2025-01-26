@@ -1,6 +1,6 @@
 @extends('layouts.admin.base')
 
-@section('title','Ediar utilizador')
+@section('title',__('c_i_s_u.title_3'))
 
 @section('content')
     <div class="container">
@@ -8,7 +8,7 @@
             <div class="col-md-8 offset-md-2">
                 <div class="card">
                     <div class="card-header">
-                        <h4>Editar utilizador</h4>
+                        <h4>{{ __('c_i_s_u.edit_user') }}</h4>
                     </div>
                     <div class="card-body">
                         <!-- Alerta para mensagem de sucesso -->
@@ -29,64 +29,64 @@
                             @csrf
                             @method('PUT')
                             <div class="mb-3">
-                                <label for="name" class="form-label required">Nome</label>
+                                <label for="name" class="form-label required">{{ __('c_i_s_u.name') }}</label>
                                 <input type="text" id="name" name="name" class="form-control @error('name') is-invalid @enderror" value="{{ $user->name }}" >
                                 @error('name')
                                 <div class="invalid-feedback" >{{$message}}</div>
                                 @enderror
                             </div>
                             <div class="mb-3">
-                                <label for="email" class="form-label required">Email</label>
+                                <label for="email" class="form-label required">{{ __('c_i_s_u.email') }}</label>
                                 <input type="text" id="email" name="email" class="form-control @error('email') is-invalid @enderror" value="{{ $user->email }}" >
                                 @error('email')
                                 <div class="invalid-feedback" >{{$message}}</div>
                                 @enderror
                             </div>
                             <div class="mb-3">
-                                <label for="address" class="form-label required">Morada</label>
+                                <label for="address" class="form-label required">{{ __('c_i_s_u.address') }}</label>
                                 <input type="text" id="address" name="address" class="form-control @error('address') is-invalid @enderror" value="{{ $user->address }}" >
                                 @error('address')
                                 <div class="invalid-feedback" >{{$message}}</div>
                                 @enderror
                             </div>
                             <div class="mb-3">
-                                <label for="nif" class="form-label required">NIF</label>
+                                <label for="nif" class="form-label required">{{ __('c_i_s_u.nif') }}</label>
                                 <input type="text" id="nif" name="nif" class="form-control @error('nif') is-invalid @enderror" value="{{ $user->nif }}" >
                                 @error('nif')
                                 <div class="invalid-feedback" >{{$message}}</div>
                                 @enderror
                             </div>
                             <div class="mb-3">
-                                <label for="phone_number" class="form-label required">Número de Telefone</label>
+                                <label for="phone_number" class="form-label required">{{ __('c_i_s_u.phone') }}</label>
                                 <input type="text" id="phone_number" name="phone_number" class="form-control @error('phone_number') is-invalid @enderror" value="{{ $user->phone_number }}" >
                                 @error('phone_number')
                                 <div class="invalid-feedback" >{{$message}}</div>
                                 @enderror
                             </div>
                             <div class="mb-3">
-                                <label for="birthdate" class="form-label required">Data de Nascimento</label>
+                                <label for="birthdate" class="form-label required">{{ __('c_i_s_u.birthdate') }}</label>
                                 <input type="text" id="birthdate" name="birthdate" class="form-control @error('birthdate') is-invalid @enderror" value="{{ $user->birthdate }}" >
                                 @error('birthdate')
                                 <div class="invalid-feedback" >{{$message}}</div>
                                 @enderror
                             </div>
                             <div class="mb-3">
-                                <label for="password" class="form-label required">Password</label>
+                                <label for="password" class="form-label required">{{ __('c_i_s_u.password') }}</label>
                                 <input type="text" id="password" name="password" class="form-control @error('password') is-invalid @enderror">
                                 @error('password')
                                 <div class="invalid-feedback" >{{$message}}</div>
                                 @enderror
                             </div>
                             <div class="mb-3">
-                                <label for="role" class="form-label required">Tipo de Utilizador</label>
+                                <label for="role" class="form-label required">{{ __('c_i_s_u.role_user') }}</label>
                                 <input type="text" id="role" name="role" class="form-control @error('role') is-invalid @enderror" value="{{ $user->role }}" >
                                 @error('role')
                                 <div class="invalid-feedback" >{{$message}}</div>
                                 @enderror
                             </div>
                             <div class="text-end">
-                                <x-button.submit color="solid">Guardar</x-button.submit>
-                                <x-button.link link="{{ route('admin.users.show', $user->id) }}" color="dark-solid">Cancelar</x-button.link>
+                                <x-button.submit color="solid">{{ __('c_i_s_u.save') }}</x-button.submit>
+                                <x-button.link link="{{ route('admin.users.show', $user->id) }}" color="dark-solid">{{ __('c_i_s_u.cancel') }}</x-button.link>
                             </div>
                         </form>
                     </div>

@@ -25,4 +25,12 @@ return [
     'success_message' => 'Este e-mail foi enviado com sucesso.',
     'notification_title' => 'Notificação',
 
+    //Dashboard
+    'dashboard_title' => 'Admin Dashboard',
+    'dashboard_users' => 'Utilizadores',
+    'dashboard_products' => 'Produtos',
+    'dashboard_authors' => 'Autores',
+    'dashboard_reviews' => 'Avaliações',
+
+
 ];

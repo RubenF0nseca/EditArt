@@ -24,4 +24,11 @@ return [
     'greeting' => 'Hello, :name',
     'success_message' => 'This email was successfully sent.',
     'notification_title' => 'Notification',
+
+    //For Dashboard
+    'dashboard_title' => 'Admin Dashboard',
+    'dashboard_users' => 'Users',
+    'dashboard_products' => 'Products',
+    'dashboard_authors' => 'Authors',
+    'dashboard_reviews' => 'Reviews',
 ];

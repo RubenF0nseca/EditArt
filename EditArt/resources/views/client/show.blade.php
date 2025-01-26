@@ -1,6 +1,6 @@
 @extends('layouts.admin.base')
 
-@section('title','Detalhes do Utilizador')
+@section('title',__('c_i_s_u.title_user'))
 
 @section('content')
     <div class="container">
@@ -21,31 +21,31 @@
                                 <table class="table">
                                     <tbody>
                                     <tr>
-                                        <th scope="row">Nome</th>
+                                        <th scope="row">{{ __('c_i_s_u.name') }}</th>
                                         <td>{{ $user->name }}</td>
                                     </tr>
                                     <tr>
-                                        <th scope="row">Email</th>
+                                        <th scope="row">{{ __('c_i_s_u.email') }}</th>
                                         <td>{{ $user->email }}</td>
                                     </tr>
                                     <tr>
-                                        <th scope="row">NIF</th>
+                                        <th scope="row">{{ __('c_i_s_u.nif') }}</th>
                                         <td>{{ $user->nif }}</td>
                                     </tr>
                                     <tr>
-                                        <th scope="row">Telefone</th>
+                                        <th scope="row">{{ __('c_i_s_u.phone') }}</th>
                                         <td>{{ $user->phone_number }}</td>
                                     </tr>
                                     <tr>
-                                        <th scope="row">Morada</th>
+                                        <th scope="row">{{ __('c_i_s_u.address') }}</th>
                                         <td>{{ $user->address }}</td>
                                     </tr>
                                     <tr>
-                                        <th scope="row">Сonta criada</th>
+                                        <th scope="row">{{ __('c_i_s_u.created_at_2') }}</th>
                                         <td>{{ $user->created_at }}</td>
                                     </tr>
                                     <tr>
-                                        <th scope="row">Сonta atualizada</th>
+                                        <th scope="row">{{ __('c_i_s_u.updated_at_2') }}</th>
                                         <td>{{ $user->updated_at }}</td>
                                     </tr>
                                     </tbody>
@@ -53,8 +53,8 @@
                             </div>
                             <div class="col-md-6"></div>
                             <div class="col-md-12 mt-4">
-                                <x-button.link link="{{ route('admin.users.edit', $user->id) }}" color="solid">Editar</x-button.link>
-                                <x-button.link link="{{ route('admin.users.index') }}" color="light-new">Mostrar todos os utilizadores</x-button.link>
+                                <x-button.link link="{{ route('admin.users.edit', $user->id) }}" color="solid">{{ __('c_i_s_u.edit') }}</x-button.link>
+                                <x-button.link link="{{ route('admin.users.index') }}" color="light-new">{{ __('c_i_s_u.show_all_users') }}</x-button.link>
                             </div>
                         </div>
                     </div>
