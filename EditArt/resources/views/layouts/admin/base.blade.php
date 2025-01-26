@@ -35,7 +35,20 @@
             </h1>
 
             <div class="collapse navbar-collapse" id="sidebar-menu">
-
+                <!-- Tradução PT/EN -->
+                <div class="nav-item d-flex justify-content-end mr-3">
+                    @if(app()->getLocale() === 'pt')
+                        <a class="nav-link" href="{{route('lang.switch',['locale'=>'en'])}}">
+                            <img src="{{ asset('flags/uk.png') }}" alt="English" style="width: 25px; height: auto;">
+                            {{ __('menu.language_en') }}
+                        </a>
+                    @else
+                        <a class="nav-link" href="{{route('lang.switch',['locale'=>'pt'])}}">
+                            <img src="{{ asset('flags/pt.png') }}" alt="Portuguese" style="width: 25px; height: auto;">
+                            {{ __('menu.language_pt') }}
+                        </a>
+                    @endif
+                </div>
                 <ul class="navbar-nav pt-lg-3">
                     <!-- Logout Link -->
                     <li class="nav-item">
