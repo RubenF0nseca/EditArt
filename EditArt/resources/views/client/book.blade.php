@@ -125,6 +125,10 @@
                                             <div class="review-entry">
                                                 <h2 class="review-title font-serif mb-3">{{ __('c_i_s_u.review_title') }}</h2>
                                                 <p class="review-text">{{ $review->comment }}</p>
+                                                <div class="text-end">
+                                                    <button class="btn" type="submit"><i class="fa-solid fa-pen-to-square"></i></button>
+                                                    <button class="btn" type="submit"><i class="fa-regular fa-trash-can"></i></button>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
