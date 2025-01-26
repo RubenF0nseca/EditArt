@@ -31,4 +31,19 @@ return [
     'dashboard_products' => 'Products',
     'dashboard_authors' => 'Authors',
     'dashboard_reviews' => 'Reviews',
+
+    //Cart
+    'cart' => 'Cart',
+    'cover' => 'Cover',
+    'price' => 'Price',
+    'quantity' => 'Quantity',
+    'total' => 'Total',
+    'remove' => 'Remove',
+    'remove_item' => 'Remove item',
+    'pagination' => 'Pagination',
+    'total_amount' => 'Total amount',
+    'subtotal' => 'Subtotal',
+    'shipping' => 'Shipping total',
+    'proceed_to_payment' => 'PROCEED TO PAYMENT',
+    'title_cart' => 'Title',
 ];

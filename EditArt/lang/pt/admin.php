@@ -32,5 +32,20 @@ return [
     'dashboard_authors' => 'Autores',
     'dashboard_reviews' => 'Avaliações',
 
+    //Cart
+    'cart' => 'Carrinho',
+    'cover' => 'Capa',
+    'price' => 'Preço',
+    'quantity' => 'Quantidade',
+    'total' => 'Total',
+    'remove' => 'Remover',
+    'remove_item' => 'Remover item',
+    'pagination' => 'Paginação', // Se você quiser adicionar alguma tradução para paginação.
+    'total_amount' => 'Montante total',
+    'subtotal' => 'Subtotal',
+    'shipping' => 'Total de envio',
+    'proceed_to_payment' => 'PROSSEGUIR PARA O PAGAMENTO',
+    'title_cart' => 'Título',
+
 
 ];
