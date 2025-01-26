@@ -133,6 +133,10 @@ Route::get('/cart', function () {
     return view('cart.cart');
 })->name('cart');
 
+Route::get('/order', function () {
+    return view('cart.order');
+})->name('order');
+
 Route::get('/forum', function () {
     return view('forum.forum');
 })->name('forum');
