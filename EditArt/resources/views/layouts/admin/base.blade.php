@@ -20,7 +20,7 @@
     @vite(['resources/sass/app.scss'])
 </head>
 <body class="layout-fluid">
-<div class="page">
+<div class="page" id="@yield('id')">
     <!-- Sidebar -->
     <aside class="navbar navbar-vertical navbar-expand-lg shadow-lg" data-bs-theme="dark">
         <div class="container-fluid">

@@ -2,6 +2,8 @@
 
 @section('title','Admin Dashboard')
 
+@section('id','admin-bg')
+
 @section('content')
     <div class="container">
         <div class="row">
