@@ -1,6 +1,6 @@
 @extends('layouts.admin.base')
 
-@section('title','Admin Dashboard')
+@section('title', __('admin.dashboard_title'))
 
 @section('id','admin-bg')
 
@@ -14,25 +14,25 @@
             @endif
             <div class="col-md-6 col-xl-3 mb-4">
                 <x-card id="widget-card">
-                    <x-widget.counter bgcolor="rgba(175, 136, 103, 0.58)" icon="icon-profile-male" title="Utilizadores" :count="$users_count"></x-widget.counter>
+                    <x-widget.counter bgcolor="rgba(175, 136, 103, 0.58)" icon="icon-profile-male" title="{{ __('admin.dashboard_users') }}" :count="$users_count"></x-widget.counter>
                 </x-card>
             </div>
 
             <div class="col-md-6 col-xl-3 mb-4">
                 <x-card id="widget-card">
-                    <x-widget.counter bgcolor="rgb(103, 163, 175, 0.58)" icon="icon-book-open" title="Produtos" :count="$products_count"></x-widget.counter>
+                    <x-widget.counter bgcolor="rgb(103, 163, 175, 0.58)" icon="icon-book-open" title="{{ __('admin.dashboard_products') }}" :count="$products_count"></x-widget.counter>
                 </x-card>
             </div>
 
             <div class="col-md-6 col-xl-3 mb-4">
                 <x-card id="widget-card">
-                    <x-widget.counter bgcolor="rgb(103, 103, 175, 0.58)" icon="icon-profile-female" title="Autores" :count="$authors_count"></x-widget.counter>
+                    <x-widget.counter bgcolor="rgb(103, 103, 175, 0.58)" icon="icon-profile-female" title="{{ __('admin.dashboard_authors') }}" :count="$authors_count"></x-widget.counter>
                 </x-card>
             </div>
 
             <div class="col-md-6 col-xl-3 mb-4">
                 <x-card id="widget-card">
-                    <x-widget.counter bgcolor="rgb(175, 175, 103, 0.58)" icon="icon-pencil" title="Avaliações" :count="$reviews_count"></x-widget.counter>
+                    <x-widget.counter bgcolor="rgb(175, 175, 103, 0.58)" icon="icon-pencil" title="{{ __('admin.dashboard_reviews') }}" :count="$reviews_count"></x-widget.counter>
                 </x-card>
             </div>
 
