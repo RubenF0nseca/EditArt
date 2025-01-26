@@ -2,7 +2,7 @@ import Quill from 'quill';
 import 'quill/dist/quill.snow.css';
 
 // Editor escolhemos o tema aqui e o que queremos que o editor faça
-document.addEventListener('DOMContentLoaded', function () {
+/*document.addEventListener('DOMContentLoaded', function () {
     const quill = new Quill('#editor-container', {
         theme: 'snow',
         placeholder: 'O seu texto...',
@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function () {
             hiddenInput.value = quill.root.innerHTML;
         });
     }
-});
+});*/
 
 // Editor para o fórum
 document.addEventListener('DOMContentLoaded', function () {

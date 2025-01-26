@@ -138,19 +138,29 @@
                                 Pagination
                             </div>
 
+                            <!-- Botão que chama o formulário -->
+                            <div class="text-center mt-5 mb-5">
+                                <button class="btn btn-solid" id="show-editor">Criar uma nova crítica</button>
+                            </div>
+
                             <!-- Formulário para envio de avaliação -->
-                            <div class="review-post">
+                            <div class="editor" id="editor-form" style="display: none;">
                                 <form action="#" method="POST">
                                     @csrf
-
-                                    <div class="form-group mb-3">
-                                        <label for="editor-container font-alt">{{ __('c_i_s_u.write_review') }}</label>
-                                        <div id="editor-container" style="height: 200px; border: 1px solid #ccc;"></div>
+                                    <div class="row">
+                                        <div class="col-md-6 mb-3">
+                                            <input type="text" id="topic" name="topic" placeholder="Título" />
+                                        </div>
+                                        <div class="col-md-6 mb-3 text-end">
+                                            Tua avaliação deste livro:
+                                            STARS :)
+                                        </div>
                                     </div>
-
-                                    <input type="hidden" name="content" />
-
-                                    <button type="submit" class="btn btn-solid">{{ __('c_i_s_u.send') }}</button>
+                                    <div id="editor-container-2"></div>
+                                    <input type="hidden" id="content" name="content" />
+                                    <div class="mt-3 text-end">
+                                        <button type="submit" class="btn btn-solid">{{ __('c_i_s_u.send') }}</button>
+                                    </div>
                                 </form>
                             </div>
 
