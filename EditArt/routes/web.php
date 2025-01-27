@@ -139,6 +139,10 @@ Route::get('/order', function () {
     return view('cart.order');
 })->name('order');
 
+Route::get('/confirmation', function () {
+    return view('cart.confirmation');
+})->name('confirmation');
+
 Route::get('/forum', function () {
     return view('forum.forum');
 })->name('forum');

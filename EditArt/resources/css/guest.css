@@ -345,7 +345,7 @@ nav button:focus{
     background-color: rgb(175, 136, 103);
 }
 /*=========================================================
-       Carrinho & Order
+       Carrinho & Pedido & Confirmação
 =========================================================== */
 .order-card{
     padding: 25px;
@@ -364,6 +364,20 @@ nav button:focus{
         border-color: #af8867;
     }
 }
+#logo-bg{
+    background-image: url("/public/imgs/logo-editart.png");
+    background-repeat: no-repeat;
+    background-position: left;
+    background-size: contain;
+    width: 100%;
+    height: 71vh;
+    position: absolute;
+    opacity: 15%;
+    z-index: -1;
+    top: 62px;
+    left: -14px;
+}
+
 /*=========================================================
        Footer
 =========================================================== */
