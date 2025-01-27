@@ -60,9 +60,21 @@ class UserController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('client.index', ['users' => User::paginate(12)]);
+        $name = $request->input('name');
+        $usersQuery = User::query();
+
+        if (!empty($name)) {
+            $usersQuery->name($name);
+        }
+
+        $users = $usersQuery->paginate(12);
+
+        return view('client.index', [
+            'users' => $users,
+            'searchQuery' => $name,
+        ]);
     }
 
     /**

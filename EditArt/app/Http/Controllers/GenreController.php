@@ -25,9 +25,21 @@ class GenreController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('genre.index', ['genres' => Genre::paginate(12)]);
+        $name = $request->input('name');
+        $genresQuery = Genre::query();
+
+        if (!empty($name)) {
+            $genresQuery->name($name);
+        }
+
+        $genres = $genresQuery->paginate(12);
+
+        return view('genre.index', [
+            'genres' => $genres,
+            'searchQuery' => $name,
+        ]);
     }
 
     /**

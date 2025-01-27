@@ -39,9 +39,21 @@ class AuthorController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('author.index', ['authors' => Author::paginate(12)]);
+        $name = $request->input('name');
+        $authorsQuery = Author::query();
+
+        if (!empty($name)) {
+            $authorsQuery->name($name);
+        }
+
+        $authors = $authorsQuery->paginate(12);
+
+        return view('author.index', [
+            'authors' => $authors,
+            'searchQuery' => $name,
+        ]);
     }
 
     /**

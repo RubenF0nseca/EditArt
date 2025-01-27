@@ -70,9 +70,21 @@ class BookController extends Controller
         'CoverPicture.max' => 'A foto do livro não pode exceder 2 MB.',
     ];
 
-    public function index()
+    public function index(Request $request)
     {
-        return view('product.index', ['books' => Book::paginate(12)]);
+        $title = $request->input('title'); // Obter o título pesquisado da query string
+        $booksQuery = Book::query();
+
+        if (!empty($title)) {
+            $booksQuery->title($title); // Aplicar o scopeTitle se o título for fornecido
+        }
+
+        $books = $booksQuery->paginate(12);
+
+        return view('product.index', [
+            'books' => $books,
+            'searchQuery' => $title, // Enviar o termo de pesquisa para a vista
+        ]);
     }
 
     /**

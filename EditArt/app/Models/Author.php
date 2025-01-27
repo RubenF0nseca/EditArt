@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -18,6 +19,11 @@ class Author extends Model
     public function books()
     {
         return $this->belongsToMany(Book::class, 'authors_books', 'author_id', 'book_id');
+    }
+
+    public function scopeName(Builder $query, string $name): Builder
+    {
+        return $query->where('name', 'LIKE', '%' . $name . '%');
     }
 
 }

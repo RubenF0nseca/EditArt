@@ -9,7 +9,12 @@
 @section('content')
     <div class="container">
         <!-- Barra de pesquisa -->
-        <x-widget.search action="#" name="#" placeholder="{{ __('c_i_s_u.search_placeholder') }}" value="#"></x-widget.search>
+        <x-widget.search
+            action="{{ route('admin.users.index') }}"
+            name="name"
+            placeholder="{{ __('c_i_s_u.search_placeholder') }}"
+            value="{{ request('name') }}"
+        />
 
         <!-- Tabela -->
         <div class="row">
