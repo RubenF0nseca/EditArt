@@ -55,7 +55,7 @@ return [
     'phone' => 'Phone',
     'address' => 'Address',
     'locality' => 'City',
-    'zip_code' => 'Postal Code',
+    'zip_code' => 'Zip Code',
     'paypal_payment' => 'PayPal Payment',
     'add_new_account' => '+ Add New Account',
     'pay' => 'Pay',
