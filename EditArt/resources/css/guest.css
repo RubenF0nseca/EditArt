@@ -345,6 +345,26 @@ nav button:focus{
     background-color: rgb(175, 136, 103);
 }
 /*=========================================================
+       Carrinho & Order
+=========================================================== */
+.order-card{
+    padding: 25px;
+    border: 1px solid rgba(175, 136, 103, 0.25);
+    background-color: #ffffff;
+    h3{
+        color: black;
+        font-size: 13px;
+    }
+    .fa-brands, .fa-brands:hover{
+        color: #002e82;
+        font-size: 17px;
+    }
+    .form-check-input:checked {
+        background-color: #ae8766;
+        border-color: #af8867;
+    }
+}
+/*=========================================================
        Footer
 =========================================================== */
 .fa-brands{
