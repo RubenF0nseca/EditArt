@@ -82,6 +82,8 @@ Route::middleware('role:cliente|admin')->group(function (){
                 return view('client.profile');
             })->name('profile');
 
+            Route::post('/books/{book}', [SalesController::class, 'createBookReview'])->name('reviews.store');
+
         });
     });
 });
@@ -145,10 +147,6 @@ Route::get('/post', function () {
     return view('forum.ForumPost');
 })->name('post');
 
-Route::get('/book', function () {
-    return view('client.book');
-})->name('book');
-
 Route::get('/guest/authors', function () {
     return view('guest.authors');
 })->name('guest.authors');
@@ -158,4 +156,4 @@ Route::get('/guest/authors', function () {
 //})->name('guest.books');
 
 Route::get('/guest/books', [SalesController::class, 'index'])->name('guest.books');
-Route::get('/book/{book}', [SalesController::class, 'showBook'])->name('book');
+Route::get('/books/{book}', [SalesController::class, 'showBook'])->name('book');

@@ -3,7 +3,29 @@
 @section('content')
     <div class="page-wrapper wrapper d-flex flex-column min-vh-100">
         <div class="container">
+            <!-- Alerta para mensagem de sucesso -->
+            @if(session('success'))
+                <x-alert id="success-alert" type="success">
+                    {{ session('success') }}
+                </x-alert>
+            @endif
+
+            @if(session('error'))
+                <x-alert id="error-alert" type="danger">
+                    {{ session('error') }}
+                </x-alert>
+            @endif
+
             <div class="row" id="margin-top">
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $message)
+                                <li>{{ $message }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
 
                 <!-- Imagem do livro ------------------------------------  -->
                 <div class="col-sm-5 mb-sm-40 d-flex justify-content-center">
@@ -123,7 +145,7 @@
                                                 </div>
                                             </div>
                                             <div class="review-entry">
-                                                <h2 class="review-title font-serif mb-3">{{ __('c_i_s_u.review_title') }}</h2>
+                                                <h2 class="review-title font-serif mb-3">{{ $review->topic  }}</h2>
                                                 <p class="review-text">{{ $review->comment }}</p>
                                                 <div class="text-end">
                                                     <button class="btn" type="submit"><i class="fa-solid fa-pen-to-square"></i></button>
@@ -148,20 +170,25 @@
                             </div>
 
                             <!-- Formulário para envio de avaliação -->
-                            <div class="editor" id="editor-form" style="display: none;">
-                                <form action="#" method="POST">
+                            <div class="editor" id="editor-form" style="display: block;">
+                                <form action="{{ route('client.reviews.store', $book->id) }}" method="POST">
                                     @csrf
                                     <div class="row">
                                         <div class="col-md-6 mb-3">
-                                            <input type="text" id="topic" name="topic" placeholder="Título" />
+                                            <input type="text" id="topic" name="topic" placeholder="Título" required />
                                         </div>
                                         <div class="col-md-6 mb-3 text-end">
                                             Tua avaliação deste livro:
-                                            STARS :)
+                                            <div id="star-rating" class="stars">
+                                                @for ($i = 1; $i <= 5; $i++)
+                                                    <i class="fa fa-star" data-rating="{{ $i }}"></i>
+                                                @endfor
+                                            </div>
+                                            <input type="hidden" id="rating" name="rating" required />
                                         </div>
                                     </div>
-                                    <div id="editor-container-2"></div>
-                                    <input type="hidden" id="content" name="content" />
+                                    <div id="editor-container-2" style="height: 200px; border: 1px solid #ccc;"></div>
+                                    <input type="hidden" id="content" name="content" required />
                                     <div class="mt-3 text-end">
                                         <button type="submit" class="btn btn-solid">{{ __('c_i_s_u.send') }}</button>
                                     </div>
@@ -175,3 +202,24 @@
         </div>
     </div>
 @endsection
+
+@push('scripts')
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const successAlert = document.getElementById('success-alert');//
+            if (successAlert) {
+                setTimeout(function() {
+                    // Adiciona a classe 'fade' e remove a classe 'show' para iniciar a transição de fechamento
+                    successAlert.classList.remove('show');
+                    successAlert.classList.add('fade');
+
+                    // Remove o elemento do DOM depois da transição
+                    setTimeout(function() {
+                        successAlert.remove();
+                    }, 500); // Ajuste o tempo conforme o efeito 'fade'
+                }, 3000); // Fecha o alerta após 3 segundos
+            }
+        });
+    </script>
+
+@endpush
