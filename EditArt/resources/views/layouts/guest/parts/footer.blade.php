@@ -5,23 +5,24 @@
             <div class="col-sm-4">
                 <div class="widget">
                     <h5 class="widget-title font-alt">EditArt</h5>
-                    <p>Exemplo Exemplo Exemplo.</p>
-                    <p>Phone: +1 234 567 89 10</p>
-                    <p>Email:<a href="#">Exemplo@example.com</a></p>
+                    <p>A EditArt é uma editora online dedicada à publicação e venda de livros e eBooks, oferecendo uma plataforma acessível para escritores que querem transformar as suas ideias em obras publicadas. Além disso, dispomos de um fórum para que os autores e os leitores possam interagir, trocar experiências e expandir o universo literário.</p>
+                    <p><i class="fa-solid fa-phone-flip"></i>&nbsp +351 234 567 888</p>
+                    <p><i class="fa-solid fa-envelope"></i><a href="edit.art@gmail.com">&nbsp edit.art@gmail.com</a></p>
                 </div>
             </div>
             <div class="col-sm-4">
                 <div class="widget">
-                    <h5 class="widget-title font-alt">Sobre nós</h5>
+                    <h5 class="widget-title font-alt">Os nossos serviços</h5>
                     <ul class="icon-list">
-                        <li>Exemplo <a href="#">Exemplo</a></li>
-                        <li>Exemplo <a href="#">Exemplo</a></li>
+                        <li><a href="{{route('guest.books')}}">Loja Online</a></li>
+                        <li><a href="#">Editora Online</a></li>
+                        <li><a href="{{route('forum')}}">Forum</a></li>
                     </ul>
                 </div>
             </div>
             <div class="col-sm-4">
                 <div class="widget">
-                    <h5 class="widget-title font-alt">Subscribe now</h5>
+                    <h5 class="widget-title font-alt">Subscrição</h5>
                     <form id="subscription-form" role="form" method="post" action="php/subscribe.php">
                         <div class="input-group">
                             <input class="form-control" type="email" id="semail" name="semail" placeholder="Your Email" data-validation-required-message="Please enter your email address." required="required"/><span class="input-group-btn">
