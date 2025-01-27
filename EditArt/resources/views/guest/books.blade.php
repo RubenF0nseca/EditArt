@@ -50,8 +50,8 @@
                     <div class="row">
                         <div class="col-md-12 mt-5">
                             <div class="section-header text-center pb-5">
-                                <h2 class="section-title font-alt">As nossas publicações</h2>
-                                <div class="section-subtitle font-serif">Apresentamos as obras dos nossos autores.</div> <!-- ------ TODO TEXTO--------  -->
+                                <h2 class="section-title font-alt">{{ __('admin.books.our_publications') }}</h2>
+                                <div class="section-subtitle font-serif">{{ __('admin.books.our_authors_works') }}</div> <!-- ------ TODO TEXTO--------  -->
                             </div>
                         </div>
                     </div>
@@ -63,7 +63,7 @@
                             <div class="widget">
                                 <form role="form" method="GET" action="{{ route('guest.books') }}">
                                     <div class="search-box">
-                                        <input class="form-control" type="text" name="title" placeholder="Titulo do livro" value="{{ request('title') }}"/>
+                                        <input class="form-control" type="text" name="title" placeholder="{{ __('admin.books.search_by_title') }}" value="{{ request('title') }}"/>
                                         <button class="search-btn" type="submit"><i class="fa fa-search"></i></button>
                                     </div>
                                 </form>
@@ -71,9 +71,9 @@
 
                             <!-- Filtrar por categorias de livros  -->
                             <div class="widget">
-                                <h5 class="widget-title font-alt">Categories</h5>
+                                <h5 class="widget-title font-alt">{{ __('admin.books.categories') }}</h5>
                                 <ul class="icon-list">
-                                    <li><a href="{{ route('guest.books') }}">All Genres</a></li>
+                                    <li><a href="{{ route('guest.books') }}">{{ __('admin.books.all_genres') }}</a></li>
                                     @foreach($genres as $genre)
                                         <li>
                                             <a href="{{ route('guest.books', ['genre' => $genre->id]) }}">{{ $genre->name }}</a>
@@ -100,12 +100,12 @@
                                                 </a>
                                             @else
                                                 <a href="{{route('book', $book->id)}}">
-                                                    <img src="{{ asset('imgs/img_nao_disponivel.png') }}" class="product-thumb rounded" alt="Imagem não disponível" style="max-width: 90%; height: auto;">
+                                                    <img src="{{ asset('imgs/img_nao_disponivel.png') }}" class="product-thumb rounded" alt="{{ __('admin.books.image_not_available') }}" style="max-width: 90%; height: auto;">
                                                 </a>
                                             @endif
 
                                             <button type="button" class="add-to-cart"><i class="fa-solid fa-cart-shopping"></i>&nbsp
-                                                Adicionar ao carrinho
+                                                {{ __('admin.books.add_to_cart') }}
                                             </button>
                                         </figure>
                                         <figcaption>
