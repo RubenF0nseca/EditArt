@@ -46,6 +46,19 @@ return [
     'shipping' => 'Total de envio',
     'proceed_to_payment' => 'PROSSEGUIR PARA O PAGAMENTO',
     'title_cart' => 'Título',
+    'place_order' => 'Fazer um pedido',
+    'back_to_cart' => 'Voltar ao carrinho',
+    'billing_address' => 'Morada de faturação',
+    'name' => 'Nome',
+    'surname' => 'Apelido',
+    'email' => 'Email',
+    'phone' => 'Telemóvel',
+    'address' => 'Morada',
+    'locality' => 'Localidade',
+    'zip_code' => 'Código postal',
+    'paypal_payment' => 'Pagamento da conta Paypal',
+    'add_new_account' => '+ Adicionar nova conta',
+    'pay' => 'Pagar',
 
 
 ];
