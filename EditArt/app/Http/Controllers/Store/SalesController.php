@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Store;
 use App\Http\Controllers\Controller;
 use App\Models\Genre;
 use App\Models\Review;
+use HTMLPurifier;
+use HTMLPurifier_Config;
 use Illuminate\Http\Request;
 use App\Models\Book;
 
@@ -39,11 +41,9 @@ class SalesController extends Controller
 
     public function createBookReview(Request $request, Book $book)
     {
-        //dd($request->all());
-        // Validação dos dados
         $request->validate([
             'topic' => 'required|string|max:255',
-            'content' => 'required|string|max:1000',
+            'comment' => 'required|string|max:1000',
             'rating' => 'required|integer|min:1|max:5',
         ]);
 
@@ -51,10 +51,15 @@ class SalesController extends Controller
             return redirect()->back()->with('error', 'Já fizeste uma avaliação para este livro.');
         }
 
+        $config = HTMLPurifier_Config::createDefault();
+        $purifier = new HTMLPurifier($config);
+
+        $sanitizedContent = $purifier->purify($request->input('comment'));
+
         Review::create([
             'book_id' => $book->id,
             'user_id' => auth()->id(),
-            'comment' => $request->input('content'),
+            'comment' => $sanitizedContent,
             'topic' => $request->input('topic'),
             'rating' => $request->input('rating'),
             'created_at' => now(),

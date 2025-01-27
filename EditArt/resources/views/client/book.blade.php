@@ -17,6 +17,18 @@
             @endif
 
             <div class="row" id="margin-top">
+                <!-- Alerta para mensagem de sucesso -->
+                @if(session('success'))
+                    <x-alert id="success-alert" type="success">
+                        {{ session('success') }}
+                    </x-alert>
+                @endif
+
+                @if(session('error'))
+                    <x-alert id="error-alert" type="danger">
+                        {{ session('error') }}
+                    </x-alert>
+                @endif
                 @if ($errors->any())
                     <div class="alert alert-danger">
                         <ul>
@@ -146,7 +158,7 @@
                                             </div>
                                             <div class="review-entry">
                                                 <h2 class="review-title font-serif mb-3">{{ $review->topic  }}</h2>
-                                                <p class="review-text">{{ $review->comment }}</p>
+                                                <p class="review-text">{!! $review->comment !!}</p>
                                                 <div class="text-end">
                                                     <button class="btn" type="submit"><i class="fa-solid fa-pen-to-square"></i></button>
                                                     <button class="btn" type="submit"><i class="fa-regular fa-trash-can"></i></button>
@@ -171,7 +183,7 @@
 
                             <!-- Formulário para envio de avaliação -->
                             <div class="editor" id="editor-form" style="display: block;">
-                                <form action="{{ route('client.reviews.store', $book->id) }}" method="POST">
+                                <form action="{{ route('client.reviews.store', $book->id) }}" method="POST" name="review-form" id="review-form">
                                     @csrf
                                     <div class="row">
                                         <div class="col-md-6 mb-3">
@@ -188,7 +200,7 @@
                                         </div>
                                     </div>
                                     <div id="editor-container-2" style="height: 200px; border: 1px solid #ccc;"></div>
-                                    <input type="hidden" id="content" name="content" required />
+                                    <input type="hidden" id="comment" name="comment" required />
                                     <div class="mt-3 text-end">
                                         <button type="submit" class="btn btn-solid">{{ __('c_i_s_u.send') }}</button>
                                     </div>

@@ -15,7 +15,7 @@ class Review extends Model
         'book_id',
         'rating',
         'comment',
-        'review_date'
+        'topic',
     ];
 
     /**

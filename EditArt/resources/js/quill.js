@@ -8,17 +8,16 @@ document.addEventListener('DOMContentLoaded', function () {
         placeholder: 'Escreva a sua avaliação aqui...',
         modules: {
             toolbar: [
-                [{ header: [1, 2, false] }],
                 ['bold', 'italic', 'underline'],
                 [{ list: 'ordered' }, { list: 'bullet' }],
-                ['link', 'blockquote', 'image'],
             ],
         },
+
     });
 
     // Capturar o conteúdo do editor no formulário
     const form = document.querySelector('#review-form');
-    const contentInput = document.querySelector('#content');
+    const contentInput = document.querySelector('#comment');
     const ratingInput = document.querySelector('#rating');
     const stars = document.querySelectorAll('.fa-star');
 
@@ -27,6 +26,7 @@ document.addEventListener('DOMContentLoaded', function () {
             contentInput.value = quill.root.innerHTML; // Capturar o conteúdo do editor
         });
     }
+
 
     // Configurar as estrelas
     stars.forEach(star => {
