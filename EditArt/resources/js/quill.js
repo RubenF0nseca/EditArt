@@ -79,9 +79,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Capturar o conteúdo do editor no formulário
     const form = document.querySelector('#review-form');
-    const contentInput = document.querySelector('#comment');
-    const ratingInput = document.querySelector('#rating');
-    const stars = document.querySelectorAll('.fa-star');
+    const contentInput = document.querySelector('#comment-edit');
+    const ratingInput = document.querySelector('#rating-edit');
+   // const stars = document.querySelectorAll('.fa-star');
 
 
     if (form && contentInput) {
@@ -90,7 +90,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-
+/*
     // Configurar as estrelas
     stars.forEach(star => {
         star.addEventListener('click', function () {
@@ -106,6 +106,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 previousSibling = previousSibling.previousElementSibling;
             }
         });
-    });
+    }); */
 });
 

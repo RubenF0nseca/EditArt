@@ -173,11 +173,11 @@
 
                                                 <!-- Formulário para editar o avaliação -->
                                                 <div class="editor m-0" id="editor-form-3" style="display: none;">
-                                                    <form action="{{ route('client.reviews.store', $book->id) }}" method="POST" name="review-form" id="review-form">
+                                                    <form action="#" method="POST" name="review-form-edit" id="review-form-edit">
                                                         @csrf
                                                         <div class="row">
                                                             <div class="col-md-6 mb-3">
-                                                                <input type="text" id="topic" name="topic" placeholder="Título" required />
+                                                                <input type="text" id="topic-edit" name="topic-edit" placeholder="Título" required />
                                                             </div>
                                                             <div class="col-md-6 mb-3 text-end">
                                                                 Tua avaliação deste livro:
@@ -186,11 +186,11 @@
                                                                         <i class="fa fa-star" data-rating="{{ $i }}"></i>
                                                                     @endfor
                                                                 </div>
-                                                                <input type="hidden" id="rating" name="rating" required />
+                                                                <input type="hidden" id="rating-edit" name="rating-edit" required />
                                                             </div>
                                                         </div>
                                                         <div id="editor-container-3" style="height: 200px; border: 1px solid #ccc;"></div>
-                                                        <input type="hidden" id="comment" name="comment" required />
+                                                        <input type="hidden" id="comment-edit" name="comment-edit" required />
                                                         <div class="mt-3 text-end">
                                                             <button type="submit" class="btn btn-solid">{{ __('c_i_s_u.send') }}</button>
                                                             <button type="submit" class="btn btn-dark-solid">Cancelar</button>
