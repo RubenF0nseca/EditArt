@@ -5,7 +5,7 @@
             <div class="col-sm-4">
                 <div class="widget">
                     <h5 class="widget-title font-alt">{{ __('homepage.title') }}</h5>
-                    <p>{{ __('homepage.footer.description') }}</p>
+                    <p>{{ __('homepage.description') }}</p>
                     <p><i class="fa-solid fa-phone-flip"></i>&nbsp +351 234 567 888</p>
                     <p><i class="fa-solid fa-envelope"></i><a href="edit.art@gmail.com">&nbsp edit.art@gmail.com</a></p>
                 </div>
