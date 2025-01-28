@@ -107,7 +107,8 @@ ul{margin: 0;}
 	   Dashboard
 ------------------------------------------------------------*/
 #admin-bg{
-    background-image: url('/public/imgs/typewriter.webp');
+    background: rgb(224,181,155);
+    background: linear-gradient(180deg, rgba(224,181,155,1) 0%, rgba(180,135,106,1) 32%, rgba(0,0,0,1) 100%);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -120,7 +121,7 @@ ul{margin: 0;}
 ------------------------------------------------------------*/
 #widget-card{
     border: 1px solid rgba(175, 136, 103, 0.33);
-    backdrop-filter: blur(20px);
+    backdrop-filter: brightness(0.5);
     --tblr-card-bg: none;
 }
 .widget-item {
