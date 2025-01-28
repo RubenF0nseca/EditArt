@@ -162,7 +162,7 @@
                                                 <div class="text-end">
                                                     <!-- Dica de ferramenta -->
                                                     <div class="tooltip-container">
-                                                        <button class="btn" type="submit" id="show-editor-3"><i class="fa-solid fa-pen-to-square"></i></button>
+                                                        <button class="btn show-editor-2" type="submit" id="show-editor-3"><i class="fa-solid fa-pen-to-square"></i></button>
                                                         <span class="tooltip-text">Editar crítica</span>
                                                     </div>
                                                     <div class="tooltip-container">
@@ -172,7 +172,7 @@
                                                 </div>
 
                                                 <!-- Formulário para editar o avaliação -->
-                                                <div class="editor m-0" id="editor-form-3" style="display: none;">
+                                                <div class="editor m-0 editor-form-3" id="editor-form-3" style="display: none;">
                                                     <form action="#" method="POST" name="review-form-edit" id="review-form-edit">
                                                         @csrf
                                                         <div class="row">

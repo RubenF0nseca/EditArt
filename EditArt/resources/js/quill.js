@@ -57,12 +57,14 @@ document.addEventListener('DOMContentLoaded', function () {
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
 
 document.addEventListener('DOMContentLoaded', function () {
-    const showEditor = document.getElementById('show-editor-3');
-    const editorForm = document.getElementById('editor-form-3');
+    const showEditor = document.querySelectorAll('.show-editor-3');
+    const editorForm = document.querySelectorAll('.editor-form-3');
 
-    showEditor.addEventListener('click', function () {
-        editorForm.style.display = 'block';
-        showEditor.style.display = 'none';
+    showEditor.forEach((button, index) => {
+        button.addEventListener('click', function () {
+            editorForms[index].style.display = 'block';
+            button.style.display = 'none';
+        });
     });
     // Configurar o editor Quill
     const quill = new Quill('#editor-container-3', {
