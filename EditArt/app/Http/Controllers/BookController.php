@@ -83,7 +83,7 @@ class BookController extends Controller
 
         return view('product.index', [
             'books' => $books,
-            'searchQuery' => $title, // Enviar o termo de pesquisa para a vista
+            'searchQuery' => $title,
         ]);
     }
 

@@ -67,4 +67,43 @@ class SalesController extends Controller
 
         return redirect()->back()->with('success', 'Avaliação enviada com sucesso!');
     }
+
+    public function updateBookReview(Request $request, Book $book, Review $review)
+    {
+
+        $request->validate([
+            'topic' => 'required|string|max:255',
+            'comment' => 'required|string|max:1000',
+            'rating' => 'required|integer|min:1|max:5',
+        ]);
+        //TODOmeter 403
+        if ($review->user_id !== auth()->id() && !auth()->user()->hasRole('admin')) {
+            return redirect()->back()->with('error', 'Não tens permissões para editar esta avaliação.');
+        }
+
+        $config = HTMLPurifier_Config::createDefault();
+        $purifier = new HTMLPurifier($config);
+
+        $sanitizedContent = $purifier->purify($request->input('comment'));
+
+        $review->update([
+            'comment' => $sanitizedContent,
+            'topic' => $request->input('topic'),
+            'rating' => $request->input('rating'),
+            'updated_at' => now(),
+        ]);
+
+        return redirect()->back()->with('success', 'Avaliação atualizada com sucesso!');
+    }
+
+    public function deleteBookReview(Book $book, Review $review)
+    {
+        if ($review->user_id !== auth()->id() && !auth()->user()->hasRole('admin')) {
+            return redirect()->back()->with('error', 'Não tens permissões para apagar esta avaliação.');
+        }
+
+        $review->delete();
+
+        return redirect()->back()->with('success', 'Avaliação apagada com sucesso!');
+    }
 }

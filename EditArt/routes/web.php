@@ -83,6 +83,9 @@ Route::middleware('role:cliente|admin')->group(function (){
             })->name('profile');
 
             Route::post('/books/{book}', [SalesController::class, 'createBookReview'])->name('reviews.store');
+            Route::put('/books/{book}/review/{review}', [SalesController::class, 'updateBookReview'])->name('review.update');
+            Route::delete('/books/{book}/review/{review}', [SalesController::class, 'deleteBookReview'])->name('review.delete');
+
 
         });
     });

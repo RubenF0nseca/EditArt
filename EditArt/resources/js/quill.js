@@ -57,57 +57,88 @@ document.addEventListener('DOMContentLoaded', function () {
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
 
 document.addEventListener('DOMContentLoaded', function () {
-    const showEditor = document.querySelectorAll('.show-editor-3');
-    const editorForm = document.querySelectorAll('.editor-form-3');
+    //
+    // 1) Mostrar/ocultar os formulários de edição
+    //
+    const showEditorButtons = document.querySelectorAll('.show-editor-3');
+    const editorForms = document.querySelectorAll('.editor-form-3');
+    const closeEditorButtons = document.querySelectorAll('.close-editor');
 
-    showEditor.forEach((button, index) => {
-        button.addEventListener('click', function () {
+    showEditorButtons.forEach((button, index) => {
+        button.addEventListener('click', () => {
             editorForms[index].style.display = 'block';
-            button.style.display = 'none';
+            // Se quiseres esconder o botão "Editar" depois de abrir:
+            // button.style.display = 'none';
         });
     });
-    // Configurar o editor Quill
-    const quill = new Quill('#editor-container-3', {
-        theme: 'snow',
-        placeholder: 'Escreva a sua avaliação aqui...',
-        modules: {
-            toolbar: [
-                ['bold', 'italic', 'underline'],
-                [{ list: 'ordered' }, { list: 'bullet' }],
-            ],
-        },
 
+    closeEditorButtons.forEach((closeBtn, index) => {
+        closeBtn.addEventListener('click', () => {
+            editorForms[index].style.display = 'none';
+            // Para voltar a mostrar o botão "Editar":
+            // showEditorButtons[index].style.display = 'inline-block';
+        });
     });
 
-    // Capturar o conteúdo do editor no formulário
-    const form = document.querySelector('#review-form');
-    const contentInput = document.querySelector('#comment-edit');
-    const ratingInput = document.querySelector('#rating-edit');
-   // const stars = document.querySelectorAll('.fa-star');
+    //
+    // 2) Instanciar Quill para cada container (um para cada review)
+    //
+    const quillContainers = document.querySelectorAll('.editor-container-3');
 
-
-    if (form && contentInput) {
-        form.addEventListener('submit', function () {
-            contentInput.value = quill.root.innerHTML; // Capturar o conteúdo do editor
+    quillContainers.forEach(container => {
+        // Nova instância do Quill
+        const quill = new Quill('#' + container.id, {
+            theme: 'snow',
+            placeholder: 'Escreva a sua avaliação...',
+            modules: {
+                toolbar: [
+                    ['bold', 'italic', 'underline'],
+                    [{ list: 'ordered' }, { list: 'bullet' }],
+                ],
+            },
         });
-    }
 
-/*
-    // Configurar as estrelas
-    stars.forEach(star => {
-        star.addEventListener('click', function () {
-            const rating = this.getAttribute('data-rating');
-            ratingInput.value = rating; // Definir a classificação
-            stars.forEach(s => s.classList.remove('selected')); // Resetar as classes
-            this.classList.add('selected'); // Adicionar classe na estrela clicada
+        // Carregar o conteúdo inicial guardado em data-initial-content
+        const initialContent = container.getAttribute('data-initial-content') || '';
+        quill.root.innerHTML = initialContent;
 
-            // Adicionar a classe "selected" para todas as estrelas anteriores
-            let previousSibling = this.previousElementSibling;
-            while (previousSibling) {
-                previousSibling.classList.add('selected');
-                previousSibling = previousSibling.previousElementSibling;
+        // Ao submeter o form, copiar esse HTML para o input hidden
+        const editorFormDiv = container.closest('.editor-form-3');
+        if (editorFormDiv) {
+            const form = editorFormDiv.querySelector('form');
+            const hiddenInput = editorFormDiv.querySelector('.comment-edit');
+            if (form && hiddenInput) {
+                form.addEventListener('submit', function () {
+                    hiddenInput.value = quill.root.innerHTML;
+                });
             }
+        }
+    });
+
+    //
+    // 3) Configurar as estrelas de rating em cada formulário
+    //
+    editorForms.forEach(formDiv => {
+        const stars = formDiv.querySelectorAll('.fa-star');
+        const ratingInput = formDiv.querySelector('.rating-edit');
+
+        stars.forEach(star => {
+            star.addEventListener('click', function () {
+                const rating = this.getAttribute('data-rating');
+                ratingInput.value = rating; // define o valor no input hidden
+
+                // Remove 'selected' de todas
+                stars.forEach(s => s.classList.remove('selected'));
+                // Adiciona em todas as estrelas até a clicada
+                this.classList.add('selected');
+                let previous = this.previousElementSibling;
+                while (previous) {
+                    previous.classList.add('selected');
+                    previous = previous.previousElementSibling;
+                }
+            });
         });
-    }); */
+    });
+
 });
 
