@@ -10,6 +10,7 @@ return [
         'previous' => 'Previous',
         'next' => 'Next',
     ],
+
     'books' => [
         'our_publications' => 'Our Publications',
         'our_authors_works' => 'We present the works of our authors.',

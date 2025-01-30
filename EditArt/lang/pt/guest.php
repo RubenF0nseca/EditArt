@@ -10,6 +10,7 @@ return [
 'slide_1' => 'Slide 1',
 'slide_2' => 'Slide 2',
 ],
+
 'books' => [
 'our_publications' => 'As nossas publicações',
 'our_authors_works' => 'Apresentamos as obras dos nossos autores.',
