@@ -103,10 +103,12 @@
                                                     <img src="{{ asset('imgs/img_nao_disponivel.png') }}" class="product-thumb rounded" alt="{{ __('admin.books.image_not_available') }}" style="max-width: 90%; height: auto;">
                                                 </a>
                                             @endif
-
-                                            <button type="button" class="add-to-cart"><i class="fa-solid fa-cart-shopping"></i>&nbsp
-                                                {{ __('admin.books.add_to_cart') }}
-                                            </button>
+                                                <button type="button"
+                                                        class="add-to-cart"
+                                                        data-book-id="{{ $book->id }}">
+                                                    <i class="fa-solid fa-cart-shopping"></i>&nbsp;
+                                                    {{ __('admin.books.add_to_cart') }}
+                                                </button>
                                         </figure>
                                         <figcaption>
                                             <h3>{{ $book->title }}</h3>

@@ -106,4 +106,6 @@ class SalesController extends Controller
 
         return redirect()->back()->with('success', 'Avaliação apagada com sucesso!');
     }
+
+
 }

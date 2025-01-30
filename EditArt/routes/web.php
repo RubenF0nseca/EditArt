@@ -11,6 +11,7 @@ use App\Http\Controllers\CommentController;
 use App\Http\Controllers\GenreController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\Store\CartController;
 use App\Http\Controllers\Store\SalesController;
 use App\Http\Controllers\UserController;
 use App\Mail\EmailEditArt;
@@ -164,3 +165,5 @@ Route::get('/guest/authors', function () {
 
 Route::get('/guest/books', [SalesController::class, 'index'])->name('guest.books');
 Route::get('/books/{book}', [SalesController::class, 'showBook'])->name('book');
+
+Route::post('/cart/add/{id}', [CartController::class, 'addToCart'])->name('cart.add');

@@ -49,6 +49,12 @@
     font-size: 15px;
     color: #af8867;
 }
+#cart-counter {
+    font-size: 0.7em;
+    padding: 3px 6px;
+    margin-left: -10px;
+    margin-top: 2px;
+}
 /*----------------------------------------------------------
 	   Forms common style
 ------------------------------------------------------------*/
