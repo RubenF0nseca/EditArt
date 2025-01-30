@@ -31,6 +31,11 @@ return [
 'cart_empty' => 'O carrinho está vazio ',
 'image_not_available' => 'Imagem não disponível',
 'nif' => 'NIF',
-'iva' => 'IVA a 23%'
+'iva' => 'IVA a 23%',
+'confirmation_title' => 'Confirmação do Pedido',
+'thank_you' => 'Obrigado pelo seu pedido!',
+'paypal_account' => 'Conta Paypal',
+'order_date' => 'Data do Pedido',
+'shopping_list' => 'Lista de Compras',
 
 ];
