@@ -15,21 +15,13 @@
                         <form>
                             <div class="font-alt mb-3"><h3>{{ __('admin.billing_address') }}</h3></div>
                             <div class="row">
-                                <div class="col-md-3 mb-3">
+                                <div class="col-md-6 mb-3">
                                     <label for="name" class="form-label required">{{ __('admin.name') }}</label>
                                     <input type="text" id="name" name="name" class="form-control" >
                                 </div>
-                                <div class="col-md-3 mb-3">
-                                    <label for="surname" class="form-label required">{{ __('admin.surname') }}</label>
-                                    <input type="text" id="surname" name="surname" class="form-control" >
-                                </div>
-                                <div class="col-md-3 mb-3">
+                                <div class="col-md-6 mb-3">
                                     <label for="email" class="form-label required">{{ __('admin.email') }}</label>
                                     <input type="text" id="email" name="email" class="form-control" >
-                                </div>
-                                <div class="col-md-3 mb-3">
-                                    <label for="phone_number" class="form-label required">{{ __('admin.phone') }}</label>
-                                    <input type="text" id="phone_number" name="phone_number" class="form-control" >
                                 </div>
                             </div>
 
@@ -48,21 +40,18 @@
                                 </div>
                             </div>
 
-                            <div class="font-alt mb-3 mt-3">
-                                <h3><i class="fa-brands fa-cc-paypal"></i>&nbsp {{ __('admin.paypal_payment') }}</h3>
-                            </div>
                             <div class="row">
-                                <div class="col-md-6 mb-3">
-                                    <div class="input-group">
-                                        <div class="input-group-text">
-                                            <input class="form-check-input mt-0" type="radio" value="" aria-label="Radio button for following text input">
-                                        </div>
-                                        <input type="text" class="form-control" aria-label="Text input with radio button">
-                                    </div>
-                                    <div class="text-end mt-2">+ {{ __('admin.add_new_account') }}</div>
+                                <div class="col-md-3 mb-3">
+                                    <label for="nif" class="form-label required">NIF</label>
+                                    <input type="text" id="nif" name="nif" class="form-control" >
                                 </div>
 
+                                <div class="col-md-3 mb-3">
+                                    <label for="phone_number" class="form-label required">{{ __('admin.phone') }}</label>
+                                    <input type="text" id="phone_number" name="phone_number" class="form-control" >
+                                </div>
                             </div>
+
                         </form>
                     </div>
                 </div>
@@ -89,20 +78,24 @@
                         <table class="table table-striped table-border checkout-table">
                             <tbody>
                             <tr>
-                                <th>{{ __('admin.subtotal') }}:</th>
-                                <td>€40.00</td>
+                                <th>Subtotal sem IVA</th>
+                                <td>40.00 €</td>
                             </tr>
                             <tr>
-                                <th>{{ __('admin.shipping') }}:</th>
-                                <td>€2.00</td>
+                                <th>IVA a 23%</th>
+                                <td>€</td>
                             </tr>
                             <tr>
-                                <th>{{ __('admin.total_amount') }}:</th>
-                                <td>€42.00</td>
+                                <th>{{ __('admin.shipping') }}</th>
+                                <td>2.00 €</td>
+                            </tr>
+                            <tr>
+                                <th>{{ __('admin.total_amount') }}</th>
+                                <td>42.00 €</td>
                             </tr>
                             </tbody>
                         </table>
-                        <x-button.submit color="solid btn-block">{{ __('admin.pay') }}</x-button.submit>
+                        <x-button.submit color="solid btn-block">{{ __('admin.pay') }} com PayPal</x-button.submit>
                     </div>
                 </div>
             </div>
