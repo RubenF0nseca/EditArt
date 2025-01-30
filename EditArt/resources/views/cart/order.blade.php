@@ -78,11 +78,11 @@
                         <table class="table table-striped table-border checkout-table">
                             <tbody>
                             <tr>
-                                <th>Subtotal sem IVA</th>
+                                <th>Total sem IVA</th>
                                 <td>40.00 €</td>
                             </tr>
                             <tr>
-                                <th>{{ __('cart.iva') }}</th>
+                                <th>IVA</th>
                                 <td>€</td>
                             </tr>
                             <tr>
@@ -90,7 +90,7 @@
                                 <td>2.00 €</td>
                             </tr>
                             <tr>
-                                <th>{{ __('admin.total') }}</th>
+                                <th>Valor a pagar</th>
                                 <td>42.00 €</td>
                             </tr>
                             </tbody>

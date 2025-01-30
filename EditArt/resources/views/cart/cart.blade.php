@@ -85,15 +85,19 @@
                         <table class="table table-striped table-border checkout-table">
                             <tbody>
                             <tr>
-                                <th>{{ __('cart.subtotal') }}</th>
+                                <th>Total sem IVA</th>
                                 <td id="subtotal">{{ number_format($subtotal, 2) }} €</td>
+                            </tr>
+                            <tr>
+                                <th>IVA</th>
+                                <td>€</td>
                             </tr>
                             <tr>
                                 <th>{{ __('cart.shipping') }}</th>
                                 <td>{{ number_format($shipping, 2) }} €</td>
                             </tr>
                             <tr>
-                                <th>Total</th>
+                                <th>Valor a pagar</th>
                                 <td id="total">{{ number_format($total, 2) }} €</td>
                             </tr>
                             </tbody>
