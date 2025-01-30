@@ -32,4 +32,18 @@ class CartController extends Controller
 
         return redirect()->back()->with('success', 'Book added to cart successfully!');
     }
+
+    public function showCart()
+    {
+        $cart = session()->get('cart', []);
+
+        $subtotal = 0;
+        foreach ($cart as $item) {
+            $subtotal += $item['book']->price * $item['quantity'];
+        }
+        $shipping = 2.00;
+        $total = $subtotal + $shipping;
+
+        return view('client.cart', compact('cart', 'subtotal', 'shipping', 'total'));
+    }
 }
