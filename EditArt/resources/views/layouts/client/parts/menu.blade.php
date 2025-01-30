@@ -17,7 +17,15 @@
                 @role('admin') <li class="nav-item"><a class="nav-link" href="{{ route('admin.dashboard') }}"><i class="fa-solid fa-dashboard"></i>&nbsp Dashboard</a></li>@endrole
                 <li class="nav-item"><a class="nav-link" href="{{ route('client.profile') }}"><i class="fa-solid fa-user"></i></a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ route('wishlist') }}"><i class="fa-solid fa-heart"></i></a></li>
-                <li class="nav-item"><a class="nav-link" href="{{ route('cart') }}"><i class="fa-solid fa-cart-shopping"></i></a></li>
+                <li class="nav-item">
+                    <a class="nav-link position-relative" href="{{ route('cart') }}">
+                        <i class="fa-solid fa-cart-shopping" id="cart-icon"></i>
+                        <span id="cart-counter"
+                              class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                {{ count(session('cart', [])) }}
+                            </span>
+                    </a>
+                </li>
                 <li class="nav-item">
                     <form action="{{ route('logout') }}" method="POST">
                         @csrf

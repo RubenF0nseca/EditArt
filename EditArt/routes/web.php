@@ -135,9 +135,6 @@ Route::get('/wishlist', function () {
     return view('wishlist.wishlist');
 })->name('wishlist');
 
-Route::get('/cart', function () {
-    return view('cart.cart');
-})->name('cart');
 
 Route::get('/order', function () {
     return view('cart.order');
@@ -167,3 +164,6 @@ Route::get('/guest/books', [SalesController::class, 'index'])->name('guest.books
 Route::get('/books/{book}', [SalesController::class, 'showBook'])->name('book');
 
 Route::post('/cart/add/{id}', [CartController::class, 'addToCart'])->name('cart.add');
+Route::get('/cart', [CartController::class, 'showCart'])->name('cart');
+Route::get('/cart/remove/{id}', [CartController::class, 'removeFromCart'])->name('cart.remove');
+Route::post('/cart/update', [CartController::class, 'updateQuantity'])->name('cart.update');
