@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Auth\PasswordResetController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Client\ProfileController;
 use App\Http\Controllers\EmailController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\AuthorController;
@@ -87,7 +88,7 @@ Route::middleware('role:cliente|admin')->group(function (){
             Route::put('/books/{book}/review/{review}', [SalesController::class, 'updateBookReview'])->name('review.update');
             Route::delete('/books/{book}/review/{review}', [SalesController::class, 'deleteBookReview'])->name('review.delete');
 
-
+            Route::put('/profile', [ProfileController::class, 'update'])->name('profile.update');
         });
     });
 });
