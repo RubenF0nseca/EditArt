@@ -141,14 +141,14 @@
                                         <div class="col-md-6">
                                             <div class="form-floating mb-3 mb-md-0">
                                                 <input
-                                                    class="form-control @error('password_check') is-invalid @enderror"
+                                                    class="form-control @error('password_confirmation') is-invalid @enderror"
                                                     id="inputPasswordConfirm"
                                                     type="password"
-                                                    name="password_check"
+                                                    name="password_confirmation"
                                                     placeholder="Confirme a password"
                                                 />
                                                 <label for="inputPasswordConfirm">Confirmar Password * </label>
-                                                @error('password_check')
+                                                @error('password_confirmation')
                                                 <div class="invalid-feedback">{{ $message }}</div>
                                                 @enderror
                                             </div>

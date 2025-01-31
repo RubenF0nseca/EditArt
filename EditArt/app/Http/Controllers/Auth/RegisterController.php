@@ -20,7 +20,7 @@ class RegisterController extends Controller
             'nif' => 'nullable|digits:9|unique:users,nif,' . $id,
             'phone_number' => 'nullable|regex:/^\d{9,15}$/|unique:users,phone_number,' . $id,
             'birthdate' => 'nullable|date|before:today',
-            'password' => $user ? 'nullable|min:8|max:50' : 'required|min:8|max:50',
+            'password' => $user ? 'nullable|min:8|max:50|confirmed' : 'required|min:8|max:50|confirmed',
         ];
     }
 
@@ -45,9 +45,10 @@ class RegisterController extends Controller
         'birthdate.date' => 'Insira uma data de nascimento válida.',
         'birthdate.before' => 'A data de nascimento deve ser anterior à data atual.',
 
-        'password.required' => 'A senha é obrigatória.',
-        'password.min' => 'A senha deve ter pelo menos 8 caracteres.',
-        'password.max' => 'A senha não pode ter mais de 50 caracteres.',
+        'password.required' => 'A password é obrigatória.',
+        'password.min' => 'A password deve ter pelo menos 8 caracteres.',
+        'password.max' => 'A password não pode ter mais de 50 caracteres.',
+        'password.confirmed' => 'As passwords não coincidem.',
 
     ];
     public function store(Request $request)
