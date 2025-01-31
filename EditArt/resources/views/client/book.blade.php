@@ -301,7 +301,7 @@
 
                                 <!-- Pagination -->
                                 <div class="text-center mb-5">
-                                    {{ $review->links('layouts.admin.parts.pagination') }}
+                                    {{ $reviews->links('layouts.admin.parts.pagination') }}
                                 </div>
 
                                 <!-- Botão que chama o formulário -->

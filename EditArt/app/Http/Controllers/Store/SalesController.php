@@ -30,13 +30,18 @@ class SalesController extends Controller
     {
         $book->load('reviews.user');
 
+        $reviews = $book->reviews()
+            ->with('user')
+            ->orderBy('created_at', 'desc')
+            ->paginate(5);
+
         $reviewsCount = $book->reviews()->count();
         $averageRating = $book->reviews()->avg('rating');
 
         $wholeStars = floor($averageRating);
         $hasHalfStar = ($averageRating - $wholeStars) >= 0.5;
 
-        return view('client.book', compact('book', 'reviewsCount', 'averageRating', 'wholeStars', 'hasHalfStar'));
+        return view('client.book', compact('book', 'reviews', 'reviewsCount', 'averageRating', 'wholeStars', 'hasHalfStar'));
     }
 
     public function createBookReview(Request $request, Book $book)
