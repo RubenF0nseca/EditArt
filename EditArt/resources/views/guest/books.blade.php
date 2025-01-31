@@ -117,7 +117,9 @@
                                             <span>{{ $book->type }}</span>
                                             <div id="wish-price">
                                                 <span class="item-price">€{{ $book->price, 2 }}</span>
-                                                <span id="wish"><i class="fa-regular fa-heart"></i></span>
+                                                <!--TODO if-->
+                                                <span id="heart"><i class="fa-regular fa-heart"></i></span>
+                                                <span id="heart-solid"><i class="fa-solid fa-heart"></i></span>
                                             </div>
                                         </figcaption>
                                     </div>

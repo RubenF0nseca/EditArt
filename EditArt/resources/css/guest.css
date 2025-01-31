@@ -174,9 +174,13 @@ input,
     justify-content: space-between;
     padding: 0 25px 0 25px;
 }
-#wish{
+#heart{
     font-size: 1rem;
     color: #74642F;
+}
+#heart-solid{
+    font-size: 1rem;
+    color: #b91330;
 }
 .product-item figcaption>h3 {
     font-size: 1.4em;
