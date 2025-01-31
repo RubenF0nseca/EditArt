@@ -32,8 +32,8 @@ class UserFactory extends Factory
             'address' => fake()->address(),
             'nif' => fake()->randomNumber(9),
             'phone_number' => fake()->randomNumber(9),
-
-
+            'postal_code' => fake('pt_PT')->postcode(),
+            'locality' => fake()->city(),
             'birthdate' => fake()->dateTimeBetween('-30 year', '-10 year'),
             'role' => fake()->numberBetween(1, 5),
         ];

@@ -8,14 +8,26 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\App;
 use App\Models\User;
+use Illuminate\Support\Facades\Log;
 
 class LoginController extends Controller
 {
-    public function showLogin(){
-        return view('login.show');
+
+    /**
+     * Mostra o formulário de login
+     */
+    public function showLogin(Request $request)
+    {
+        return view('login.show', [
+            'redirect' => $request->input('redirect')
+        ]);
     }
 
-    public function login(Request $request){
+    /**
+     * Processa o login
+     */
+    public function login(Request $request)
+    {
         $credentials = $request->validate([
             'email' => ['required', 'email'],
             'password' => ['required'],
@@ -26,26 +38,68 @@ class LoginController extends Controller
         ]);
 
         if (Auth::attempt($credentials)) {
-
             $request->session()->regenerate();
-            $user = auth()->user();
-            if (auth()->user()->hasRole('admin'))
-                return redirect()->route('admin.dashboard')->with("success", "Login efetuado com sucesso!.");
-            else {
-                $user->notify(new UserLoggedInNotification($user->name));
-                return redirect()->intended('/')->with("success", "Login efetuado com sucesso!.");
+
+            // Priorizar redirecionamento personalizado
+            $redirectUrl = $this->getValidRedirectUrl($request);
+
+            if ($redirectUrl) {
+                return redirect()->to($redirectUrl)
+                    ->with("success", "Login efetuado com sucesso!.");
             }
+
+            $defaultRedirect = auth()->user()->hasRole('admin')
+                ? route('admin.dashboard')
+                : route('home');
+
+            return redirect()->intended($defaultRedirect)
+                ->with("success", "Login efetuado com sucesso!.");
         }
 
-        return redirect()->back()->withErrors([
-            'error' => 'Verifique as suas credênciais!'
-        ])->onlyInput('email');
+        return redirect()->back()
+            ->withInput($request->only('email', 'redirect'))
+            ->withErrors(['error' => 'Verifique as suas credênciais!']);
     }
 
-    public function logout(Request $request): RedirectResponse{
+
+    /**
+     * Termina a sessão do utilizador
+     */
+    public function logout(Request $request): RedirectResponse
+    {
         Auth::logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
         return redirect(route('home'));
     }
+
+    /**
+     * Verifica se o url é valido para redirecionamento
+     */
+    private function isValidRedirect($url)
+    {
+        if (!str_starts_with($url, '/')) {
+            return false;
+        }
+
+        return !preg_match('/\/\/+/', $url); // Evitar URLs malformadas
+    }
+
+    /**
+     * Retorna o URL de redirecionamento válido
+     */
+    private function getValidRedirectUrl(Request $request)
+    {
+        $redirectUrl = $request->input('redirect');
+        Log::info("Redirect URL: {$redirectUrl}");
+        Log::info("Validation: " . ($this->isValidRedirect($redirectUrl) ? 'Valid' : 'Invalid'));
+
+        if ($redirectUrl && $this->isValidRedirect($redirectUrl)) {
+            return $redirectUrl;
+        }
+
+        return null;
+    }
+
+
 }

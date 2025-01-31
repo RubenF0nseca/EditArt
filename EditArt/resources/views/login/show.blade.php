@@ -44,6 +44,10 @@
 
                                 <form method="POST" action="{{route('login')}}">
                                     @csrf
+                                    @if(request()->has('redirect'))
+                                        <input type="hidden" name="redirect" value="{{ request()->query('redirect') }}">
+                                    @endif
+
                                     <div class="form-floating mb-3">
                                         <input value="{{old('email')}}" class="form-control" id="inputEmail" type="email" placeholder="{{ __('auth.email_placeholder') }}" name="email"/>
                                         <label for="inputEmail">{{ __('auth.email') }} *</label>

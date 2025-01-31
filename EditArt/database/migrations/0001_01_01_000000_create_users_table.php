@@ -20,6 +20,8 @@ return new class extends Migration
             $table->string('nif', 9)->unique()->nullable();
             $table->string('phone_number', 15)->unique()->nullable();
             $table->date('birthdate')->nullable();
+            $table->string('postal_code', 8)->nullable();
+            $table->string('locality', 50)->nullable();
             $table->string('password');
             $table->integer('role')->nullable();
             $table->rememberToken();

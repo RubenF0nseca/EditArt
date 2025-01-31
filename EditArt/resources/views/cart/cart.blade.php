@@ -110,7 +110,9 @@
                             </tbody>
                         </table>
                         <!-- Botão para prosseguir -->
-                        <x-button.link link="{{ route('order') }}" color="solid btn-block">
+                        <x-button.link
+                            link="{{ auth()->check() ? route('order') : route('login', ['redirect' => '/cart']) }}"
+                            color="solid btn-block">
                             {{ __('cart.proceed_to_payment') }}
                         </x-button.link>
                     </div>
