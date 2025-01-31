@@ -1,4 +1,12 @@
-@extends('layouts.client.base')
+@php
+    $layout = 'layouts.guest.base';
+
+    if (auth()->check() && auth()->user()->hasAnyRole(['admin', 'cliente'])) {
+        $layout = 'layouts.client.base';
+    }
+@endphp
+
+@extends($layout)
 
 @section('content')
     <div class="page-wrapper wrapper d-flex flex-column min-vh-100">
@@ -85,24 +93,37 @@
                         <table class="table table-striped table-border checkout-table">
                             <tbody>
                             <tr>
+<<<<<<< Updated upstream
                                 <th>{{ __('cart.total_sem_iva') }}</th>
                                 <td id="subtotal">{{ number_format($subtotal, 2) }} €</td>
                             </tr>
                             <tr>
                                 <th>{{ __('cart.iva') }}</th>
                                 <td>€</td>
+=======
+                                <th>Total sem IVA</th>
+                                <td id="total-sem-iva">{{ number_format($total_sem_iva, 2) }} €</td>
+                            </tr>
+                            <tr>
+                                <th>IVA (6%)</th>
+                                <td id="iva">{{ number_format($iva, 2) }} €</td>
+>>>>>>> Stashed changes
                             </tr>
                             <tr>
                                 <th>{{ __('cart.shipping') }}</th>
                                 <td>{{ number_format($shipping, 2) }} €</td>
                             </tr>
                             <tr>
+<<<<<<< Updated upstream
                                 <th>{{ __('cart.valor_a_pagar') }}</th>
                                 <td id="total">{{ number_format($total, 2) }} €</td>
+=======
+                                <th>Valor a pagar (com IVA)</th>
+                                <td id="total-pagar">{{ number_format($total_pagar, 2) }} €</td>
+>>>>>>> Stashed changes
                             </tr>
                             </tbody>
                         </table>
-
                         <!-- Botão para prosseguir -->
                         <x-button.link link="{{ route('order') }}" color="solid btn-block">
                             {{ __('cart.proceed_to_payment') }}
