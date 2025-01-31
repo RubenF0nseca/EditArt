@@ -5,7 +5,7 @@ return [
     'categories' => 'Categories:',
     'reviews' => 'Reviews',
     'reviews_count' => 'Reader Reviews',
-    'no_reviews' => 'This book has no reviews yet.',
+    'no_reviews' => 'No reviews yet.',
     'write_review' => 'Write your review here',
     'shipping_info' => 'Shipping Information',
     'description' => 'Description',
@@ -15,7 +15,7 @@ return [
     'name' => 'Name',
     'email' => 'Email',
     'address' => 'Address',
-    'nif' => 'NIF',
+    'nif' => 'VAT',
     'phone_number' => 'Phone Number',
     'birthdate' => 'Birthdate',
     'password' => 'Password',
@@ -39,6 +39,7 @@ return [
     'my_reviews' => 'My reviews',
     'my_comments' => 'My comments',
     'no_comments' => 'No comments yet',
+    'no_order' => 'No orders yet',
     'password_reset' => 'Reset Password',
     'new_password' => 'New Password',
     'confirm_password' => 'Confirm Password',
@@ -58,5 +59,11 @@ return [
     'actions' => 'Actions',
     'id' => 'ID',
     'create' => 'Create',
+    'local' => 'Location',
+    'client_orders' => 'My orders',
+    'zip_code' => 'Zip Code',
+    'edit_details' => 'Edit details',
+    'message_pass' => 'Your account has been confirmed. Check your email for details.',
+
 
 ];

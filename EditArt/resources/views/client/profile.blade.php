@@ -8,14 +8,14 @@
                 <!-- Avatar do utilizador e nav-tab ------------------------------------  -->
                 <div class="col-md-4 d-flex justify-content-center text-center">
                     <div id="user-card">
-                        <h5>{{ __('c_i_s_u.welcome') }}<br><b>{{ auth()->user()->name}}</b></h5>
+                        <h5>{{ __('client.welcome') }}<br><b>{{ auth()->user()->name}}</b></h5>
                         <img src="{{asset('imgs/no_user.png')}}" class="mt-4" alt="EditArt" id="avatar">
                         <hr>
                         <x-pills>
-                            <x-pills.button class="active" id="profile" target="profile" controls="profile" select="true">{{ __('c_i_s_u.profile') }}</x-pills.button>
-                            <x-pills.button class="" id="order" target="order" controls="order" select="false">Meus pedidos</x-pills.button>
-                            <x-pills.button class="" id="review" target="review" controls="review" select="false">{{ __('c_i_s_u.my_reviews') }}</x-pills.button>
-                            <x-pills.button class="" id="comment" target="comment" controls="comment" select="false">{{ __('c_i_s_u.my_comments') }}</x-pills.button>
+                            <x-pills.button class="active" id="profile" target="profile" controls="profile" select="true">{{ __('client.profile') }}</x-pills.button>
+                            <x-pills.button class="" id="order" target="order" controls="order" select="false">{{ __('client.client_orders') }}</x-pills.button>
+                            <x-pills.button class="" id="review" target="review" controls="review" select="false">{{ __('client.my_reviews') }}</x-pills.button>
+                            <x-pills.button class="" id="comment" target="comment" controls="comment" select="false">{{ __('client.my_comments') }}</x-pills.button>
                         </x-pills>
                     </div>
                 </div>
@@ -44,39 +44,39 @@
                                 <!-- Icon para editar -->
                                 <div class="tooltip-container d-flex justify-content-end">
                                     <i class="fa-solid fa-pen-to-square" onclick="toggleEdit()" style="cursor: pointer;"></i>
-                                    <span class="tooltip-text" style="width: auto">Editar os dados</span>
+                                    <span class="tooltip-text" style="width: auto">{{ __('client.edit_details') }}</span>
                                 </div>
                                 <!-- Os dados do utilizador -->
                                 <div class="row">
-                                    <span class="col-3 font-alt">{{ __('c_i_s_u.name') }}</span>
+                                    <span class="col-3 font-alt">{{ __('client.name') }}</span>
                                     <span class="col-9">{{ auth()->user()->name }}</span>
                                 </div>
                                 <div class="row review-entry">
-                                    <span class="col-3 font-alt">{{ __('c_i_s_u.email') }}</span>
+                                    <span class="col-3 font-alt">{{ __('client.email') }}</span>
                                     <span class="col-9">{{ auth()->user()->email }}</span>
                                 </div>
                                 <div class="row review-entry">
-                                    <span class="col-3 font-alt">{{ __('c_i_s_u.nif') }}</span>
+                                    <span class="col-3 font-alt">{{ __('client.nif') }}</span>
                                     <span class="col-9">{{ auth()->user()->nif }}</span>
                                 </div>
                                 <div class="row review-entry">
-                                    <span class="col-3 font-alt">Telemóvel</span>
+                                    <span class="col-3 font-alt">{{ __('client.phone_number') }}</span>
                                     <span class="col-9">{{ auth()->user()->phone_number }}</span>
                                 </div>
                                 <div class="row review-entry">
-                                    <span class="col-3 font-alt">{{ __('c_i_s_u.address') }}</span>
+                                    <span class="col-3 font-alt">{{ __('client.address') }}</span>
                                     <span class="col-9">{{ auth()->user()->address }}</span>
                                 </div>
                                 <div class="row review-entry">
-                                    <span class="col-3 font-alt">Localidade</span>
+                                    <span class="col-3 font-alt">{{ __('client.local') }}</span>
                                     <span class="col-9">{{--TODO--}}</span>
                                 </div>
                                 <div class="row review-entry">
-                                    <span class="col-3 font-alt">Código postal</span>
+                                    <span class="col-3 font-alt">{{ __('client.zip_code') }}</span>
                                     <span class="col-9">{{--TODO--}}</span>
                                 </div>
                                 <div class="row review-entry">
-                                    <span class="col-3 font-alt">{{ __('c_i_s_u.account_created') }}</span>
+                                    <span class="col-3 font-alt">{{ __('client.account_created') }}</span>
                                     <span class="col-9">{{ auth()->user()->created_at }}</span>
                                 </div>
                             </div>
@@ -88,53 +88,53 @@
                                     @method('PUT')
 
                                     <div class="row">
-                                        <label class="col-3 font-alt">{{ __('c_i_s_u.name') }}</label>
+                                        <label class="col-3 font-alt">{{ __('client.name') }}</label>
                                         <input class="col-9 form-control @error('name') is-invalid @enderror" type="text" name="name" value="{{ auth()->user()->name }}">
                                         @error('name')
                                         <div class="invalid-feedback" >{{$message}}</div>
                                         @enderror
                                     </div>
                                     <div class="row review-entry">
-                                        <label class="col-3 font-alt">{{ __('c_i_s_u.nif') }}</label>
+                                        <label class="col-3 font-alt">{{ __('client.nif') }}</label>
                                         <input class="col-9 form-control @error('nif') is-invalid @enderror" type="text" name="nif" value="{{ auth()->user()->nif }}">
                                         @error('nif')
                                         <div class="invalid-feedback" >{{$message}}</div>
                                         @enderror
                                     </div>
                                     <div class="row review-entry">
-                                        <label class="col-3 font-alt">{{ __('c_i_s_u.phone') }}</label>
+                                        <label class="col-3 font-alt">{{ __('client.phone') }}</label>
                                         <input class="col-9 form-control @error('phone_number') is-invalid @enderror" type="text" name="phone_number" value="{{ old('phone_number', auth()->user()->phone_number) }}">
                                         @error('phone_number')
                                         <div class="invalid-feedback" >{{$message}}</div>
                                         @enderror
                                     </div>
                                     <div class="row review-entry">
-                                        <label class="col-3 font-alt">{{ __('c_i_s_u.address') }}</label>
+                                        <label class="col-3 font-alt">{{ __('client.address') }}</label>
                                         <input class="col-9 form-control @error('address') is-invalid @enderror" type="text" name="address" value="{{ auth()->user()->address }}">
                                         @error('address')
                                         <div class="invalid-feedback" >{{$message}}</div>
                                         @enderror
                                     </div>
                                     <div class="row review-entry">
-                                        <label class="col-3 font-alt">Localidade</label>
+                                        <label class="col-3 font-alt">{{ __('client.local') }}</label>
                                         <input class="col-9 form-control" type="text" name="locality" value="">
                                         {{--TODO--}}
                                     </div>
                                     <div class="row review-entry">
-                                        <label class="col-3 font-alt">Código postal</label>
+                                        <label class="col-3 font-alt">{{ __('client.zip_code') }}</label>
                                         <input class="col-9 form-control" type="text" name="postal_code" value="">
                                         {{--TODO--}}
                                     </div>
                                     <div class="mt-3 text-end">
-                                        <button class="btn btn-solid" type="submit">{{ __('c_i_s_u.save') }}</button>
-                                        <button class="btn btn-dark-solid" type="button" onclick="toggleEdit()">{{ __('c_i_s_u.cancel') }}</button>
+                                        <button class="btn btn-solid" type="submit">{{ __('client.save') }}</button>
+                                        <button class="btn btn-dark-solid" type="button" onclick="toggleEdit()">{{ __('client.cancel') }}</button>
                                     </div>
 
                                 </form>
                             </div>
                             <!-- Botão para trigger modal -->
                             <div class="text-end">
-                                <button href="#myModal" class="btn btn-light-new" data-toggle="modal">Alterar a senha</button>
+                                <button href="#myModal" class="btn btn-light-new" data-toggle="modal">{{ __('client.change_password') }}</button>
                             </div>
 
                             <!-- Modal -->
@@ -147,7 +147,7 @@
                                             </div>
                                         </div>
                                         <div class="modal-body">
-                                            <p class="text-center">Your booking has been confirmed. Check your email for detials.</p>
+                                            <p class="text-center">{{ __('client.message_pass') }}</p>
                                         </div>
                                         <div class="modal-footer">
                                             <button class="btn btn-success btn-block" data-dismiss="modal">OK</button>
@@ -158,13 +158,13 @@
 
                         </x-pills.content>
                         <!-- Tab: Meus pedidos ------------------------------------  -->
-                        <x-pills.content class="" id="order" label="order">Nenhum pedido ainda</x-pills.content>
+                        <x-pills.content class="" id="order" label="order">{{ __('client.no_order') }}</x-pills.content>
 
                         <!-- Tab: Minhas avaliações ------------------------------------  -->
-                        <x-pills.content class="" id="review" label="review">{{ __('c_i_s_u.no_reviews') }}</x-pills.content>
+                        <x-pills.content class="" id="review" label="review">{{ __('client.no_reviews') }}</x-pills.content>
 
                         <!-- Tab: Meus comentários ------------------------------------  -->
-                        <x-pills.content class="" id="comment" label="comment">{{ __('c_i_s_u.no_comments') }}</x-pills.content>
+                        <x-pills.content class="" id="comment" label="comment">{{ __('client.no_comments') }}</x-pills.content>
 
                     </div>
                 </div>
