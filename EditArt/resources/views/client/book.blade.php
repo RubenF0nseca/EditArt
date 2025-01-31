@@ -169,7 +169,7 @@
                                 <!-- Avaliações -->
                                 <div class="reviews-section">
 
-                                    @forelse($book->reviews as $review)
+                                    @forelse($reviews as $review)
                                         <div class="review-post">
                                             <div class="row">
                                                 <div class="col-md-2 text-center">
@@ -308,7 +308,7 @@
                                 @auth
                                     @php
                                         // Verifica se este user já tem review para este livro
-                                        $jaFezReview = $book->reviews->where('user_id', Auth::id())->count() > 0;
+                                        $jaFezReview = $book->reviews()->where('user_id', Auth::id())->exists();
                                     @endphp
                                     @if(!$jaFezReview)
                                         <div class="text-center mt-5 mb-5">
