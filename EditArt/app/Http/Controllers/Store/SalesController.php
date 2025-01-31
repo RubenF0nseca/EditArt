@@ -32,7 +32,7 @@ class SalesController extends Controller
 
         $reviews = $book->reviews()
             ->with('user')
-            ->orderBy('created_at', 'desc')
+            ->orderBy('created_at', 'DESC')
             ->paginate(5);
 
         $reviewsCount = $book->reviews()->count();
