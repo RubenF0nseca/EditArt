@@ -299,9 +299,9 @@
                                     @endforelse
                                 </div>
 
-                                <!-- TODO Pagination -->
+                                <!-- Pagination -->
                                 <div class="text-center mb-5">
-                                    Pagination
+                                    {{ $review->links('layouts.admin.parts.pagination') }}
                                 </div>
 
                                 <!-- Botão que chama o formulário -->
