@@ -37,7 +37,7 @@
                                     <p class="font-serif">Author</p>
                                     <span>Type</span>
                                     <div id="wish-price">
-                                        <span class="item-price">19.99 €</span>
+                                        <span class="item-price">12.99 €</span>
                                         <span><i class="fa-regular fa-trash-can"></i></span>
                                     </div>
                                 </figcaption>
