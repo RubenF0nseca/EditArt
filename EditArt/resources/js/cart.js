@@ -60,22 +60,21 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 const data = await response.json();
 
+
+                console.log("Dados recebidos:", data);
+
                 if (data.success) {
-                    // Atualiza a quantidade no input
-                    this.value = data.quantity;
-
-                    // Atualiza a linha correta no DOM
-                    const cartRow = document.querySelector(`tr[data-book-id="${bookId}"]`);
-                    if (cartRow) {
-                        cartRow.querySelector('.line-total').textContent = data.lineTotal + " €";
+                    const lineTotalElement = this.closest('tr').querySelector('.line-total');
+                    if (lineTotalElement) {
+                        lineTotalElement.textContent = data.lineTotal + " €";
                     }
-
-                    // Atualiza subtotal e total do carrinho
-                    document.querySelector('#subtotal').textContent = data.subtotal + " €";
-                    document.querySelector('#total').textContent = data.total + " €";
+                    // Atualiza todos os elementos
+                    document.querySelector('#total-sem-iva').textContent = data.total_sem_iva + " €";
+                    document.querySelector('#iva').textContent = data.iva + " €";
+                    document.querySelector('#total-pagar').textContent = data.total_pagar + " €";
                 }
             } catch (error) {
-                console.error('Erro ao atualizar o carrinho:', error);
+                console.error('Erro:', error);
             }
         });
     });
