@@ -14,6 +14,7 @@
             <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="" aria-label="Slide 1"></button>
             <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2" class="active" aria-current="true"></button>
         </div>
+
         <!-- ------ Slide 1 ---------------------------  -->
         <div class="carousel-inner">
             <div class="carousel-item active">
@@ -32,6 +33,7 @@
                 </div>
             </div>
         </div>
+    </div>
         <!-- ----- As setas ---------------------------  -->
         <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -41,7 +43,7 @@
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
         </button>
-    </div>
+
     <!-- ----- Os produtos ---------------------------  -->
     <div class="page-wrapper wrapper d-flex flex-column min-vh-100">
         <div class="page-body">
@@ -50,8 +52,8 @@
                     <div class="row">
                         <div class="col-md-12 mt-5">
                             <div class="section-header text-center pb-5">
-                                <h2 class="section-title font-alt">{{ __('admin.books.our_publications') }}</h2>
-                                <div class="section-subtitle font-serif">{{ __('admin.books.our_authors_works') }}</div> <!-- ------ TODO TEXTO--------  -->
+                                <h2 class="section-title font-alt">{{ __('guest.books.our_publications') }}</h2>
+                                <div class="section-subtitle font-serif">{{ __('guest.books.our_authors_works') }}</div> <!-- ------ TODO TEXTO--------  -->
                             </div>
                         </div>
                     </div>
@@ -63,7 +65,7 @@
                             <div class="widget">
                                 <form role="form" method="GET" action="{{ route('guest.books') }}">
                                     <div class="search-box">
-                                        <input class="form-control" type="text" name="title" placeholder="{{ __('admin.books.search_by_title') }}" value="{{ request('title') }}"/>
+                                        <input class="form-control" type="text" name="title" placeholder="{{ __('guest.books.search_by_title') }}" value="{{ request('title') }}"/>
                                         <button class="search-btn" type="submit"><i class="fa fa-search"></i></button>
                                     </div>
                                 </form>
@@ -71,9 +73,9 @@
 
                             <!-- Filtrar por categorias de livros  -->
                             <div class="widget">
-                                <h5 class="widget-title font-alt">{{ __('admin.books.categories') }}</h5>
+                                <h5 class="widget-title font-alt">{{ __('guest.books.categories') }}</h5>
                                 <ul class="icon-list">
-                                    <li><a href="{{ route('guest.books') }}">{{ __('admin.books.all_genres') }}</a></li>
+                                    <li><a href="{{ route('guest.books') }}">{{ __('guest.books.all_genres') }}</a></li>
                                     @foreach($genres as $genre)
                                         <li>
                                             <a href="{{ route('guest.books', ['genre' => $genre->id]) }}">{{ $genre->name }}</a>
@@ -100,13 +102,15 @@
                                                 </a>
                                             @else
                                                 <a href="{{route('book', $book->id)}}">
-                                                    <img src="{{ asset('imgs/img_nao_disponivel.png') }}" class="product-thumb rounded" alt="{{ __('admin.books.image_not_available') }}" style="max-width: 90%; height: auto;">
+                                                    <img src="{{ asset('imgs/img_nao_disponivel.png') }}" class="product-thumb rounded" alt="{{ __('guest.books.image_not_available') }}" style="max-width: 90%; height: auto;">
                                                 </a>
                                             @endif
-
-                                            <button type="button" class="add-to-cart"><i class="fa-solid fa-cart-shopping"></i>&nbsp
-                                                {{ __('admin.books.add_to_cart') }}
-                                            </button>
+                                                <button type="button"
+                                                        class="add-to-cart"
+                                                        data-book-id="{{ $book->id }}">
+                                                    <i class="fa-solid fa-cart-shopping"></i>&nbsp;
+                                                    {{ __('guest.books.add_to_cart') }}
+                                                </button>
                                         </figure>
                                         <figcaption>
                                             <h3>{{ $book->title }}</h3>
@@ -131,4 +135,4 @@
     </div>
 @endsection
 
-<!-- FALTA TRADUÇAO-->
+

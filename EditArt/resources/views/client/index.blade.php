@@ -1,9 +1,9 @@
 @extends('layouts.admin.base')
 
-@section('title', __('c_i_s_u.user_list'))
+@section('title', __('client.user_list'))
 
 @section('button')
-    <x-button.add link="{{ route('admin.users.create') }}" icon="fa-user-plus">&nbsp {{ __('c_i_s_u.new_user') }}</x-button.add>
+    <x-button.add link="{{ route('admin.users.create') }}" icon="fa-user-plus">&nbsp {{ __('client.new_user') }}</x-button.add>
 @endsection
 
 @section('content')
@@ -12,7 +12,7 @@
         <x-widget.search
             action="{{ route('admin.users.index') }}"
             name="name"
-            placeholder="{{ __('c_i_s_u.search_placeholder') }}"
+            placeholder="{{ __('client.search_placeholder') }}"
             value="{{ request('name') }}"
         />
 
@@ -25,11 +25,11 @@
                         <x-table>
                             <x-table.thead>
                                 <x-table.tr>
-                                    <x-table.th>{{ __('c_i_s_u.id') }}</x-table.th>
-                                    <x-table.th>{{ __('c_i_s_u.name') }}</x-table.th>
-                                    <x-table.th>{{ __('c_i_s_u.email') }}</x-table.th>
-                                    <x-table.th>{{ __('c_i_s_u.role') }}</x-table.th>
-                                    <x-table.th class="text-end">{{ __('c_i_s_u.actions') }}</x-table.th>
+                                    <x-table.th>{{ __('client.id') }}</x-table.th>
+                                    <x-table.th>{{ __('client.name') }}</x-table.th>
+                                    <x-table.th>{{ __('client.email') }}</x-table.th>
+                                    <x-table.th>{{ __('client.role') }}</x-table.th>
+                                    <x-table.th class="text-end">{{ __('client.actions') }}</x-table.th>
                                 </x-table.tr>
                             </x-table.thead>
                             <x-table.tbody>

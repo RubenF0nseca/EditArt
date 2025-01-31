@@ -32,52 +32,5 @@ return [
     'dashboard_authors' => 'Autores',
     'dashboard_reviews' => 'Avaliações',
 
-    //Cart
-    'cart' => 'Carrinho',
-    'cover' => 'Capa',
-    'price' => 'Preço',
-    'quantity' => 'Quantidade',
-    'total' => 'Total',
-    'remove' => 'Remover',
-    'remove_item' => 'Remover item',
-    'pagination' => 'Paginação', // Se você quiser adicionar alguma tradução para paginação.
-    'total_amount' => 'Montante total',
-    'subtotal' => 'Subtotal',
-    'shipping' => 'Total de envio',
-    'proceed_to_payment' => 'PROSSEGUIR PARA O PAGAMENTO',
-    'title_cart' => 'Título',
-    'place_order' => 'Fazer um pedido',
-    'back_to_cart' => 'Voltar ao carrinho',
-    'billing_address' => 'Morada de faturação',
-    'name' => 'Nome',
-    'surname' => 'Apelido',
-    'email' => 'Email',
-    'phone' => 'Telemóvel',
-    'address' => 'Morada',
-    'locality' => 'Localidade',
-    'zip_code' => 'Código postal',
-    'paypal_payment' => 'Pagamento da conta Paypal',
-    'add_new_account' => '+ Adicionar nova conta',
-    'pay' => 'Pagar',
-
-    //Guest
-    'maintenance' => 'Página em manutenção',
-    'banner' => [
-        'slide_1' => 'Slide 1',
-        'slide_2' => 'Slide 2',
-        'banner_alt' => 'Banner',
-        'previous' => 'Anterior',
-        'next' => 'Próximo',
-    ],
-    'books' => [
-        'our_publications' => 'As nossas publicações',
-        'our_authors_works' => 'Apresentamos as obras dos nossos autores.',
-        'search_by_title' => 'Pesquisar por título do livro',
-        'categories' => 'Categorias',
-        'all_genres' => 'Todos os gêneros',
-        'image_not_available' => 'Imagem não disponível',
-        'add_to_cart' => 'Adicionar ao carrinho',
-    ],
-
 
 ];

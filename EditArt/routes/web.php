@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Auth\PasswordResetController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Client\ProfileController;
 use App\Http\Controllers\EmailController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\AuthorController;
@@ -11,6 +12,7 @@ use App\Http\Controllers\CommentController;
 use App\Http\Controllers\GenreController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\Store\CartController;
 use App\Http\Controllers\Store\SalesController;
 use App\Http\Controllers\UserController;
 use App\Mail\EmailEditArt;
@@ -83,7 +85,10 @@ Route::middleware('role:cliente|admin')->group(function (){
             })->name('profile');
 
             Route::post('/books/{book}', [SalesController::class, 'createBookReview'])->name('reviews.store');
+            Route::put('/books/{book}/review/{review}', [SalesController::class, 'updateBookReview'])->name('review.update');
+            Route::delete('/books/{book}/review/{review}', [SalesController::class, 'deleteBookReview'])->name('review.delete');
 
+            Route::put('/profile', [ProfileController::class, 'update'])->name('profile.update');
         });
     });
 });
@@ -131,9 +136,6 @@ Route::get('/wishlist', function () {
     return view('wishlist.wishlist');
 })->name('wishlist');
 
-Route::get('/cart', function () {
-    return view('cart.cart');
-})->name('cart');
 
 Route::get('/order', function () {
     return view('cart.order');
@@ -161,3 +163,8 @@ Route::get('/guest/authors', function () {
 
 Route::get('/guest/books', [SalesController::class, 'index'])->name('guest.books');
 Route::get('/books/{book}', [SalesController::class, 'showBook'])->name('book');
+
+Route::post('/cart/add/{id}', [CartController::class, 'addToCart'])->name('cart.add');
+Route::get('/cart', [CartController::class, 'showCart'])->name('cart');
+Route::get('/cart/remove/{id}', [CartController::class, 'removeFromCart'])->name('cart.remove');
+Route::post('/cart/update', [CartController::class, 'updateQuantity'])->name('cart.update');

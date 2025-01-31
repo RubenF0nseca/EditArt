@@ -599,3 +599,53 @@ td{
     position: relative;
     top: calc(var(--index) * -2.8);
 }
+/*----------------------------------------------------------
+	   Dicas de ferramentas
+------------------------------------------------------------*/
+.tooltip-container {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip-text {
+    visibility: hidden;
+    background-color: #333;
+    color: #fff9f2;
+    text-align: center;
+    padding: 5px;
+    border-radius: 5px;
+    width: 100%;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.tooltip-container:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+}
+/*
+.product-thumb{
+    width: calc(var(--index) * 9.5);
+    height: calc(var(--index) * 15);
+}
+*/
+.stars {
+    display: inline-flex;
+    cursor: pointer;
+}
+
+.stars .fa-star {
+    font-size: 24px;
+    color: lightgray;
+    transition: color 0.2s ease;
+}
+
+#star-rating .selected {
+    color: gold;
+}
