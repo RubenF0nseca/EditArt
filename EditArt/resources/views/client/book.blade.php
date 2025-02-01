@@ -104,9 +104,6 @@
                         </div>
                     </div>
                     <div class="row mb-20 mt-3">
-                        <div class="col-md-5 mb-sm-20 mb-3" style="width: 8rem;">
-                            <input class="form-control input-lg" type="number" name="" value="1" max="40" min="1" required="required"/>
-                        </div>
                         <div class="col-md-7"><a class="btn btn-solid" href="#">Add To Cart</a></div>
                     </div>
                     <div class="row mb-20">
