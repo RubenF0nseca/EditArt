@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Store\CartController;
 use App\Notifications\UserLoggedInNotification;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -39,6 +40,7 @@ class LoginController extends Controller
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
+            app(CartController::class)->mergeCart();
 
             // Priorizar redirecionamento personalizado
             $redirectUrl = $this->getValidRedirectUrl($request);

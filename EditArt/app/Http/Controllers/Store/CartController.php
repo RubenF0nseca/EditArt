@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Store;
 
 use App\Http\Controllers\Controller;
 use App\Models\Book;
+use App\Models\Cart;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -11,32 +12,43 @@ class CartController extends Controller
 {
     public function addToCart(string $id)
     {
-        $book = Book::findOrfail($id);
-        $cart = session()->get('cart', []);
-        if (isset($cart[$id])) {
-            $cart[$id]['quantity']++;
+        $book = Book::findOrFail($id);
+
+        if (auth()->check()) {
+            $cartItem = Cart::firstOrNew([
+                'user_id' => auth()->id(),
+                'book_id' => $book->id
+            ]);
+
+            $cartItem->quantity++;
+            $cartItem->save();
         } else {
+            $cart = session()->get('cart', []);
             $cart[$id] = [
-                'quantity' => 1,
+                'quantity' => ($cart[$id]['quantity'] ?? 0) + 1,
                 'book' => $book
             ];
-        }
-        session()->put('cart', $cart);
-
-        if (request()->wantsJson()) {
-            return response()->json([
-                'success' => true,
-                'cartCount' => count($cart),
-                'message' => 'Book added to cart successfully!'
-            ]);
+            session()->put('cart', $cart);
         }
 
-        return redirect()->back()->with('success', 'Book added to cart successfully!');
+        return $this->handleResponse();
     }
 
     public function showCart()
     {
-        $cart = session()->get('cart', []);
+        if (auth()->check()) {
+            $cartItems = Cart::with('book')->where('user_id', auth()->id())->get();
+            $cart = $cartItems->mapWithKeys(function ($item) {
+                return [
+                    $item->book_id => [
+                        'quantity' => $item->quantity,
+                        'book' => $item->book
+                    ]
+                ];
+            })->toArray();
+        } else {
+            $cart = session()->get('cart', []);
+        }
 
         // Total COM IVA (já está incluso nos preços)
         $total_com_iva = 0;
@@ -62,23 +74,35 @@ class CartController extends Controller
 
     public function removeFromCart(string $id)
     {
-        $cart = session()->get('cart', []);
-        if (isset($cart[$id])) {
+        if (auth()->check()) {
+            Cart::where('user_id', auth()->id())
+                ->where('book_id', $id)
+                ->delete();
+        } else {
+            $cart = session()->get('cart', []);
             unset($cart[$id]);
             session()->put('cart', $cart);
         }
-        return redirect()->back()->with('success', 'Item removido do carrinho com sucesso!');
+
+        return redirect()->back();
     }
 
     public function updateQuantity(Request $request)
     {
         $bookId = $request->input('book_id');
-        $newQuantity = (int)$request->input('quantity');
+        $newQuantity = max(1, min($request->input('quantity'), 50));
 
-        $cart = session()->get('cart', []);
-
-        if (isset($cart[$bookId])) {
-            $cart[$bookId]['quantity'] = max(1, min($newQuantity, 50)); // Garante que está entre 1 e 50
+        if (auth()->check()) {
+            Cart::updateOrCreate(
+                ['user_id' => auth()->id(), 'book_id' => $bookId],
+                ['quantity' => $newQuantity]
+            );
+        } else {
+            $cart = session()->get('cart', []);
+            if (isset($cart[$bookId])) {
+                $cart[$bookId]['quantity'] = $newQuantity;
+                session()->put('cart', $cart);
+            }
         }
 
         session()->put('cart', $cart);
@@ -105,14 +129,34 @@ class CartController extends Controller
     public function mergeCart()
     {
         if (auth()->check()) {
-            $userId = Auth::id();
-            $cart = session()->get('cart', []);
-            foreach($cart as $bookId => $item) {
-                $exist = Cart::where('user_id', $userId)->where('book_id', $bookId)->first();
+            $sessionCart = session()->get('cart', []);
+
+            foreach ($sessionCart as $bookId => $item) {
+                Cart::updateOrCreate(
+                    ['user_id' => auth()->id(), 'book_id' => $bookId],
+                    ['quantity' => \DB::raw("quantity + {$item['quantity']}")]
+                );
             }
 
+            session()->forget('cart');
         }
     }
+
+    private function handleResponse()
+    {
+        // Atualizar contagem corretamente
+        $count = auth()->check()
+            ? auth()->user()->carts()->count()
+            : count(session()->get('cart', []));
+
+        return response()->json([
+            'success' => true,
+            'cartCount' => $count,
+            'message' => 'Livro adicionado com sucesso!'
+        ]);
+    }
+
+
 
 
 }
