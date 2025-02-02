@@ -19,9 +19,15 @@ class SalesController extends Controller
 
         $genres = Genre::all();
 
-        $books = Book::when($title, fn($query) => $query->title($title))
+        $books = Book::when($title, fn($query) => $query->where('title', 'like', "%$title%"))
             ->byGenre($genreId)
             ->paginate(12);
+
+        if ($request->ajax()) {
+            return response()->json([
+                'html' => view('books.parts.BookList', compact('books'))->render()
+            ]);
+        }
 
         return view('guest.books', ['books' => $books, 'genres' => $genres]);
     }

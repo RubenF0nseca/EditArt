@@ -33,7 +33,12 @@
                             <div class="widget">
                                 <form role="form" method="GET" action="{{ route('guest.books') }}">
                                     <div class="search-box">
-                                        <input class="form-control" type="text" name="title" placeholder="{{ __('guest.books.search_by_title') }}" value="{{ request('title') }}"/>
+                                        <input class="form-control"
+                                               type="text"
+                                               name="title"
+                                               id="search-input"
+                                               placeholder="{{ __('guest.books.search_by_title') }}"
+                                               value="{{ request('title') }}"/>
                                         <button class="search-btn" type="submit"><i class="fa fa-search"></i></button>
                                     </div>
                                 </form>
@@ -54,48 +59,8 @@
                         </div>
                         <!-- ----- Os livros ----------  -->
                         <div class="col-sm-9 col-sm-offset-1">
-                            <div class="row">
-                                @foreach($books as $index => $book)
-                                    @if($index % 4 === 0 && $index !== 0)
-                            </div><div class="row">
-                                @endif
-
-                                <div class="col-sm-12 col-md-6 col-lg-3 mb-4 d-flex justify-content-center">
-                                    <div class="product-item text-center">
-                                        <figure class="product-style">
-
-                                            @if($book->CoverPicture)
-                                                <a href="{{route('book', $book->id)}}">
-                                                    <img src="{{ asset('storage/'.$book->CoverPicture) }}" class="product-thumb rounded" alt="{{ $book->title }}" style="max-width: 90%; height: auto;">
-                                                </a>
-                                            @else
-                                                <a href="{{route('book', $book->id)}}">
-                                                    <img src="{{ asset('imgs/img_nao_disponivel.png') }}" class="product-thumb rounded" alt="{{ __('guest.books.image_not_available') }}" style="max-width: 90%; height: auto;">
-                                                </a>
-                                            @endif
-                                                <button type="button"
-                                                        class="add-to-cart"
-                                                        data-book-id="{{ $book->id }}">
-                                                    <i class="fa-solid fa-cart-shopping"></i>&nbsp;
-                                                    {{ __('guest.books.add_to_cart') }}
-                                                </button>
-                                        </figure>
-                                        <figcaption>
-                                            <h3>{{ $book->title }}</h3>
-                                            <span>{{ $book->type }}</span>
-                                            <div id="wish-price">
-                                                <span class="item-price">€{{ $book->price, 2 }}</span>
-                                                <!--TODO if-->
-                                                <span id="heart"><i class="fa-regular fa-heart"></i></span>
-                                                <span id="heart-solid"><i class="fa-solid fa-heart"></i></span>
-                                            </div>
-                                        </figcaption>
-                                    </div>
-                                </div>
-                                @endforeach
-                            </div>
-                            <div class="card-footer">
-                                {{ $books->links('layouts.admin.parts.pagination') }}
+                            <div id="books-container">
+                                @include('books.parts.BookList')
                             </div>
                         </div>
                     </div>
@@ -104,23 +69,3 @@
         </div>
     </div>
 @endsection
-
-@push('scripts')
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            document.querySelector('.search-box form').addEventListener('submit', function (event) {
-                event.preventDefault(); // Останавливаем перезагрузку страницы
-
-                let searchQuery = document.querySelector('input[name="title"]').value;
-                let url = "{{ route('guest.books') }}?title=" + encodeURIComponent(searchQuery);
-
-                fetch(url, { method: 'GET' })
-                    .then(response => response.text())
-                    .then(data => {
-                        document.querySelector('.books-container').innerHTML = data;
-                    })
-                    .catch(error => console.error('Ошибка:', error));
-            });
-        });
-    </script>
-@endpush

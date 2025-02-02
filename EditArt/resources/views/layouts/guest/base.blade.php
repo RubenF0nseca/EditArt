@@ -30,7 +30,7 @@
         @include('layouts.guest.parts.footer')
     </main>
 <!-- Libs JS -->
-@vite(['resources/js/guest.js', 'resources/js/cart.js'])
+@vite(['resources/js/guest.js', 'resources/js/cart.js', 'resources/js/filter.js'])
 <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 @stack('scripts')
 </body>
