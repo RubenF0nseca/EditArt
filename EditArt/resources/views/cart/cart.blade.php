@@ -101,7 +101,7 @@
                             </tr>
                             <tr>
                                 <th>{{ __('cart.shipping') }}</th>
-                                <td>{{ number_format($shipping, 2) }} €</td>
+                                <td id="shipping">{{ number_format($shipping, 2) }} €</td>
                             </tr>
                             <tr>
                                 <th>Valor a pagar (com IVA)</th>

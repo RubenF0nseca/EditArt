@@ -45,6 +45,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const originalValue = this.value;
             this.value = 'Atualizando...';
 
+
             try {
                 const response = await fetch('/cart/update', {
                     method: 'POST',
@@ -56,11 +57,13 @@ document.addEventListener('DOMContentLoaded', function() {
                         book_id: bookId,
                         quantity: newQuantity
                     })
+
                 });
 
                 const data = await response.json();
 
                 if (data.success) {
+
                     // Atualizar valores dinamicamente
                     document.querySelectorAll(`[data-book-id="${bookId}"] .line-total`).forEach(el => {
                         el.textContent = data.lineTotal + ' €';
@@ -69,6 +72,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     document.getElementById('total-sem-iva').textContent = data.total_sem_iva + ' €';
                     document.getElementById('iva').textContent = data.iva + ' €';
                     document.getElementById('total-pagar').textContent = data.total_pagar + ' €';
+                    document.getElementById('shipping').textContent = data.shipping + ' €';
                 }
             } catch (error) {
                 console.error('Erro:', error);

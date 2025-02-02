@@ -59,8 +59,14 @@ class CartController extends Controller
         // Cálculo do valor SEM IVA (6%)
         $total_sem_iva = $total_com_iva / 1.06;
         $iva = $total_com_iva - $total_sem_iva;
+        if ($total_com_iva == 0 || $total_com_iva > 45.00) {
+            $shipping = 0.00;
+        }
+        else {
+            $shipping = 2.00;
+        }
 
-        $shipping = 2.00;
+
         $total_pagar = $total_com_iva + $shipping;
 
         return view('cart.cart', compact(
@@ -93,10 +99,20 @@ class CartController extends Controller
         $newQuantity = max(1, min($request->input('quantity'), 50));
 
         if (auth()->check()) {
+
             Cart::updateOrCreate(
                 ['user_id' => auth()->id(), 'book_id' => $bookId],
                 ['quantity' => $newQuantity]
             );
+
+            $cartItems = Cart::with('book')->where('user_id', auth()->id())->get();
+            $cart = [];
+            foreach ($cartItems as $item) {
+                $cart[$item->book_id] = [
+                    'quantity' => $item->quantity,
+                    'book' => $item->book
+                ];
+            }
         } else {
             $cart = session()->get('cart', []);
             if (isset($cart[$bookId])) {
@@ -113,7 +129,12 @@ class CartController extends Controller
 
         $total_sem_iva = $total_com_iva / 1.06;
         $iva = $total_com_iva - $total_sem_iva;
-        $shipping = 2.00;
+        if ($total_com_iva == 0 || $total_com_iva > 45.00) {
+            $shipping = 0.00;
+        }
+        else {
+            $shipping = 2.00;
+        }
         $total_pagar = $total_com_iva + $shipping;
 
         return response()->json([
@@ -122,9 +143,11 @@ class CartController extends Controller
             'lineTotal' => number_format($cart[$bookId]['quantity'] * $cart[$bookId]['book']->price, 2),
             'total_sem_iva' => number_format($total_sem_iva, 2),
             'iva' => number_format($iva, 2),
+            'shipping' => number_format($shipping, 2),
             'total_pagar' => number_format($total_pagar, 2)
         ]);
     }
+
 
     public function mergeCart()
     {
