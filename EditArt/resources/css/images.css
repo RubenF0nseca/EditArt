@@ -1,0 +1,73 @@
+/*=========================================================
+       Imagens no fundo
+=========================================================== */
+/*----------------------------------------------------------
+	   Comum
+------------------------------------------------------------*/
+.banner,
+.store-bg,
+.forum-bg,
+.publisher-bg,
+.error-403, .error-404 {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    margin-top: 76px;
+}
+/*----------------------------------------------------------
+	   Background dos Login / Registration
+------------------------------------------------------------*/
+.banner {
+    background-image: url('/public/imgs/banner.jpg');
+}
+/*----------------------------------------------------------
+	   Background da Loja
+------------------------------------------------------------*/
+.store-bg {
+    background-image: url('/public/imgs/store-bg.webp');
+    height: 92vh;
+}
+/*----------------------------------------------------------
+	   Background do Forum
+------------------------------------------------------------*/
+.forum-bg {
+    background-image: url('/public/imgs/forum_bg.png');
+    height: 90vh;
+}
+/*----------------------------------------------------------
+	   Background da Editora
+------------------------------------------------------------*/
+.publisher-bg {
+    background-image: url('/public/imgs/publisher-bg.webp');
+}
+/*----------------------------------------------------------
+	   Background das Paginas do Erros
+------------------------------------------------------------*/
+.error-403 {
+    background-image: url('/public/imgs/error-403.jpg');
+}
+.error-404 {
+    background-image: url('/public/imgs/error-404.png');
+}
+/*----------------------------------------------------------
+	   Background da Pagina do Confirmação
+------------------------------------------------------------*/
+#logo-bg {
+    background-image: url("/public/imgs/logo-editart.png");
+    background-repeat: no-repeat;
+    background-position: left;
+    background-size: contain;
+    width: 100%;
+    height: 71vh;
+    position: absolute;
+    opacity: 15%;
+    z-index: -1;
+    top: 62px;
+    left: -14px;
+}
+/*----------------------------------------------------------
+	   Background
+------------------------------------------------------------*/

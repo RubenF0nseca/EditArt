@@ -19,6 +19,11 @@
         max-width: 1550px;
     }
 }
+@media (min-width: 2500px) {
+    .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+        max-width: 2000px;
+    }
+}
 * {
     margin: 0;
     padding: 0;
@@ -443,7 +448,7 @@ td{
 .widget .icon-list li {
     padding: 5px 0;
 }
-.widget .icon-list li a:before {
+.widget .icon-list li:before {
     content: "\00BB";
     color: #666666;
     padding-right: 5px;
@@ -649,22 +654,6 @@ td{
 /*=========================================================
        Paginas do erros
 =========================================================== */
-.error-403 {
-    background-image: url('/public/imgs/error-403.jpg');
-}
-.error-404 {
-    background-image: url('/public/imgs/error-404.png');
-}
-.error-403, .error-404 {
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    width: 100%;
-    height: 100vh;
-    position: relative;
-    margin-top: 76px;
-}
-
 #title-error-403, #title-error-404{
     font-size: calc(var(--index) * 7);
     position: relative;
