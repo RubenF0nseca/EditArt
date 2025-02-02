@@ -15,7 +15,7 @@
                 </li>
                 <li class="nav-item"><a class="nav-link"
                                         href="{{ route('guest.authors') }}">{{ __('menu.authors') }}</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">{{ __('menu.online_publisher') }}</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{route('publisher')}}">{{ __('menu.online_publisher') }}</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ route('forum') }}">Forum</a></li>
             </ul>
             <!-- Icons -->
