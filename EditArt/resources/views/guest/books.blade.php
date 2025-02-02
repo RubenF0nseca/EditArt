@@ -8,44 +8,12 @@
 
 @extends($layout)
 @section('content')
-    <!-- Banner ------------------------------------  -->
-    <div id="myCarousel" class="carousel slide mb-6" data-bs-ride="carousel">
-        <div class="carousel-indicators">
-            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2" class="active" aria-current="true"></button>
-        </div>
-
-        <!-- ------ Slide 1 ---------------------------  -->
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img src="{{ asset('imgs/banner-books.png') }}" alt="Banner" width="100%" height="100%">
-                <div class="container">
-                    <!-- ------TODO TEXTO--------  -->
-                </div>
-            </div>
-            <!-- ----- Slide 2 ---------------------------  -->
-            <div class="carousel-item">
-                <img src="{{ asset('imgs/banner-books2.png') }}" alt="Banner" width="100%" height="100%">
-                <div class="container">
-                    <div class="carousel-caption text-end">
-                        <!-- ------TODO TEXTO--------  -->
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-        <!-- ----- As setas ---------------------------  -->
-        <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
-
-    <!-- ----- Os produtos ---------------------------  -->
     <div class="page-wrapper wrapper d-flex flex-column min-vh-100">
+        <!-- Banner ------------------------------------  -->
+        <div class="store-bg">
+            <h2 class="module-title font-alt" id="margin-top">Loja <br>online</h2>
+        </div>
+        <!-- ----- Os produtos ---------------------------  -->
         <div class="page-body">
             <div class="container-xl">
                 <section id="popular-books" class="bookshelf py-5">
@@ -137,4 +105,22 @@
     </div>
 @endsection
 
+@push('scripts')
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            document.querySelector('.search-box form').addEventListener('submit', function (event) {
+                event.preventDefault(); // Останавливаем перезагрузку страницы
 
+                let searchQuery = document.querySelector('input[name="title"]').value;
+                let url = "{{ route('guest.books') }}?title=" + encodeURIComponent(searchQuery);
+
+                fetch(url, { method: 'GET' })
+                    .then(response => response.text())
+                    .then(data => {
+                        document.querySelector('.books-container').innerHTML = data;
+                    })
+                    .catch(error => console.error('Ошибка:', error));
+            });
+        });
+    </script>
+@endpush
