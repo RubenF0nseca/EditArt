@@ -157,6 +157,10 @@ Route::get('/guest/authors', function () {
     return view('guest.authors');
 })->name('guest.authors');
 
+Route::get('/publisher', function () {
+    return view('publisher.publisher');
+})->name('publisher');
+
 //Route::get('/guest/books', function () {
 //    return view('guest.books', ['books' => \App\Models\Book::paginate(12)]);
 //})->name('guest.books');
