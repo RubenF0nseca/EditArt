@@ -107,8 +107,8 @@ ul{margin: 0;}
 	   Dashboard
 ------------------------------------------------------------*/
 #admin-bg{
-    background: rgb(224,181,155);
-    background: linear-gradient(180deg, rgba(224,181,155,1) 0%, rgba(180,135,106,1) 32%, rgba(0,0,0,1) 100%);
+    /*background: rgb(224,181,155);
+    background: linear-gradient(180deg, rgba(224,181,155,1) 0%, rgba(180,135,106,1) 32%, rgba(0,0,0,1) 100%);*/
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -120,13 +120,13 @@ ul{margin: 0;}
 	   Widgets
 ------------------------------------------------------------*/
 #widget-card{
-    border: 1px solid rgba(175, 136, 103, 0.33);
+    /*border: 1px solid rgba(175, 136, 103, 0.33);
     backdrop-filter: brightness(0.5);
-    --tblr-card-bg: none;
+    --tblr-card-bg: none;*/
+    background-color: #f6f1ed;
 }
 .widget-item {
     padding: 10px 20px;
-    color: white;
     p{
         font-size: 15px;
     }

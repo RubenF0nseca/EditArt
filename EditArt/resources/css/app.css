@@ -277,6 +277,9 @@ blockquote {
 td{
     vertical-align: middle;
 }
+.table-responsive, .card{
+    border-radius: 8px;
+}
 /*----------------------------------------------------------
 	   Modal
 ------------------------------------------------------------*/
