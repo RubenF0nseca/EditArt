@@ -19,12 +19,12 @@
                                 <div class="col-md-6 mb-3">
                                     <label for="name" class="form-label required">{{ __('cart.name') }}</label>
                                     <input type="text" id="name" name="name" class="form-control"
-                                           value="{{ old('name', $user->name ?? '') }}">
+                                           value="{{ old('name', $user->name ?? '') }}"  readonly>
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label for="email" class="form-label required">{{ __('cart.email') }}</label>
                                     <input type="text" id="email" name="email" class="form-control"
-                                           value="{{ old('email', $user->email ?? '') }}">
+                                           value="{{ old('email', $user->email ?? '') }}" readonly>
                                 </div>
                             </div>
 
@@ -60,11 +60,15 @@
                             </div>
 
                             <!-- Botão de submit -->
+                            <div class="container">
+                                <h1>Pagamento com PayPal</h1>
+                                <div id="paypal-button-container"></div>
+                            </div>
                             <x-button.submit color="solid btn-block">{{ __('cart.pay') }}</x-button.submit>
                         </form>
                     </div>
                 </div>
-                <!-- Tabela de Totais (idem à página do carrinho) -->
+                <!-- Tabela de Totais -->
                 <div class="col-lg-3 col-sm-offset-7">
                     <div>
                         <h1 class="section-title font-alt">{{ __('cart.total_amount') }}</h1>
@@ -95,3 +99,61 @@
         </div>
     </div>
 @endsection
+@push('scripts')
+    <script>
+        paypal.Buttons({
+            createOrder: function(data, actions) {
+                return actions.order.create({
+                    purchase_units: [{
+                        amount: {
+                            value: '{{ number_format($total_pagar, 2, ".", "") }}'
+                        }
+                    }]
+                });
+            },
+            onApprove: function(data, actions) {
+                return actions.order.capture().then(function(details) {
+                    alert('Pagamento concluído com sucesso, ' + details.payer.name.given_name + '!');
+
+                    // Coletar os dados do formulário (exceto nome e email, que são read-only)
+                    const billingData = {
+                        address: document.getElementById('address').value,
+                        locality: document.getElementById('locality').value,
+                        postal_code: document.getElementById('postal_code').value,
+                        nif: document.getElementById('nif').value,
+                        phone_number: document.getElementById('phone_number').value
+                    };
+
+                    // Enviar os detalhes do pagamento junto com os dados do endereço para o controller
+                    fetch('/payment/complete', {
+                        method: 'POST',
+                        headers: {
+                            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            transactionDetails: details,
+                            billingData: billingData
+                        })
+                    })
+                        .then(response => response.json())
+                        .then(data => {
+                            if (data.success) {
+                                window.location.href = '/order/confirmation';
+                            } else {
+                                alert('Ocorreu um erro ao registrar a transação.');
+                            }
+                        })
+                        .catch(err => {
+                            console.error('Erro:', err);
+                            alert('Ocorreu um erro ao processar o pagamento.');
+                        });
+                });
+            },
+            onError: function(err) {
+                console.error(err);
+                alert('Ocorreu um erro ao processar o pagamento.');
+            }
+        }).render('#paypal-button-container');
+    </script>
+@endpush

@@ -13,6 +13,7 @@ use App\Http\Controllers\GenreController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\Store\CartController;
+use App\Http\Controllers\Store\PayPalController;
 use App\Http\Controllers\Store\SalesController;
 use App\Http\Controllers\UserController;
 use App\Mail\EmailEditArt;
@@ -166,8 +167,13 @@ Route::post('/cart/add/{id}', [CartController::class, 'addToCart'])->name('cart.
 Route::get('/cart', [CartController::class, 'showCart'])->name('cart');
 Route::get('/cart/remove/{id}', [CartController::class, 'removeFromCart'])->name('cart.remove');
 Route::post('/cart/update', [CartController::class, 'updateQuantity'])->name('cart.update');
-Route::get('/confirmation', function () {return view('cart.confirmation');})->name('confirmation');
+//Route::get('/confirmation', function () {return view('cart.confirmation');})->name('confirmation');
 Route::get('/cart/order', [CartController::class, 'orderConfirmation'])->name('cart.order');
+// Endpoint para completar o pagamento
+Route::post('/payment/complete', [PayPalController::class, 'completePayment'])->name('payment.complete');
+
+// Página de confirmação final do pedido
+Route::get('/order/confirmation', [PayPalController::class, 'orderConfirmation'])->name('order.confirmation');
 
 //Route::get('/order', function () {
  //   return view('cart.order');

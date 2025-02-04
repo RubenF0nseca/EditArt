@@ -22,8 +22,8 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name', 'email', 'address', 'nif', 'phone_number', 'birthdate', 'password', 'role',
-
+        'name', 'email', 'address', 'nif', 'phone_number',
+        'birthdate', 'password', 'postal_code', 'locality',
     ];
 
     /**
@@ -49,20 +49,9 @@ class User extends Authenticatable
         ];
     }
 
-    /**
-     * Relacionamento 1:N para transações como cliente.
-     */
     public function transactions()
     {
-        return $this->hasMany(Transactions::class, 'user_id', 'id');
-    }
-
-    /**
-     * Relacionamento 1:N para transações como staff.
-     */
-    public function staffTransactions()
-    {
-        return $this->hasMany(Transactions::class, 'staff_id', 'id');
+        return $this->hasMany(Transactions::class);
     }
 
     /**

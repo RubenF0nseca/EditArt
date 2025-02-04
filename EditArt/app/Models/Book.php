@@ -41,6 +41,11 @@ class Book extends Model
         return $this->hasMany(Review::class, 'book_id', 'id');
     }
 
+    public function transactionItems()
+    {
+        return $this->hasMany(TransactionItem::class);
+    }
+
     /**
      * Relação muitos-para-muitos com o modelo Author.
      */
