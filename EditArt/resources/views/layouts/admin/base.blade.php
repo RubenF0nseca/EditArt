@@ -20,7 +20,7 @@
     @vite(['resources/sass/app.scss'])
 </head>
 <body class="layout-fluid">
-<div class="page" id="@yield('id')">
+<div class="page">
     <!-- Sidebar -->
     <aside class="navbar navbar-vertical navbar-expand-lg shadow-lg" data-bs-theme="dark">
         <div class="container-fluid">
@@ -201,7 +201,8 @@
     </div>
 </div>
 <!-- Libs JS -->
-@vite(['resources/js/app.js','resources/js/admin.js'])
+@vite(['resources/js/app.js','resources/js/admin.js', 'resources/js/vendas.js'])
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- JS do Widget do Vendas-->
 @stack('scripts')
 </body>
 </html>

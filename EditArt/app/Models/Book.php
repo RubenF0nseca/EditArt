@@ -122,4 +122,9 @@ class Book extends Model
         return $query;
     }
 
+    // Classificar os livros em stock por ordem crescente no dashboard
+    public function scopeStock($query)
+    {
+        return $query->orderBy('stock','asc');
+    }
 }

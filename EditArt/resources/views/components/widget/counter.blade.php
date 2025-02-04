@@ -6,6 +6,6 @@
     </div>
     <div class="col pr-0">
         <p class="font-alt mb-0">{{$title}}</p>
-        <span class="h3 mb-0">{{$count}}</span>
+        <span class="h3 mb-0">{{$count}} {{$slot}}</span>
     </div>
 </div>

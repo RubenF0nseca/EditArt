@@ -16,7 +16,8 @@ class DashboardController extends Controller
         $products_count=Book::all()->count();
         $authors_count=Author::all()->count();
         $reviews_count=Review::all()->count();
+        $books=Book::stock()->paginate(8);
 
-        return view('admin.dashboard', compact('users_count', 'products_count', 'authors_count', 'reviews_count'));
+        return view('admin.dashboard', compact('users_count', 'products_count', 'authors_count', 'reviews_count', 'books'));
     }
 }

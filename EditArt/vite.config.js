@@ -12,7 +12,8 @@ export default defineConfig({
                 'resources/js/admin.js',
                 'resources/js/quill.js',
                 'resources/js/cart.js',
-                'resources/js/filter.js'
+                'resources/js/filter.js',
+                'resources/js/vendas.js'
             ],
             refresh: true,
         }),
