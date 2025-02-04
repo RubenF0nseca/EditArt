@@ -14,10 +14,14 @@ return new class extends Migration
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained();
-            $table->foreignId('staff_id')->constrained('users', 'id');
             $table->float('price');
             $table->dateTime('transaction_date');
             $table->dateTime('delivery_date');
+            $table->string('user_address', 255);
+            $table->string('user_postal_code', 8);
+            $table->string('user_locality', 50);
+            $table->string('user_phone_number', 15);
+            $table->string('user_nif', 9);
             $table->timestamps();
         });
     }

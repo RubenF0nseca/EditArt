@@ -137,13 +137,7 @@ Route::get('/wishlist', function () {
 })->name('wishlist');
 
 
-Route::get('/order', function () {
-    return view('cart.order');
-})->name('order');
 
-Route::get('/confirmation', function () {
-    return view('cart.confirmation');
-})->name('confirmation');
 
 Route::get('/forum', function () {
     return view('forum.forum');
@@ -172,3 +166,9 @@ Route::post('/cart/add/{id}', [CartController::class, 'addToCart'])->name('cart.
 Route::get('/cart', [CartController::class, 'showCart'])->name('cart');
 Route::get('/cart/remove/{id}', [CartController::class, 'removeFromCart'])->name('cart.remove');
 Route::post('/cart/update', [CartController::class, 'updateQuantity'])->name('cart.update');
+Route::get('/confirmation', function () {return view('cart.confirmation');})->name('confirmation');
+Route::get('/cart/order', [CartController::class, 'orderConfirmation'])->name('cart.order');
+
+//Route::get('/order', function () {
+ //   return view('cart.order');
+//})->name('order');

@@ -179,6 +179,45 @@ class CartController extends Controller
         ]);
     }
 
+    public function orderConfirmation()
+    {
+        if (auth()->check()) {
+            $cartItems = Cart::with('book')->where('user_id', auth()->id())->get();
+            $cart = $cartItems->mapWithKeys(function ($item) {
+                return [
+                    $item->book_id => [
+                        'quantity' => $item->quantity,
+                        'book' => $item->book
+                    ]
+                ];
+            })->toArray();
+        } else {
+            $cart = session()->get('cart', []);
+        }
+
+        // Cálculo dos totais
+        $total_com_iva = 0;
+        foreach ($cart as $item) {
+            $total_com_iva += $item['book']->price * $item['quantity'];
+        }
+        $total_sem_iva = $total_com_iva / 1.06;
+        $iva = $total_com_iva - $total_sem_iva;
+        $shipping = ($total_com_iva == 0 || $total_com_iva > 45.00) ? 0.00 : 2.00;
+        $total_pagar = $total_com_iva + $shipping;
+
+        //dados do user autenticado
+        $user = auth()->user();
+
+        return view('cart.order', compact(
+            'cart',
+            'total_sem_iva',
+            'iva',
+            'shipping',
+            'total_pagar',
+            'user'
+        ));
+    }
+
 
 
 
