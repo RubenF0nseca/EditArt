@@ -48,6 +48,10 @@ class PayPalController extends Controller
 
         // Para cada item, crie um registro na tabela transaction_items
         foreach ($cartItems as $item) {
+            \Log::info('Criando TransactionItem para book_id: ' . $item->book_id, [
+                'quantity' => $item->quantity,
+                'unit_price' => $item->book->price,
+            ]);
             $transaction->items()->create([
                 'book_id'    => $item->book_id,
                 'quantity'   => $item->quantity,

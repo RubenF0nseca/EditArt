@@ -18,7 +18,7 @@ class TransactionItem extends Model
      */
     public function transaction()
     {
-        return $this->belongsTo(\App\Models\Transaction::class);
+        return $this->belongsTo(Transactions::class, 'transaction_id');
     }
 
     /**
@@ -26,6 +26,6 @@ class TransactionItem extends Model
      */
     public function book()
     {
-        return $this->belongsTo(\App\Models\Book::class);
+        return $this->belongsTo(Book::class);
     }
 }
