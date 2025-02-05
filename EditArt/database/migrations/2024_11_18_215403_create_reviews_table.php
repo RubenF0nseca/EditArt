@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('comment', 1000)->nullable();
             $table->tinyInteger('rating')->unsigned()->nullable();
             $table->string('topic');
+            $table->boolean('is_approved')->default(false);
             $table->timestamps();
         });
     }

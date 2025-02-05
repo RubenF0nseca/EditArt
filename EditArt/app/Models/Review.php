@@ -16,6 +16,7 @@ class Review extends Model
         'rating',
         'comment',
         'topic',
+        'is_approved',
     ];
 
     /**

@@ -41,7 +41,11 @@ class ReviewController extends Controller
      */
     public function index()
     {
-        return view('reviews.index', ['reviews' => Review::paginate(12)]);
+        $reviews = Review::where('is_approved', false)
+            ->orderBy('created_at', 'desc')
+            ->paginate(12);
+
+        return view('reviews.index', ['reviews' => $reviews]);
     }
 
     /**
@@ -89,6 +93,15 @@ class ReviewController extends Controller
      */
     public function update(Request $request, Review $review)
     {
+        // Se for apenas para atualizar o estado is_approved
+        if ($request->has('is_approved')) {
+            $review->is_approved = $request->is_approved;
+            $review->save();
+
+            return redirect()->back()->with('success', "Estado da avaliação atualizado! [#{$review->id}]");
+        }
+
+        // Validar e atualizar a avaliação
         $validated = $request->validate($this->getValidationRules($review), $this->messages);
 
         try {
