@@ -18,7 +18,7 @@ class TransactionItem extends Model
      */
     public function transaction()
     {
-        return $this->belongsTo(Transactions::class, 'transaction_id');
+        return $this->belongsTo(Transaction::class);
     }
 
     /**

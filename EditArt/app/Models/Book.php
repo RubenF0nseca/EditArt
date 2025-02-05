@@ -30,7 +30,7 @@ class Book extends Model
      */
     public function transactions()
     {
-        return $this->hasMany(Transactions::class, 'user_id', 'id');
+        return $this->hasMany(Transaction::class, 'user_id', 'id');
     }
 
     /**

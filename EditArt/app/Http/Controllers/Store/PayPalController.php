@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Store;
 
 use App\Http\Controllers\Controller;
 use App\Models\Cart;
-use App\Models\Transactions;
+use App\Models\Transaction;
 use Illuminate\Http\Request;
 
 class PayPalController extends Controller
@@ -31,7 +31,7 @@ class PayPalController extends Controller
         }
 
         // Crie um registro na tabela transactions, salvando também os dados do endereço
-        $transaction = Transactions::create([
+        $transaction = Transaction::create([
             'user_id'          => $user->id,
             'price'            => $paidAmount,
             'transaction_date' => now(),
@@ -68,7 +68,7 @@ class PayPalController extends Controller
     public function orderConfirmation()
     {
         // Recuperar a última transação do usuário
-        $transaction = Transactions::with('items.book')
+        $transaction = Transaction::with('items.book')
             ->where('user_id', auth()->id())
             ->orderBy('created_at', 'desc')
             ->first();
