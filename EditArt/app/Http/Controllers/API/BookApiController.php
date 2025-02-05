@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use App\Http\Resources\BookResource;
+use App\Http\Resources\BookResourceExtended;
 use App\Models\Book;
 use Illuminate\Http\Request;
 
@@ -12,22 +13,6 @@ class BookApiController extends BaseController
     public function getBooks(Request $request)
     {
         $books = Book::all();
-
-        if ($request->has('title')) {
-            $query->title($request->title);
-        }
-        if ($request->has('popular')) {
-            $query->popular();
-        }
-        if ($request->has('highest_rated')) {
-            $query->highestRated();
-        }
-        if ($request->has('min_reviews')) {
-            $query->minReviews($request->min_reviews);
-        }
-        if ($request->has('genre')) {
-            $query->byGenre($request->genre);
-        }
 
         $booksArray = [];
 
@@ -48,7 +33,7 @@ class BookApiController extends BaseController
             return $this->sendError('Book not found.');
         }
 
-        return $this->sendResponse(new BookResource($book), 'Book retrieved successfully.');
+        return $this->sendResponse(new BookResourceExtended($book), 'Book retrieved successfully.');
     }
 }
 
