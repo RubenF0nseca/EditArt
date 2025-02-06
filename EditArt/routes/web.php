@@ -15,6 +15,7 @@ use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\Store\CartController;
 use App\Http\Controllers\Store\PayPalController;
 use App\Http\Controllers\Store\SalesController;
+use App\Http\Controllers\Store\WishlistController;
 use App\Http\Controllers\UserController;
 use App\Mail\EmailEditArt;
 use App\Models\User;
@@ -90,6 +91,10 @@ Route::middleware('role:cliente|admin')->group(function (){
             Route::delete('/books/{book}/review/{review}', [SalesController::class, 'deleteBookReview'])->name('review.delete');
 
             Route::put('/profile', [ProfileController::class, 'update'])->name('profile.update');
+
+            Route::get('/wishlist', [WishlistController::class, 'index'])->name('wishlist.index');
+            Route::post('/wishlist/add/{bookId}', [WishlistController::class, 'add'])->name('wishlist.add');
+            Route::delete('/wishlist/remove/{bookId}', [WishlistController::class, 'remove'])->name('wishlist.remove');
         });
     });
 });
@@ -155,10 +160,6 @@ Route::get('/guest/authors', function () {
 Route::get('/publisher', function () {
     return view('publisher.publisher');
 })->name('publisher');
-
-//Route::get('/guest/books', function () {
-//    return view('guest.books', ['books' => \App\Models\Book::paginate(12)]);
-//})->name('guest.books');
 
 Route::get('/guest/books', [SalesController::class, 'index'])->name('guest.books');
 Route::get('/books/{book}', [SalesController::class, 'showBook'])->name('book');
