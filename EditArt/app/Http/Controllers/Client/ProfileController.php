@@ -18,6 +18,8 @@ class ProfileController extends Controller
             'nif' => 'required|digits:9|unique:users,nif,' . $id,
             'phone_number' => 'required|regex:/^\d{9,15}$/|unique:users,phone_number,' . $id . ',id',
             'password' => $user ? 'nullable|min:8|max:50' : 'required|min:8|max:50',
+            'locality' => 'max:255',
+            'postal_code' => 'regex:/^\d{4}(-\d{3})?$/',
         ];
     }
 

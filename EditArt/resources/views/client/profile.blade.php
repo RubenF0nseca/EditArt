@@ -69,11 +69,11 @@
                                 </div>
                                 <div class="row review-entry">
                                     <span class="col-3 font-alt">{{ __('client.local') }}</span>
-                                    <span class="col-9">{{--TODO--}}</span>
+                                    <span class="col-9">{{ auth()->user()->locality }}</span>
                                 </div>
                                 <div class="row review-entry">
                                     <span class="col-3 font-alt">{{ __('client.zip_code') }}</span>
-                                    <span class="col-9">{{--TODO--}}</span>
+                                    <span class="col-9">{{ auth()->user()->postal_code }}</span>
                                 </div>
                                 <div class="row review-entry">
                                     <span class="col-3 font-alt">{{ __('client.account_created') }}</span>
@@ -117,13 +117,17 @@
                                     </div>
                                     <div class="row review-entry">
                                         <label class="col-3 font-alt">{{ __('client.local') }}</label>
-                                        <input class="col-9 form-control" type="text" name="locality" value="">
-                                        {{--TODO--}}
+                                        <input class="col-9 form-control @error('locality') is-invalid @enderror" type="text" name="locality" value="{{ auth()->user()->locality }}">
+                                        @error('locality')
+                                        <div class="invalid-feedback" >{{$message}}</div>
+                                        @enderror
                                     </div>
                                     <div class="row review-entry">
                                         <label class="col-3 font-alt">{{ __('client.zip_code') }}</label>
-                                        <input class="col-9 form-control" type="text" name="postal_code" value="">
-                                        {{--TODO--}}
+                                        <input class="col-9 form-control @error('postal_code') is-invalid @enderror" type="text" name="postal_code" value="{{ auth()->user()->postal_code }}">
+                                        @error('postal_code')
+                                        <div class="invalid-feedback" >{{$message}}</div>
+                                        @enderror
                                     </div>
                                     <div class="mt-3 text-end">
                                         <button class="btn btn-solid" type="submit">{{ __('client.save') }}</button>
@@ -140,10 +144,10 @@
                             <!-- Modal -->
                             <div id="myModal" class="modal fade">
                                 <div class="modal-dialog modal-confirm">
-                                    <div class="modal-content">
+                                    <div class="content-green">
                                         <div class="modal-header">
                                             <div class="icon-box">
-                                                <i class="fa-solid fa-check material-icons"></i>
+                                                <i class="fa-solid fa-check"></i>
                                             </div>
                                         </div>
                                         <div class="modal-body">
