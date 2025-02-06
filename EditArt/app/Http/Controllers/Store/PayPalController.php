@@ -11,14 +11,14 @@ class PayPalController extends Controller
 {
     public function completePayment(Request $request)
     {
-        // Obter os detalhes da transação do PayPal e os dados do endereço enviados via AJAX
+        // Obter os detalhes da transação do PayPal e os dados do endereço
         $transactionDetails = $request->input('transactionDetails');
         $billingData = $request->input('billingData');
 
-        // Obter o valor pago (ajuste conforme o retorno da API do PayPal)
+        // Obter o valor pago
         $paidAmount = $transactionDetails['purchase_units'][0]['amount']['value'];
 
-        // Atualizar os dados de endereço do usuário (exceto nome e email)
+        // Atualizar os dados do user (exceto nome e email)
         $user = auth()->user();
         if ($billingData && $user) {
             $user->update([
@@ -30,7 +30,7 @@ class PayPalController extends Controller
             ]);
         }
 
-        // Crie um registro na tabela transactions, salvando também os dados do endereço
+        // Criar um registro na tabela transactions
         $transaction = Transaction::create([
             'user_id'          => $user->id,
             'price'            => $paidAmount,
@@ -43,20 +43,22 @@ class PayPalController extends Controller
             'user_nif'         => $billingData['nif'],
         ]);
 
-        // Recuperar os itens do carrinho para o usuário autenticado
+        // Recuperar os itens do carrinho
         $cartItems = Cart::with('book')->where('user_id', $user->id)->get();
 
-        // Para cada item, crie um registro na tabela transaction_items
         foreach ($cartItems as $item) {
-            \Log::info('Criando TransactionItem para book_id: ' . $item->book_id, [
-                'quantity' => $item->quantity,
-                'unit_price' => $item->book->price,
-            ]);
             $transaction->items()->create([
                 'book_id'    => $item->book_id,
                 'quantity'   => $item->quantity,
                 'unit_price' => $item->book->price,
             ]);
+        }
+
+        //atualizar stock dos livros
+        foreach ($cartItems as $item) {
+            $book = $item->book;
+            $book->stock -= $item->quantity;
+            $book->save();
         }
 
         // Limpar o carrinho
@@ -67,7 +69,7 @@ class PayPalController extends Controller
 
     public function orderConfirmation()
     {
-        // Recuperar a última transação do usuário
+        // Recuperar a última transação do user
         $transaction = Transaction::with('items.book')
             ->where('user_id', auth()->id())
             ->orderBy('created_at', 'desc')

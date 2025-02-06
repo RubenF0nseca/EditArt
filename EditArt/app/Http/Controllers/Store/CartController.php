@@ -183,6 +183,14 @@ class CartController extends Controller
     {
         if (auth()->check()) {
             $cartItems = Cart::with('book')->where('user_id', auth()->id())->get();
+
+            foreach ($cartItems as $item) {
+                if ($item->book->stock < $item->quantity) {
+
+                    return redirect()->route('cart')->with('error', 'O livro "' . $item->book->title . '" não possui stock suficiente. Quantidade disponível: ' . $item->book->stock);
+                }
+            }
+
             $cart = $cartItems->mapWithKeys(function ($item) {
                 return [
                     $item->book_id => [
