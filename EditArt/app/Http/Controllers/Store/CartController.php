@@ -191,6 +191,10 @@ class CartController extends Controller
                 }
             }
 
+            if ($cartItems->isEmpty()) {
+                return redirect()->route('cart')->with('error', 'O carrinho está vazio.');
+            }
+
             $cart = $cartItems->mapWithKeys(function ($item) {
                 return [
                     $item->book_id => [
