@@ -27,6 +27,15 @@
             </figure>
             <figcaption>
                 <h3>{{ $book->title }}</h3>
+                <h5 class="font-serif">
+                    @if($book->authors->isNotEmpty())
+                        @foreach($book->authors as $author)
+                            <h2 class="author-name font-serif">{{ $author->name }}</h2>
+                        @endforeach
+                    @else
+                        Sem author
+                    @endif
+                </h5>
                 <span>{{ $book->type }}</span>
                 <div id="wish-price">
                     <span class="item-price">€{{ $book->price, 2 }}</span>
