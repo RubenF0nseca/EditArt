@@ -61,7 +61,7 @@
 
                             <!-- Botão de submit -->
                             <div class="container">
-                                <h1>Pagamento com PayPal</h1>
+                                <h1>{{ __('cart.payment_with_paypal') }}</h1>
                                 <div id="paypal-button-container"></div>
                             </div>
                             <x-button.submit color="solid btn-block">{{ __('cart.pay') }}</x-button.submit>
@@ -76,7 +76,7 @@
                         <table class="table table-striped table-border checkout-table">
                             <tbody>
                             <tr>
-                                <th>{{ __('cart.total_sem_iva') }}</th>
+                                <th>{{ __('cart.total_without_iva') }}</th>
                                 <td id="total-sem-iva">{{ number_format($total_sem_iva, 2) }} €</td>
                             </tr>
                             <tr>
@@ -88,7 +88,7 @@
                                 <td id="shipping">{{ number_format($shipping, 2) }} €</td>
                             </tr>
                             <tr>
-                                <th>{{ __('cart.valor_a_pagar') }}</th>
+                                <th>{{ __('cart.amount_to_pay') }}</th>
                                 <td id="total-pagar">{{ number_format($total_pagar, 2) }} €</td>
                             </tr>
                             </tbody>

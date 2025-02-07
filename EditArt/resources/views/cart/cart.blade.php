@@ -98,11 +98,11 @@
                         <table class="table table-striped table-border checkout-table">
                             <tbody>
                             <tr>
-                                <th>Total sem IVA</th>
+                                <th>{{ __('cart.total_without_iva') }}</th>
                                 <td id="total-sem-iva">{{ number_format($total_sem_iva, 2) }} €</td>
                             </tr>
                             <tr>
-                                <th>IVA (6%)</th>
+                                <th>{{ __('cart.iva') }} (6%)</th>
                                 <td id="iva">{{ number_format($iva, 2) }} €</td>
                             </tr>
                             <tr>
@@ -110,7 +110,7 @@
                                 <td id="shipping">{{ number_format($shipping, 2) }} €</td>
                             </tr>
                             <tr>
-                                <th>Valor a pagar (com IVA)</th>
+                                <th>{{ __('cart.amount_to_pay') }}</th>
                                 <td id="total-pagar">{{ number_format($total_pagar, 2) }} €</td>
                             </tr>
                             </tbody>

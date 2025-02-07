@@ -11,8 +11,8 @@ return [
 'remove_item' => 'Remover item',
 'pagination' => 'Paginação',
 'total_amount' => 'Montante total',
-'valor_a_pagar' => 'Valor a pagar',
-'total_sem_iva' => 'Total sem IVA',
+'amount_to_pay' => 'Valor a pagar',
+'total_without_iva' => 'Total sem IVA',
 'shipping' => 'Total de envio',
 'proceed_to_payment' => 'PROSSEGUIR PARA O PAGAMENTO',
 'title_cart' => 'Título',
@@ -38,5 +38,6 @@ return [
 'paypal_account' => 'Conta Paypal',
 'order_date' => 'Data do Pedido',
 'shopping_list' => 'Lista de Compras',
+'payment_with_paypal' => 'Pagamento com PayPal'
 
 ];
