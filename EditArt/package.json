@@ -23,6 +23,7 @@
         "@tabler/core": "^1.0.0-beta21",
         "@tabler/icons-webfont": "^3.22.0",
         "autosize": "^6.0.1",
+        "gsap": "^3.12.7",
         "quill": "^2.0.3"
     }
 }

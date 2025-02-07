@@ -39,7 +39,9 @@
     --navbar-text-color: #C5A992;
     --module-title-color: #e7e7e0;
 }
-
+.content {
+    will-change: transform;
+}
 body{
     height: 100%;
     margin: 0;
@@ -777,91 +779,7 @@ td{
 
 
 
-.main-header {
-    position: relative;
-}
 
-.layers {
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    overflow: hidden;
-    position: relative;
-}
-.layer {
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    background-size: cover;
-    will-change: transform;
-    z-index: 2;
-    transition: var(--transition);
-}
-
-.layers_4 {
-    transform: translate3d(0, calc(var(--scrollTop) / 1.6), 0);
-    z-index: 0;
-}
-
-.layers_3 {
-    transform: translate3d(0, calc(var(--scrollTop) / 2.5), 0);
-    z-index: 0;
-}
-
-.layers_2 {
-    transform: translate3d(0, calc(var(--scrollTop) / 5), 0);
-}
-
-.layers_1 {
-    transform: translate3d(0, calc(var(--scrollTop) / 25), 0);
-}
-.layer__header {
-    z-index: 1;
-    transform: translate3d(0, calc(var(--scrollTop) / 2), 0);
-    transition: var(--transition);
-    will-change: transform;
-
-    font-weight: 900;
-    color: var(--text);
-    text-shadow: 0 0 20px rgb(241, 225, 134);
-}
-
-.layers__title {
-    color: var(--module-title-color);
-    font-size: calc(var(--index) * 3);
-    letter-spacing: calc(var(--index) / 6.25);
-}
-.layers__caption {
-    font-size: calc(var(--index) / 1.175);
-    letter-spacing: calc(var(--index) / 3.5);
-    margin-top: calc(var(--index) * -.75);
-}
-.main-article {
-    --main-article-transform: translate3d(0, calc(var(--scrollTop) / -7.5), 0);
-    min-height: 100vh;
-    background-image: url(../img/banner.jpg);
-    background-size: cover;
-    background-position: center;
-    color: var(--text);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    text-align: center;
-    /* Update: */
-    top: -1px;
-    z-index: 10;
-}
-.main-article__header {
-    text-transform: uppercase;
-    font-size: calc(var(--index) * 1.8);
-    letter-spacing: calc(var(--index) / 7.5);
-    transform: var(--main-article-transform);
-    transition: var(--transition);
-    will-change: transform;
-}
 /*.main-article__paragraph {                         + TODO можно сюда поставить фотки с сервисами
 	max-width: calc(var(--index) * 30);
 	font-size: calc(var(--index) * .9);
@@ -870,9 +788,7 @@ td{
 	transition: var(--transition);
 	will-change: transform;
 }*/
-.content {
-    will-change: transform;
-}
+
 .copy {
     position: absolute;
     bottom: calc(var(--index) * 2.5);
