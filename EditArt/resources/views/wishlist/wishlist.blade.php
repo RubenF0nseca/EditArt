@@ -32,7 +32,7 @@
                             <div class="col-sm-12 col-md-6 col-lg-3 mb-4 d-flex justify-content-center">
                                 <div class="product-item text-center">
                                     <figure class="product-style">
-                                        <a href="{{ route('guest.books', $wishlist->book->id) }}">
+                                        <a href="{{ route('book', $wishlist->book->id) }}">
                                             @if($wishlist->book->CoverPicture)
                                                 <img src="{{ asset('storage/' . $wishlist->book->CoverPicture) }}" class="product-thumb rounded" alt="{{ $wishlist->book->title }}" style="max-width: 90%; height: auto;">
                                             @else
@@ -40,9 +40,11 @@
                                             @endif
                                         </a>
                                         <!-- Exemplo opcional: botão para adicionar ao carrinho -->
-                                        <button type="button" class="add-to-cart btn btn-outline-primary btn-sm mt-2">
+                                        <button type="button"
+                                                class="add-to-cart btn btn-outline-primary btn-sm mt-2"
+                                                data-book-id="{{ $wishlist->book->id }}">
                                             <i class="fa-solid fa-cart-shopping"></i>&nbsp;
-                                            {{ __('homepage.add_to_cart') }}
+                                            {{ __('guest.books.add_to_cart') }}
                                         </button>
                                     </figure>
                                     <figcaption>

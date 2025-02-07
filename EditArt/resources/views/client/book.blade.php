@@ -103,9 +103,9 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row mb-20 mt-3">
-                        <div class="col-md-7"><a class="btn btn-solid" href="#">Add To Cart</a></div>
-                    </div>
+                    <button type="button" class="add-to-cart btn btn-outline-primary btn-sm mt-2" data-book-id="{{ $book->id }}">
+                        <i class="fa-solid fa-cart-shopping"></i>&nbsp;{{ __('homepage.add_to_cart') }}
+                    </button>
                     <div class="row mb-20">
                         <div class="col-sm-12 mt-4">
                             <span class="font-alt" style="color: #1d1d1c">Categories:</span>
