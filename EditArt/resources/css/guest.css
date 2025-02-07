@@ -174,21 +174,13 @@ input,
     justify-content: space-between;
     padding: 0 25px 0 25px;
 }
-.wishlist-toggle .fa-regular{
+#heart{
     font-size: 1rem;
     color: #74642F;
 }
-.wishlist-toggle .fa-regular:hover{
+#heart-solid{
     font-size: 1rem;
     color: #b91330;
-}
-.wishlist-toggle .fa-solid{
-    font-size: 1rem;
-    color: #b91330;
-}
-.wishlist-toggle .fa-solid:hover{
-    font-size: 1rem;
-    color: #b27e06;
 }
 .product-item figcaption>h3 {
     font-size: 1.4em;
