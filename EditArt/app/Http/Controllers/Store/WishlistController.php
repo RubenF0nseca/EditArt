@@ -40,13 +40,16 @@ class WishlistController extends Controller
         $user = auth()->user();
         $deleted = $user->wishlists()->where('book_id', $bookId)->delete();
 
-        if ($request->wantsJson()) {
-            return response()->json([
-                'success' => $deleted > 0,
-                'message' => $deleted > 0 ? 'Livro removido da wishlist!' : 'Erro ao remover o livro da wishlist.'
-            ]);
-        } else {
-            return redirect()->back()->with('success', 'Livro removido da wishlist!');
+        if ($request->ajax()) { // Requisições AJAX
+            if ($deleted) {
+                return response()->json(['success' => true, 'message' => 'Livro removido da wishlist!']);
+            }
+            return response()->json(['success' => false, 'message' => 'Erro ao remover o livro da wishlist.']);
+        } else { // Requisições normais (não-AJAX)
+            if ($deleted) {
+                return redirect()->back()->with('success', 'Livro removido da wishlist!');
+            }
+            return redirect()->back()->with('error', 'Erro ao remover o livro da wishlist.');
         }
     }
 }
