@@ -19,38 +19,34 @@ class WishlistController extends Controller
         return view('wishlist.wishlist', compact('wishlists'));
     }
 
-    /**
-     * Adiciona um livro à wishlist.
-     */
     public function add($bookId)
     {
-        $user = Auth::user();
-
-        // Verifica se o livro já está na wishlist do cliente.
-        $exists = Wishlist::where('user_id', $user->id)
-            ->where('book_id', $bookId)
-            ->exists();
+        $user = auth()->user();
+        $exists = $user->wishlists()->where('book_id', $bookId)->exists();
 
         if (!$exists) {
-            Wishlist::create([
-                'user_id' => $user->id,
+            $user->wishlists()->create([
                 'book_id' => $bookId,
             ]);
-            return redirect()->back()->with('success', 'Livro adicionado à wishlist!');
+            return response()->json(['success' => true, 'message' => 'Livro adicionado à wishlist!']);
         }
 
-        return redirect()->back()->with('info', 'Este livro já está na sua wishlist.');
+        return response()->json(['success' => false, 'message' => 'Este livro já está na sua wishlist.']);
     }
 
-    /**
-     * Remove um livro da wishlist.
-     */
-    public function remove($bookId)
+// remover da wishlist
+    public function remove(Request $request, $bookId)
     {
-        $user = Auth::user();
-        Wishlist::where('user_id', $user->id)
-            ->where('book_id', $bookId)
-            ->delete();
-        return redirect()->back()->with('success', 'Livro removido da wishlist!');
+        $user = auth()->user();
+        $deleted = $user->wishlists()->where('book_id', $bookId)->delete();
+
+        if ($request->wantsJson()) {
+            return response()->json([
+                'success' => $deleted > 0,
+                'message' => $deleted > 0 ? 'Livro removido da wishlist!' : 'Erro ao remover o livro da wishlist.'
+            ]);
+        } else {
+            return redirect()->back()->with('success', 'Livro removido da wishlist!');
+        }
     }
 }

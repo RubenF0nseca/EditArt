@@ -138,9 +138,7 @@ Route::middleware('guest')->group(function () {
         });
     });
 });
-Route::get('/wishlist', function () {
-    return view('wishlist.wishlist');
-})->name('wishlist');
+
 
 
 
@@ -176,6 +174,3 @@ Route::post('/payment/complete', [PayPalController::class, 'completePayment'])->
 // Página de confirmação final do pedido
 Route::get('/order/confirmation', [PayPalController::class, 'orderConfirmation'])->name('order.confirmation');
 
-//Route::get('/order', function () {
- //   return view('cart.order');
-//})->name('order');

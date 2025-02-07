@@ -13,7 +13,8 @@ export default defineConfig({
                 'resources/js/quill.js',
                 'resources/js/cart.js',
                 'resources/js/filter.js',
-                'resources/js/vendas.js'
+                'resources/js/vendas.js',
+                'resources/js/wishList.js'
             ],
             refresh: true,
         }),

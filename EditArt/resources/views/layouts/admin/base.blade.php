@@ -201,7 +201,7 @@
     </div>
 </div>
 <!-- Libs JS -->
-@vite(['resources/js/app.js','resources/js/admin.js', 'resources/js/vendas.js'])
+@vite(['resources/js/app.js','resources/js/admin.js', 'resources/js/vendas.js', 'resources/js/wishList.js'])
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- JS do Widget do Vendas-->
 @stack('scripts')
 </body>

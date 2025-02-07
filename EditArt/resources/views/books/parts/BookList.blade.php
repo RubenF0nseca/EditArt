@@ -30,9 +30,21 @@
                 <span>{{ $book->type }}</span>
                 <div id="wish-price">
                     <span class="item-price">€{{ $book->price, 2 }}</span>
-                    <!--TODO if-->
-                    <span id="heart"><i class="fa-regular fa-heart"></i></span>
-                    <span id="heart-solid"><i class="fa-solid fa-heart"></i></span>
+                    @php
+                        $inWishlist = auth()->check() && auth()->user()->wishlists()->where('book_id', $book->id)->exists();
+                    @endphp
+
+                    @if($inWishlist)
+                        <!-- Se já estiver na wishlist -->
+                        <span class="wishlist-toggle remove" data-book-id="{{ $book->id }}">
+                        <i class="fa-solid fa-heart"></i>
+                        </span>
+                    @else
+                        <!-- Se não estiver na wishlist -->
+                        <span class="wishlist-toggle add" data-book-id="{{ $book->id }}">
+                         <i class="fa-regular fa-heart"></i>
+                        </span>
+                    @endif
                 </div>
             </figcaption>
         </div>

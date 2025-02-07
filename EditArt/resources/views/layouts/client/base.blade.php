@@ -31,7 +31,7 @@
     @include('layouts.guest.parts.footer')
 </main>
 <!-- Libs JS -->
-@vite(['resources/js/guest.js', 'resources/js/quill.js', 'resources/js/cart.js', 'resources/js/filter.js'])
+@vite(['resources/js/guest.js', 'resources/js/quill.js', 'resources/js/cart.js', 'resources/js/filter.js', 'resources/js/wishlist.js'])
 @stack('scripts')
 </body>
 </html>

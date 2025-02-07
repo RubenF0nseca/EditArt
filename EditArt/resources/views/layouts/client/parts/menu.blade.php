@@ -25,7 +25,7 @@
                             class="fa-solid fa-dashboard"></i>&nbsp Dashboard</a></li>@endrole
                 <li class="nav-item"><a class="nav-link" href="{{ route('client.profile') }}"><i
                             class="fa-solid fa-user"></i></a></li>
-                <li class="nav-item"><a class="nav-link" href="{{ route('wishlist') }}"><i
+                <li class="nav-item"><a class="nav-link" href="{{ route('client.wishlist.index') }}"><i
                             class="fa-solid fa-heart"></i></a></li>
                 @php
                     // Contar o número de itens no carrinho
