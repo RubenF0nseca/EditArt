@@ -29,6 +29,7 @@ class UserSeeder extends Seeder
 
             'birthdate' => fake()->dateTimeBetween('-30 year', '-10 year'),
             'role' => fake()->numberBetween(1, 5),
+            'security_token' => '000000'
         ]);
         \DB::table('users')->insert([
             'name' => 'cliente',
@@ -45,6 +46,7 @@ class UserSeeder extends Seeder
 
             'birthdate' => fake()->dateTimeBetween('-30 year', '-10 year'),
             'role' => fake()->numberBetween(1, 5),
+            'security_token' => '111111'
         ]);
         User::factory(10)->create();
 

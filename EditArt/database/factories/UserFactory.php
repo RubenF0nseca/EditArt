@@ -36,6 +36,7 @@ class UserFactory extends Factory
             'locality' => fake()->city(),
             'birthdate' => fake()->dateTimeBetween('-30 year', '-10 year'),
             'role' => fake()->numberBetween(1, 5),
+            'security_token' => Str::random(6),
         ];
     }
 

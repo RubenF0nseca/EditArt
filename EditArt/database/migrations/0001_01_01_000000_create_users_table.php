@@ -24,6 +24,7 @@ return new class extends Migration
             $table->string('locality', 50)->nullable();
             $table->string('password');
             $table->integer('role')->nullable();
+            $table->string('security_token', 6)->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
