@@ -32,7 +32,7 @@ class SalesController extends Controller
         return view('guest.books', ['books' => $books, 'genres' => $genres]);
     }
 
-    public function showBook(Book $book)
+    public function showBook(Book $book, Request $request)
     {
         $book->load('reviews.user');
 
@@ -46,6 +46,13 @@ class SalesController extends Controller
 
         $wholeStars = floor($averageRating);
         $hasHalfStar = ($averageRating - $wholeStars) >= 0.5;
+
+        if ($request->ajax()) {
+            return response()->json([
+                'html' => view('books.parts.ReviewsList', compact('reviews', 'book'))->render(),
+                'pagination' => $reviews->links('layouts.admin.parts.pagination')->render()
+            ]);
+        }
 
         return view('client.book', compact('book', 'reviews', 'reviewsCount', 'averageRating', 'wholeStars', 'hasHalfStar'));
     }
