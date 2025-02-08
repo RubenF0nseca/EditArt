@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\Client;
 
+use App\Models\Review;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class ProfileController extends Controller
 {
@@ -60,5 +62,13 @@ class ProfileController extends Controller
             return redirect()->back()->withErrors(['error'=>"Erro ao atualizar o perfil! MSG:{$e->getMessage()}"])->withInput();
         }
 
+    }
+
+    public function showReviews()
+    {
+        $user = auth()->user();
+        $reviews = Review::with(['user', 'book'])
+            ->where('user_id', $user->id)->get();
+        return view('client.profile', compact('reviews'));
     }
 }

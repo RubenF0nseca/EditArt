@@ -13,9 +13,8 @@
                         <hr>
                         <x-pills>
                             <x-pills.button class="active" id="profile" target="profile" controls="profile" select="true">{{ __('client.profile') }}</x-pills.button>
-                            <x-pills.button class="" id="order" target="order" controls="order" select="false">{{ __('client.client_orders') }}</x-pills.button>
+                            <x-pills.button class="" id="order" target="order" controls="order" select="false">As minhas compras</x-pills.button>
                             <x-pills.button class="" id="review" target="review" controls="review" select="false">{{ __('client.my_reviews') }}</x-pills.button>
-                            <x-pills.button class="" id="comment" target="comment" controls="comment" select="false">{{ __('client.my_comments') }}</x-pills.button>
                         </x-pills>
                     </div>
                 </div>
@@ -161,15 +160,42 @@
                             </div>
 
                         </x-pills.content>
-                        <!-- Tab: Meus pedidos ------------------------------------  -->
-                        <x-pills.content class="" id="order" label="order">{{ __('client.no_order') }}</x-pills.content>
+                        <!-- Tab: Minhas compras ------------------------------------  -->
+                        <x-pills.content class="" id="order" label="order">Nenhuma compra ainda</x-pills.content>
 
                         <!-- Tab: Minhas avaliações ------------------------------------  -->
-                        <x-pills.content class="" id="review" label="review">{{ __('client.no_reviews') }}</x-pills.content>
-
-                        <!-- Tab: Meus comentários ------------------------------------  -->
-                        <x-pills.content class="" id="comment" label="comment">{{ __('client.no_comments') }}</x-pills.content>
-
+                        <x-pills.content class="" id="review" label="review">
+                            @if($reviews->isNotEmpty())
+                                @foreach($reviews as $review)
+                                <div class="review-post">
+                                    <div class="row">
+                                        <div class="col-md-2 text-center">
+                                            <img src="{{ asset('imgs/no_user.png') }}" class="author-avatar" alt="User Avatar">
+                                        </div>
+                                        <div class="col-md-5">
+                                            <h2 class="review-author font-alt">
+                                                <a href="{{ route('book', ['book' => $review->book->id]) }}">{{ $review->book->title }}</a>
+                                            </h2>
+                                        </div>
+                                        <div class="col-md-5 text-end">
+                                            <div class="review-date font-alt">{{ $review->created_at }}</div>
+                                            <div class="col-sm-12">
+                                                @for($i = 1; $i <= 5; $i++)
+                                                    <i class="fa fa-star{{ $i <= $review->rating ? '' : '-off' }}"></i>
+                                                @endfor
+                                            </div>
+                                        </div>
+                                        <div class="review-entry">
+                                            <h2 class="review-title font-serif mb-3">{{ $review->topic }}</h2>
+                                            <p class="review-text">{!! $review->comment !!} </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
+                            @else
+                                {{ __('client.no_reviews') }}
+                            @endif
+                        </x-pills.content>
                     </div>
                 </div>
             </div>

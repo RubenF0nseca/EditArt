@@ -91,6 +91,7 @@ Route::middleware('role:cliente|admin')->group(function (){
             Route::delete('/books/{book}/review/{review}', [SalesController::class, 'deleteBookReview'])->name('review.delete');
 
             Route::put('/profile', [ProfileController::class, 'update'])->name('profile.update');
+            Route::get('/profile', [ProfileController::class, 'showReviews'])->name('profile');
 
             Route::get('/wishlist', [WishlistController::class, 'index'])->name('wishlist.index');
             Route::post('/wishlist/add/{bookId}', [WishlistController::class, 'add'])->name('wishlist.add');
