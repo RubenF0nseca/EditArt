@@ -43,30 +43,30 @@
                         <x-table.tbody>
                             @forelse($posts as $post)
                                 <x-table.tr>
-                                    <x-table.td class="text-center">
+                                    <td class="text-center">
                                         <a href="#">
                                             <img src="{{ asset('imgs/no_user.png') }}" class="author-avatar" alt="{{ $post->user->name }}">
                                             <p>{{ $post->user->name }}</p>
                                         </a>
-                                    </x-table.td>
-                                    <x-table.td>
+                                    </td>
+                                    <td>
                                         <h2 class="review-author font-alt">
                                             <a href="{{ route('client.forum.show', $post->id) }}">{{ $post->title }}</a>
                                         </h2>
-                                    </x-table.td>
-                                    <x-table.td>
+                                    </td>
+                                    <td>
                                         <p class="font-serif">{{ $post->category ?? 'Geral' }}</p>
-                                    </x-table.td>
-                                    <x-table.td>
+                                    </td>
+                                    <td>
                                         <p><a href="{{ route('client.forum.show', $post->id) }}">{{ $post->comments->count() }} {{ __('forum.comments') }}</a></p>
-                                    </x-table.td>
-                                    <x-table.td>
+                                    </td>
+                                    <td>
                                         <p><a href="{{ route('client.forum.show', $post->id) }}">{{ $post->created_at->format('M d, Y') }}</a></p>
-                                    </x-table.td>
+                                    </td>
                                 </x-table.tr>
                             @empty
                                 <x-table.tr>
-                                    <x-table.td colspan="5" class="text-center">{{ __('forum.no_topic_found') }}</x-table.td>
+                                    <td colspan="5" class="text-center">{{ __('forum.no_topic_found') }}</td>
                                 </x-table.tr>
                             @endforelse
                         </x-table.tbody>

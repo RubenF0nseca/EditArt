@@ -86,7 +86,7 @@ Route::middleware('role:cliente|admin')->group(function (){
             Route::get('/forum', [ForumController::class, 'index'])->name('forum.index');
             Route::get('/forum/{post}', [ForumController::class, 'show'])->name('forum.show');
             Route::post('/forum/topic', [ForumController::class, 'store'])->name('forum.topic.store');
-            Route::post('/forum/topic', [ForumController::class, 'storeComment'])->name('forum.comment.store');
+            Route::post('/forum/{post}/comment', [ForumController::class, 'storeComment'])->name('forum.comment.store');
 
             Route::get('/profile', function () {
                 return view('client.profile');
