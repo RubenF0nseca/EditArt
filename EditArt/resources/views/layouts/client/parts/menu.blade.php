@@ -14,7 +14,7 @@
                 <li class="nav-item"><a class="nav-link" href="{{ route('guest.books') }}">{{ __('menu.books') }}</a>
                 </li>
                 <li class="nav-item"><a class="nav-link" href="{{route('publisher')}}">{{ __('menu.online_publisher') }}</a></li>
-                <li class="nav-item"><a class="nav-link" href="{{ route('forum') }}">Forum</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('client.forum.index') }}">Forum</a></li>
             </ul>
             <!-- Icons -->
             <ul class="d-flex py-3 py-lg-0 flex-end top-icons">

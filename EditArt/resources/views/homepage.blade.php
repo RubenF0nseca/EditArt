@@ -111,7 +111,7 @@
                                     <p>
                                         Dispomos de um fórum para que os autores e os leitores possam interagir, trocar experiências e expandir o universo literário.
                                     </p>
-                                    <a href="{{route('forum')}}" class="btn btn-solid">Entrar</a>
+                                    <a href="{{route('client.forum.index')}}" class="btn btn-solid">Entrar</a>
                                 </div>
                             </div>
                         </div>

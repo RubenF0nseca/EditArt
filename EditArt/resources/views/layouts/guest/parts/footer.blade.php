@@ -21,7 +21,7 @@
                     <ul class="icon-list">
                         <li><a href="{{route('guest.books')}}">{{ __('homepage.online_store') }}</a></li>
                         <li><a href="{{route('publisher')}}">{{ __('homepage.online_publisher') }}</a></li>
-                        <li><a href="{{route('forum')}}">{{ __('homepage.forum') }}</a></li>
+                        <li><a href="{{route('client.forum.index')}}">{{ __('homepage.forum') }}</a></li>
                     </ul>
                 </div>
             </div>

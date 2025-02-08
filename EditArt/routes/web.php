@@ -5,6 +5,7 @@ use App\Http\Controllers\Auth\PasswordResetController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Client\ProfileController;
 use App\Http\Controllers\EmailController;
+use App\Http\Controllers\Forum\ForumController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\BookController;
@@ -82,6 +83,11 @@ Route::middleware('role:cliente|admin')->group(function (){
     Route::prefix('/client')->group(function (){
         Route::name('client.')->group(function (){
 
+            Route::get('/forum', [ForumController::class, 'index'])->name('forum.index');
+            Route::get('/forum/{post}', [ForumController::class, 'show'])->name('forum.show');
+            Route::post('/forum/topic', [ForumController::class, 'store'])->name('forum.topic.store');
+            Route::post('/forum/topic', [ForumController::class, 'storeComment'])->name('forum.comment.store');
+
             Route::get('/profile', function () {
                 return view('client.profile');
             })->name('profile');
@@ -140,17 +146,6 @@ Route::middleware('guest')->group(function () {
     });
 });
 
-
-
-
-
-Route::get('/forum', function () {
-    return view('forum.forum');
-})->name('forum');
-
-Route::get('/post', function () {
-    return view('forum.ForumPost');
-})->name('post');
 
 Route::get('/guest/authors', function () {
     return view('guest.authors');
