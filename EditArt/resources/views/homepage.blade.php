@@ -20,7 +20,7 @@
 
 </head>
 
-<body class="layout-fluid" style="background-color: #131313">
+<body class="layout-fluid" style="background-color: #1d1d1c">
     <div class="wrapper">
         <div class="content">
             @php
@@ -64,10 +64,10 @@
                 <div class="carousel-inner">
                     <!-- ------ Slide 1 ---------------------------  -->
                     <div class="carousel-item active">
-                        <img src="{{ asset('imgs/store-bg.jpg') }}" class="opacity-50" width="100%" height="100%" alt="">
+                        <img src="{{ asset('imgs/store-bg.jpg') }}" class="slide-img" width="100%" height="100%" alt="">
                         <div class="container">
                             <div class="carousel-caption">
-                                <h2 id="titulo" class="font-alt">Loja</h2>
+                                <h2 id="titulo" class="module-title font-alt">Loja</h2>
                             </div>
                             <div class="row">
                                 <div class="col-6"></div>
@@ -82,10 +82,10 @@
                     </div>
                     <!-- ----- Slide 2 ---------------------------  -->
                     <div class="carousel-item">
-                        <img src="{{ asset('imgs/publisher-bg.jpg') }}" class="opacity-50" width="100%" height="100%" alt="">
+                        <img src="{{ asset('imgs/publisher-bg.jpg') }}" class="slide-img" width="100%" height="100%" alt="">
                         <div class="container">
                             <div class="carousel-caption">
-                                <h2 id="titulo" class="font-alt">Editora</h2>
+                                <h2 id="titulo" class="module-title font-alt">Editora</h2>
                             </div>
                             <div class="row">
                                 <div class="col-6"></div>
@@ -100,10 +100,10 @@
                     </div>
                     <!-- ----- Slide 3 ---------------------------  -->
                     <div class="carousel-item">
-                        <img src="{{ asset('imgs/forum_bg.png') }}" class="opacity-50" width="100%" height="100%" alt="">
+                        <img src="{{ asset('imgs/forum_bg.png') }}" class="slide-img" width="100%" height="100%" alt="">
                         <div class="container">
                             <div class="carousel-caption">
-                                <h2 id="titulo" class="font-alt">Forum</h2>
+                                <h2 id="titulo" class="module-title font-alt">Forum</h2>
                             </div>
                             <div class="row">
                                 <div class="col-6"></div>

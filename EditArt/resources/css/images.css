@@ -41,7 +41,7 @@
 	   Background da Editora
 ------------------------------------------------------------*/
 .publisher-bg {
-    background-image: url('/public/imgs/publisher-bg.webp');
+    background-image: url('/public/imgs/publisher-bg.jpg');
 }
 /*----------------------------------------------------------
 	   Background das Paginas do Erros
@@ -142,7 +142,7 @@
     --main-article-transform: translate3d(0, calc(var(--scrollTop) / -7.5), 0);
     width: 100vw;
     height: 27vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/public/imgs/home-bg.jpg");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/public/imgs/home-bg.jpg");
 
     background-size: cover;
     background-position: center;
@@ -172,17 +172,9 @@
 #myCarousel{
     width: 100vw;
     h2{
-        font-size: calc(var(--index) * 7);
         position: absolute;
-        top: calc(var(--index) * -22);
-        right: calc(var(--index) * 0);
-        color: var(--module-title-color);
-        text-shadow: 0 0 20px rgb(241, 225, 134);
-
-    }
-    button{
-        color: var(--module-title-color);
-        text-shadow: 0 0 20px rgb(241, 225, 134);
+        top: calc(var(--index) * -18);
+        right: calc(var(--index) * -4);
     }
     img{
         height: calc(var(--index) * 29);
@@ -197,5 +189,7 @@
             font-size: calc(var(--index) * 1);
         }
     }
+    .slide-img {
+        filter: brightness(45%);
+    }
 }
-
