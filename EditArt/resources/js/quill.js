@@ -54,8 +54,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
-///////////////////////////////////////////////////////////////////////////////////////////////////////
-
+/*
 document.addEventListener('DOMContentLoaded', function () {
     //
     // 1) Mostrar/ocultar os formulários de edição
@@ -142,3 +141,108 @@ document.addEventListener('DOMContentLoaded', function () {
 
 });
 
+*/
+
+document.addEventListener('DOMContentLoaded', function () {
+    const reviewsContainer = document.querySelector('.reviews-section');
+    const paginationContainer = document.querySelector('#reviews-pagination');
+
+    // 1. Delegar paginação
+    if (paginationContainer) {
+        paginationContainer.addEventListener('click', function (event) {
+            const paginationLink = event.target.closest('.pagination a');
+            if (paginationLink) {
+                event.preventDefault();
+                handlePagination(paginationLink.href);
+            }
+        });
+    }
+
+    async function handlePagination(url) {
+        try {
+            const response = await fetch(url, {
+                headers: { "X-Requested-With": "XMLHttpRequest" }
+            });
+
+            if (!response.ok) throw new Error('Network error');
+
+            const { html, pagination } = await response.json();
+
+            // Atualizar conteúdo e paginação
+            reviewsContainer.innerHTML = html;
+            paginationContainer.innerHTML = pagination;
+
+            initQuillEditors();
+            initStarRating();
+
+            window.history.pushState({}, '', url);
+
+        } catch (error) {
+            console.error('Erro:', error);
+        }
+    }
+
+    // 2. Delegação para edição de formulários
+    reviewsContainer.addEventListener('click', function (event) {
+        const target = event.target;
+
+        // Mostrar formulário
+        if (target.closest('.show-editor-3')) {
+            const form = target.closest('.review-post').querySelector('.editor-form-3');
+            if (form) form.style.display = 'block';
+        }
+
+        // Ocultar formulário
+        if (target.closest('.close-editor')) {
+            const form = target.closest('.editor-form-3');
+            if (form) form.style.display = 'none';
+        }
+    });
+
+    // 3. Inicializar Quill
+    function initQuillEditors() {
+        document.querySelectorAll('.editor-container-3:not(.initialized)').forEach(container => {
+            const quill = new Quill(container, {
+                theme: 'snow',
+                placeholder: 'Escreva a sua avaliação...',
+                modules: {
+                    toolbar: [
+                        ['bold', 'italic', 'underline'],
+                        [{ list: 'ordered' }, { list: 'bullet' }],
+                    ],
+                },
+            });
+
+            quill.root.innerHTML = container.dataset.initialContent || '';
+
+            const form = container.closest('form');
+            const hiddenInput = form.querySelector('.comment-edit');
+            form.addEventListener('submit', () => {
+                hiddenInput.value = quill.root.innerHTML;
+            });
+
+            container.classList.add('initialized');
+        });
+    }
+
+    // 4. Delegação de classificação por estrelas
+    function initStarRating() {
+        reviewsContainer.addEventListener('click', function (event) {
+            const star = event.target.closest('.fa-star[data-rating]');
+            if (!star) return;
+
+            const form = star.closest('.editor-form-3');
+            const ratingInput = form.querySelector('.rating-edit');
+            const stars = form.querySelectorAll('.fa-star');
+            const rating = parseInt(star.dataset.rating);
+
+            ratingInput.value = rating;
+            stars.forEach((s, index) => {
+                s.classList.toggle('selected', index < rating);
+            });
+        });
+    }
+
+    initQuillEditors();
+    initStarRating();
+});
