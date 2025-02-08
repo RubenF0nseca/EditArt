@@ -14,12 +14,13 @@ class UserController extends Controller
         return [
             'name' => 'required|min:3|max:50',
             'email' => 'required|email|max:100|unique:users,email,' . $id,
-            'address' => 'required|max:255',
-            'nif' => 'required|digits:9|unique:users,nif,' . $id,
-            'phone_number' => 'required|regex:/^\d{9,15}$/|unique:users,phone_number,' . $id,
-            'birthdate' => 'required|date|before:today',
+            'address' => 'max:255',
+            'locality' => 'max:50',
+            'postal_code' => 'regex:/^\d{4,10}(-\d{3,5})?$/',
+            'nif' => 'digits:9|unique:users,nif,' . $id,
+            'phone_number' => 'regex:/^\d{9,15}$/|unique:users,phone_number,' . $id,
+            'birthdate' => 'date|before:today',
             'password' => $user ? 'nullable|min:8|max:50' : 'required|min:8|max:50',
-            'role' => 'required|integer|between:1,5',
         ];
     }
 
@@ -34,17 +35,17 @@ class UserController extends Controller
         'email.max' => 'O email não pode ter mais de 100 caracteres.',
         'email.unique' => 'Este email já está cadastrado.',
 
-        'address.required' => 'A morada é obrigatória.',
         'address.max' => 'A morada não pode ter mais de 255 caracteres.',
 
-        'nif.required' => 'O NIF é obrigatório.',
+        'locality.max' => 'A localidade não pode ter mais de 50 caracteres.',
+
+        'postal_code' => 'O código postal deve ter um formato válido, como 12345 ou 1234-567.',
+
         'nif.digits' => 'O NIF deve conter exatamente 9 dígitos.',
         'nif.unique' => 'Este NIF já está cadastrado.',
 
-        'phone_number.required' => 'O número de telefone é obrigatório.',
         'phone_number.regex' => 'Insira um número de telefone válido com 9 a 15 dígitos.',
 
-        'birthdate.required' => 'A data de nascimento é obrigatória.',
         'birthdate.date' => 'Insira uma data de nascimento válida.',
         'birthdate.before' => 'A data de nascimento deve ser anterior à data atual.',
 
@@ -52,8 +53,7 @@ class UserController extends Controller
         'password.min' => 'A senha deve ter pelo menos 8 caracteres.',
         'password.max' => 'A senha não pode ter mais de 50 caracteres.',
 
-        'role.required' => 'O tipo de utilizador é obrigatório.',
-        'role.in' => 'Selecione um tipo de utilizador válido: admin, user ou moderator.',
+
     ];
 
 

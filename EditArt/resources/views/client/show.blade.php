@@ -40,6 +40,12 @@
                                         <th scope="row">{{ __('client.address') }}</th>
                                         <td>{{ $user->address }}</td>
                                     </tr>
+                                    <th scope="row">{{ __('client.local') }}</th>
+                                    <td>{{ $user->locality }}</td>
+                                    </tr>
+                                    <th scope="row">{{ __('client.zip_code') }}</th>
+                                    <td>{{ $user->postal_code }}</td>
+                                    </tr>
                                     <tr>
                                         <th scope="row">{{ __('client.created_at_2') }}</th>
                                         <td>{{ $user->created_at }}</td>

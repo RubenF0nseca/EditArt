@@ -43,28 +43,42 @@
                                 @enderror
                             </div>
                             <div class="mb-3">
-                                <label for="address" class="form-label required">{{ __('client.address') }}</label>
+                                <label for="address" class="form-label">{{ __('client.address') }}</label>
                                 <input type="text" id="address" name="address" class="form-control @error('address') is-invalid @enderror" value="{{ $user->address }}" >
                                 @error('address')
                                 <div class="invalid-feedback" >{{$message}}</div>
                                 @enderror
                             </div>
                             <div class="mb-3">
-                                <label for="nif" class="form-label required">{{ __('client.nif') }}</label>
+                                <label for="locality" class="form-label">{{ __('client.local') }}</label>
+                                <input type="text" id="locality" name="locality" class="form-control @error('locality') is-invalid @enderror" value="{{ $user->locality }}" >
+                                @error('locality')
+                                <div class="invalid-feedback" >{{$message}}</div>
+                                @enderror
+                            </div>
+                            <div class="mb-3">
+                                <label for="postal_code" class="form-label">{{ __('client.zip_code') }}</label>
+                                <input type="text" id="postal_code" name="postal_code" class="form-control @error('postal_code') is-invalid @enderror" value="{{ $user->postal_code }}" >
+                                @error('postal_code')
+                                <div class="invalid-feedback" >{{$message}}</div>
+                                @enderror
+                            </div>
+                            <div class="mb-3">
+                                <label for="nif" class="form-label">{{ __('client.nif') }}</label>
                                 <input type="text" id="nif" name="nif" class="form-control @error('nif') is-invalid @enderror" value="{{ $user->nif }}" >
                                 @error('nif')
                                 <div class="invalid-feedback" >{{$message}}</div>
                                 @enderror
                             </div>
                             <div class="mb-3">
-                                <label for="phone_number" class="form-label required">{{ __('client.phone') }}</label>
+                                <label for="phone_number" class="form-label">{{ __('client.phone') }}</label>
                                 <input type="text" id="phone_number" name="phone_number" class="form-control @error('phone_number') is-invalid @enderror" value="{{ $user->phone_number }}" >
                                 @error('phone_number')
                                 <div class="invalid-feedback" >{{$message}}</div>
                                 @enderror
                             </div>
                             <div class="mb-3">
-                                <label for="birthdate" class="form-label required">{{ __('client.birthdate') }}</label>
+                                <label for="birthdate" class="form-label">{{ __('client.birthdate') }}</label>
                                 <input type="text" id="birthdate" name="birthdate" class="form-control @error('birthdate') is-invalid @enderror" value="{{ $user->birthdate }}" >
                                 @error('birthdate')
                                 <div class="invalid-feedback" >{{$message}}</div>
@@ -77,13 +91,7 @@
                                 <div class="invalid-feedback" >{{$message}}</div>
                                 @enderror
                             </div>
-                            <div class="mb-3">
-                                <label for="role" class="form-label required">{{ __('client.role_user') }}</label>
-                                <input type="text" id="role" name="role" class="form-control @error('role') is-invalid @enderror" value="{{ $user->role }}" >
-                                @error('role')
-                                <div class="invalid-feedback" >{{$message}}</div>
-                                @enderror
-                            </div>
+
                             <div class="text-end">
                                 <x-button.submit color="solid">{{ __('client.save') }}</x-button.submit>
                                 <x-button.link link="{{ route('admin.users.show', $user->id) }}" color="dark-solid">{{ __('client.cancel') }}</x-button.link>
