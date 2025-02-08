@@ -144,6 +144,15 @@
                                 @enderror
                             </div>
                             <div class="mb-3">
+                                <label for="description" class="form-label required">Descrição</label>
+                                <input type="text" id="description" name="description"
+                                       class="form-control @error('description') is-invalid @enderror"
+                                       value="{{old('description')}}">
+                                @error('description')
+                                <div class="invalid-feedback">{{$message}}</div>
+                                @enderror
+                            </div>
+                            <div class="mb-3">
                                 <label for="CoverPicture" class="form-label required">{{ __('c_i_s_u.cover_picture') }}</label>
                                 <input type="file"
                                        id="CoverPicture"

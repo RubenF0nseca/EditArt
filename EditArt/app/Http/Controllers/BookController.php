@@ -26,6 +26,7 @@ class BookController extends Controller
             'CoverPicture' => 'nullable|mimes:jpg,png|max:2048',
             'authors' => 'required|array',
             'authors.*' => 'exists:authors,id', // Garante que os IDs existem na tabela authors
+            'description' => 'required|string|max:1000',
         ];
     }
 
@@ -68,6 +69,10 @@ class BookController extends Controller
 
         'CoverPicture.mimes' => 'A imagem deve estar no formato JPG ou PNG.',
         'CoverPicture.max' => 'A foto do livro não pode exceder 2 MB.',
+
+        'description.required' => 'A descrição é obrigatória.',
+        'description.string' => 'A descrição deve ser um texto válido.',
+        'description.max' => 'A descrição não pode exceder 1000 caracteres.',
     ];
 
     public function index(Request $request)

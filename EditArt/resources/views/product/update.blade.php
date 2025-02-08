@@ -235,6 +235,15 @@
                                 <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                             </div>
+                            <div class="mb-3">
+                                <label for="description" class="form-label required">Descrição</label>
+                                <input type="text" id="description" name="description"
+                                       class="form-control @error('description') is-invalid @enderror"
+                                       value="{{ $book->description }}">
+                                @error('description')
+                                <div class="invalid-feedback">{{$message}}</div>
+                                @enderror
+                            </div>
 
                             <!-- Imagem da capa -->
                             <div class="mb-3">
