@@ -56,6 +56,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 .catch(error => console.error("Erro:", error));
         }
     });
+
     /*----------------------------------------------------------
 	   Seleção de géneros sem atualização de página
     ------------------------------------------------------------*/
@@ -91,5 +92,41 @@ document.addEventListener("DOMContentLoaded", function () {
                 })
                 .catch(error => console.error("Erro:", error));
         }
+    });
+
+    /*----------------------------------------------------------
+        Adicionar ao Lista de Desejos
+    ------------------------------------------------------------*/
+    document.addEventListener('click', function (event) {
+        const wishlistToggle = event.target.closest('.wishlist-toggle');
+        if (!wishlistToggle) return;
+
+        event.preventDefault();
+        const bookId = wishlistToggle.dataset.bookId;
+        const isRemove = wishlistToggle.classList.contains('remove');
+        const url = isRemove
+            ? `/client/wishlist/remove/${bookId}`
+            : `/client/wishlist/add/${bookId}`;
+
+        fetch(url, {
+            method: isRemove ? 'POST' : 'POST',
+            headers: {
+                "X-Requested-With": "XMLHttpRequest",
+                "X-CSRF-TOKEN": document.querySelector('meta[name="csrf-token"]').content,
+                "Content-Type": "application/json",
+            },
+            body: isRemove ? JSON.stringify({ _method: 'DELETE' }) : null
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    wishlistToggle.classList.toggle('remove');
+                    wishlistToggle.classList.toggle('add');
+                    wishlistToggle.innerHTML = isRemove
+                        ? '<i class="fa-regular fa-heart"></i>'
+                        : '<i class="fa-solid fa-heart"></i>';
+                }
+            })
+            .catch(error => console.error("Erro:", error));
     });
 });

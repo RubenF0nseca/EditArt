@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+/*document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('.wishlist-toggle').forEach(function(el) {
         el.addEventListener('click', function(e) {
             e.preventDefault();
@@ -67,4 +67,4 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
-
+*/

@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+/*document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('.add-to-cart').forEach(button => {
         button.addEventListener('click', async function() {
             const bookId = this.dataset.bookId;
@@ -30,10 +30,50 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+});*/
+
+/*----------------------------------------------------------
+   Adicionar ao Carrinho (Delegação de Eventos)
+------------------------------------------------------------*/
+document.addEventListener('click', async function(event) {
+    const addToCartBtn = event.target.closest('.add-to-cart');
+    if (!addToCartBtn) return;
+
+    event.preventDefault();
+    const bookId = addToCartBtn.dataset.bookId;
+
+    try {
+        const response = await fetch(`/cart/add/${bookId}`, {
+            method: 'POST',
+            headers: {
+                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content,
+                'Accept': 'application/json'
+            }
+        });
+
+        const data = await response.json();
+
+        if (data.success) {
+            // Atualizar contador do carrinho
+            const cartCounter = document.getElementById('cart-counter');
+            if (cartCounter) cartCounter.textContent = data.cartCount;
+
+            // Feedback visual
+            Toastify({
+                text: data.message,
+                duration: 3000,
+                close: true,
+                backgroundColor: "#4CAF50"
+            }).showToast();
+        }
+    } catch (error) {
+        console.error('Erro:', error);
+    }
 });
 
-// ----------------------------------------------------------
-// update cart
+/*----------------------------------------------------------
+   Atualizar Carrinho
+------------------------------------------------------------*/
 document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('.update-cart').forEach(input => {
         input.addEventListener('change', async function() {
