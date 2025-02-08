@@ -13,7 +13,7 @@
                         <hr>
                         <x-pills>
                             <x-pills.button class="active" id="profile" target="profile" controls="profile" select="true">{{ __('client.profile') }}</x-pills.button>
-                            <x-pills.button class="" id="order" target="order" controls="order" select="false">As minhas compras</x-pills.button>
+                            <x-pills.button class="" id="order" target="order" controls="order" select="false">Minhas compras</x-pills.button>
                             <x-pills.button class="" id="review" target="review" controls="review" select="false">{{ __('client.my_reviews') }}</x-pills.button>
                         </x-pills>
                     </div>
