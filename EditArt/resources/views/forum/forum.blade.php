@@ -89,6 +89,10 @@
                             <div class="mb-3">
                                 <textarea name="content" rows="5" class="form-control" placeholder="{{ __('forum.topic_content_placeholder') }}" required></textarea>
                             </div>
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
+                                <label class="form-check-label" for="flexSwitchCheckChecked">Checked switch checkbox input</label>
+                            </div>
                             <div class="mt-3 text-end">
                                 <button type="submit" class="btn btn-solid">{{ __('forum.submit_topic') }}</button>
                             </div>
