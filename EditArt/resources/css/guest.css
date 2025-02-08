@@ -56,9 +56,11 @@
 #cart-counter {
     font-size: 0.7em;
     padding: 3px 6px;
-    margin-left: -10px;
-    margin-top: 2px;
+    position: absolute;
 }
+.bg-danger {
+     background-color: #b91330 !important;
+ }
 .fa-pen-to-square:hover{
     color: #79a68b;
 }

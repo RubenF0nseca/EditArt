@@ -17,7 +17,7 @@
             </ul>
             <!-- Registo / Carrinho / Login -->
             <form class="d-flex py-3 py-lg-0">
-                <ul class="navbar-nav mx-auto pt-2 pt-lg-0">
+                <ul class="d-flex py-3 py-lg-0 flex-end top-icons">
                     <li class="nav-item">
                         <x-button.link link="{{ route('login') }}" color="light-new rounded-pill"
                                        type="submit">{{ __('menu.login') }}</x-button.link>
@@ -26,7 +26,7 @@
                         <a class="nav-link position-relative" href="{{ route('cart') }}">
                             <i class="fa-solid fa-cart-shopping" id="cart-icon"></i>
                             <span id="cart-counter"
-                                  class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                  class="translate-middle badge rounded-pill bg-danger">
                                 {{ count(session('cart', [])) }}
                             </span>
                         </a>
