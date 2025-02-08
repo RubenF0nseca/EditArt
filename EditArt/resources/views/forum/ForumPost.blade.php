@@ -99,14 +99,13 @@
                     <div class="text-center">Pagination</div>
 
                     <!-- Formulário para envio de comentários-->
-                    <div class="editor" id="editor-form">
+                    <div class="editor">
                         <form action="#" method="POST">
                             @csrf
                             <div class="mb-3 font-alt">
                                 <label for="editor-container">Escreva aqui seu comentário</label>
                             </div>
-                            <div id="editor-container"></div>
-                            <input type="hidden" name="content" />
+                            <textarea rows="5" cols="100"></textarea>
                             <div class="mt-3 text-end">
                                 <button type="submit" class="btn btn-solid">Enviar</button>
                             </div>

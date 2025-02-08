@@ -55,15 +55,15 @@
                     </div>
 
                     <!-- Formulário para envio de tópico -->
-                    <div class="editor" id="editor-form" style="display: none;">
+                    <div class="editor" id="editor-form" style="display: block;">
                         <form action="#" method="POST">
                             @csrf
 
                             <div class="mb-3">
                                 <input type="text" id="topic" name="topic" placeholder="{{ __('forum.topic_title_placeholder') }}" />
                             </div>
-                            <div id="editor-container-2"></div>
-                            <input type="hidden" id="content" name="content" />
+                            <div></div>
+                            <textarea rows="5" cols="100"></textarea>
                             <div class="mt-3 text-end">
                                 <button type="submit" class="btn btn-solid">{{ __('forum.submit_topic') }}</button>
                             </div>
