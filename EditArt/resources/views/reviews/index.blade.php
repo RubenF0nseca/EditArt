@@ -22,7 +22,6 @@
                         <x-table>
                             <x-table.thead>
                                 <x-table.tr>
-                                    <x-table.th>{{ __('c_i_s_u.id') }}</x-table.th>
                                     <x-table.th>{{ __('c_i_s_u.book') }}</x-table.th>
                                     <x-table.th>{{ __('c_i_s_u.user') }}</x-table.th>
                                     <x-table.th>{{ __('c_i_s_u.rating') }}</x-table.th>
@@ -35,7 +34,6 @@
                             <!-- Aqui, o loop deve ser substituído por uma lista de elementos gerada dinamicamente -->
                                 @foreach($reviews as $review)
                                     <x-table.tr>
-                                        <td>{{ $review->id }}</td>
                                         <td>{{ $review->book->title }}</td>
                                         <td>{{ $review->user->name }}</td>
                                         <td>{{ $review->rating }}</td>

@@ -18,7 +18,6 @@
 
                         <div class="row">
                             <div class="col-md-6">
-                                <h3>ID / {{ $book->id }}</h3>
                                 <table class="table">
                                     <tbody>
                                     <tr>
@@ -84,6 +83,10 @@
                                     <tr>
                                         <th scope="row">{{ __('c_i_s_u.price') }}</th>
                                         <td>{{ $book->price }}€</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Descrição</th>
+                                        <td>{{ $book->description }}</td>
                                     </tr>
                                     <tr>
                                         <th scope="row">{{ __('c_i_s_u.updated_at') }}</th>

@@ -25,7 +25,6 @@
                         <x-table>
                             <x-table.thead>
                                 <x-table.tr>
-                                    <x-table.th>{{ __('c_i_s_u.id') }}</x-table.th>
                                     <x-table.th>{{ __('c_i_s_u.cover') }}</x-table.th>
                                     <x-table.th>{{ __('c_i_s_u.title') }}</x-table.th>
                                     <x-table.th>{{ __('c_i_s_u.type') }}</x-table.th>
@@ -38,7 +37,6 @@
                             <!-- Aqui, o loop deve ser substituído por uma lista de elementos gerada dinamicamente -->
                             @foreach($books as $book)
                                 <x-table.tr>
-                                    <td>{{ $book->id }}</td>
                                     <td>
                                         @if($book->CoverPicture)
                                             <img src="{{asset('storage/'.$book->CoverPicture)}}" class="product-thumb rounded" alt="{{ $book->title }}" style="width: 30px;">

@@ -19,7 +19,7 @@ class BookSeeder extends Seeder
     {
 
         Book::factory(34)->create()->each(function ($book) {
-            $numReviews = random_int(10, 30);
+            $numReviews = random_int(5, 15);
 
             Review::factory()->count($numReviews)
                 ->bad()
@@ -29,7 +29,7 @@ class BookSeeder extends Seeder
         });
 
         Book::factory(33)->create()->each(function ($book) {
-            $numReviews = random_int(10, 30);
+            $numReviews = random_int(5, 15);
 
             Review::factory()->count($numReviews)
                 ->good()
@@ -39,7 +39,7 @@ class BookSeeder extends Seeder
         });
 
         Book::factory(33)->create()->each(function ($book) {
-            $numReviews = random_int(10, 30);
+            $numReviews = random_int(5, 15);
 
             Review::factory()->count($numReviews)
                 ->average()

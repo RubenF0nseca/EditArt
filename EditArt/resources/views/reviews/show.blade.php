@@ -17,15 +17,14 @@
 
                         <div class="row">
                             <div class="col-md-12">
-                                <h3>ID / {{ $review->id }}</h3>
                                 <table class="table">
                                     <tbody>
                                     <tr>
-                                        <th scope="row">{{ __('c_i_s_u.book_id') }}</th>
+                                        <th scope="row">Livro</th>
                                         <td>{{ $review->book->title }}</td>
                                     </tr>
                                     <tr>
-                                        <th scope="row">ID {{ __('c_i_s_u.user_id') }}</th>
+                                        <th scope="row">User</th>
                                         <td>{{ $review->user->name }}</td>
                                     </tr>
                                     <tr>
