@@ -18,8 +18,8 @@
 
         <!-- Tabela -->
         <div class="row">
-            <div class="col">
-                <div class="card shadow-lg border-0 rounded-lg mt-4">
+            <div class="col-md-10 offset-md-1">
+                <div class="card shadow-lg border-0 rounded-lg mt-4" >
                     <div class="table-responsive">
 
                         <x-table>

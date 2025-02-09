@@ -15,7 +15,7 @@
                     {{session('success')}}
                 </x-alert>
             @endif
-            <div class="col">
+            <div class="col-md-10 offset-md-1">
                 <div class="card shadow-lg border-0 rounded-lg mt-4">
                     <div class="table-responsive">
 

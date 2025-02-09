@@ -9,14 +9,13 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col">
+            <div class="col-md-10 offset-md-1">
                 <div class="card shadow-lg border-0 rounded-lg mt-4">
                     <div class="table-responsive">
 
                         <x-table>
                             <x-table.thead>
                                 <x-table.tr>
-                                    <x-table.th>{{ __('settings.table_id') }}</x-table.th>
                                     <x-table.th>{{ __('settings.table_comment') }}</x-table.th>
                                     <x-table.th class="text-end">{{ __('settings.table_actions') }}</x-table.th>
                                 </x-table.tr>
@@ -25,7 +24,6 @@
                             <!-- Aqui, o loop deve ser substituído por uma lista de elementos gerada dinamicamente -->
                             @foreach($comments as $comment)
                                 <x-table.tr>
-                                    <td>{{ $comment->id }}</td>
                                     <td>{{ Str::limit($comment->content, 120, '...') }}</td>
                                     <td class="text-end">
 

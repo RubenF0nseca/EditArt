@@ -18,14 +18,13 @@
 
         <!-- Tabela -->
         <div class="row">
-            <div class="col">
+            <div class="col-md-10 offset-md-1">
                 <div class="card shadow-lg border-0 rounded-lg mt-4">
                     <div class="table-responsive">
 
                         <x-table>
                             <x-table.thead>
                                 <x-table.tr>
-                                    <x-table.th>{{ __('c_i_s_u.table_id') }}</x-table.th>
                                     <x-table.th>{{ __('c_i_s_u.table_photo') }}</x-table.th>
                                     <x-table.th>{{ __('c_i_s_u.table_name') }}</x-table.th>
                                     <x-table.th class="d-none">{{ __('c_i_s_u.table_biography') }}</x-table.th>
@@ -37,7 +36,6 @@
                                 <!-- Aqui, o loop deve ser substituído por uma lista de elementos gerada dinamicamente -->
                                 @foreach($authors as $author)
                                     <x-table.tr>
-                                        <td>{{ $author->id }}</td>
                                         <td>
                                             @if($author->profilePicture)
                                                 <img src="{{asset('storage/'.$author->profilePicture)}}" class="product-thumb rounded" alt="{{ $author->name }}" style="width: 30px;">

@@ -18,7 +18,7 @@
 
         <!-- Tabela -->
         <div class="row">
-            <div class="col">
+            <div class="col-md-6 offset-md-3">
 
                 <!-- Alerta para mensagem de sucesso -->
                 @if(session('success'))
@@ -43,7 +43,6 @@
                         <x-table>
                             <x-table.thead>
                                 <x-table.tr>
-                                    <x-table.th>{{ __('c_i_s_u.id_column') }}</x-table.th>
                                     <x-table.th>{{__('c_i_s_u.genre_name_column') }}</x-table.th>
                                     <x-table.th class="text-end">{{ __('c_i_s_u.actions_column') }}</x-table.th>
                                 </x-table.tr>
@@ -52,7 +51,6 @@
                             <!-- Aqui, o loop deve ser substituído por uma lista de elementos gerada dinamicamente -->
                             @foreach($genres as $genre)
                                 <x-table.tr>
-                                    <td>{{ $genre->id }}</td>
                                     <td>{{$genre->name}}</td>
                                     <td class="text-end">
 

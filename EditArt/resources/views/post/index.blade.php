@@ -9,14 +9,13 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col">
+            <div class="col-md-10 offset-md-1">
                 <div class="card shadow-lg border-0 rounded-lg mt-4">
                     <div class="table-responsive">
 
                         <x-table>
                             <x-table.thead>
                                 <x-table.tr>
-                                    <x-table.th>{{ __('c_i_s_u.id') }}</x-table.th>
                                     <x-table.th>{{ __('c_i_s_u.title') }}</x-table.th>
                                     <x-table.th>{{ __('c_i_s_u.content') }}</x-table.th>
                                     <x-table.th class="text-end">{{ __('c_i_s_u.actions') }}</x-table.th>
@@ -26,7 +25,6 @@
                             <!-- Aqui, o loop deve ser substituído por uma lista de elementos gerada dinamicamente -->
                             @foreach($posts as $post)
                                 <x-table.tr>
-                                    <td>{{ $post->id }}</td>
                                     <td>{{ $post->title }}</td>
                                     <td>{{ Str::limit($post->content, 60, '...') }}</td>
                                     <td class="text-end">
