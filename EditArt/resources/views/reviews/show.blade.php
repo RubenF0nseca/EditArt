@@ -1,6 +1,6 @@
 @extends('layouts.admin.base')
 
-@section('title', __('c_i_s_u.review_details'))
+@section('title', __('reviews.review_details'))
 
 @section('content')
     <div class="container">
@@ -20,35 +20,35 @@
                                 <table class="table">
                                     <tbody>
                                     <tr>
-                                        <th scope="row">Livro</th>
+                                        <th scope="row">{{ __('reviews.book') }}</th>
                                         <td>{{ $review->book->title }}</td>
                                     </tr>
                                     <tr>
-                                        <th scope="row">User</th>
+                                        <th scope="row">{{ __('reviews.user') }}</th>
                                         <td>{{ $review->user->name }}</td>
                                     </tr>
                                     <tr>
-                                        <th scope="row">{{ __('c_i_s_u.comment') }}</th>
+                                        <th scope="row">{{ __('reviews.comment') }}</th>
                                         <td>{{ $review->comment }}</td>
                                     </tr>
                                     <tr>
-                                        <th scope="row">{{ __('c_i_s_u.rating') }}</th>
+                                        <th scope="row">{{ __('reviews.rating') }}</th>
                                         <td>{{ $review->rating }}</td>
                                     </tr>
                                     <tr>
-                                        <th scope="row">{{ __('c_i_s_u.date') }}</th>
+                                        <th scope="row">{{ __('reviews.date') }}</th>
                                         <td>{{ $review->created_at }}</td>
                                     </tr>
                                     <tr>
-                                        <th scope="row">{{ __('c_i_s_u.review_update') }}</th>
+                                        <th scope="row">{{ __('reviews.review_update') }}</th>
                                         <td>{{ $review->updated_at }}</td>
                                     </tr>
                                     </tbody>
                                 </table>
                             </div>
                             <div class="col-md-12 mt-4">
-                                <x-button.link link="{{ route('admin.reviews.edit', $review->id) }}" color="solid">{{ __('c_i_s_u.back') }}</x-button.link>
-                                <x-button.link link="{{ route('admin.reviews.index') }}" color="light-new">{{ __('c_i_s_u.show_all_reviews') }}</x-button.link>
+                                <x-button.link link="{{ route('admin.reviews.edit', $review->id) }}" color="solid">{{ __('reviews.back') }}</x-button.link>
+                                <x-button.link link="{{ route('admin.reviews.index') }}" color="light-new">{{ __('reviews.show_all_reviews') }}</x-button.link>
                             </div>
                         </div>
                     </div>

@@ -1,0 +1,37 @@
+<?php
+
+return [
+    'create_review' => 'Create a New Review',
+    'create_review_header' => 'Enter the details to create a review',
+    'book_id' => 'Book ID',
+    'user_id' => 'User ID',
+    'comment' => 'Comment',
+    'review_rating' => 'Rating',
+    'create_button' => 'Create',
+    'cancel_button' => 'Cancel',
+    'reviews_list' => 'Reviews List',
+    'new_review' => 'New Review',
+    'book' => 'Book',
+    'user' => 'User',
+    'rating' => 'Rating',
+    'date' => 'Date',
+    'approval' => 'Approval',
+    'actions' => 'Actions',
+    'review_details' => 'Review Details',
+    'back' => 'Back',
+    'show_all_reviews' => 'Show all reviews',
+    'details_title' => 'Product Details',
+    'no_authors' => 'No authors associated.',
+    'no_genres' => 'No genres associated.',
+    'updated_at' => 'Product last updated at:',
+    'show_all_products' => 'Show all products',
+    'created_at' => 'Topic created at:',
+    'edit_button' => 'Edit',
+    'show_all_button' => 'Show all topics',
+    'review_update' => 'Review Update at:',
+    'review_edit' => 'Edit Review',
+    'insert_edit_review' => 'Enter the data to edit the review',
+    'save' => 'Save',
+
+];
+

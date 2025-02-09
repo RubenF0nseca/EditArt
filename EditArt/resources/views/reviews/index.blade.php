@@ -1,9 +1,9 @@
 @extends('layouts.admin.base')
 
-@section('title', __('c_i_s_u.reviews_list'))
+@section('title', __('reviews.reviews_list'))
 
 @section('button')
-    <x-button.add link="{{ route('admin.reviews.create') }}" icon="fa-plus">&nbsp {{ __('c_i_s_u.new_review') }}</x-button.add>
+    <x-button.add link="{{ route('admin.reviews.create') }}" icon="fa-plus">&nbsp {{ __('reviews.new_review') }}</x-button.add>
 @endsection
 
 @section('content')
@@ -22,12 +22,12 @@
                         <x-table>
                             <x-table.thead>
                                 <x-table.tr>
-                                    <x-table.th>{{ __('c_i_s_u.book') }}</x-table.th>
-                                    <x-table.th>{{ __('c_i_s_u.user') }}</x-table.th>
-                                    <x-table.th>{{ __('c_i_s_u.rating') }}</x-table.th>
-                                    <x-table.th>{{ __('c_i_s_u.date') }}</x-table.th>
-                                    <x-table.th class="text-end">Aprovação</x-table.th>
-                                    <x-table.th class="text-end">{{ __('c_i_s_u.actions') }}</x-table.th>
+                                    <x-table.th>{{ __('reviews.book') }}</x-table.th>
+                                    <x-table.th>{{ __('reviews.user') }}</x-table.th>
+                                    <x-table.th>{{ __('reviews.rating') }}</x-table.th>
+                                    <x-table.th>{{ __('reviews.date') }}</x-table.th>
+                                    <x-table.th class="text-end">{{ __('reviews.approval') }}</x-table.th>
+                                    <x-table.th class="text-end">{{ __('reviews.actions') }}</x-table.th>
                                 </x-table.tr>
                             </x-table.thead>
                             <x-table.tbody>
