@@ -1,9 +1,9 @@
 @extends('layouts.admin.base')
 
-@section('title',__('c_i_s_u.authors_list_title'))
+@section('title',__('author.authors_list_title'))
 
 @section('button')
-    <x-button.add link="{{ route('admin.authors.create') }}" icon="fa-user-plus">&nbsp {{ __('c_i_s_u.add_new_author_button') }}</x-button.add>
+    <x-button.add link="{{ route('admin.authors.create') }}" icon="fa-user-plus">&nbsp {{ __('author.add_new_author_button') }}</x-button.add>
 @endsection
 
 @section('content')
@@ -12,35 +12,37 @@
         <x-widget.search
             action="{{ route('admin.authors.index') }}"
             name="name"
-            placeholder="{{ __('c_i_s_u.search_placeholder_author') }}"
+            placeholder="{{ __('author.search_placeholder_author') }}"
             value="{{ request('name') }}"
         />
 
         <!-- Tabela -->
         <div class="row">
-            <div class="col-md-10 offset-md-1">
+            <div class="col">
                 <div class="card shadow-lg border-0 rounded-lg mt-4">
                     <div class="table-responsive">
 
                         <x-table>
                             <x-table.thead>
                                 <x-table.tr>
-                                    <x-table.th>{{ __('c_i_s_u.table_photo') }}</x-table.th>
-                                    <x-table.th>{{ __('c_i_s_u.table_name') }}</x-table.th>
-                                    <x-table.th class="d-none">{{ __('c_i_s_u.table_biography') }}</x-table.th>
-                                    <x-table.th class="d-none">{{ __('c_i_s_u.table_birthdate') }}</x-table.th>
-                                    <x-table.th class="text-end">{{ __('c_i_s_u.table_actions') }}</x-table.th>
+                                    <x-table.th>{{ __('id') }}</x-table.th>
+                                    <x-table.th>{{ __('photo') }}</x-table.th>
+                                    <x-table.th>{{ __('name') }}</x-table.th>
+                                    <x-table.th class="d-none">{{ __('biography') }}</x-table.th>
+                                    <x-table.th class="d-none">{{ __('birthdate') }}</x-table.th>
+                                    <x-table.th class="text-end">{{ __('author.actions') }}</x-table.th>
                                 </x-table.tr>
                             </x-table.thead>
                             <x-table.tbody>
                                 <!-- Aqui, o loop deve ser substituído por uma lista de elementos gerada dinamicamente -->
                                 @foreach($authors as $author)
                                     <x-table.tr>
+                                        <td>{{ $author->id }}</td>
                                         <td>
                                             @if($author->profilePicture)
                                                 <img src="{{asset('storage/'.$author->profilePicture)}}" class="product-thumb rounded" alt="{{ $author->name }}" style="width: 30px;">
                                             @else
-                                                <img src="{{ asset('imgs/img_nao_disponivel.png') }}" class="product-thumb rounded" alt="{{ __('c_i_s_u.image_not_available') }}" style="width: 30px;">
+                                                <img src="{{ asset('imgs/img_nao_disponivel.png') }}" class="product-thumb rounded" alt="{{ __('author.image_not_available') }}" style="width: 30px;">
                                             @endif
                                         </td>
                                         <td>{{ $author->name }}</td>
