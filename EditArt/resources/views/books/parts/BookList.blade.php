@@ -26,12 +26,10 @@
                 </button>
             </figure>
             <figcaption>
-                <h3 class="font-serif">{{ $book->title }}</h3>
+                <h3 class="font-serif book-title">{{ $book->title }}</h3>
                 <h4 class="book-author">
                     @if($book->authors->isNotEmpty())
-                        @foreach($book->authors as $author)
-                            <h4 class="book-author">{{ $author->name }}</h4>
-                        @endforeach
+                        {{ $book->authors->first()->name }}
                     @else
                         Sem author
                     @endif

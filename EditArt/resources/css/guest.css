@@ -171,6 +171,9 @@ input,
     margin-bottom: 20px;
     text-align: center;
 }
+.book-title{
+    min-height: 3em;
+}
 #wish-price{
     display: flex;
     justify-content: space-between;
@@ -193,7 +196,7 @@ input,
     color: #b27e06;
 }
 .product-item figcaption>h3 {
-    font-size: 2em;
+    font-size: 1.9em;
     font-weight: 500;
     color: #af8867;
     margin: 0;
@@ -206,7 +209,7 @@ input,
     font-size: 1.3em;
 }
 .book-author{
-    font-size: 1.4em;
+    font-size: 1.3em;
 }
 @media screen and (max-width: 768px) {
     .product-item {
