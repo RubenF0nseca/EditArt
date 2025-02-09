@@ -4,15 +4,8 @@
     <div class="page-wrapper wrapper d-flex flex-column min-vh-100">
         <section class="banner">
             <div class="container">
-                <div class="row mb-5" id="margin-top">
-                    <div class="col-md-6 d-flex justify-content-center align-items-center">
-                        <div class="text-container2 mb-5">
-                            <h1>“Think before you speak.<br>Read before you think.”</h1>
-                            <h5 class="text-end">― Fran Lebowitz</h5>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 d-flex justify-content-center align-items-center">
+                <div class="row mt-2 d-flex justify-content-center align-items-center min-vh-100">
+                    <div class="col-md-8 d-flex justify-content-center align-items-center min-vh-100">
                         <div class="card shadow-lg border-0 rounded-lg">
                             <div class="card-header">
                                 <h3 class="text-center font-alt font-weight-light my-4">Criar Conta</h3>
@@ -157,7 +150,7 @@
 
                                     <div class="mt-4 mb-0">
                                         <div class="d-grid">
-                                            <button class="btn btn-primary btn-block" type="submit" name="bt_registration">
+                                            <button class="btn btn-solid btn-block" type="submit" name="bt_registration">
                                                 Criar Conta
                                             </button>
                                         </div>
