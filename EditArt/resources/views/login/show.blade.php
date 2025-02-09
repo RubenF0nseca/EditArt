@@ -4,14 +4,8 @@
     <div class="page-wrapper wrapper d-flex flex-column min-vh-100">
         <section class="banner">
             <div class="container">
-                <div class="row" id="margin-top">
-                    <div class="col-md-6 d-flex justify-content-center align-items-center">
-                        <div class="text-container2 mb-5">
-                            <h1>“Think before you speak.<br> Read before you think.”</h1>
-                            <h5 class="text-end">― Fran Lebowitz</h5>
-                        </div>
-                    </div>
-                    <div class="col-md-6 d-flex justify-content-center align-items-center">
+                <div class="row d-flex justify-content-center align-items-center min-vh-100">
+                    <div class="col-md-6 d-flex justify-content-center align-items-center min-vh-100">
                         <div class="card shadow-lg border-0 rounded-lg">
                             <div class="card-header"><h3 class="text-center font-weight-light my-4 font-alt">{{ __('auth.login') }}</h3>
                             <div class="card-body">
@@ -58,7 +52,7 @@
                                     </div>
                                     <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
                                         <a class="small" href="{{ route('password.forgot') }}">{{ __('auth.forgot_password') }}</a>
-                                        <button class="btn btn-primary" type="submit" name="bt_login">{{ __('auth.enter') }}</button>
+                                        <button class="btn btn-solid" type="submit" name="bt_login">{{ __('auth.enter') }}</button>
                                     </div>
                                 </form>
                             </div>

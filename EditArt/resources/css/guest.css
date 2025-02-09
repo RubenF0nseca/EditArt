@@ -251,9 +251,9 @@ input,
         color: #C5A992;
         text-decoration: none;
     }
-    .form-control{
+    .form-control, .form-control:focus{
         background-color: rgba(29, 29, 28, 0.82);
-        border: 1px solid #C5A992;
+        border: 1px solid #C5A992 !important;
         color: #C5A992;
     }
 
