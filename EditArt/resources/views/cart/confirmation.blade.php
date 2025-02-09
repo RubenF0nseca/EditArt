@@ -3,7 +3,7 @@
 @section('content')
     <div class="page-wrapper wrapper d-flex flex-column min-vh-100">
         <div class="container">
-            <div class="row" id="margin-top">
+            <div class="row margin-top">
                 <div id="logo-bg"></div>
                 <!-- Confirmação do Pedido -->
                 <div class="col-lg-8 offset-2">

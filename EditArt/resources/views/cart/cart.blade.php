@@ -10,7 +10,7 @@
 @section('content')
     <div class="page-wrapper wrapper d-flex flex-column min-vh-100">
         <div class="container">
-            <div class="row" id="margin-top">
+            <div class="row margin-top">
                 <!-- Lista de compras ------------------------------------  -->
                 <div class="col-lg-9 col-sm-offset-3">
                     <h1 class="section-title font-alt">{{ __('cart.cart') }}</h1>
