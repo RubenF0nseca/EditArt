@@ -8,7 +8,7 @@
                     <div class="col-md-8 d-flex justify-content-center align-items-center min-vh-100">
                         <div class="card shadow-lg border-0 rounded-lg">
                             <div class="card-header">
-                                <h3 class="text-center font-alt font-weight-light my-4">Criar Conta</h3>
+                                <h3 class="text-center font-alt font-weight-light my-4">{{ __('registration_login.create') }}</h3>
                             </div>
                             <div class="card-body">
 
@@ -41,7 +41,7 @@
                                                     value="{{ old('name') }}"
                                                     placeholder="Insira o seu nome"
                                                 />
-                                                <label for="inputName">Nome *</label>
+                                                <label for="inputName">{{ __('registration_login.name') }} *</label>
                                                 @error('name')
                                                 <div class="invalid-feedback">{{ $message }}</div>
                                                 @enderror
@@ -57,7 +57,7 @@
                                                     value="{{ old('nif') }}"
                                                     placeholder="Insira o seu NIF"
                                                 />
-                                                <label for="nif">NIF</label>
+                                                <label for="nif">{{ __('registration_login.nif') }}</label>
                                                 @error('nif')
                                                 <div class="invalid-feedback">{{ $message }}</div>
                                                 @enderror
@@ -74,7 +74,7 @@
                                             value="{{ old('email') }}"
                                             placeholder="Insira o seu email"
                                         />
-                                        <label for="inputEmail">Email *</label>
+                                        <label for="inputEmail">{{ __('registration_login.email') }} *</label>
                                         @error('email')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
@@ -91,7 +91,7 @@
                                                     value="{{ old('phone_number') }}"
                                                     placeholder="Insira o seu telefone"
                                                 />
-                                                <label for="phone_number">Telefone</label>
+                                                <label for="phone_number">{{ __('registration_login.phone') }}</label>
                                                 @error('phone_number')
                                                 <div class="invalid-feedback">{{ $message }}</div>
                                                 @enderror
@@ -107,7 +107,7 @@
                                                     value="{{ old('Address') }}"
                                                     placeholder="Insira a sua morada"
                                                 />
-                                                <label for="Address">Morada</label>
+                                                <label for="Address">{{ __('registration_login.address') }}</label>
                                                 @error('Address')
                                                 <div class="invalid-feedback">{{ $message }}</div>
                                                 @enderror
@@ -125,7 +125,7 @@
                                                     name="password"
                                                     placeholder="Insira a password"
                                                 />
-                                                <label for="password">Password *</label>
+                                                <label for="password">{{ __('registration_login.password') }} *</label>
                                                 @error('password')
                                                 <div class="invalid-feedback">{{ $message }}</div>
                                                 @enderror
@@ -140,7 +140,7 @@
                                                     name="password_confirmation"
                                                     placeholder="Confirme a password"
                                                 />
-                                                <label for="inputPasswordConfirm">Confirmar Password * </label>
+                                                <label for="inputPasswordConfirm">{{ __('registration_login.confirm_password') }} * </label>
                                                 @error('password_confirmation')
                                                 <div class="invalid-feedback">{{ $message }}</div>
                                                 @enderror
@@ -151,7 +151,7 @@
                                     <div class="mt-4 mb-0">
                                         <div class="d-grid">
                                             <button class="btn btn-solid btn-block" type="submit" name="bt_registration">
-                                                Criar Conta
+                                                {{ __('registration_login.create') }}
                                             </button>
                                         </div>
                                     </div>
@@ -159,7 +159,7 @@
                             </div>
                             <div class="card-footer text-center py-3">
                                 <div class="small">
-                                    <a href="{{ route('login') }}">Já tem conta? Faça Login!</a>
+                                    <a href="{{ route('login') }}">{{ __('registration_login.have_account') }}</a>
                                 </div>
                             </div>
                         </div>
