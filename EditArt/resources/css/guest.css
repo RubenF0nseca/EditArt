@@ -193,17 +193,20 @@ input,
     color: #b27e06;
 }
 .product-item figcaption>h3 {
-    font-size: 1.4em;
+    font-size: 2em;
     font-weight: 500;
-    color: #74642F;
+    color: #af8867;
     margin: 0;
 }
 .product-item figcaption>p {
     margin: 0;
 }
 .product-item .item-price {
-    color: #74642F;
+    color: #8c6108;
     font-size: 1.3em;
+}
+.book-author{
+    font-size: 1.4em;
 }
 @media screen and (max-width: 768px) {
     .product-item {

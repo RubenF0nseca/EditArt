@@ -26,19 +26,19 @@
                 </button>
             </figure>
             <figcaption>
-                <h3>{{ $book->title }}</h3>
-                <h5 class="font-serif">
+                <h3 class="font-serif">{{ $book->title }}</h3>
+                <h4 class="book-author">
                     @if($book->authors->isNotEmpty())
                         @foreach($book->authors as $author)
-                            <h2 class="author-name font-serif">{{ $author->name }}</h2>
+                            <h4 class="book-author">{{ $author->name }}</h4>
                         @endforeach
                     @else
                         Sem author
                     @endif
-                </h5>
+                </h4>
                 <span>{{ $book->type }}</span>
                 <div id="wish-price">
-                    <span class="item-price">€{{ $book->price, 2 }}</span>
+                    <span class="item-price">{{ $book->price, 2 }} €</span>
                     @php
                         $inWishlist = auth()->check() && auth()->user()->wishlists()->where('book_id', $book->id)->exists();
                     @endphp

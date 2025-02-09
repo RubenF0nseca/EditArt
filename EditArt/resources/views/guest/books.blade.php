@@ -11,7 +11,7 @@
     <div class="page-wrapper wrapper d-flex flex-column min-vh-100">
         <!-- Banner ------------------------------------  -->
         <div class="store-bg">
-            <h2 class="module-title font-alt" id="margin-top">Loja <br>online</h2>
+            <h2 class="module-title font-alt margin-top">Loja <br>online</h2>
         </div>
         <!-- ----- Os produtos ---------------------------  -->
         <div class="page-body">
