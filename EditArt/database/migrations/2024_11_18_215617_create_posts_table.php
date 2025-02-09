@@ -16,6 +16,8 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained();
             $table->string('title', 25)->unique();
             $table->string('content', 5000);
+            $table->boolean('is_support')->default(false);
+            $table->boolean('is_resolved')->default(false);
             $table->timestamps();
         });
 
