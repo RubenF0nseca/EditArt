@@ -70,7 +70,7 @@ button:focus,
     color: #C5A992;
 }
 /*-- Margin geral --*/
-#margin-top{
+.margin-top{
     margin-top: 160px;
 }
 /*-- Separador com cor especial --*/
@@ -97,7 +97,6 @@ button:focus,
     font-weight: 900;
     font-size: calc(var(--index)* 5.5);
     color: var(--module-title-color);
-    margin: 0 0 50px;
     text-shadow: 0 0 20px rgb(241, 225, 134);
 }
 .section-title {
@@ -638,6 +637,7 @@ td{
     margin-bottom: 21px;
     overflow: hidden;
     border: 1px dotted #c2c2c2;
+    background-color: white;
 }
 .review-author{
     font-size: 1rem;
