@@ -6,6 +6,8 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
+use Illuminate\Support\Facades\URL;
+use Illuminate\Support\Carbon;
 
 class ResetPasswordNotification extends Notification
 {
@@ -34,16 +36,17 @@ class ResetPasswordNotification extends Notification
      */
     public function toMail(object $notifiable): MailMessage
     {
-        $resetUrl = url(route('password.reset', [
-            'token' => $this->token,
-            'email' => $notifiable->getEmailForPasswordReset(),
-        ], false));
+        $resetUrl = URL::temporarySignedRoute(
+            'password.reset', // Nome da rota
+            Carbon::now()->addMinutes(1440), // Validade de 24 horas (1440 minutos)
+            ['token' => $this->token, 'email' => $notifiable->getEmailForPasswordReset()]
+        );
 
         return (new MailMessage)
             ->subject("Pedido de Reset da Password")
             ->greeting("Olá {$notifiable->name},")
-            ->line("Estás a receber este email porque foi recebido um pedido de reset de password para a sua conta.")
-            ->action("Reset Password", url($resetUrl))
+            ->line("Estás a receber este email porque foi efetuado um pedido de reset de password para a sua conta.")
+            ->action("Reset Password", $resetUrl)
             ->salutation("Atenciosamente, EditArt");
     }
 

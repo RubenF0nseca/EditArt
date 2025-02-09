@@ -3,24 +3,23 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Store\CartController;
-use App\Notifications\UserLoggedInNotification;
-use Illuminate\Http\RedirectResponse;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\App;
-use App\Models\User;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Password;
+use App\Notifications\ResetPasswordNotification;
 
 class LoginController extends Controller
 {
-
     /**
      * Mostra o formulário de login
      */
     public function showLogin(Request $request)
     {
         return view('login.show', [
-            'redirect' => $request->input('redirect')
+            'redirect' => $request->input('redirect'),
         ]);
     }
 
@@ -38,45 +37,75 @@ class LoginController extends Controller
             'password.required' => 'A palavra-passe é obrigatória.',
         ]);
 
+        // Verificar quantas tentativas já foram feitas
+        $key = 'login_attempts:' . $request->input('email');
+        $attempts = Cache::get($key, 0);
+
+        // Se errar 5 vezes, verifica se ainda está bloqueado
+        if ($attempts >= 5) {
+            $lockoutTime = Cache::get('lockout_time:' . $request->input('email'));
+
+            if ($lockoutTime && now()->diffInMinutes($lockoutTime) < 5) {
+                return back()->withErrors(['error' => "Muitas tentativas. Tente novamente após 5 minutos ou vá ao seu email para redefinir a password"]);
+            }
+
+            // Se já passou o tempo de bloqueio, faz reset das tentativas
+            Cache::forget($key);
+            Cache::forget('lockout_time:' . $request->input('email'));
+        }
+
+        // Tenta autenticar o utilizador
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
             app(CartController::class)->mergeCart();
 
-            // Priorizar redirecionamento personalizado
-            $redirectUrl = $this->getValidRedirectUrl($request);
+            // Limpa as tentativas ao fazer login com sucesso
+            Cache::forget($key);
+            Cache::forget('lockout_time:' . $request->input('email'));
 
+            $redirectUrl = $this->getValidRedirectUrl($request);
             if ($redirectUrl) {
-                return redirect()->to($redirectUrl)
-                    ->with("success", "Login efetuado com sucesso!.");
+                return redirect()->to($redirectUrl)->with("success", "Login efetuado com sucesso!.");
             }
 
-            $defaultRedirect = auth()->user()->hasRole('admin')
-                ? route('admin.dashboard')
-                : route('home');
-
-            return redirect()->intended($defaultRedirect)
-                ->with("success", "Login efetuado com sucesso!.");
+            $defaultRedirect = auth()->user()->hasRole('admin') ? route('admin.dashboard') : route('home');
+            return redirect()->intended($defaultRedirect)->with("success", "Login efetuado com sucesso!");
         }
 
-        return redirect()->back()
-            ->withInput($request->only('email', 'redirect'))
-            ->withErrors(['error' => 'Verifique as suas credênciais!']);
+        // Se o login falhar, incrementa o contador de tentativas
+        $attempts++;
+        Cache::put($key, $attempts, now()->addMinutes(5));
+
+        // Se atingir 5 tentativas falhadas, bloqueia e envia email
+        if ($attempts == 5) {
+            // Marca o tempo de bloqueio
+            Cache::put('lockout_time:' . $request->input('email'), now(), now()->addMinutes(5));
+
+            // Envia email com link para redefinir senha
+            $user = User::where('email', $request->input('email'))->first();
+            if ($user) {
+                $token = app('auth.password.broker')->createToken($user);
+                $user->notify(new ResetPasswordNotification($token));
+            }
+        }
+
+        return back()->withInput($request->only('email', 'redirect'))
+            ->withErrors(['error' => 'Verifique as suas credenciais!']);
     }
-
-
     /**
      * Termina a sessão do utilizador
      */
-    public function logout(Request $request): RedirectResponse
+    public function logout(Request $request): \Illuminate\Http\RedirectResponse
     {
         Auth::logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
+
         return redirect(route('home'));
     }
 
     /**
-     * Verifica se o url é valido para redirecionamento
+     * Verifica se o URL é válido para redirecionamento
      */
     private function isValidRedirect($url)
     {
@@ -84,7 +113,7 @@ class LoginController extends Controller
             return false;
         }
 
-        return !preg_match('/\/\/+/', $url); // Evitar URLs malformadas
+        return !preg_match('/\/\/+/', $url); // Evita URLs malformadas
     }
 
     /**
@@ -102,6 +131,4 @@ class LoginController extends Controller
 
         return null;
     }
-
-
 }
