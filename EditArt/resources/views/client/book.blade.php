@@ -23,7 +23,7 @@
                 </x-alert>
             @endif
 
-            <div class="row mb-5" id="margin-top">
+            <div class="row mb-5 margin-top">
                 <!-- Alerta para mensagem de sucesso -->
                 @if(session('success'))
                     <x-alert id="success-alert" type="success">
