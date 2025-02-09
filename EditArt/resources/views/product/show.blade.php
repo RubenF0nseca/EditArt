@@ -6,7 +6,7 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col">
+            <div class="col-md-10 offset-md-1">
                 <div class="card shadow-lg border-0 rounded-lg">
                     <div class="card-body">
                         <!-- Alerta para mensagem de sucesso -->
@@ -84,10 +84,7 @@
                                         <th scope="row">{{ __('c_i_s_u.price') }}</th>
                                         <td>{{ $book->price }}€</td>
                                     </tr>
-                                    <tr>
-                                        <th scope="row">Descrição</th>
-                                        <td>{{ $book->description }}</td>
-                                    </tr>
+
                                     <tr>
                                         <th scope="row">{{ __('c_i_s_u.updated_at') }}</th>
                                         <td>{{ $book->updated_at }}</td>
@@ -101,6 +98,10 @@
                                 @else
                                     <img src="{{ asset('imgs/img_nao_disponivel.png') }}" class="product-thumb rounded shadow-lg border-0 rounded-lg mt-5" alt="{{ __('c_i_s_u.image_not_available') }}"  style="width: 280px; height: 400px;">
                                 @endif
+                            </div>
+                            <div class="col-md-12">
+                                <div class="row p-2"><b>Descrição</b></div>
+                                <div class="p-2">{{ $book->description }}</div>
                             </div>
                             <div class="col-md-12 mt-4">
                                 <x-button.link link="{{ route('admin.books.edit', $book->id) }}" color="solid">{{ __('c_i_s_u.edit') }}</x-button.link>
