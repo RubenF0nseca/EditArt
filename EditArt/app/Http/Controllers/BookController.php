@@ -26,7 +26,7 @@ class BookController extends Controller
             'CoverPicture' => 'nullable|mimes:jpg,png|max:2048',
             'authors' => 'required|array',
             'authors.*' => 'exists:authors,id', // Garante que os IDs existem na tabela authors
-            'description' => 'required|string|max:1000',
+            'description' => 'required|string|max:5000',
         ];
     }
 
