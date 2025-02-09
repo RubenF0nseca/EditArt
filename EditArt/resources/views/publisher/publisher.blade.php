@@ -12,7 +12,10 @@
     <div class="page-wrapper wrapper d-flex flex-column min-vh-100">
         <!-- Banner ------------------------------------  -->
         <div class="publisher-bg">
-            <h2 class="module-title font-alt" id="margin-top">Editora <br>online</h2>
+            <h2 class="module-title font-alt" id="margin-top">{{ __('homepage.online') }} <br>{{ __('homepage.publisher') }}</h2>
+            <p>
+                {{ __('homepage.send_email') }}
+            </p>
         </div>
         <div class="container">
 

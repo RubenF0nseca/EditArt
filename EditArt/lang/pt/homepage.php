@@ -14,6 +14,7 @@ return [
         'store' => 'Loja',
         'store_presentation' => 'Na nossa loja são apresentadas as obras dos nossos autores.',
         'online_publisher' => 'Editora Online',
+        'online' => 'Online',
         'publisher' => 'Editora',
         'publisher_presentation' => 'A nossa editora oferece uma plataforma acessível para escritores que desejam transformar as suas ideias em trabalhos publicados.',
         'forum' => 'Fórum',
@@ -23,5 +24,6 @@ return [
         'subscription_submit' => 'Enviar',
         'copyright' => '2025 © EditArt, Todos os Direitos Reservados',
         'enter' => 'Entrar',
+        'send_email' => 'Se pretende que o seu texto seja publicado, por favor envie email para edit.art@gmail.com',
 
 ];

@@ -14,6 +14,7 @@ return [
         'store' => 'Store',
         'store_presentation' => 'In our store, the works of our authors are displayed.',
         'online_publisher' => 'Online Publisher',
+        'online' => 'Online',
         'publisher' => 'Publisher',
         'publisher_presentation' => 'Our publishing house offers an accessible platform for writers who wish to turn their ideas into published works.',
         'forum' => 'Forum',
@@ -23,5 +24,7 @@ return [
         'subscription_submit' => 'Submit',
         'copyright' => '2025 © EditArt, All Rights Reserved',
         'enter' => 'Enter',
+        'send_email' => 'If you want your text to be published, please send an email to edit.art@gmail.com',
+
 
 ];
