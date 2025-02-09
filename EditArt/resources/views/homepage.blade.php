@@ -48,7 +48,7 @@
 
             <article class="main-article">
                 <div class="main-article__content">
-                    <h2 class="main-article__header font-alt">Os nossos serviços</h2>
+                    <h2 class="main-article__header font-alt">{{ __('homepage.services_title') }}</h2>
                 </div>
             </article>
 
@@ -67,15 +67,15 @@
                         <img src="{{ asset('imgs/store-bg.jpg') }}" class="slide-img" width="100%" height="100%" alt="">
                         <div class="container">
                             <div class="carousel-caption">
-                                <h2 id="titulo" class="module-title font-alt">Loja</h2>
+                                <h2 id="titulo" class="module-title font-alt">{{ __('homepage.store') }}</h2>
                             </div>
                             <div class="row">
                                 <div class="col-6"></div>
                                 <div class="col-6 carousel-text text-end">
                                     <p>
-                                        Apresentamos as obras dos nossos autores.
+                                        {{ __('homepage.store_presentation') }}
                                     </p>
-                                    <a href="{{route('guest.books')}}" class="btn btn-solid">Entrar</a>
+                                    <a href="{{route('guest.books')}}" class="btn btn-solid">{{ __('homepage.enter') }}</a>
                                 </div>
                             </div>
                         </div>
@@ -85,15 +85,15 @@
                         <img src="{{ asset('imgs/publisher-bg.jpg') }}" class="slide-img" width="100%" height="100%" alt="">
                         <div class="container">
                             <div class="carousel-caption">
-                                <h2 id="titulo" class="module-title font-alt">Editora</h2>
+                                <h2 id="titulo" class="module-title font-alt">{{ __('homepage.publisher') }}</h2>
                             </div>
                             <div class="row">
                                 <div class="col-6"></div>
                                 <div class="col-6 carousel-text text-end">
                                     <p>
-                                        A nossa editora oferece uma plataforma acessível para escritores que desejam transformar as suas ideias em trabalhos publicados.
+                                        {{ __('homepage.publisher_presentation') }}
                                     </p>
-                                    <a href="{{route('publisher')}}" class="btn btn-solid">Entrar</a>
+                                    <a href="{{route('publisher')}}" class="btn btn-solid">{{ __('homepage.enter') }}</a>
                                 </div>
                             </div>
                         </div>
@@ -103,15 +103,14 @@
                         <img src="{{ asset('imgs/forum_bg.png') }}" class="slide-img" width="100%" height="100%" alt="">
                         <div class="container">
                             <div class="carousel-caption">
-                                <h2 id="titulo" class="module-title font-alt">Forum</h2>
+                                <h2 id="titulo" class="module-title font-alt">{{ __('homepage.forum') }}</h2>
                             </div>
                             <div class="row">
                                 <div class="col-6"></div>
                                 <div class="col-6 carousel-text text-end">
                                     <p>
-                                        Dispomos de um fórum para que os autores e os leitores possam interagir, trocar experiências e expandir o universo literário.
-                                    </p>
-                                    <a href="{{route('client.forum.index')}}" class="btn btn-solid">Entrar</a>
+                                        {{ __('homepage.forum_presentation') }}                                    </p>
+                                    <a href="{{route('client.forum.index')}}" class="btn btn-solid">{{ __('homepage.enter') }}</a>
                                 </div>
                             </div>
                         </div>
