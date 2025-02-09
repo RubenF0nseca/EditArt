@@ -161,7 +161,26 @@
 
                         </x-pills.content>
                         <!-- Tab: Minhas compras ------------------------------------  -->
-                        <x-pills.content class="" id="order" label="order">Nenhuma compra ainda</x-pills.content>
+                        <x-pills.content class="" id="order" label="order">
+                            <div class="order-card mb-5 p-5">
+                                @if($transactions->isNotEmpty())
+                                    @foreach($transactions as $transaction)
+                                        <!-- Data do Pedido -->
+                                        <div class="row review-entry">
+                                            <span class="col-4 font-alt"><h3>{{ __('cart.order_date') }}</h3></span>
+                                            <span class="col-4">{{ $transaction->transaction_date }}</span>
+                                            <span class="col-4 font-alt">
+                                                <a href="{{ route('client.order.history', ['id' => $transaction->id]) }}">
+                                                    Detalhes da compra <i class="fa-solid fa-arrow-right-long"></i>
+                                                </a>
+                                            </span>
+                                        </div>
+                                    @endforeach
+                                @else
+                                    Nenhuma compra ainda
+                                @endif
+                             </div>
+                        </x-pills.content>
 
                         <!-- Tab: Minhas avaliações ------------------------------------  -->
                         <x-pills.content class="" id="review" label="review">

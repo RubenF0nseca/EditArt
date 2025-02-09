@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Client;
 
 use App\Models\Review;
+use App\Models\Transaction;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -63,12 +64,13 @@ class ProfileController extends Controller
         }
 
     }
-
-    public function showReviews()
+    public function showProfile()
     {
         $user = auth()->user();
-        $reviews = Review::with(['user', 'book'])
-            ->where('user_id', $user->id)->get();
-        return view('client.profile', compact('reviews'));
+        $reviews = Review::with(['user', 'book'])->where('user_id', $user->id)->get();
+        $transactions = Transaction::with(['user'])->where('user_id', $user->id)->get();
+
+        return view('client.profile', compact('reviews','transactions'));
     }
+
 }
