@@ -9,7 +9,7 @@
                     <div class="col-md-6 d-flex justify-content-center align-items-center min-vh-100">
                         <div class="card shadow-lg border-0 rounded-lg">
                             <div class="card-header">
-                                <h3 class="text-center font-alt font-weight-light my-4">{{ __('c_i_s_u.password_reset') }}</h3>
+                                <h3 class="text-center font-alt font-weight-light my-4">{{ __('client.password_reset') }}</h3>
                             </div>
                             <div class="card-body">
 
@@ -42,7 +42,7 @@
                                                     name="password"
                                                     placeholder="Insira a password"
                                                 />
-                                                <label for="password">{{ __('c_i_s_u.new_password') }} *</label>
+                                                <label for="password">{{ __('client.new_password') }} *</label>
                                                 @error('password')
                                                 <div class="invalid-feedback">{{ $message }}</div>
                                                 @enderror
@@ -57,7 +57,7 @@
                                                     name="password_confirmation"
                                                     placeholder="Confirme a password"
                                                 />
-                                                <label for="password_confirmation">{{ __('c_i_s_u.new_password') }} *</label>
+                                                <label for="password_confirmation">{{ __('client.new_password') }} *</label>
                                                 @error('password_confirmation')
                                                 <div class="invalid-feedback">{{ $message }}</div>
                                                 @enderror
@@ -68,7 +68,7 @@
                                     <div class="mt-4 mb-0">
                                         <div class="d-grid">
                                             <button class="btn btn-solid btn-block" type="submit" name="bt_registration">
-                                                {{ __('c_i_s_u.change_password') }}
+                                                {{ __('client.change_password') }}
                                             </button>
                                         </div>
                                     </div>
