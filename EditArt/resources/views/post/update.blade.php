@@ -1,6 +1,6 @@
 @extends('layouts.admin.base')
 
-@section('title',__('c_i_s_u.title'))
+@section('title',__('post.title'))
 
 @section('content')
     <div class="container">
@@ -8,7 +8,7 @@
             <div class="col-md-8 offset-md-2">
                 <div class="card">
                     <div class="card-header">
-                        <h4>{{ __('c_i_s_u.header') }}</h4>
+                        <h4>{{ __('post.header') }}</h4>
                     </div>
                     <div class="card-body">
                         <!-- Alerta para mensagem de sucesso -->
@@ -29,22 +29,22 @@
                             @csrf
                             @method('PUT')
                             <div class="mb-3">
-                                <label for="title" class="form-label required">{{ __('c_i_s_u.title_label') }}</label>
+                                <label for="title" class="form-label required">{{ __('post.title_label') }}</label>
                                 <input type="text" id="title" name="title" class="form-control @error('title') is-invalid @enderror" value="{{old('title', $post->title)}}" >
                                 @error('title')
                                 <div class="invalid-feedback" >{{$message}}</div>
                                 @enderror
                             </div>
                             <div class="mb-3">
-                                <label for="content" class="form-label required">{{ __('c_i_s_u.content_label') }}</label>
+                                <label for="content" class="form-label required">{{ __('post.content_label') }}</label>
                                 <input type="text" id="content" name="content" class="form-control @error('content') is-invalid @enderror" value="{{old('content', $post->content)}}" >
                                 @error('content')
                                 <div class="invalid-feedback" >{{$message}}</div>
                                 @enderror
                             </div>
                             <div class="text-end">
-                                <x-button.submit color="solid">{{ __('c_i_s_u.save_button') }}</x-button.submit>
-                                <x-button.link link="{{ route('admin.posts.show', $post->id) }}" color="dark-solid">  {{ __('c_i_s_u.cancel_button') }}</x-button.link>
+                                <x-button.submit color="solid">{{ __('post.save_button') }}</x-button.submit>
+                                <x-button.link link="{{ route('admin.posts.show', $post->id) }}" color="dark-solid">  {{ __('post.cancel') }}</x-button.link>
                             </div>
                         </form>
                     </div>

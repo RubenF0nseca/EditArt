@@ -1,9 +1,9 @@
 @extends('layouts.admin.base')
 
-@section('title',__('c_i_s_u.topic_list'))
+@section('title',__('post.topic_list'))
 
 @section('button')
-    <x-button.add link="{{ route('admin.posts.create') }}" icon="fa-plus">&nbsp {{ __('c_i_s_u.new_topic') }}</x-button.add>
+    <x-button.add link="{{ route('admin.posts.create') }}" icon="fa-plus">&nbsp {{ __('post.new_topic') }}</x-button.add>
 @endsection
 
 @section('content')
@@ -16,9 +16,9 @@
                         <x-table>
                             <x-table.thead>
                                 <x-table.tr>
-                                    <x-table.th>{{ __('c_i_s_u.title') }}</x-table.th>
-                                    <x-table.th>{{ __('c_i_s_u.content') }}</x-table.th>
-                                    <x-table.th class="text-end">{{ __('c_i_s_u.actions') }}</x-table.th>
+                                    <x-table.th>{{ __('post.title') }}</x-table.th>
+                                    <x-table.th>{{ __('post.content') }}</x-table.th>
+                                    <x-table.th class="text-end">{{ __('post.actions') }}</x-table.th>
                                 </x-table.tr>
                             </x-table.thead>
                             <x-table.tbody>
