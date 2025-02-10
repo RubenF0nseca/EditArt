@@ -33,7 +33,7 @@ return [
     'annual_sales' => 'Vendas por ano',
     'total_sales' => 'Vendas Total',
     'transactions' => 'Transações',
-,
+
     //Dashboard
     'dashboard_title' => 'Admin Dashboard',
     'dashboard_users' => 'Utilizadores',
