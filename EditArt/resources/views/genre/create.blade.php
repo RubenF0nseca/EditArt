@@ -1,6 +1,6 @@
 @extends('layouts.admin.base')
 
-@section('title',__('c_i_s_u.create_new_genre'))
+@section('title',__('genre.create_new_genre'))
 
 @section('content')
     <div class="container">
@@ -8,7 +8,7 @@
             <div class="col-md-8 offset-md-2">
                 <div class="card">
                     <div class="card-header">
-                        <h4>{{ __('c_i_s_u.insert_new_genre') }}</h4>
+                        <h4>{{ __('genre.insert_new_genre') }}</h4>
                     </div>
                     <div class="card-body">
                         <!-- Alerta para mensagem de sucesso -->
@@ -28,15 +28,15 @@
                         <form action="{{ route('admin.genres.store') }}" method="POST">
                             @csrf
                             <div class="mb-3">
-                                <label for="content" class="form-label required">{{ __('c_i_s_u.genre_name') }}</label>
-                                <input type="text" id="name" name="name" class="form-control @error('name') is-invalid @enderror" placeholder="{{ __('c_i_s_u.genre_name_placeholder') }}" value="{{old('name')}}" >
+                                <label for="content" class="form-label required">{{ __('genre.genre_name') }}</label>
+                                <input type="text" id="name" name="name" class="form-control @error('name') is-invalid @enderror" placeholder="{{ __('genre.genre_name_placeholder') }}" value="{{old('name')}}" >
                                 @error('name')
                                 <div class="invalid-feedback" >{{$message}}</div>
                                 @enderror
                             </div>
                             <div class="text-end">
-                                <x-button.submit color="solid">{{ __('c_i_s_u.create_genre') }}</x-button.submit>
-                                <x-button.link link="{{ route('admin.genres.index') }}" color="dark-solid">{{ __('c_i_s_u.cancel_genre') }}</x-button.link>
+                                <x-button.submit color="solid">{{ __('genre.create_genre') }}</x-button.submit>
+                                <x-button.link link="{{ route('admin.genres.index') }}" color="dark-solid">{{ __('genre.cancel_genre') }}</x-button.link>
                             </div>
                         </form>
                     </div>

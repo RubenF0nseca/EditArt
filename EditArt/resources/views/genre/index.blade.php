@@ -1,9 +1,9 @@
 @extends('layouts.admin.base')
 
-@section('title', __('c_i_s_u.genre_list'))
+@section('title', __('genre.list'))
 
 @section('button')
-    <x-button.add link="{{ route('admin.genres.create') }}" icon="fa-plus">&nbsp {{ __('c_i_s_u.new_genre') }}</x-button.add>
+    <x-button.add link="{{ route('admin.genres.create') }}" icon="fa-plus">&nbsp {{ __('genre.new_genre') }}</x-button.add>
 @endsection
 
 @section('content')
@@ -12,7 +12,7 @@
         <x-widget.search
             action="{{ route('admin.genres.index') }}"
             name="name"
-            placeholder="{{ __('c_i_s_u.search_genre_placeholder') }}"
+            placeholder="{{ __('genre.genre_placeholder') }}"
             value="{{ request('name') }}"
         />
 
@@ -43,8 +43,8 @@
                         <x-table>
                             <x-table.thead>
                                 <x-table.tr>
-                                    <x-table.th>{{__('c_i_s_u.genre_name_column') }}</x-table.th>
-                                    <x-table.th class="text-end">{{ __('c_i_s_u.actions_column') }}</x-table.th>
+                                    <x-table.th>{{__('genre.name_column') }}</x-table.th>
+                                    <x-table.th class="text-end">{{ __('genre.actions_column') }}</x-table.th>
                                 </x-table.tr>
                             </x-table.thead>
                             <x-table.tbody>
