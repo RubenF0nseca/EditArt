@@ -24,7 +24,7 @@ return [
         'subscription_submit' => 'Enviar',
         'copyright' => '2025 © EditArt, Todos os Direitos Reservados',
         'enter' => 'Entrar',
-        'send_email' => 'Se pretende que o seu texto seja publicado, por favor envie email para edit.art@gmail.com',
+        'send_email' => 'Se pretende que o seu livro seja publicado, por favor envie email para edit.art@gmail.com',
         'our_contacts' => 'Os nossos contatos',
         'our_team' => 'Nossa Equipa',
 ];
