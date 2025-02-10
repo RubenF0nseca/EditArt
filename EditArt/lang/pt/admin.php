@@ -24,7 +24,16 @@ return [
     'greeting' => 'Olá, :name',
     'success_message' => 'Este e-mail foi enviado com sucesso.',
     'notification_title' => 'Notificação',
-
+    'sales' => 'Vendas',
+    'book_name' => 'Nome da Livro',
+    'stock_management' => 'Gerir Stock',
+    'cover' => 'Capa',
+    'book_title' => 'Titulo',
+    'stock_available' => 'Stock Disponível',
+    'annual_sales' => 'Vendas por ano',
+    'total_sales' => 'Vendas Total',
+    'transactions' => 'Transações',
+,
     //Dashboard
     'dashboard_title' => 'Admin Dashboard',
     'dashboard_users' => 'Utilizadores',
@@ -32,6 +41,8 @@ return [
     'dashboard_authors' => 'Autores',
     'dashboard_reviews' => 'Avaliações',
     'forum' => 'Fórum',
+    'most_saled' => 'Os Mais Vendidos',
+
 
 
 ];

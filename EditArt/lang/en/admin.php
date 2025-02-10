@@ -24,6 +24,19 @@ return [
     'greeting' => 'Hello, :name',
     'success_message' => 'This email was successfully sent.',
     'notification_title' => 'Notification',
+    'sales' => 'Sales',
+    'most_saled' => 'Most Saled',
+    'book_name' => 'Book Name',
+    'stock_management' => 'Stock Management',
+    'cover' => 'Cover',
+    'book_title' => 'Title',
+    'stock_available' => 'Stock',
+    'annual_sales' => 'Annual sales',
+    'total_sales' => 'Total sales',
+    'transactions' => 'Transactions',
+    'last_transactions' => 'Last 5 transactions €',
+
+
 
     //For Dashboard
     'dashboard_title' => 'Admin Dashboard',

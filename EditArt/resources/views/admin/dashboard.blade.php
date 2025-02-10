@@ -42,7 +42,7 @@
         <div class="row">
             <!-- Vendas ------------------------------------  -->
             <div class="col-xl-6 mb-4">
-                <h4 class="font-alt">Vendas</h4>
+                <h4 class="font-alt">{{ __('admin.sales') }}</h4>
                 <div class="card shadow-lg border-0 rounded-lg mt-4">
                     <canvas id="salesChart"></canvas>
                 </div>
@@ -50,7 +50,7 @@
 
             <!-- Livros mais vendidos ------------------------------------  -->
             <div class="col-xl-6 mb-4">
-                <h4 class="font-alt">Livros mais vendidos</h4>
+                <h4 class="font-alt">{{ __('admin.most_saled') }}</h4>
                 <div class="card shadow-lg border-0 rounded-lg mt-4 widget-height">
                     <div class="chart-container">
                         <div class="chart">
@@ -58,27 +58,27 @@
                             <div class="bar-container">
                                 <div class="value-label">120</div>
                                 <div class="bar" style="height: 12vh;"></div>
-                                <div class="bar-label">Nome do livro</div>
+                                <div class="bar-label">{{ __('admin.book_name') }}</div>
                             </div>
                             <div class="bar-container">
                                 <div class="value-label">180</div>
                                 <div class="bar" style="height: 18vh;"></div>
-                                <div class="bar-label">Nome do livro</div>
+                                <div class="bar-label">{{ __('admin.book_name') }}</div>
                             </div>
                             <div class="bar-container">
                                 <div class="value-label">210</div>
                                 <div class="bar" style="height: 21vh;"></div>
-                                <div class="bar-label">Nome do livro</div>
+                                <div class="bar-label">{{ __('admin.book_name') }}</div>
                             </div>
                             <div class="bar-container">
                                 <div class="value-label">150</div>
                                 <div class="bar" style="height: 15vh;"></div>
-                                <div class="bar-label">Nome do livro</div>
+                                <div class="bar-label">{{ __('admin.book_name') }}</div>
                             </div>
                             <div class="bar-container">
                                 <div class="value-label">240</div>
                                 <div class="bar" style="height: 24vh;"></div>
-                                <div class="bar-label">Nome do livro</div>
+                                <div class="bar-label">{{ __('admin.book_name') }}</div>
                             </div>
                         </div>
                     </div>
@@ -90,16 +90,16 @@
 
             <!-- Gerir stock ------------------------------------  -->
             <div class="col-xl-9 mb-4">
-                <h4 class="font-alt">Gerir stock</h4>
+                <h4 class="font-alt">{{ __('admin.stock_management') }}</h4>
                 <div class="card shadow-lg border-0 rounded-lg mt-4">
                     <div class="table-responsive">
 
                         <x-table>
                             <x-table.thead>
                                 <x-table.tr>
-                                    <x-table.th>{{ __('c_i_s_u.cover') }}</x-table.th>
-                                    <x-table.th>{{ __('c_i_s_u.title') }}</x-table.th>
-                                    <x-table.th>{{ __('c_i_s_u.stock') }}</x-table.th>
+                                    <x-table.th>{{ __('admin.cover') }}</x-table.th>
+                                    <x-table.th>{{ __('admin.book_title') }}</x-table.th>
+                                    <x-table.th>{{ __('admin.stock_available') }}</x-table.th>
                                 </x-table.tr>
                             </x-table.thead>
                             <x-table.tbody id="stock-container">
@@ -132,14 +132,14 @@
             <div class="col-xl-3">
                 <div class="row">
                     <div class="col-md-6 col-lg-6 col-xl-12 mb-4">
-                        <h4 class="font-alt">Vendas por ano</h4>
+                        <h4 class="font-alt">{{ __('admin.annual_sales') }}</h4>
                         <x-card id="widget-card">
-                            <x-widget.counter bgcolor="rgb(250,128,114)" icon="icon-wallet" title="Vendas total" :count="$reviews_count">€</x-widget.counter>
+                            <x-widget.counter bgcolor="rgb(250,128,114)" icon="icon-wallet" title="{{ __('admin.total_sales') }}" :count="$reviews_count">€</x-widget.counter>
                         </x-card>
                     </div>
                     <!-- Transações ------------------------------------  -->
                     <div class="col-md-6 col-lg-6 col-xl-12 mb-4">
-                        <h4 class="font-alt ml-5">Transações</h4>
+                        <h4 class="font-alt ml-5">{{ __('admin.transactions') }}</h4>
                         <div class="card shadow-lg border-0 rounded-lg mt-4">
                             <div class="table-responsive">
 
@@ -153,7 +153,7 @@
 
                                         {{--@foreach($users as $user)--}}
                                         <x-table.tr>
-                                            <td>+ Ultimas 5 Transações €</td>
+                                            <td>+ {{ __('admin.last_transactions') }}</td>
                                         </x-table.tr>
                                         {{--@endforeach--}}
                                     </x-table.tbody>
