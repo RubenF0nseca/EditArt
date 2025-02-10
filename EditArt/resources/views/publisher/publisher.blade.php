@@ -13,7 +13,7 @@
         <!-- Banner ------------------------------------  -->
         <div class="publisher-bg">
             <h2 class="module-title font-alt" id="margin-top">{{ __('homepage.online') }} <br>{{ __('homepage.publisher') }}</h2>
-            <p style="font-size: 32px; text-align: center;">
+            <p style="font-size: 32px; text-align: center; color: white; font-weight: bold;">
                 {{ __('homepage.send_email') }}
             </p>
         </div>
