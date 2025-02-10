@@ -31,6 +31,7 @@ return [
     'dashboard_products' => 'Produtos',
     'dashboard_authors' => 'Autores',
     'dashboard_reviews' => 'Avaliações',
+    'forum' => 'Fórum',
 
 
 ];

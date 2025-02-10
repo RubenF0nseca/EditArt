@@ -114,7 +114,7 @@
                                 <i class="ti ti-settings fs-5"></i>
                             </span>
                             <span class="nav-link-title">
-                                Forum
+                                {{ __('admin.forum') }}
                             </span>
                         </a>
                         <div class="dropdown-menu">
