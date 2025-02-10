@@ -171,13 +171,13 @@
                                             <span class="col-4">{{ $transaction->transaction_date }}</span>
                                             <span class="col-4 font-alt">
                                                 <a href="{{ route('client.order.history', ['id' => $transaction->id]) }}">
-                                                    {{ __('cart.purchase_details') }} <i class="fa-solid fa-arrow-right-long"></i>
+                                                    {{ __('client.purchase_details') }} <i class="fa-solid fa-arrow-right-long"></i>
                                                 </a>
                                             </span>
                                         </div>
                                     @endforeach
                                 @else
-                                    {{ __('cart.no_purchase') }}
+                                    {{ __('client.no_purchase') }}
                                 @endif
                              </div>
                         </x-pills.content>
