@@ -32,7 +32,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::where('is_support', false)
+        $posts = Post::where('is_support', true)
         ->where('is_resolved', false)
         ->orderBy('created_at', 'desc')
         ->paginate(12);
