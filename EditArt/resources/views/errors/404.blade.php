@@ -13,12 +13,12 @@
         <!-- Banner ------------------------------------  -->
         <div class="error-404 text-center">
             <h2 id="title-404">404</h2>
-            <h1 id="title-error-404">ERRO</h1>
-            <p id="text-404">Oh, não! Parece que esta página perdeu-se nos labirintos dos livros.<br>
-                Experimente procurar outra história!</p>
-            <x-button.link link="{{ route('guest.books') }}" color="light-new">Voltar para a biblioteca</x-button.link>
+            <h1 id="title-error-404">{{ __('error.error') }}</h1>
+            <p id="text-404">{{ __('error.message3') }}<br>
+                {{ __('error.message4') }}</p>
+            <x-button.link link="{{ route('guest.books') }}" color="light-new">{{ __('error.back_to_library') }}</x-button.link>
         </div>
     </div>
 @endsection
 
-<!-- FALTA TRADUÇAO-->
+
