@@ -1,2 +1,2 @@
 
-<a href="{{$link}}" class="btn btn-{{$name}}"><i class="{{$icon}}"></i></a>
+<a href="{{$link}}" class="btn-{{$name}}"><i class="{{$icon}}"></i></a>

@@ -77,6 +77,9 @@ button:focus,
 .divider{
     color: #af8867;
 }
+textarea.form-control {
+    min-height: calc(1.4285714286em + 14.125rem + calc(var(--tblr-border-width)* 8));
+}
 /*----------------------------------------------------------
 	   Tipografia
 ------------------------------------------------------------*/
@@ -775,20 +778,6 @@ td{
     height: calc(var(--index) * 15);
 }
 */
-
-/********** homepage new **************************/
-
-
-
-
-/*.main-article__paragraph {                         + TODO можно сюда поставить фотки с сервисами
-	max-width: calc(var(--index) * 30);
-	font-size: calc(var(--index) * .9);
-	margin-top: calc(var(--index) / 1.25);
-	transform: var(--main-article-transform);
-	transition: var(--transition);
-	will-change: transform;
-}*/
 
 .copy {
     position: absolute;
