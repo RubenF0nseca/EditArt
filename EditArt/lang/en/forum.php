@@ -23,6 +23,8 @@ return [
     'send_button' => 'Send',
     'no_comments' => 'No comments yet',
     'write' => 'Write here your comment',
+    'topic_content_placeholder' => 'Write here your topic content',
+
 
 
 ];

@@ -23,6 +23,7 @@ return [
     'send_button' => 'Enviar',
     'no_comments' => 'Nenhum comentário ainda',
     'write' => 'Escreva aqui seu comentário',
+    'topic_content_placeholder' => 'Insira aqui o seu comentário',
 
 
 
