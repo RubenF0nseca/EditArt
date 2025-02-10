@@ -16,12 +16,6 @@
                                     </x-alert>
                                 @endif
 
-                                <!-- Alerta de erros -->
-                                @if($errors->has('error'))
-                                    <x-alert id="error-alert" type="danger">
-                                        {{ __('auth.error') }}: {{$errors->first('error')}}
-                                    </x-alert>
-                                @endif
 
                                 @if($errors->any())
                                     <div class="row p-2">
