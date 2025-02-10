@@ -36,10 +36,11 @@ class ResetPasswordNotification extends Notification
      */
     public function toMail(object $notifiable): MailMessage
     {
-        $resetUrl = url(route('password.reset', [
-            'token' => $this->token,
-            'email' => $notifiable->getEmailForPasswordReset(),
-        ], false));
+        $resetUrl = URL::temporarySignedRoute(
+            'password.reset', // Nome da rota
+            Carbon::now()->addMinutes(1440), // Validade de 24 horas (1440 minutos)
+            ['token' => $this->token, 'email' => $notifiable->getEmailForPasswordReset()]
+        );
 
         return (new MailMessage)
             ->subject("Pedido de Reset da Password")

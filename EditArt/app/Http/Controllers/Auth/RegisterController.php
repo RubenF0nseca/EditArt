@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Notifications\AccountCreated;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class RegisterController extends Controller
 {
@@ -56,10 +57,11 @@ class RegisterController extends Controller
         $validated = $request->validate($this->getValidationRules(), $this->messages);
 
         try{
+            $validated['security_token'] = Str::random(6);
             $user = new User($validated);
             $user->save();
             $user->assignRole('cliente');
-            $user->notify(new AccountCreated($user->name));
+            $user->notify(new AccountCreated($user));
             return redirect(route('login'))->with('success',"Conta criada com sucesso!");
         }catch (\Exception $e){
             return redirect()->back()->withErrors(['error' => "Erro ao criar a conta"])->withInput();

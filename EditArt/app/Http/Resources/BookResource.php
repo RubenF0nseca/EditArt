@@ -22,8 +22,8 @@ class BookResource extends JsonResource
             'language' => $this->language,
             'price' => $this->price,
             'CoverPicture' => $this->CoverPicture,
-            'authors' => $this->authors->pluck('name')->implode(', '),
-            'genres' => $this->genres->pluck('name')->implode(', '),
+            'authors' =>  $this->authors != null ? $this->authors->pluck('name')->implode(', ') : "No authors",
+            'genres' => $this->genres != null ? $this->genres->pluck('name')->implode(', ') : "No genres",
             'reviews_count' => $this->reviews()->count(),
             'rating' => round($this->reviews()->avg('rating'), 1),
         ];

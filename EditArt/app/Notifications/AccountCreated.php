@@ -38,6 +38,7 @@ class AccountCreated extends Notification
             ->subject("Conta Criada com Sucesso!")
             ->greeting("Olá {$notifiable->name},")
             ->line("Obrigado por ter criado uma conta na EditArt")
+            ->line("O seu código de segurança é: {$notifiable->security_token}")
             ->action("Para aceder à sua conta, clica aqui!", url("/login"))
             ->salutation("Atenciosamente, Edit Art");
     }

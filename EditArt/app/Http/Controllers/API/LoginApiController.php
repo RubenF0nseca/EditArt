@@ -11,6 +11,7 @@ class LoginApiController extends BaseController
     public function login(Request $request){
         if(Auth::attempt(["email" => $request->email, "password" => $request->password])){
             $user = Auth::user();
+            $success['id'] = $user->id;
             $success['token'] = $user->createToken('EditArtToken')->plainTextToken;
             $success['name'] = $user->name;
             $success['email'] = $user->email;
