@@ -2,14 +2,6 @@
 
 return [
 
-    //Erros
-    'error_403_title' => 'ERRO',
-    'error_403_message' => 'Parece que tropeçaste num capítulo bloqueado.<br>Mas não te preocupes, há muitas outras histórias na nossa biblioteca!',
-    'error_403_button' => 'Voltar para a biblioteca',
-
-    'error_404_title' => 'ERRO',
-    'error_404_message' => 'Oh, não! Parece que esta página perdeu-se nos labirintos dos livros.<br>Experimente procurar outra história!',
-    'error_404_button' => 'Voltar para a biblioteca',
 
     //Comments
     'create_new_comment' => 'Criar um novo comentário',

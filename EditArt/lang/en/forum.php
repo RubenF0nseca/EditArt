@@ -11,6 +11,7 @@ return [
     'topic' => 'Topic',
     'category' => 'Category',
     'comments' => 'Comments',
+    'your_comment' => 'Your comment',
     'date' => 'Date',
     'title' => 'Forum Rules',
     'main_rule' => 'Main Rule',
@@ -20,5 +21,8 @@ return [
     'appropriate_content_text' => 'Do not post offensive, defamatory, racist, discriminatory, or illegal content. This includes, but is not limited to, hate speech, threats, or aggressive behavior.',
     'comment' => 'Write here your comment',
     'send_button' => 'Send',
+    'no_comments' => 'No comments yet',
+    'write' => 'Write here your comment',
+
 
 ];

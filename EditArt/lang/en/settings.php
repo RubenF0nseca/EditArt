@@ -1,15 +1,6 @@
 <?php
 
 return [
-    //For Errors
-    'error_403_title' => 'ERROR',
-    'error_403_message' => 'It seems you’ve stumbled upon a locked chapter.<br>But don’t worry, there are many other stories in our library!',
-    'error_403_button' => 'Back to the library',
-
-    'error_404_title' => 'ERROR',
-    'error_404_message' => 'Oh no! It seems this page got lost in the labyrinths of books.',
-    'error_404_message_2' => 'Try searching for another story!',
-    'error_404_button' => 'Back to the library',
 
     //For Comments
     'create_new_comment' => 'Create a new comment',

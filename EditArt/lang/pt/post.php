@@ -1,8 +1,8 @@
 <?php
 
 return [
-    'create_product' => 'Criar Produto',
-    'enter_product_data' => 'Insira os dados do produto',
+    'create_product' => 'Criar Post',
+    'enter_product_data' => 'Insira os dados do post',
     'title' => 'Título',
     'cancel' => 'Cancelar',
     'save' => 'Guardar',

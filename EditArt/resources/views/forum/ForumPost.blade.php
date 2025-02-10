@@ -4,7 +4,7 @@
     <div class="page-wrapper wrapper d-flex flex-column min-vh-100">
         <!-- Banner -->
         <div class="forum-bg">
-            <h2 class="module-title font-alt" id="margin-top">Forum</h2>
+            <h2 class="module-title font-alt" id="margin-top">{{ __('forum.forum_title') }}</h2>
         </div>
         <div class="container">
             <div class="row mt-5">
@@ -29,7 +29,7 @@
                             <div class="review-entry">
                                 <p class="review-text">{{ $post->content }}</p>
                                 <div class="text-end">
-                                    <div class="review-comment font-serif">{{ $post->comments->count() }} Comentários</div>
+                                    <div class="review-comment font-serif">{{ $post->comments->count() }} {{ __('forum.comments') }}</div>
                                 </div>
                             </div>
                         </div>
@@ -37,7 +37,7 @@
 
                     <!-- Comentários -->
                     <div class="text-center mb-4">
-                        <h5 class="font-serif">{{ $post->comments->count() }} Comentários</h5>
+                        <h5 class="font-serif">{{ $post->comments->count() }} {{ __('forum.comments') }}</h5>
                     </div>
                     <div class="comments">
                         @forelse($comments as $comment)
@@ -65,7 +65,7 @@
                                 </div>
                             </div>
                         @empty
-                            <p class="text-center">Nenhum comentário ainda.</p>
+                            <p class="text-center">{{ __('forum.no_comments') }}</p>
                         @endforelse
                     </div>
 
@@ -80,11 +80,11 @@
                             <form action="{{ route('client.forum.comment.store', $post->id) }}" method="POST">
                                 @csrf
                                 <div class="mb-3 font-alt">
-                                    <label for="comment" class="form-label">Escreva aqui seu comentário</label>
+                                    <label for="comment" class="form-label">{{ __('forum.write') }}</label>
                                 </div>
-                                <textarea name="content" id="comment" rows="5" class="form-control" placeholder="Seu comentário" required></textarea>
+                                <textarea name="content" id="comment" rows="5" class="form-control" placeholder="{{ __('forum.your_comment') }}" required></textarea>
                                 <div class="mt-3 text-end">
-                                    <button type="submit" class="btn btn-solid">Enviar</button>
+                                    <button type="submit" class="btn btn-solid">{{ __('forum.send_button') }}</button>
                                 </div>
                             </form>
                         </div>
@@ -94,13 +94,13 @@
                 <!-- Sidebar: Regras do Fórum -->
                 <div class="col-sm-12 col-lg-4">
                     <div class="text-center mb-4">
-                        <h2 class="section-title font-alt">Regras do Fórum</h2>
+                        <h2 class="section-title font-alt">{{ __('forum.title') }}</h2>
                     </div>
                     <div class="accordion mb-3" id="accordionExample">
                         <div class="accordion-item">
                             <h2 class="accordion-header font-alt">
                                 <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                    <i class="fa-solid fa-angles-right"></i>&nbsp;A regra principal:
+                                    <i class="fa-solid fa-angles-right"></i>&nbsp;{{ __('forum.main_rule') }}
                                 </button>
                             </h2>
                             <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
@@ -116,7 +116,7 @@
                         <div class="accordion-item">
                             <h2 class="accordion-header">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                    <i class="fa-solid fa-angles-right"></i>&nbsp;Respeito
+                                    <i class="fa-solid fa-angles-right"></i>&nbsp;{{ __('forum.respect') }}
                                 </button>
                             </h2>
                             <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
@@ -128,7 +128,7 @@
                         <div class="accordion-item">
                             <h2 class="accordion-header">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                    <i class="fa-solid fa-angles-right"></i>&nbsp;Conteúdo Apropriado
+                                    <i class="fa-solid fa-angles-right"></i>&nbsp;{{ __('forum.appropriate_content') }}
                                 </button>
                             </h2>
                             <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">

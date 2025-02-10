@@ -11,7 +11,7 @@
     <div class="page-wrapper wrapper d-flex flex-column min-vh-100">
         <!-- Banner -->
         <div class="forum-bg">
-            <h2 class="module-title font-alt" id="margin-top">Forum</h2>
+            <h2 class="module-title font-alt" id="margin-top">{{ __('forum.forum_title') }}</h2>
         </div>
         <div class="container">
             <!-- Barra de Pesquisa -->
