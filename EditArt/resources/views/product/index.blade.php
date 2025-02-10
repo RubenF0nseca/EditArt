@@ -1,9 +1,9 @@
 @extends('layouts.admin.base')
 
-@section('title', __('c_i_s_u.list_of_books'))
+@section('title', __('product.list_of_books'))
 
 @section('button')
-    <x-button.add link="{{ route('admin.books.create') }}" icon="fa-file-circle-plus">&nbsp {{ __('c_i_s_u.new_book') }}</x-button.add>
+    <x-button.add link="{{ route('admin.books.create') }}" icon="fa-file-circle-plus">&nbsp {{ __('product.new_book') }}</x-button.add>
 @endsection
 
 @section('content')
@@ -12,7 +12,7 @@
         <x-widget.search
             action="{{ route('admin.books.index') }}"
             name="title"
-            placeholder="{{ __('c_i_s_u.search_placeholder') }}"
+            placeholder="{{ __('product.search_placeholder') }}"
             value="{{ request('title') }}"
         />
 
@@ -25,12 +25,12 @@
                         <x-table>
                             <x-table.thead>
                                 <x-table.tr>
-                                    <x-table.th>{{ __('c_i_s_u.cover') }}</x-table.th>
-                                    <x-table.th>{{ __('c_i_s_u.title') }}</x-table.th>
-                                    <x-table.th>{{ __('c_i_s_u.type') }}</x-table.th>
-                                    <x-table.th>{{ __('c_i_s_u.stock') }}</x-table.th>
-                                    <x-table.th>{{ __('c_i_s_u.price') }}</x-table.th>
-                                    <x-table.th class="text-end">{{ __('c_i_s_u.actions') }}</x-table.th>
+                                    <x-table.th>{{ __('product.cover') }}</x-table.th>
+                                    <x-table.th>{{ __('product.title') }}</x-table.th>
+                                    <x-table.th>{{ __('product.type') }}</x-table.th>
+                                    <x-table.th>{{ __('product.stock') }}</x-table.th>
+                                    <x-table.th>{{ __('product.price') }}</x-table.th>
+                                    <x-table.th class="text-end">{{ __('product.actions') }}</x-table.th>
                                 </x-table.tr>
                             </x-table.thead>
                             <x-table.tbody>
