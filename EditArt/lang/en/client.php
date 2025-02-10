@@ -64,6 +64,9 @@ return [
     'zip_code' => 'Zip Code',
     'edit_details' => 'Edit details',
     'message_pass' => 'Your account has been confirmed. Check your email for details.',
+    'my_purchases' => 'My purchases',
+    'purchase_details' => 'Purchase details',
+    'no_purchase' => 'No purchase yet',
 
 
 ];

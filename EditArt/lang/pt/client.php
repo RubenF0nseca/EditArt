@@ -64,4 +64,7 @@ return [
     'zip_code' => 'Código postal',
     'edit_details' => 'Editar os dados',
     'message_pass' => 'A sua conta foi confirmada. Verifique o seu e-mail para obter detalhes.',
+    'my_purchases' => 'Minhas Compras',
+    'purchase_details' => 'Detalhes da Compra',
+    'no_purchase' => 'Nenhuma compra ainda',
 ];

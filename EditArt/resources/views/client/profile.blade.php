@@ -13,7 +13,7 @@
                         <hr>
                         <x-pills>
                             <x-pills.button class="active" id="profile" target="profile" controls="profile" select="true">{{ __('client.profile') }}</x-pills.button>
-                            <x-pills.button class="" id="order" target="order" controls="order" select="false">Minhas compras</x-pills.button>
+                            <x-pills.button class="" id="order" target="order" controls="order" select="false">{{ __('client.my_purchases') }}</x-pills.button>
                             <x-pills.button class="" id="review" target="review" controls="review" select="false">{{ __('client.my_reviews') }}</x-pills.button>
                         </x-pills>
                     </div>
@@ -171,13 +171,13 @@
                                             <span class="col-4">{{ $transaction->transaction_date }}</span>
                                             <span class="col-4 font-alt">
                                                 <a href="{{ route('client.order.history', ['id' => $transaction->id]) }}">
-                                                    Detalhes da compra <i class="fa-solid fa-arrow-right-long"></i>
+                                                    {{ __('cart.purchase_details') }} <i class="fa-solid fa-arrow-right-long"></i>
                                                 </a>
                                             </span>
                                         </div>
                                     @endforeach
                                 @else
-                                    Nenhuma compra ainda
+                                    {{ __('cart.no_purchase') }}
                                 @endif
                              </div>
                         </x-pills.content>
