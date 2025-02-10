@@ -18,6 +18,8 @@
                                 <x-table.tr>
                                     <x-table.th>{{ __('post.title') }}</x-table.th>
                                     <x-table.th>{{ __('post.content') }}</x-table.th>
+                                    <x-table.th>{{ __('reviews.date') }}</x-table.th>
+                                    <x-table.th class="text-end">{{ __('reviews.approval') }}</x-table.th>
                                     <x-table.th class="text-end">{{ __('post.actions') }}</x-table.th>
                                 </x-table.tr>
                             </x-table.thead>
@@ -27,12 +29,23 @@
                                 <x-table.tr>
                                     <td>{{ $post->title }}</td>
                                     <td>{{ Str::limit($post->content, 60, '...') }}</td>
+                                    <td>{{ $post->created_at }}</td>
                                     <td class="text-end">
+                                        <form action="{{ route('admin.posts.update', $post->id) }}" method="POST" style="display: inline">
+                                            @csrf
+                                            @method('PUT')
+                                            <input type="hidden" name="is_resolved" value="{{ $post->is_resolved ? 0 : 1 }}">
+                                            <button type="submit"><i class="fa-solid fa-check"></i></button>
+                                        </form>
 
+                                        <form action="{{ route('admin.posts.destroy', $post->id) }}" method="POST" style="display: inline">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn-delete"><i class="fa-solid fa-xmark text-danger"></i></button>
+                                        </form>
+                                    </td>
+                                    <td class="text-end">
                                         <x-table.operation link="{{ route('admin.posts.show', $post->id) }}" name="info" icon="ti ti-eye"></x-table.operation>
-                                        <x-table.operation link="{{ route('admin.posts.edit', $post->id) }}" name="edit" icon="fa fa-pencil"></x-table.operation>
-                                        <x-table.delete action="{{ route('admin.posts.destroy', $post->id) }}"></x-table.delete>
-
                                     </td>
                                 </x-table.tr>
                             @endforeach

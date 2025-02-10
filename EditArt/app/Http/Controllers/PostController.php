@@ -32,7 +32,12 @@ class PostController extends Controller
      */
     public function index()
     {
-        return view('post.index', ['posts' => Post::paginate(12)]);
+        $posts = Post::where('is_support', false)
+        ->where('is_resolved', false)
+        ->orderBy('created_at', 'desc')
+        ->paginate(12);
+
+        return view('post.index', ['posts' => $posts]);
     }
 
     /**
@@ -79,6 +84,14 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
+        // Se for apenas para atualizar o estado is_resolved
+        if ($request->has('is_resolved')) {
+            $post->is_resolved = $request->is_resolved;
+            $post->save();
+
+            return redirect()->back()->with('success', "Estado da publicação atualizado! [#{$post->id}]");
+        }
+
         $validated = $request->validate($this->getValidationRules($post), $this->messages);
         try{
             $post->update($validated);
