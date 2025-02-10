@@ -82,10 +82,6 @@
                                 <p>{{ __('cart.cart_empty') }}</p>
                             @endif
                         </div>
-
-                        <!-- Paginação (se for necessária, mas aqui é do carrinho,
-                             normalmente não há paginação...) -->
-                        <div class="text-center mt-5">{{ __('cart.pagination') }}</div>
                     </div>
                 </div>
 
