@@ -8,7 +8,7 @@
                 <h2 class="review-author font-alt">
                     <a href="#">{{ $review->user->name }}</a>
                 </h2>
-                <p>{{ $review->user->reviews->count() }} {{ __('client.reviews') }}</p>
+                <p>{{ $review->user->reviews->count() }} {{ __('book.reviews') }}</p>
             </div>
             <div class="col-md-5 text-end">
                 <div class="review-date font-alt">{{ $review->created_at }}</div>
@@ -32,14 +32,14 @@
                                 <button class="btn operation show-editor-3" type="button">
                                     <i class="fa-solid fa-pen-to-square"></i>
                                 </button>
-                                <span class="tooltip-text">Editar crítica</span>
+                                <span class="tooltip-text">{{ __('book.edit_review') }}</span>
                             </div>
 
                             <div class="tooltip-container" style="display: inline-block;">
                                 <form
                                     action="{{ route('client.review.delete', ['book' => $book->id, 'review' => $review->id]) }}"
                                     method="POST"
-                                    onsubmit="return confirm('Tens a certeza que queres apagar esta avaliação?');"
+                                    onsubmit="return confirm('{{ __('book.confirm') }}');"
                                     style="display: inline;"
                                 >
                                     @csrf
@@ -47,7 +47,7 @@
                                     <button class="btn operation" type="submit">
                                         <i class="fa-regular fa-trash-can"></i>
                                     </button>
-                                    <span class="tooltip-text">Apagar crítica</span>
+                                    <span class="tooltip-text">{{ __('book.delete_review') }}</span>
                                 </form>
                             </div>
                         </div>
@@ -75,7 +75,7 @@
                                     </div>
 
                                     <div class="col-md-6 mb-3 text-end">
-                                        Tua avaliação deste livro:
+                                        {{ __('book.your_review') }}
                                         <div class="stars">
                                             @for ($j = 1; $j <= 5; $j++)
                                                 <i
@@ -111,9 +111,9 @@
                                 />
 
                                 <div class="mt-3 text-end">
-                                    <button type="submit" class="btn btn-solid">Gravar</button>
+                                    <button type="submit" class="btn btn-solid">{{ __('book.save') }}</button>
                                     <button type="button" class="btn btn-dark-solid close-editor">
-                                        Cancelar
+                                        {{ __('book.cancel') }}
                                     </button>
                                 </div>
                             </form>
@@ -124,6 +124,6 @@
         </div>
     </div>
 @empty
-    <p>{{ __('client.no_reviews') }}</p>
+    <p>{{ __('book.no_reviews') }}</p>
 @endforelse
 
