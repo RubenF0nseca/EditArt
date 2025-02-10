@@ -51,7 +51,7 @@
                     @if($book->CoverPicture)
                         <img href="{{route('book', $book->id)}}" src="{{ asset('storage/'.$book->CoverPicture) }}" class="product-thumb rounded book-capa" alt="{{ $book->title }}">
                     @else
-                        <img href="{{route('book', $book->id)}}" src="{{ asset('imgs/img_nao_disponivel.png') }}" class="product-thumb rounded book-capa" alt="{{ __('admin.books.image_not_available') }}">
+                        <img href="{{route('book', $book->id)}}" src="{{ asset('imgs/img_nao_disponivel.png') }}" class="product-thumb rounded book-capa" alt="{{ __('book.image_not_available') }}">
                     @endif
                 </div>
 
@@ -69,7 +69,7 @@
                                     <h2 class="author-name font-serif">{{ $author->name }}</h2>
                                 @endforeach
                             @else
-                                {{ __('client.no_authors') }}
+                                {{ __('book.no_author') }}
                             @endif
                         </div>
                     </div>
@@ -104,18 +104,18 @@
                         </div>
                     </div>
                     <button type="button" class="add-to-cart btn btn-solid btn-sm mt-2" data-book-id="{{ $book->id }}">
-                        <i class="fa-solid fa-cart-shopping"></i>&nbsp;{{ __('homepage.add_to_cart') }}
+                        <i class="fa-solid fa-cart-shopping"></i>&nbsp;{{ __('book.add_to_cart') }}
                     </button>
                     <div class="row mb-20">
                         <div class="col-sm-12 mt-4">
-                            <span class="font-alt" style="color: #1d1d1c">Categories:</span>
+                            <span class="font-alt" style="color: #1d1d1c">{{ __('book.categories') }}</span>
                             <span class="categories font-alt">
                                 @if($book->genres->isNotEmpty())
                                     @foreach($book->genres as $genre)
                                         {{ $genre->name }} &nbsp;
                                     @endforeach
                                 @else
-                                    {{ __('client.no_genres') }}
+                                    {{ __('book.no_genres') }}
                                 @endif
                             </span>
                         </div>
@@ -127,9 +127,9 @@
             <div class="row mt-70 mb-5">
                 <div class="col-sm-12">
                     <x-tab>
-                        <x-tab.button class="active" id="description" target="description" controls="description" select="true" icon="icon-book-open">&nbsp Descrição</x-tab.button>
-                        <x-tab.button class="" id="shipping-info" target="shipping-info" controls="shipping-info" select="false" icon="icon-map">&nbsp Informações de envio</x-tab.button>
-                        <x-tab.button class="" id="reviews" target="reviews" controls="reviews" select="false" icon="icon-pencil">&nbsp Avaliações ({{ $reviewsCount }})</x-tab.button>
+                        <x-tab.button class="active" id="description" target="description" controls="description" select="true" icon="icon-book-open">&nbsp {{ __('book.description') }}</x-tab.button>
+                        <x-tab.button class="" id="shipping-info" target="shipping-info" controls="shipping-info" select="false" icon="icon-map">&nbsp {{ __('book.shipping_info') }}</x-tab.button>
+                        <x-tab.button class="" id="reviews" target="reviews" controls="reviews" select="false" icon="icon-pencil">&nbsp {{ __('book.reviews') }} ({{ $reviewsCount }})</x-tab.button>
                     </x-tab>
 
                     <div class="tab-content" id="nav-tabContent">
@@ -147,10 +147,10 @@
                             <div class="row mt-70">
                                 <div class="col-md-8 offset-md-3 shipping-info">
                                     <ul>
-                                        <li><i class="icon-wallet"></i>&nbsp; Aplicam-se portes de envio para encomendas de valor inferior a 45€.</li>
-                                        <li><i class="icon-clock"></i>&nbsp; O prazo de processamento da encomenda é de 24 horas.</li>
-                                        <li><i class="icon-calendar"></i>&nbsp; A entrega pode demorar até 72 horas para Portugal Continental e até 10 dias úteis para os Açores e Madeira, sendo realizada através dos CTT.</li>
-                                        <li><i class="icon-profile-male"></i>&nbsp; Em caso de devolução ou troca, por favor, entre em contato com a nossa equipa de suporte.</li>
+                                        <li><i class="icon-wallet"></i>&nbsp; {{ __('book.rule1') }}</li>
+                                        <li><i class="icon-clock"></i>&nbsp; {{ __('book.rule2') }}</li>
+                                        <li><i class="icon-calendar"></i>&nbsp; {{ __('book.rule3') }}</li>
+                                        <li><i class="icon-profile-male"></i>&nbsp; {{ __('book.rule4') }}</li>
                                     </ul>
                                 </div>
                             </div>
