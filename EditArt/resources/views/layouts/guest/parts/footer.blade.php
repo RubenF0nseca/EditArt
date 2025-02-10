@@ -10,7 +10,7 @@
             </div>
             <div class="col-md-3">
                 <div class="widget">
-                    <h5 class="widget-title font-alt">Os nossos contatos</h5>
+                    <h5 class="widget-title font-alt">{{ __('homepage.our_contacts') }}</h5>
                     <p><i class="fa-solid fa-phone-flip"></i>&nbsp +351 234 567 888</p>
                     <p><i class="fa-solid fa-envelope"></i><a href="edit.art@gmail.com">&nbsp edit.art@gmail.com</a></p>
                 </div>
@@ -27,7 +27,7 @@
             </div>
             <div class="col-md-3">
                 <div class="widget">
-                    <h5 class="widget-title font-alt">A Nossa Equipe</h5>
+                    <h5 class="widget-title font-alt">{{ __('homepage.our_team') }}</h5>
                     <ul class="icon-list">
                         <li>Leila Arruda</li>
                         <li>Lucas Patrício</li>

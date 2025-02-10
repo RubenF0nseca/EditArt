@@ -11,7 +11,7 @@
     <div class="page-wrapper wrapper d-flex flex-column min-vh-100">
         <!-- Banner ------------------------------------  -->
         <div class="store-bg">
-            <h2 class="module-title font-alt margin-top">Loja <br>online</h2>
+            <h2 class="module-title font-alt margin-top">{{ __('guest.store') }} <br>{{ __('guest.online') }}</h2>
         </div>
         <!-- ----- Os produtos ---------------------------  -->
         <div class="page-body">
@@ -20,8 +20,8 @@
                     <div class="row">
                         <div class="col-md-12 mt-5">
                             <div class="section-header text-center pb-5">
-                                <h2 class="section-title font-alt">{{ __('guest.books.our_publications') }}</h2>
-                                <div class="section-subtitle font-serif">{{ __('guest.books.our_authors_works') }}</div> <!-- ------ TODO TEXTO--------  -->
+                                <h2 class="section-title font-alt">{{ __('guest.our_publications') }}</h2>
+                                <div class="section-subtitle font-serif">{{ __('guest.our_authors_works') }}</div> <!-- ------ TODO TEXTO--------  -->
                             </div>
                         </div>
                     </div>
@@ -37,7 +37,7 @@
                                                type="text"
                                                name="title"
                                                id="search-input"
-                                               placeholder="{{ __('guest.books.search_by_title') }}"
+                                               placeholder="{{ __('guest.search_by_title') }}"
                                                value="{{ request('title') }}"/>
                                         <button class="search-btn" type="submit"><i class="fa fa-search"></i></button>
                                     </div>
@@ -46,9 +46,9 @@
 
                             <!-- Filtrar por categorias de livros  -->
                             <div class="widget">
-                                <h5 class="widget-title font-alt">{{ __('guest.books.categories') }}</h5>
+                                <h5 class="widget-title font-alt">{{ __('guest.categories') }}</h5>
                                 <ul class="icon-list">
-                                    <li><a href="{{ route('guest.books') }}">{{ __('guest.books.all_genres') }}</a></li>
+                                    <li><a href="{{ route('guest.books') }}">{{ __('guest.all_genres') }}</a></li>
                                     @foreach($genres as $genre)
                                         <li>
                                             <a href="{{ route('guest.books', ['genre' => $genre->id]) }}">{{ $genre->name }}</a>

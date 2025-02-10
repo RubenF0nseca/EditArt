@@ -25,6 +25,7 @@ return [
         'copyright' => '2025 © EditArt, All Rights Reserved',
         'enter' => 'Enter',
         'send_email' => 'If you want your text to be published, please send an email to edit.art@gmail.com',
-
+        'our_contacts' => 'Our Contacts',
+        'our_team' => 'Our team',
 
 ];
