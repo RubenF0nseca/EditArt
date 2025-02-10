@@ -46,7 +46,7 @@ class ResetPasswordNotification extends Notification
             ->subject("Pedido de Reset da Password")
             ->greeting("Olá {$notifiable->name},")
             ->line("Estás a receber este email porque foi efetuado um pedido de reset de password para a sua conta.")
-            ->action("Reset Password", $resetUrl)
+            ->action("Alterar Password", $resetUrl)
             ->line("Este link é válido por 24 horas.")
             ->salutation("Atenciosamente, EditArt");
     }
