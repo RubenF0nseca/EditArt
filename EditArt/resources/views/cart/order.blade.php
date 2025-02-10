@@ -58,13 +58,6 @@
                                            value="{{ old('phone_number', $user->phone_number ?? '') }}">
                                 </div>
                             </div>
-
-                            <!-- Botão de submit -->
-                            <div class="container">
-                                <h1>{{ __('cart.payment_with_paypal') }}</h1>
-                                <div id="paypal-button-container"></div>
-                            </div>
-                            <x-button.submit color="solid btn-block">{{ __('cart.pay') }}</x-button.submit>
                         </form>
                     </div>
                 </div>
@@ -93,6 +86,13 @@
                             </tr>
                             </tbody>
                         </table>
+
+                        <!-- Botão de submit -->
+                        <div class="container">
+                            <p class="font-alt">{{ __('cart.payment_with_paypal') }}</p>
+                            <div id="paypal-button-container"></div>
+                        </div>
+
                     </div>
                 </div>
             </div>
