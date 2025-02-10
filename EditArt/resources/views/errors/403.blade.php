@@ -1,4 +1,12 @@
-@extends('layouts.client.base') <!--TODO role-->
+@php
+    $layout = 'layouts.guest.base';
+
+    if (auth()->check() && auth()->user()->hasAnyRole(['admin', 'cliente'])) {
+        $layout = 'layouts.client.base';
+    }
+@endphp
+
+@extends($layout)
 
 @section('content')
     <div class="page-wrapper wrapper d-flex flex-column min-vh-100">
