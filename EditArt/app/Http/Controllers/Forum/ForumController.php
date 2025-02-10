@@ -8,9 +8,34 @@ use Illuminate\Http\Request;
 
 class ForumController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $posts = Post::with('user')->orderBy('created_at', 'desc')->paginate(10);
+        $search = $request->input('search');
+
+        // Cria a query base conforme o papel do usuário
+        if (auth()->user()->hasRole('admin')) {
+            // Administradores veem todos os posts
+            $query = Post::query();
+        } else {
+            // Usuários comuns veem os posts que não são de suporte
+            // ou os posts de suporte que foram criados por eles
+            $query = Post::where(function ($query) {
+                $query->where('is_support', false)
+                    ->orWhere(function ($q) {
+                        $q->where('is_support', true)
+                            ->where('user_id', auth()->id());
+                    });
+            });
+        }
+
+        // Se houver parâmetro de busca, filtra pelo título
+        if ($search) {
+            $query->where('title', 'like', '%' . $search . '%');
+        }
+
+        // Ordena e pagina os resultados
+        $posts = $query->orderBy('created_at', 'desc')->paginate(12);
+
         return view('forum.forum', compact('posts'));
     }
 
@@ -35,6 +60,7 @@ class ForumController extends Controller
             'user_id' => auth()->id(),
             'title'   => $request->input('topic'),
             'content' => $request->input('content'),
+            'is_support' => $request->input('is_support'),
         ]);
 
         return redirect()->route('client.forum.show', $post->id)

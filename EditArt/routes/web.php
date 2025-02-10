@@ -170,6 +170,6 @@ Route::get('/cart/order', [CartController::class, 'orderConfirmation'])->name('c
 // Endpoint para completar o pagamento
 Route::post('/payment/complete', [PayPalController::class, 'completePayment'])->name('payment.complete');
 
-// Página de confirmação final do pedido
+// Página de confirmação final do pedidop
 Route::get('/order/confirmation', [PayPalController::class, 'orderConfirmation'])->name('order.confirmation');
 
